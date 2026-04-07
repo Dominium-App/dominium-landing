@@ -15,7 +15,7 @@ export default function Navigation() {
   }, [])
 
   const links = [
-    { label: 'Para propietarios', href: '#analizador' },
+    { label: 'Para propietarios', href: '/#analizador' },
     { label: 'Para administradores', href: '/administradores' },
     { label: 'Nosotros', href: '/nosotros' },
   ]
@@ -62,15 +62,15 @@ export default function Navigation() {
                 </Tag>
               )
             })}
-            <a
-              href="#analizador"
+            <Link
+              href="/#analizador"
               className="inline-flex items-center h-[42px] px-5 rounded-full text-[15px] font-semibold text-white transition-colors duration-150"
               style={{ backgroundColor: 'var(--color-accent)', letterSpacing: '0.02em' }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent-light)')}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent)')}
             >
               Analizar mis expensas
-            </a>
+            </Link>
           </div>
 
           {/* Mobile hamburger */}
@@ -125,14 +125,14 @@ export default function Navigation() {
                 </Tag>
               )
             })}
-            <a
-              href="#analizador"
+            <Link
+              href="/#analizador"
               onClick={() => setMobileOpen(false)}
               className="mt-6 inline-flex items-center justify-center h-[50px] px-6 rounded-full text-[15px] font-semibold text-white"
               style={{ backgroundColor: 'var(--color-accent)' }}
             >
               Analizar mis expensas gratis
-            </a>
+            </Link>
           </div>
         </div>
       )}

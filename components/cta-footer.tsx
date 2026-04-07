@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import Link from 'next/link'
 import { Lock, ClipboardList, Bot, MessageCircle, Mail } from 'lucide-react'
 
 const trustItems = [
@@ -59,8 +60,8 @@ export default function CtaFooter() {
               Miles de propietarios pagan de más todos los meses sin saberlo. El primer paso es entender qué estás pagando.
             </p>
 
-            <a
-              href="#analizador"
+            <Link
+              href="/#analizador"
               className="w-full sm:w-auto inline-flex items-center justify-center h-[56px] px-8 rounded-full text-[16px] font-semibold text-white transition-colors duration-150"
               style={{ backgroundColor: 'var(--color-accent)' }}
               onMouseEnter={(e) =>
@@ -71,7 +72,7 @@ export default function CtaFooter() {
               }
             >
               Analizar mis expensas ahora — es gratis →
-            </a>
+            </Link>
 
             {/* Trust row */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-2">
