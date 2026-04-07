@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 
 export default function AdmNavigation() {
@@ -15,7 +16,7 @@ export default function AdmNavigation() {
 
   const links = [
     { label: 'Para propietarios', href: '/' },
-    { label: 'Nosotros', href: '/#como-funciona' },
+    { label: 'Nosotros', href: '/nosotros' },
   ]
 
   return (
@@ -31,19 +32,19 @@ export default function AdmNavigation() {
       >
         <div className="mx-auto max-w-[1120px] px-6 h-16 flex items-center justify-between">
           {/* Wordmark */}
-          <a
+          <Link
             href="/"
             className="font-serif text-[22px] font-bold tracking-tight"
             style={{ color: 'var(--color-ink)' }}
             aria-label="Dominium — Inicio"
           >
             Dominium
-          </a>
+          </Link>
 
           {/* Desktop links */}
           <div className="hidden md:flex items-center gap-8">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 className="text-[15px] font-medium transition-colors duration-150 relative group"
@@ -54,7 +55,7 @@ export default function AdmNavigation() {
                   className="absolute -bottom-0.5 left-0 w-0 h-px transition-all duration-200 group-hover:w-full"
                   style={{ backgroundColor: 'var(--color-accent)' }}
                 />
-              </a>
+              </Link>
             ))}
             <a
               href="#contacto"
@@ -101,7 +102,7 @@ export default function AdmNavigation() {
           </div>
           <div className="flex flex-col gap-2 px-6 pt-8">
             {links.map((link) => (
-              <a
+              <Link
                 key={link.label}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
@@ -112,7 +113,7 @@ export default function AdmNavigation() {
                 }}
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
             <a
               href="#contacto"

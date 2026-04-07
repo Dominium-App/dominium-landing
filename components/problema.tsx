@@ -62,14 +62,14 @@ function StatCard({
     >
       <p
         className="font-serif font-bold leading-none"
-        style={{ fontSize: 'clamp(42px, 5vw, 52px)', color: 'var(--color-accent)' }}
+        style={{ fontSize: 'clamp(42px, 5vw, 52px)', color: '#6B9E7A' }}
         aria-label={display(value)}
       >
         {display(count)}
       </p>
       <p
         className="text-[15px] leading-relaxed"
-        style={{ color: '#9B9A96' }}
+        style={{ color: '#C4C3BF' }}
       >
         {label}
       </p>
@@ -123,7 +123,7 @@ export default function Problema() {
           </h2>
           <p
             className="text-[17px] leading-relaxed max-w-[600px] mx-auto"
-            style={{ color: '#9B9A96' }}
+            style={{ color: '#C4C3BF' }}
           >
             La liquidación de expensas promedio tiene 23 ítems sin descripción, 4 servicios sin cotización alternativa, y un fondo de reserva que nadie monitorea. Así funcionó siempre. Hasta ahora.
           </p>
