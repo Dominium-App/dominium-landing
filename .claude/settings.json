@@ -16,7 +16,9 @@
       "Bash(curl -s -o /dev/null -w \"Blog OG: %{http_code} %{content_type} %{size_download}B\\\\n\" http://localhost:3000/blog/opengraph-image)",
       "Bash(curl -s http://localhost:3000__TRACKED_VAR__)",
       "Bash(curl -s -o /dev/null -w \"Nosotros: %{http_code} %{size_download}B\\\\n\" http://localhost:3000/nosotros/opengraph-image)",
-      "Bash(curl -s -o /dev/null -w \"Administradores: %{http_code} %{size_download}B\\\\n\" http://localhost:3000/administradores/opengraph-image)"
+      "Bash(curl -s -o /dev/null -w \"Administradores: %{http_code} %{size_download}B\\\\n\" http://localhost:3000/administradores/opengraph-image)",
+      "Bash(npm install *)",
+      "Read(//c/Users/Enzo/AppData/Local/Temp/claude/c--Users-Enzo-Desktop-v0-dominium-landing-page/f9f4ebf8-faa6-46c2-a85f-a47cd16b53b0/tasks/**)"
     ],
     "additionalDirectories": [
       "c:\\Users\\Enzo\\Desktop\\v0-dominium-landing-page\\app\\blog"

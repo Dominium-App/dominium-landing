@@ -293,7 +293,6 @@ function Step1Form({ onNext }: { onNext: (lead: LeadData) => void }) {
     };
     try {
       localStorage.setItem("dominium_lead", JSON.stringify(lead));
-      // TODO: POST a webhook CRM al capturar el lead
     } catch {
       // localStorage puede no estar disponible en algunos contextos
     }
@@ -1210,9 +1209,18 @@ export default function Analizador() {
       return;
     }
 
+    // Fire-and-forget: notificar al equipo por email. No bloquea la UX si falla.
+    if (lead) {
+      fetch("/api/notify-analysis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lead, result: res }),
+      }).catch(() => {});
+    }
+
     setResult(res);
     setStep(4);
-  }, []);
+  }, [lead]);
 
   function handleRetry() {
     setResult(null);

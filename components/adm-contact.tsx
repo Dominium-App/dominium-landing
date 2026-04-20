@@ -12,6 +12,8 @@ export default function AdmContact() {
     message: "",
   });
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -27,10 +29,32 @@ export default function AdmContact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (submitting) return;
+    if (!formData.name.trim() || !formData.contact.trim()) {
+      setError("Completá tu nombre y un medio de contacto.");
+      return;
+    }
 
-    setSubmitted(true);
+    setError(null);
+    setSubmitting(true);
+
+    try {
+      const res = await fetch("/api/notify-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setSubmitted(true);
+    } catch {
+      setError(
+        "No pudimos enviar tu consulta. Probá de nuevo en unos minutos o escribinos a hola@dominium.com.ar.",
+      );
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputStyle: React.CSSProperties = {
@@ -283,21 +307,42 @@ export default function AdmContact() {
                     />
                   </div>
 
+                  {error && (
+                    <p
+                      className="text-[13px] px-3 py-2 rounded-lg"
+                      style={{
+                        color: "var(--color-destructive)",
+                        backgroundColor: "#FEF2F2",
+                        border: "1px solid #FCA5A5",
+                      }}
+                      role="alert"
+                    >
+                      {error}
+                    </p>
+                  )}
+
                   {/* Submit */}
                   <button
                     type="submit"
+                    disabled={submitting}
                     className="w-full h-[52px] rounded-full text-[15px] font-semibold text-white transition-colors duration-150"
-                    style={{ backgroundColor: "var(--color-accent)" }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.backgroundColor =
-                        "var(--color-accent-light)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.backgroundColor =
-                        "var(--color-accent)")
-                    }
+                    style={{
+                      backgroundColor: "var(--color-accent)",
+                      cursor: submitting ? "not-allowed" : "pointer",
+                      opacity: submitting ? 0.7 : 1,
+                    }}
+                    onMouseEnter={(e) => {
+                      if (!submitting)
+                        e.currentTarget.style.backgroundColor =
+                          "var(--color-accent-light)";
+                    }}
+                    onMouseLeave={(e) => {
+                      if (!submitting)
+                        e.currentTarget.style.backgroundColor =
+                          "var(--color-accent)";
+                    }}
                   >
-                    Quiero que me contacten →
+                    {submitting ? "Enviando..." : "Quiero que me contacten →"}
                   </button>
 
                   <p
