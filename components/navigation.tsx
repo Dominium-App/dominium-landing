@@ -17,6 +17,7 @@ export default function Navigation() {
   const links = [
     { label: 'Para propietarios', href: '/#analizador' },
     { label: 'Para administradores', href: '/administradores' },
+    { label: 'Blog', href: '/blog' },
     { label: 'Nosotros', href: '/nosotros' },
   ]
 

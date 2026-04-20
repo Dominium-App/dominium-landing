@@ -90,7 +90,7 @@ export const metadata: Metadata = {
   },
   formatDetection: { telephone: false, email: false, address: false },
   verification: {
-    // google: 'TU_CODIGO_DE_GOOGLE_SEARCH_CONSOLE',
+    google: 'WvOA8StVdjtjjnBerhx-QYN4fvfRDRoL5wTbRa-UNVQ',
   },
 };
 

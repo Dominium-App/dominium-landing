@@ -139,6 +139,7 @@ export default function CtaFooter() {
                   { label: "Para propietarios", href: "/#analizador" },
                   { label: "Para administradores", href: "/administradores" },
                   { label: "Cómo funciona", href: "/#como-funciona" },
+                  { label: "Blog", href: "/blog" },
                   { label: "Nosotros", href: "/nosotros" },
                 ].map((link) => (
                   <li key={link.label}>
