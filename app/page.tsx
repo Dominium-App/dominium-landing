@@ -3,6 +3,7 @@ import Navigation from '@/components/navigation'
 import Hero from '@/components/hero'
 import Problema from '@/components/problema'
 import Analizador from '@/components/analizador'
+import AnalizadorSeoContent from '@/components/analizador-seo-content'
 import ComoFunciona from '@/components/como-funciona'
 import Administradores from '@/components/administradores'
 import CtaFooter from '@/components/cta-footer'
@@ -10,12 +11,12 @@ import CtaFooter from '@/components/cta-footer'
 export const metadata: Metadata = {
   title: 'Administración de consorcios con IA | Auditá tus expensas gratis',
   description:
-    'Subí tu liquidación y Vero, nuestra IA, detecta en 60 segundos cuánto pagás de más en expensas. Administradora de consorcios en CABA y AMBA. Análisis gratuito sin registro.',
+    'Subí tu liquidación y Vero, nuestra IA, detecta cuánto pagás de más en expensas. Administradora de consorcios en CABA y AMBA. Análisis gratuito sin registro.',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Administración de consorcios con IA | Dominium',
     description:
-      'Auditá tu liquidación de expensas en 60 segundos con IA. Detectá sobreprecios, gastos ocultos y mala administración del fondo de reserva. Gratis.',
+      'Auditá tu liquidación de expensas con IA. Detectá sobreprecios, gastos ocultos y mala administración del fondo de reserva. Gratis.',
     url: '/',
     type: 'website',
   },
@@ -30,7 +31,7 @@ const faqJsonLd = {
       name: '¿Cómo funciona el analizador de expensas de Dominium?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Subís una foto o PDF de tu última liquidación de expensas. Vero, nuestra IA entrenada con datos de mercado del AMBA, identifica los rubros, los compara con promedios reales y detecta sobreprecios, ítems sin justificación o problemas en el fondo de reserva. El resultado llega en menos de 60 segundos.',
+        text: 'Subís una foto o PDF de tu última liquidación de expensas. Vero, nuestra IA entrenada con datos de mercado del AMBA, identifica los rubros, los compara con valores de referencia y detecta sobreprecios, ítems sin justificación o problemas en el fondo de reserva. El resultado llega en pocos segundos.',
       },
     },
     {
@@ -59,10 +60,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: '¿Cuánto puedo ahorrar cambiándome a Dominium?',
+      name: '¿Qué tipo de ahorros puedo obtener cambiándome a Dominium?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Nuestros clientes ahorran en promedio un 18% en gastos variables durante los primeros 6 meses, eliminando comisiones ocultas, sobreprecios en proveedores y gastos administrativos no justificados.',
+        text: 'Trabajamos para eliminar comisiones ocultas, sobreprecios en proveedores y gastos administrativos no justificados. El ahorro depende del estado actual de cada consorcio y se evalúa caso por caso.',
       },
     },
   ],
@@ -80,6 +81,7 @@ export default function Home() {
         <Hero />
         <Problema />
         <Analizador />
+        <AnalizadorSeoContent />
         <ComoFunciona />
         <Administradores />
         <CtaFooter />

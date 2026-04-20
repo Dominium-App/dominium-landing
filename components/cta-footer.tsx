@@ -136,14 +136,14 @@ export default function CtaFooter() {
               </p>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  "Para propietarios",
-                  "Para administradores",
-                  "Cómo funciona",
-                  "Preguntas frecuentes",
+                  { label: "Para propietarios", href: "/#analizador" },
+                  { label: "Para administradores", href: "/administradores" },
+                  { label: "Cómo funciona", href: "/#como-funciona" },
+                  { label: "Nosotros", href: "/nosotros" },
                 ].map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.label}>
+                    <Link
+                      href={link.href}
                       className="text-[14px] transition-colors duration-150"
                       style={{ color: "#9B9A96" }}
                       onMouseEnter={(e) =>
@@ -153,8 +153,8 @@ export default function CtaFooter() {
                         (e.currentTarget.style.color = "#9B9A96")
                       }
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>

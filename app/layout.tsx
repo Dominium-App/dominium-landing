@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Dominium",
   },
   description:
-    "Administradora de consorcios potenciada por IA en CABA y AMBA. Subí tu liquidación y Vero detecta en 60 segundos cuánto pagás de más en expensas. Sin registro.",
+    "Administradora de consorcios potenciada por IA en CABA y AMBA. Subí tu liquidación y Vero detecta en segundos cuánto pagás de más en expensas. Sin registro.",
   keywords: [
     "administración de consorcios",
     "administradora de consorcios CABA",
@@ -55,7 +55,7 @@ export const metadata: Metadata = {
     siteName: "Dominium",
     title: "Dominium | Administración de consorcios con IA",
     description:
-      "Subí tu liquidación y descubrí en 60 segundos cuánto pagás de más en expensas. Análisis gratuito con IA. Administradora registrada en CABA.",
+      "Subí tu liquidación y descubrí en segundos cuánto pagás de más en expensas. Análisis gratuito con IA. Administradora registrada en CABA.",
     images: [
       {
         url: "/icon-1200.png",
@@ -69,7 +69,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Dominium | Auditá tus expensas con IA — Gratis",
     description:
-      "¿Cuánto pagás de más en expensas? Vero, nuestra IA, te lo dice en 60 segundos. Análisis gratuito sin registro.",
+      "¿Cuánto pagás de más en expensas? Vero, nuestra IA, te lo dice en segundos. Análisis gratuito sin registro.",
     images: ["/icon-1200.png"],
   },
   robots: {
@@ -142,11 +142,6 @@ const softwareJsonLd = {
     "Analizador de liquidaciones de expensas con inteligencia artificial. Detecta sobreprecios, gastos ocultos y mala administración del fondo de reserva.",
   offers: { "@type": "Offer", price: "0", priceCurrency: "ARS" },
   provider: { "@id": `${SITE_URL}/#organization` },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.8",
-    ratingCount: "500",
-  },
 };
 
 export default function RootLayout({
