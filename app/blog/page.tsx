@@ -18,16 +18,12 @@ export const metadata: Metadata = {
       'Guías prácticas, derechos, normativa CABA y GBA. Sin lenguaje de abogado.',
     url: '/blog',
     type: 'website',
-    images: [
-      { url: '/icon-1200.png', width: 1200, height: 1200, alt: 'Blog Dominium' },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Blog Dominium — Guías sobre consorcios',
     description:
       'Guías prácticas sobre cambio de administrador, expensas y derechos del consorcista.',
-    images: ['/icon-1200.png'],
   },
 }
 

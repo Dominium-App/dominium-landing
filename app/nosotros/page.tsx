@@ -16,14 +16,12 @@ export const metadata: Metadata = {
       'El equipo que está cambiando la administración de consorcios en Argentina. Conocé a Lucio, Santiago y Enzo.',
     url: '/nosotros',
     type: 'profile',
-    images: [{ url: '/icon-1200.png', width: 1200, height: 1200, alt: 'Equipo Dominium' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Nosotros — Equipo y misión de Dominium',
     description:
       'Conocé al equipo de la primera administradora de consorcios con IA en Argentina.',
-    images: ['/icon-1200.png'],
   },
 }
 

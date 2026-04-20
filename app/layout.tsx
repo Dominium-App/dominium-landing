@@ -56,21 +56,12 @@ export const metadata: Metadata = {
     title: "Dominium | Administración de consorcios con IA",
     description:
       "Subí tu liquidación y descubrí en segundos cuánto pagás de más en expensas. Análisis gratuito con IA. Administradora registrada en CABA.",
-    images: [
-      {
-        url: "/icon-1200.png",
-        width: 1200,
-        height: 1200,
-        alt: "Dominium — Administración de consorcios con IA",
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Dominium | Auditá tus expensas con IA — Gratis",
     description:
       "¿Cuánto pagás de más en expensas? Vero, nuestra IA, te lo dice en segundos. Análisis gratuito sin registro.",
-    images: ["/icon-1200.png"],
   },
   robots: {
     index: true,

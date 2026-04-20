@@ -27,14 +27,12 @@ export const metadata: Metadata = {
       '18 meses de comisiones por el traspaso de tu cartera. Una salida digna después de años de trabajo.',
     url: '/administradores',
     type: 'website',
-    images: [{ url: '/icon-1200.png', width: 1200, height: 1200, alt: 'Plan de Retiro Dominium' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Plan de Retiro para Administradores | Dominium',
     description:
       '18 meses de comisiones por el traspaso ordenado de tu cartera de consorcios.',
-    images: ['/icon-1200.png'],
   },
 }
 
