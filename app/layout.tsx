@@ -82,7 +82,7 @@ export const metadata: Metadata = {
   },
   formatDetection: { telephone: false, email: false, address: false },
   verification: {
-    google: 'WvOA8StVdjtjjnBerhx-QYN4fvfRDRoL5wTbRa-UNVQ',
+    google: "WvOA8StVdjtjjnBerhx-QYN4fvfRDRoL5wTbRa-UNVQ",
   },
 };
 
@@ -163,6 +163,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased">
         {children}
+
         <Analytics />
       </body>
     </html>
