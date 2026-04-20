@@ -1,32 +1,32 @@
-'use client'
+"use client";
 
-import { useEffect, useRef, useState } from 'react'
-import Link from 'next/link'
-import { Lock, ClipboardList, Bot, MessageCircle, Mail } from 'lucide-react'
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import { Lock, ClipboardList, Bot, MessageCircle, Mail } from "lucide-react";
 
 const trustItems = [
-  { Icon: Lock, text: 'Fondos protegidos por regulación BCRA' },
-  { Icon: ClipboardList, text: 'Administradora registrada GCBA' },
-  { Icon: Bot, text: 'IA desarrollada con Claude API' },
-]
+  { Icon: Lock, text: "Fondos protegidos por regulación BCRA" },
+  { Icon: ClipboardList, text: "Administradora registrada GCBA" },
+  { Icon: Bot, text: "IA desarrollada con Claude API" },
+];
 
 export default function CtaFooter() {
-  const ctaRef = useRef<HTMLElement>(null)
-  const [visible, setVisible] = useState(false)
+  const ctaRef = useRef<HTMLElement>(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          setVisible(true)
-          observer.disconnect()
+          setVisible(true);
+          observer.disconnect();
         }
       },
       { threshold: 0.15 },
-    )
-    if (ctaRef.current) observer.observe(ctaRef.current)
-    return () => observer.disconnect()
-  }, [])
+    );
+    if (ctaRef.current) observer.observe(ctaRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function CtaFooter() {
         ref={ctaRef}
         id="contacto"
         className="py-[100px] md:py-[120px]"
-        style={{ backgroundColor: 'var(--color-bg)' }}
+        style={{ backgroundColor: "var(--color-bg)" }}
         aria-label="Contacto y llamado a la acción"
       >
         <div className="mx-auto max-w-[1120px] px-6 flex flex-col items-center gap-8">
@@ -43,32 +43,39 @@ export default function CtaFooter() {
             className="flex flex-col items-center gap-6 text-center max-w-[600px]"
             style={{
               opacity: visible ? 1 : 0,
-              transform: visible ? 'translateY(0)' : 'translateY(16px)',
-              transition: 'opacity 0.6s ease, transform 0.6s ease',
+              transform: visible ? "translateY(0)" : "translateY(16px)",
+              transition: "opacity 0.6s ease, transform 0.6s ease",
             }}
           >
             <h2
               className="font-serif font-bold text-balance leading-[1.15]"
-              style={{ fontSize: 'clamp(26px, 4vw, 44px)', color: 'var(--color-ink)' }}
+              style={{
+                fontSize: "clamp(26px, 4vw, 44px)",
+                color: "var(--color-ink)",
+              }}
             >
-              Tu edificio merece<br />una administración distinta.
+              Tu edificio merece
+              <br />
+              una administración distinta.
             </h2>
             <p
               className="text-[17px] leading-relaxed"
-              style={{ color: 'var(--color-ink-secondary)' }}
+              style={{ color: "var(--color-ink-secondary)" }}
             >
-              Miles de propietarios pagan de más todos los meses sin saberlo. El primer paso es entender qué estás pagando.
+              Miles de propietarios pagan de más todos los meses sin saberlo. El
+              primer paso es entender qué estás pagando.
             </p>
 
             <Link
               href="/#analizador"
               className="w-full sm:w-auto inline-flex items-center justify-center h-[56px] px-8 rounded-full text-[16px] font-semibold text-white transition-colors duration-150"
-              style={{ backgroundColor: 'var(--color-accent)' }}
+              style={{ backgroundColor: "var(--color-accent)" }}
               onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor = 'var(--color-accent-light)')
+                (e.currentTarget.style.backgroundColor =
+                  "var(--color-accent-light)")
               }
               onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = 'var(--color-accent)')
+                (e.currentTarget.style.backgroundColor = "var(--color-accent)")
               }
             >
               Analizar mis expensas ahora — es gratis →
@@ -78,8 +85,15 @@ export default function CtaFooter() {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-2">
               {trustItems.map(({ Icon, text }, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <Icon size={14} color="var(--color-ink-tertiary)" aria-hidden="true" />
-                  <span className="text-[13px]" style={{ color: 'var(--color-ink-tertiary)' }}>
+                  <Icon
+                    size={14}
+                    color="var(--color-ink-tertiary)"
+                    aria-hidden="true"
+                  />
+                  <span
+                    className="text-[13px]"
+                    style={{ color: "var(--color-ink-tertiary)" }}
+                  >
                     {text}
                   </span>
                 </div>
@@ -91,29 +105,24 @@ export default function CtaFooter() {
 
       {/* Footer */}
       <footer
-        style={{ backgroundColor: 'var(--color-ink)' }}
+        style={{ backgroundColor: "var(--color-ink)" }}
         aria-label="Pie de página Dominium"
       >
         <div className="mx-auto max-w-[1120px] px-6 py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
             {/* Col 1: Brand */}
             <div className="flex flex-col gap-4">
-              <p
-                className="font-serif font-bold text-[22px] text-white"
-              >
+              <p className="font-serif font-bold text-[22px] text-white">
                 Dominium
               </p>
               <p
                 className="text-[14px] leading-relaxed"
-                style={{ color: '#9B9A96' }}
+                style={{ color: "#9B9A96" }}
               >
                 La administración que siempre debió existir.
               </p>
-              <p
-                className="text-[13px]"
-                style={{ color: '#5C5B57' }}
-              >
-                © 2025 Dominium SAS
+              <p className="text-[13px]" style={{ color: "#5C5B57" }}>
+                © 2026 Dominium SAS
               </p>
             </div>
 
@@ -121,24 +130,28 @@ export default function CtaFooter() {
             <nav aria-label="Navegación footer">
               <p
                 className="text-[12px] font-semibold uppercase tracking-widest mb-4"
-                style={{ color: '#5C5B57' }}
+                style={{ color: "#5C5B57" }}
               >
                 Plataforma
               </p>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  'Para propietarios',
-                  'Para administradores',
-                  'Cómo funciona',
-                  'Preguntas frecuentes',
+                  "Para propietarios",
+                  "Para administradores",
+                  "Cómo funciona",
+                  "Preguntas frecuentes",
                 ].map((link) => (
                   <li key={link}>
                     <a
                       href="#"
                       className="text-[14px] transition-colors duration-150"
-                      style={{ color: '#9B9A96' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = 'white')}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = '#9B9A96')}
+                      style={{ color: "#9B9A96" }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = "white")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = "#9B9A96")
+                      }
                     >
                       {link}
                     </a>
@@ -151,24 +164,28 @@ export default function CtaFooter() {
             <nav aria-label="Información legal">
               <p
                 className="text-[12px] font-semibold uppercase tracking-widest mb-4"
-                style={{ color: '#5C5B57' }}
+                style={{ color: "#5C5B57" }}
               >
                 Legal
               </p>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  'Inscripción GCBA',
-                  'Términos y condiciones',
-                  'Política de privacidad',
-                  'Regulación BCRA',
+                  "Inscripción GCBA",
+                  "Términos y condiciones",
+                  "Política de privacidad",
+                  "Regulación BCRA",
                 ].map((link) => (
                   <li key={link}>
                     <a
                       href="#"
                       className="text-[14px] transition-colors duration-150"
-                      style={{ color: '#9B9A96' }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = 'white')}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = '#9B9A96')}
+                      style={{ color: "#9B9A96" }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = "white")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = "#9B9A96")
+                      }
                     >
                       {link}
                     </a>
@@ -181,25 +198,28 @@ export default function CtaFooter() {
             <div className="flex flex-col gap-4">
               <p
                 className="text-[12px] font-semibold uppercase tracking-widest"
-                style={{ color: '#5C5B57' }}
+                style={{ color: "#5C5B57" }}
               >
                 Contacto
               </p>
               <div
                 className="rounded-lg px-4 py-3 flex items-center gap-2"
-                style={{ backgroundColor: '#1A1A18', border: '1px solid #2A2A28' }}
+                style={{
+                  backgroundColor: "#1A1A18",
+                  border: "1px solid #2A2A28",
+                }}
               >
                 <Bot size={16} color="var(--color-vero)" aria-hidden="true" />
-                <p className="text-[13px]" style={{ color: '#9B9A96' }}>
+                <p className="text-[13px]" style={{ color: "#9B9A96" }}>
                   Vero responde 24/7
                 </p>
               </div>
               <a
-                href="https://wa.me/5491100000000"
+                href="https://wa.me/5491136520670"
                 className="flex items-center gap-2 text-[14px] transition-colors duration-150"
-                style={{ color: '#9B9A96' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'white')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#9B9A96')}
+                style={{ color: "#9B9A96" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#9B9A96")}
                 aria-label="Contactar por WhatsApp"
               >
                 <MessageCircle size={15} aria-hidden="true" />
@@ -208,9 +228,9 @@ export default function CtaFooter() {
               <a
                 href="mailto:hola@dominium.com.ar"
                 className="flex items-center gap-2 text-[14px] transition-colors duration-150"
-                style={{ color: '#9B9A96' }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = 'white')}
-                onMouseLeave={(e) => (e.currentTarget.style.color = '#9B9A96')}
+                style={{ color: "#9B9A96" }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
+                onMouseLeave={(e) => (e.currentTarget.style.color = "#9B9A96")}
                 aria-label="Enviar email a Dominium"
               >
                 <Mail size={15} aria-hidden="true" />
@@ -221,20 +241,15 @@ export default function CtaFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div
-          className="border-t"
-          style={{ borderColor: '#2A2A28' }}
-        >
+        <div className="border-t" style={{ borderColor: "#2A2A28" }}>
           <div className="mx-auto max-w-[1120px] px-6 py-4 flex justify-center">
-            <p
-              className="text-[12px] text-center"
-              style={{ color: '#5C5B57' }}
-            >
-              Dominium SAS · Administradora de Consorcios registrada · CABA, Argentina
+            <p className="text-[12px] text-center" style={{ color: "#5C5B57" }}>
+              Dominium SAS · Administradora de Consorcios registrada · CABA,
+              Argentina
             </p>
           </div>
         </div>
       </footer>
     </>
-  )
+  );
 }

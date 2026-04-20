@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import { CheckCircle2, AlertTriangle, XCircle, Zap } from 'lucide-react'
+import { CheckCircle2, AlertTriangle, XCircle } from 'lucide-react'
 
 // Vero avatar mark — minimal geometric SVG
 function VeroMark({ size = 32 }: { size?: number }) {
