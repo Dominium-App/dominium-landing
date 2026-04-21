@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import AdmNavigation from '@/components/adm-navigation'
+import Navigation from '@/components/navigation'
 import AdmHero from '@/components/adm-hero'
 import AdmAcknowledgment from '@/components/adm-acknowledgment'
 import AdmOfferings from '@/components/adm-offerings'
@@ -85,7 +85,7 @@ export default function AdministradoresPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
       />
       <main>
-        <AdmNavigation />
+        <Navigation />
         <AdmHero />
         <AdmAcknowledgment />
         <AdmOfferings />

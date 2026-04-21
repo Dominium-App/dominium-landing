@@ -2,11 +2,19 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
+  const pathname = usePathname()
+
+  const isActive = (href: string) => {
+    const path = href.split('#')[0] || '/'
+    if (path === '/') return pathname === '/'
+    return pathname === path || pathname.startsWith(`${path}/`)
+  }
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50)
@@ -20,6 +28,11 @@ export default function Navigation() {
     { label: 'Blog', href: '/blog' },
     { label: 'Nosotros', href: '/nosotros' },
   ]
+
+  const isAdmin = pathname === '/administradores' || pathname.startsWith('/administradores/')
+  const cta = isAdmin
+    ? { href: '#contacto', desktopLabel: 'Hablemos en privado', mobileLabel: 'Hablemos en privado →' }
+    : { href: '/#analizador', desktopLabel: 'Analizar mis expensas', mobileLabel: 'Analizar mis expensas gratis' }
 
   return (
     <>
@@ -48,30 +61,35 @@ export default function Navigation() {
             {links.map((link) => {
               const isRoute = link.href.startsWith('/')
               const Tag = isRoute ? Link : 'a'
+              const active = isActive(link.href)
               return (
                 <Tag
                   key={link.label}
                   href={link.href}
                   className="text-[15px] font-medium transition-colors duration-150 relative group"
-                  style={{ color: 'var(--color-ink-secondary)', fontFamily: 'var(--font-dm-sans)' }}
+                  style={{
+                    color: active ? 'var(--color-accent)' : 'var(--color-ink-secondary)',
+                    fontFamily: 'var(--font-dm-sans)',
+                  }}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {link.label}
                   <span
-                    className="absolute -bottom-0.5 left-0 w-0 h-px transition-all duration-200 group-hover:w-full"
+                    className={`absolute -bottom-0.5 left-0 h-px transition-all duration-200 ${active ? 'w-full' : 'w-0 group-hover:w-full'}`}
                     style={{ backgroundColor: 'var(--color-accent)' }}
                   />
                 </Tag>
               )
             })}
-            <Link
-              href="/#analizador"
+            <a
+              href={cta.href}
               className="inline-flex items-center h-[42px] px-5 rounded-full text-[15px] font-semibold text-white transition-colors duration-150"
               style={{ backgroundColor: 'var(--color-accent)', letterSpacing: '0.02em' }}
               onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent-light)')}
               onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent)')}
             >
-              Analizar mis expensas
-            </Link>
+              {cta.desktopLabel}
+            </a>
           </div>
 
           {/* Mobile hamburger */}
@@ -110,6 +128,7 @@ export default function Navigation() {
             {links.map((link) => {
               const isRoute = link.href.startsWith('/')
               const Tag = isRoute ? Link : 'a'
+              const active = isActive(link.href)
               return (
                 <Tag
                   key={link.label}
@@ -117,23 +136,26 @@ export default function Navigation() {
                   onClick={() => setMobileOpen(false)}
                   className="text-[20px] font-medium py-3 border-b"
                   style={{
-                    color: 'var(--color-ink)',
+                    color: active ? 'var(--color-accent)' : 'var(--color-ink)',
                     borderColor: 'var(--color-border)',
                     fontFamily: 'var(--font-dm-sans)',
+                    textDecoration: active ? 'underline' : 'none',
+                    textUnderlineOffset: '4px',
                   }}
+                  aria-current={active ? 'page' : undefined}
                 >
                   {link.label}
                 </Tag>
               )
             })}
-            <Link
-              href="/#analizador"
+            <a
+              href={cta.href}
               onClick={() => setMobileOpen(false)}
               className="mt-6 inline-flex items-center justify-center h-[50px] px-6 rounded-full text-[15px] font-semibold text-white"
               style={{ backgroundColor: 'var(--color-accent)' }}
             >
-              Analizar mis expensas gratis
-            </Link>
+              {cta.mobileLabel}
+            </a>
           </div>
         </div>
       )}
