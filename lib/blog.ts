@@ -258,6 +258,169 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: '10-senales-administrador-consorcio-fallando',
+    title: '10 señales de que tu administrador de consorcio está fallando (y no es paranoia)',
+    excerpt:
+      'De cada 10 reclamos a la DGDyPC por administración de consorcios en CABA, más de la mitad corresponden a falta de rendición de cuentas. Cómo distinguir incompetencia real de gestión normal imperfecta.',
+    hub: 'Ley 941',
+    date: '2026-04-22',
+    readingMinutes: 8,
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'De cada 10 reclamos que llegan a la Dirección General de Defensa y Protección del Consumidor (DGDyPC) por administración de consorcios en CABA, más de la mitad corresponden a falta de rendición de cuentas y cobros sin justificación documentada. No son edificios en crisis visible: son edificios de Almagro, Flores, Núñez, donde nadie detectó el problema hasta que se acumularon meses o años de irregularidades.',
+      },
+      {
+        type: 'p',
+        text: 'El problema tiene una causa concreta: la mayoría de los consorcistas no sabe exactamente qué está obligado a hacer su administrador. Sin ese parámetro, es imposible distinguir la incompetencia real de la gestión normal imperfecta.',
+      },
+      {
+        type: 'h2',
+        id: 'obligaciones-ley-941',
+        text: '¿Qué está obligado a hacer el administrador según la Ley 941?',
+      },
+      {
+        type: 'p',
+        text: 'Bajo la Ley 941 y el artículo 2067 del CCyC, el administrador de un consorcio en CABA tiene obligaciones concretas y verificables: convocar asambleas ordinarias al menos una vez por año, rendir cuentas documentadas de toda la gestión económica, mantener actualizado el seguro del edificio, conservar la documentación del consorcio, informar sobre cualquier cambio en los contratos de servicios y no percibir comisiones o beneficios de proveedores sin autorización de la asamblea.',
+      },
+      {
+        type: 'p',
+        text: 'Ese último punto —las comisiones de proveedores— es el más frecuentemente violado y el más difícil de detectar sin mirar los números.',
+      },
+      {
+        type: 'h2',
+        id: 'senales-alarma',
+        text: 'Las 10 señales de alarma concretas',
+      },
+      {
+        type: 'h3',
+        id: 'senal-1-liquidaciones-sin-detalle',
+        text: '1. Las liquidaciones de expensas no tienen detalle suficiente',
+      },
+      {
+        type: 'p',
+        text: 'Una liquidación bien hecha desglosa cada partida: honorarios del administrador con base de cálculo, sueldo del encargado con todos los ítems del SUTERH, factura de Aysa, factura de Edesur o Edenor, mantenimiento de ascensores con nombre del proveedor, fondo de reserva. Si la liquidación que recibís muestra solo grandes rubros ("mantenimiento", "varios", "gastos generales") sin respaldo, eso no es un estilo distinto de presentar la información: es la ausencia de la información.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-2-fondo-reserva',
+        text: '2. El fondo de reserva no crece o directamente no existe',
+      },
+      {
+        type: 'p',
+        text: 'El fondo de reserva es obligatorio según el artículo 2067 del CCyC. Su función es cubrir gastos extraordinarios sin necesidad de expensas especiales de emergencia. Si en tres o cuatro años de liquidaciones el fondo de reserva no muestra crecimiento real, o si nunca aparece como línea separada, hay algo que no cierra.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-3-mismos-proveedores',
+        text: '3. Los proveedores siempre son los mismos y nunca se pidieron tres presupuestos',
+      },
+      {
+        type: 'p',
+        text: 'La Ley 941 establece la obligación de pedir al menos tres presupuestos para obras o reparaciones que superen ciertos montos. En la práctica, muchos administradores trabajan siempre con los mismos proveedores, a veces con una relación comercial que el consorcio no conoce. Si en años de gestión los plomeros, los electricistas y los ascensoristas son siempre exactamente los mismos, sin ninguna comparación documentada, vale preguntar por qué.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-4-sin-asambleas',
+        text: '4. Las asambleas ordinarias no se convocan todos los años',
+      },
+      {
+        type: 'p',
+        text: 'La convocatoria a asamblea ordinaria anual es una obligación legal, no una opción. Su función principal es la aprobación de la rendición de cuentas del ejercicio. Un administrador que evita las asambleas ordinarias está evitando que el consorcio apruebe —o rechace— su gestión económica. Cada año sin asamblea es un año de gestión sin control.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-5-reclamos-sin-respuesta',
+        text: '5. Los reclamos escritos quedan sin respuesta en el plazo legal',
+      },
+      {
+        type: 'p',
+        text: 'La Ley 941 establece plazos concretos para que el administrador responda reclamos de los consorcistas. Si mandaste una nota firmada o un mensaje con constancia de lectura y no recibiste respuesta en tiempo, eso no es descortesía: es incumplimiento formal que puede documentarse y denunciarse.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-6-seguros-vencidos',
+        text: '6. Los seguros del edificio están vencidos o son insuficientes',
+      },
+      {
+        type: 'p',
+        text: 'El administrador tiene la obligación de mantener vigente el seguro de incendio del edificio —obligatorio por ley— y en muchos casos el seguro de responsabilidad civil. Si pedís las pólizas y las fechas de vencimiento no coinciden con el período en curso, o si los montos asegurados no se actualizaron en años, el riesgo lo corrés vos, no el administrador.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-7-sin-acceso-documentos',
+        text: '7. No hay acceso a los documentos del consorcio',
+      },
+      {
+        type: 'p',
+        text: 'El reglamento de copropiedad, los libros de actas, los libros de contabilidad y los contratos vigentes son documentos del consorcio, no del administrador. Cualquier propietario tiene derecho a consultarlos. Si pedís acceso y te lo niegan, o si el administrador dice que "los tiene él" y no los puede mostrar, eso es una señal de alerta mayor.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-8-aumentos-sin-justificar',
+        text: '8. Los aumentos de expensas no tienen justificación explícita',
+      },
+      {
+        type: 'p',
+        text: 'Las expensas suben por razones concretas: paritarias del SUTERH, ajuste de honorarios del administrador, tarifas de Aysa o Metrogas, inflación en contratos de mantenimiento. Si las expensas subieron 40% en un año pero ninguno de esos factores explica ese incremento en las liquidaciones, la diferencia tiene que estar en algún lado. Si no aparece desglosada, la pregunta es por qué.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-9-sin-rpa',
+        text: '9. El administrador no está inscripto en el RPA o la inscripción está vencida',
+      },
+      {
+        type: 'p',
+        text: 'Esta es la señal más directa y la más fácil de verificar. La inscripción en el Registro Público de Administradores de CABA es obligatoria bajo la Ley 941. Si tu administrador no figura en el RPA, o si su inscripción está suspendida o vencida, está operando fuera de la ley. Podés buscarlo en el sitio del Gobierno de la Ciudad.',
+      },
+      {
+        type: 'h3',
+        id: 'senal-10-obras-sin-autorizar',
+        text: '10. Hay gastos de obra que nadie autorizó en asamblea',
+      },
+      {
+        type: 'p',
+        text: 'Las obras que superen la administración ordinaria del edificio requieren autorización de asamblea. Si aparecen en la liquidación gastos de obra o refacciones importantes que nunca se aprobaron, o si los montos son notoriamente superiores a los presupuestos que te mostraron, ese es el escenario donde el daño patrimonial al consorcio puede ser más grande.',
+      },
+      {
+        type: 'h2',
+        id: 'cuantas-senales',
+        text: '¿Cuántas señales son suficientes para actuar?',
+      },
+      {
+        type: 'p',
+        text: 'Con una sola de estas señales ya tenés motivo para pedir explicaciones por escrito. Con dos o más, especialmente si involucran dinero no justificado o documentación inaccesible, ya tenés base para iniciar el proceso de cambio de administrador o para hacer una denuncia ante la DGDyPC.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que observamos en los casos que analizamos es que los consorcistas esperan demasiado. Esperan que "se arregle solo", que el administrador "cambie", que "no sea para tanto". El problema es que cada mes que pasa sin control es un mes de gestión que nadie va a poder auditar después con facilidad. La documentación se pierde, los proveedores ya no recuerdan, las cuentas se mezclan.',
+      },
+      {
+        type: 'blockquote',
+        text: 'La señal más cara es la que se ignoró durante dos años.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Cómo denuncio a un administrador en CABA?',
+        a: 'La denuncia se realiza ante la DGDyPC a través del sitio del Gobierno de la Ciudad de Buenos Aires. Necesitás documentar el incumplimiento con constancias escritas: liquidaciones, notas sin respuesta, pólizas vencidas, o la consulta al RPA que muestra inscripción irregular. El organismo tiene capacidad de multar y suspender administradores.',
+      },
+      {
+        q: '¿Puede el administrador demandarme si lo denuncio?',
+        a: 'El ejercicio del derecho de denuncia ante organismos administrativos no genera responsabilidad civil para el denunciante, siempre que la denuncia esté fundada en hechos reales. Si la denuncia es maliciosa o falsa puede haber consecuencias, pero ese no es el escenario de un consorcista que documenta incumplimientos reales.',
+      },
+      {
+        q: '¿Las señales de este artículo aplican en Provincia de Buenos Aires?',
+        a: 'En parte. Las señales vinculadas al CCyC —fondo de reserva, obligación de rendir cuentas, documentación accesible— aplican en toda la Argentina. Las vinculadas a la Ley 941 y al RPA aplican solo en CABA. En Quilmes, Avellaneda, Lomas de Zamora o Lanús los mecanismos de denuncia son distintos y el sistema de registro de administradores no tiene el mismo desarrollo.',
+      },
+      {
+        q: '¿Puedo pedir los libros de contabilidad del consorcio sin ser el presidente del consorcio?',
+        a: 'Sí. El derecho de acceso a la documentación del consorcio corresponde a todos los propietarios, no solo al consejo de propietarios o al representante del consorcio. Si el administrador te niega el acceso, ese rechazo debe ser por escrito y fundamentado, o constituye por sí mismo una infracción denunciable.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
