@@ -421,6 +421,145 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'asamblea-extraordinaria-consorcio-caba-guia',
+    title: 'Asamblea extraordinaria de consorcio en CABA: guía para convocarla sin errores',
+    excerpt:
+      'En muchos consorcios de Caballito, Palermo o Belgrano, el freno no es la falta de voluntad: es que nadie sabe exactamente cómo se convoca una asamblea extraordinaria de manera válida.',
+    hub: 'Cambiar administrador',
+    date: '2026-05-05',
+    readingMinutes: 7,
+    ctaType: 'champion',
+    content: [
+      {
+        type: 'p',
+        text: '¿Cuántas veces escuchás en tu edificio "habría que hacer una asamblea para tratar esto" y la asamblea nunca termina de hacerse? En muchos consorcios de Caballito, Palermo o Belgrano, el freno no es la falta de voluntad: es que nadie sabe exactamente cómo se convoca de manera válida, y nadie quiere ser el responsable si después el administrador la impugna por defecto de forma.',
+      },
+      {
+        type: 'p',
+        text: 'Esta guía cierra esa brecha. Todo lo que necesitás saber para convocar y celebrar una asamblea extraordinaria que no pueda caerse por un tecnicismo.',
+      },
+      {
+        type: 'h2',
+        id: 'ordinaria-vs-extraordinaria',
+        text: 'Asamblea ordinaria vs. extraordinaria: la diferencia que importa',
+      },
+      {
+        type: 'p',
+        text: 'La asamblea ordinaria se convoca una vez por año, generalmente para aprobar la rendición de cuentas y el presupuesto del ejercicio siguiente. La convoca el administrador y tiene temario predeterminado.',
+      },
+      {
+        type: 'p',
+        text: 'La asamblea extraordinaria se convoca para tratar temas específicos que no pueden esperar a la asamblea anual, o que requieren una decisión formal del consorcio al margen del ciclo regular. El cambio de administrador, la aprobación de una obra importante, la modificación del reglamento de copropiedad y la designación del consejo de propietarios son los casos más frecuentes.',
+      },
+      {
+        type: 'p',
+        text: 'La diferencia práctica más importante: la asamblea extraordinaria puede ser convocada tanto por el administrador como por los propietarios que reúnan la cantidad de firmas que exige el reglamento o, en su defecto, el CCyC.',
+      },
+      {
+        type: 'h2',
+        id: 'cuantos-propietarios',
+        text: '¿Cuántos propietarios se necesitan para convocar una asamblea extraordinaria?',
+      },
+      {
+        type: 'p',
+        text: 'El CCyC, en su artículo 2059, establece que cualquier propietario puede pedirle al administrador que convoque una asamblea extraordinaria. Si el administrador no la convoca en un plazo razonable, los propietarios que representen más del 5% del total de unidades funcionales pueden convocarla directamente.',
+      },
+      {
+        type: 'p',
+        text: 'El umbral real depende del reglamento de copropiedad: muchos reglamentos de edificios de CABA fijan porcentajes diferentes o exigen que la solicitud sea firmada por un número mínimo de propietarios. Revisá el reglamento antes de hacer cualquier movimiento.',
+      },
+      {
+        type: 'p',
+        text: 'En la práctica, lo que funciona mejor es solicitar primero al administrador que la convoque, por escrito y con constancia de recepción. Si no responde en un plazo razonable —típicamente 10 a 15 días— los propietarios quedan habilitados para convocarla directamente.',
+      },
+      {
+        type: 'h2',
+        id: 'como-se-convoca',
+        text: 'Cómo se convoca una asamblea extraordinaria de consorcio en CABA',
+      },
+      {
+        type: 'p',
+        text: 'Estos son los pasos formales que debe cumplir la convocatoria para ser válida:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '**Redactar la convocatoria con el orden del día completo.** El orden del día tiene que ser específico. "Temas varios" o "gestión del administrador" no son suficientes para votar la remoción del administrador. El punto tiene que decir explícitamente "Remoción del administrador actual y designación del nuevo administrador" para que la votación posterior sea válida e inatacable.',
+          '**Establecer fecha, hora y lugar.** La asamblea puede realizarse en el edificio o en cualquier otro lugar acordado. Si se va a admitir participación remota, eso tiene que indicarse en la convocatoria junto con el medio habilitado.',
+          '**Notificar fehacientemente a todos los propietarios.** La notificación tiene que ser fehaciente, es decir, con constancia de recepción. Las opciones más comunes son carta documento, telegrama colacionado, o nota con firma de recepción del propietario. Algunos reglamentos admiten el correo electrónico si fue previamente aceptado como medio de notificación.',
+          '**Respetar el plazo de anticipación.** La Ley 941 y el CCyC establecen plazos mínimos de anticipación entre la notificación y la asamblea. Si la convocatoria se notifica con menos anticipación que la que exige el reglamento o la norma, la asamblea puede impugnarse.',
+          '**Consignar la segunda convocatoria.** Muchos reglamentos admiten que en la misma citación se indique una segunda convocatoria para el mismo día —generalmente media hora después— o para una fecha posterior, en caso de que no haya quórum en la primera. Esto evita tener que reiniciar el proceso completo si falta quórum.',
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'quorum',
+        text: '¿Qué quórum se necesita para sesionar?',
+      },
+      {
+        type: 'p',
+        text: 'El quórum para que la asamblea sesione válidamente depende del reglamento de copropiedad. En ausencia de previsión reglamentaria, el CCyC establece como regla general la mayoría absoluta de los propietarios para la primera convocatoria.',
+      },
+      {
+        type: 'p',
+        text: 'Para la segunda convocatoria, la mayoría de los reglamentos establecen un quórum menor —muchas veces cualquier número de propietarios presentes— o admiten que las decisiones se adopten por mayoría de los presentes. Esta es la razón por la que incluir la segunda convocatoria en la misma citación es una práctica recomendable: si falta quórum en la primera, no se pierde todo el trabajo de la convocatoria.',
+      },
+      {
+        type: 'h2',
+        id: 'sin-quorum-segunda',
+        text: '¿Qué pasa si no hay quórum ni en la segunda convocatoria?',
+      },
+      {
+        type: 'p',
+        text: 'Hay que reiniciar el proceso. Esto puede ocurrir en edificios con alta proporción de propietarios no residentes o con muchas unidades alquiladas donde los dueños no participan activamente. En esos casos, la estrategia más efectiva es trabajar previamente con cada propietario de manera individual, obtener compromisos de asistencia y, si el reglamento lo permite, explorar la alternativa del voto por poder o por medios electrónicos.',
+      },
+      {
+        type: 'p',
+        text: 'El fracaso por falta de quórum no invalida los intentos anteriores ni modifica el derecho de los propietarios a seguir convocando.',
+      },
+      {
+        type: 'h2',
+        id: 'acta',
+        text: 'El acta: el documento que vale más que la asamblea misma',
+      },
+      {
+        type: 'p',
+        text: 'La asamblea sin acta válida no produce efectos jurídicos. El acta tiene que:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Labrarse en el Libro de Actas del consorcio durante la propia asamblea, no redactarse después con fecha de la asamblea',
+          'Consignar la lista de propietarios presentes con indicación de sus unidades funcionales',
+          'Registrar el desarrollo de la votación con el resultado numérico exacto',
+          'Ser firmada por todos los presentes, o al menos por el presidente y el secretario de la asamblea según lo que indique el reglamento',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Lo que más frecuentemente impugnan los administradores removidos es justamente el acta: omisión de firmas, registro incompleto de la votación, ausencia de algún propietario cuyo voto era necesario. El acta bien labrada es el escudo contra esas impugnaciones.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Puede el administrador negarse a convocar la asamblea extraordinaria si se la piden los propietarios?',
+        a: 'No puede negarse indefinidamente. Si los propietarios solicitan la convocatoria por escrito y el administrador no responde en un plazo razonable, quedan habilitados para convocarla directamente. Ese incumplimiento también es denunciable ante la DGDyPC como falta a las obligaciones del administrador bajo la Ley 941.',
+      },
+      {
+        q: '¿Qué pasa si el administrador convoca la asamblea pero pone un orden del día distinto al que pidieron los propietarios?',
+        a: 'El administrador no puede cambiar los puntos que los propietarios pidieron expresamente que se incluyeran en el orden del día. Si lo hace, los propietarios tienen la opción de convocar ellos mismos una asamblea con el orden del día correcto, una vez vencido el plazo razonable de respuesta.',
+      },
+      {
+        q: '¿Se puede hacer la asamblea por Zoom o WhatsApp?',
+        a: 'Depende del reglamento. El CCyC admite asambleas por medios electrónicos si el reglamento lo permite o si la asamblea lo decide por unanimidad. En la práctica, muchos consorcios de CABA empezaron a usar herramientas digitales a partir de 2020 y algunos reglamentos fueron actualizados para incorporarlo. Si el reglamento no lo prevé, la presencialidad sigue siendo el requisito.',
+      },
+      {
+        q: '¿El Libro de Actas puede ser digital?',
+        a: 'La Ley 941 establece requisitos sobre los libros del consorcio. En caso de duda, el formato físico con hojas foliadas es la opción más segura para evitar impugnaciones posteriores.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
