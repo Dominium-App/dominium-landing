@@ -560,6 +560,230 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'carta-documento-remocion-administrador-consorcio',
+    title: 'La carta documento que le cierra la puerta al administrador que no quiere irse',
+    excerpt:
+      'La asamblea aprobó el cambio, pero el administrador removido sigue firmando contratos y cobrando honorarios. La carta documento es el acto jurídico que produce el cese efectivo: modelo, plazos y los errores que la dejan sin valor.',
+    hub: 'Cambiar administrador',
+    date: '2026-05-08',
+    readingMinutes: 9,
+    ctaType: 'champion',
+    content: [
+      {
+        type: 'p',
+        text: 'Hay un momento muy específico en el proceso de cambio de administrador donde todo lo que se logró en la asamblea puede desmoronarse. No es en la votación. No es en el quórum. Es en los días siguientes, cuando el administrador removido sigue atendiendo el edificio como si nada, sigue firmando contratos, sigue cobrando honorarios, y el consorcio no sabe exactamente cómo frenarlo.',
+      },
+      {
+        type: 'p',
+        text: 'La carta documento es el mecanismo que cierra esa puerta. Bien hecha, es inatacable. Mal hecha, le da al administrador saliente semanas —a veces meses— de maniobra.',
+      },
+      {
+        type: 'h2',
+        id: 'no-se-manda',
+        text: 'Lo que pasa cuando no se manda o se manda mal',
+      },
+      {
+        type: 'p',
+        text: 'El escenario más frecuente que vemos: la asamblea aprobó el cambio, todos se fueron contentos, y nadie mandó la carta documento esa semana. El administrador saliente, que conoce el procedimiento mejor que cualquier propietario, sigue operando. Sigue pagando proveedores —con criterio propio. Sigue siendo el interlocutor del encargado. Sigue teniendo acceso a la cuenta bancaria del consorcio.',
+      },
+      {
+        type: 'p',
+        text: 'Cada día que pasa sin notificación fehaciente es un día que el administrador puede argumentar que su gestión fue legítima. Y en algunos casos, es un día donde el daño patrimonial al consorcio sigue acumulándose.',
+      },
+      {
+        type: 'p',
+        text: 'La carta documento no es un trámite burocrático de cierre. Es el acto jurídico que produce el cambio efectivo.',
+      },
+      {
+        type: 'h2',
+        id: 'que-hace',
+        text: 'Qué hace exactamente la carta documento',
+      },
+      {
+        type: 'p',
+        text: 'Tres cosas concretas desde el momento en que el administrador la recibe.',
+      },
+      {
+        type: 'p',
+        text: '**Le pone fecha al cese.** A partir de la recepción, cualquier gasto que autorice, cualquier contrato que firme y cualquier honorario que cobre es ilegítimo. Esa fecha es la línea que separa la gestión válida de la que puede reclamarse.',
+      },
+      {
+        type: 'p',
+        text: '**Activa el reloj de la entrega de documentación.** La Ley 941 establece que el administrador tiene un plazo para entregar toda la documentación del consorcio. Ese plazo no empieza con la asamblea: empieza con la notificación fehaciente. Sin carta documento, el reloj no corre.',
+      },
+      {
+        type: 'p',
+        text: '**Construye el expediente.** Si después hay que denunciar ante la DGDyPC o iniciar una acción civil, la carta documento con su acuse de recibo es la pieza central del caso. Sin ella, todo lo que vino antes —el acta, la votación, los meses de reclamos— pierde fuerza probatoria.',
+      },
+      {
+        type: 'h2',
+        id: 'elementos',
+        text: 'Qué tiene que decir: los elementos que no pueden faltar',
+      },
+      {
+        type: 'p',
+        text: 'Una carta documento de remoción de administrador que resiste cualquier impugnación incluye estos elementos en este orden.',
+      },
+      {
+        type: 'h3',
+        id: 'identificacion-consorcio',
+        text: '1. Identificación completa del consorcio',
+      },
+      {
+        type: 'p',
+        text: 'Nombre del edificio, dirección exacta, CUIT del consorcio. Si hay error en alguno de estos datos, el administrador puede cuestionar el destinatario de la notificación.',
+      },
+      {
+        type: 'h3',
+        id: 'identificacion-administrador',
+        text: '2. Identificación del administrador con matrícula RPA',
+      },
+      {
+        type: 'p',
+        text: 'Nombre completo y número de matrícula en el Registro Público de Administradores de CABA. La matrícula no es un detalle: es lo que vincula la notificación con la persona inscripta en el organismo que tiene capacidad sancionatoria.',
+      },
+      {
+        type: 'h3',
+        id: 'referencia-asamblea',
+        text: '3. Referencia exacta a la asamblea',
+      },
+      {
+        type: 'p',
+        text: 'Fecha, tipo de asamblea (extraordinaria), resultado de la votación con número de votos a favor. Esta referencia tiene que coincidir exactamente con lo que dice el acta. Cualquier discrepancia entre la carta y el acta es un punto de ataque.',
+      },
+      {
+        type: 'h3',
+        id: 'notificacion-cese',
+        text: '4. Notificación expresa del cese',
+      },
+      {
+        type: 'p',
+        text: 'No alcanza con "le informamos que fue removido". Tiene que decir que el vínculo cesa a partir de la recepción de la presente, o en la fecha que haya fijado la asamblea si fijó una distinta.',
+      },
+      {
+        type: 'h3',
+        id: 'listado-documentacion',
+        text: '5. Listado de documentación a entregar con plazo',
+      },
+      {
+        type: 'p',
+        text: 'Cada ítem por separado. No "la documentación del consorcio": libros de actas, libros contables, reglamento de copropiedad, contratos vigentes con proveedores, pólizas de seguro vigentes, credenciales y claves de acceso a cuentas bancarias, Libro de Órdenes del encargado. El detalle importa porque cada ítem que no aparece en la carta es un ítem que el administrador puede decir que nadie le pidió.',
+      },
+      {
+        type: 'h3',
+        id: 'quien-recibe',
+        text: '6. Quién recibe y dónde',
+      },
+      {
+        type: 'p',
+        text: 'Nombre del nuevo administrador o del consorcista autorizado, con domicilio de entrega. Sin este dato, el administrador puede alegar que no sabía dónde entregar.',
+      },
+      {
+        type: 'h2',
+        id: 'modelo',
+        text: 'El modelo',
+      },
+      {
+        type: 'callout',
+        title: 'Modelo de carta documento',
+        tone: 'info',
+        text: 'Copiá el texto que sigue, completá los datos entre corchetes y revisalo contra el acta de la asamblea antes de mandarlo. Cualquier discrepancia entre el acta y la carta es un punto de ataque.',
+      },
+      {
+        type: 'p',
+        text: '[Ciudad], [fecha].',
+      },
+      {
+        type: 'p',
+        text: 'Sr./Sra. [Nombre completo del administrador]. Matrícula RPA N° [número]. [Domicilio del administrador].',
+      },
+      {
+        type: 'p',
+        text: '**Ref.:** Notificación de remoción — Consorcio de Propietarios [dirección del edificio].',
+      },
+      {
+        type: 'p',
+        text: 'En mi carácter de [presidente del consorcio / propietario autorizado por asamblea] del Consorcio de Propietarios del edificio sito en [dirección completa], CABA, CUIT [número], me dirijo a Ud. para notificarle fehacientemente:',
+      },
+      {
+        type: 'p',
+        text: 'Con fecha [fecha], en asamblea extraordinaria convocada y celebrada con el quórum reglamentario, los propietarios resolvieron su remoción del cargo de administrador por [mayoría absoluta / indicar mayoría obtenida]. La resolución consta en el Acta N° [número] del Libro de Actas del consorcio.',
+      },
+      {
+        type: 'p',
+        text: 'A partir de la recepción de la presente queda Ud. cesado en sus funciones como administrador del consorcio mencionado.',
+      },
+      {
+        type: 'p',
+        text: 'Le requerimos que en el plazo de [X] días hábiles desde la recepción de esta notificación haga entrega de la totalidad de la documentación del consorcio a [nombre del nuevo administrador / consorcista autorizado] en [domicilio], incluyendo sin carácter taxativo: libros de actas, libros contables, reglamento de copropiedad y sus modificaciones, contratos vigentes con proveedores y personal, pólizas de seguro, credenciales y claves de acceso a cuentas bancarias del consorcio, y Libro de Órdenes del encargado.',
+      },
+      {
+        type: 'p',
+        text: 'Le solicitamos asimismo que proceda de inmediato a la transferencia de los saldos bancarios a la cuenta que le indique el nuevo administrador.',
+      },
+      {
+        type: 'p',
+        text: 'Queda Ud. notificado de que el incumplimiento de los plazos establecidos será denunciado ante la Dirección General de Defensa y Protección del Consumidor conforme la Ley 941.',
+      },
+      {
+        type: 'p',
+        text: '[Nombre y firma]. [Cargo: Presidente del Consorcio / Propietario autorizado por Acta N°]. [DNI / CUIT].',
+      },
+      {
+        type: 'h2',
+        id: 'como-mandarla',
+        text: 'Cómo mandarla y qué guardar',
+      },
+      {
+        type: 'ul',
+        items: [
+          '**OCA o Correo Argentino — carta documento.** El medio estándar. Guardás el comprobante de envío el día que la mandás, y el acuse de recibo cuando vuelve firmado. Esos dos documentos juntos son la prueba completa.',
+          '**Telegrama colacionado.** Mismo valor legal, algo más barato, texto más corto. Si el modelo completo no entra, usá el telegrama para la notificación del cese y mandá el detalle de documentación por separado en el mismo sobre.',
+          '**Acta notarial.** Cuando el administrador tiene historial de "no recibir" cartas documento o de disputar el domicilio. Un escribano se presenta en el domicilio del administrador y deja constancia de la entrega. Más caro, imposible de impugnar.',
+        ],
+      },
+      {
+        type: 'p',
+        text: '**Lo que no sirve:** WhatsApp con doble tilde azul, email sin firma digital certificada, nota entregada en mano sin firma de recepción, mensaje en el grupo del edificio.',
+      },
+      {
+        type: 'h2',
+        id: 'documentacion-incompleta',
+        text: 'Qué hacer cuando la documentación llega incompleta',
+      },
+      {
+        type: 'p',
+        text: 'Pasa casi siempre. El administrador entrega algo, pero falta la mitad. El error más frecuente de los consorcistas en ese momento es rechazar lo que llegó y esperar que entregue todo junto.',
+      },
+      {
+        type: 'p',
+        text: 'No hagas eso. Recibí lo que llegue y labrá un acta de recepción en ese mismo momento, detallando exactamente qué recibiste y qué faltó. Firmá vos, firmá el nuevo administrador, y si podés conseguir que firme un testigo, mejor. Esa acta es el documento que prueba el incumplimiento parcial ante la DGDyPC.',
+      },
+      {
+        type: 'p',
+        text: 'Cada ítem que falta a partir de ese momento es una infracción separada a la Ley 941. No es un problema: es munición para el reclamo.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Cuánto tiempo tiene el administrador para entregar la documentación?',
+        a: 'La Ley 941 establece plazos para la entrega de documentación tras la remoción. El plazo exacto conviene verificarlo con el texto vigente de la norma al momento del cambio, ya que puede haber sido modificado por resoluciones del RPA. En la práctica, entre 10 y 15 días hábiles es el rango más habitual en los casos que conocemos.',
+      },
+      {
+        q: '¿Qué pasa si el administrador sigue cobrando honorarios después de recibir la carta?',
+        a: 'A partir de la recepción de la carta documento, cualquier honorario que cobre es cobro indebido. Hay acción de repetición civil y denuncia ante la DGDyPC. Bloqueá el acceso a la cuenta bancaria del consorcio en cuanto el nuevo administrador esté operativo, sin esperar a que el saliente "cierre" su gestión.',
+      },
+      {
+        q: '¿Hace falta un abogado para redactar la carta documento?',
+        a: 'No es obligatorio. Con el modelo de arriba y el acta de la asamblea en mano, cualquier propietario puede redactarla y mandarla. Si hay señales de que el administrador saliente va a pelear —impugnó la asamblea, tiene contratos propios con proveedores del edificio, o hay irregularidades contables— media hora con un abogado de propiedad horizontal antes de mandarla puede evitar errores costosos.',
+      },
+      {
+        q: '¿La carta documento sirve también para denunciar al administrador ante la DGDyPC?',
+        a: 'Son dos actos distintos. La carta documento es la notificación al administrador. La denuncia ante la DGDyPC es una presentación separada ante el organismo de control, con la documentación que prueba el incumplimiento. Una no reemplaza a la otra, pero la carta documento con su acuse de recibo es la pieza central de cualquier denuncia posterior.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
