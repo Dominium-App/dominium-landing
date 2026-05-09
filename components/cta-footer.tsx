@@ -7,7 +7,6 @@ import { Lock, ClipboardList, Bot, MessageCircle, Mail } from "lucide-react";
 const trustItems = [
   { Icon: Lock, text: "Fondos protegidos por regulación BCRA" },
   { Icon: ClipboardList, text: "Administradora registrada GCBA" },
-  { Icon: Bot, text: "IA desarrollada con Claude API" },
 ];
 
 export default function CtaFooter() {
