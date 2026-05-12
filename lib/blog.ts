@@ -784,6 +784,230 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'expensas-caba-guia-auditar-reclamar',
+    title: 'Expensas en CABA: guía completa para entender, auditar y reclamar (2026)',
+    excerpt:
+      'El rubro "honorarios del administrador" subió por encima del IPC en muchos edificios de CABA. Cómo entender la liquidación, auditarla en serio y reclamar lo que corresponde.',
+    hub: 'Expensas',
+    date: '2026-05-12',
+    readingMinutes: 11,
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'En 2024, el rubro "honorarios del administrador" creció en promedio por encima del IPC en los edificios de más de 20 unidades en CABA. No porque las paritarias del SUTERH hayan traccionado especialmente ese ítem, sino porque muchos reglamentos permiten que los honorarios se actualicen por decisión del administrador, sin pasar por asamblea, atados a indicadores que el propio administrador propone.',
+      },
+      {
+        type: 'p',
+        text: 'Eso no significa que todos los administradores abusen. Significa que el sistema tiene puntos ciegos que se vuelven costosos exactamente cuando nadie los controla. Esta guía te da los elementos para controlarlos.',
+      },
+      {
+        type: 'h2',
+        id: 'ordinarias-extraordinarias',
+        text: 'Expensas ordinarias y extraordinarias: la diferencia que define quién vota qué',
+      },
+      {
+        type: 'table',
+        headers: ['', 'Expensas ordinarias', 'Expensas extraordinarias'],
+        rows: [
+          [
+            '**Qué incluyen**',
+            'Gastos de funcionamiento habitual: sueldo del encargado, servicios (Aysa, Edesur/Edenor, Metrogas), ascensores, limpieza, honorarios del administrador, seguros',
+            'Obras de mejora, reparaciones no habituales, incorporación de nuevos servicios, refuerzo del fondo de reserva',
+          ],
+          [
+            '**Quién las aprueba**',
+            'El administrador las liquida en base al presupuesto anual aprobado en asamblea',
+            'Requieren aprobación de asamblea, salvo urgencia debidamente documentada',
+          ],
+          [
+            '**Quién las paga**',
+            'Todos los propietarios o inquilinos',
+            'Todos los propietarios',
+          ],
+          [
+            '**Cómo se calculan**',
+            'Proporcional al coeficiente de copropiedad de cada unidad',
+            'Ídem',
+          ],
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Esta distinción no es solo técnica. Es la que define si una reparación grande podía hacerse sin convocarte a asamblea, si tenés que pagarla como inquilino, y si el administrador la podía autorizar solo.',
+      },
+      {
+        type: 'h2',
+        id: 'que-incluye-liquidacion',
+        text: 'Qué tiene que incluir una liquidación de expensas bien hecha',
+      },
+      {
+        type: 'p',
+        text: 'Una liquidación que cumple con la Ley 941 y con lo que cualquier propietario tiene derecho a controlar incluye, desglosados, los siguientes ítems:',
+      },
+      {
+        type: 'h3',
+        id: 'ingresos-del-periodo',
+        text: 'Ingresos del período',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Expensas ordinarias recaudadas',
+          'Expensas extraordinarias cobradas',
+          'Rendimientos del fondo de reserva si existe inversión',
+          'Intereses por mora de pagos anteriores',
+        ],
+      },
+      {
+        type: 'h3',
+        id: 'egresos-del-periodo',
+        text: 'Egresos del período',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Sueldo del encargado con todos los ítems: básico según escala SUTERH vigente, horas extra, antigüedad, adicional por vivienda si corresponde, aportes patronales, aguinaldo proporcional',
+          'Factura de Aysa',
+          'Factura de Edesur o Edenor',
+          'Factura de Metrogas si hay gas centralizado',
+          'Contrato de mantenimiento de ascensores con empresa, importe y vencimiento',
+          'Seguros con número de póliza, compañía, cobertura y vencimiento',
+          'Honorarios del administrador con base de cálculo y porcentaje o monto fijo',
+          'Limpieza y mantenimiento con nombre del proveedor',
+          'Cualquier otro gasto mayor con respaldo de factura o presupuesto',
+        ],
+      },
+      {
+        type: 'h3',
+        id: 'estado-de-fondos',
+        text: 'Estado de fondos',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Saldo inicial del período',
+          'Saldo final del período',
+          'Fondo de reserva si existe: saldo inicial, movimientos y saldo final',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Si la liquidación que recibís no tiene esta estructura, no es una cuestión de estilo: hay información a la que tenés derecho y que no se está mostrando.',
+      },
+      {
+        type: 'h2',
+        id: 'como-auditar',
+        text: 'Cómo auditar las expensas de tu consorcio',
+      },
+      {
+        type: 'p',
+        text: 'Una auditoría de expensas no requiere ser contador. Requiere metodología y acceso a los documentos que el administrador tiene obligación de conservar y mostrar.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '**Pedí las liquidaciones de los últimos 12 meses.** Comparalas entre sí. Los rubros que crecen por encima de la inflación son los primeros candidatos a revisar con más detalle.',
+          '**Verificá el sueldo del encargado contra la escala SUTERH vigente.** El SUTERH publica las escalas salariales por categoría después de cada paritaria. Si el importe liquidado no coincide con lo que le corresponde al encargado según su categoría, hay una diferencia que puede ser un error o puede ser otra cosa.',
+          '**Cruzá las facturas de servicios con los importes liquidados.** Aysa, Edesur y Metrogas emiten facturas digitales. Cualquier propietario puede pedirle al administrador los comprobantes de pago. Si el importe pagado no coincide con lo que se liquidó a los propietarios, la diferencia tiene que explicarse.',
+          '**Controlá los honorarios del administrador.** La Ley 941 establece que los honorarios deben estar fijados o actualizados por asamblea. Si el reglamento de tu edificio establece una fórmula de actualización automática atada al IPC, al CVS o a otro índice, verificá que esa fórmula se aplique correctamente y que haya sido aprobada en asamblea.',
+          '**Revisá los comprobantes de los gastos mayores.** Para gastos que superen cierto umbral, el administrador tiene que haber pedido al menos tres presupuestos y la documentación tiene que estar disponible. Si no está, es una infracción.',
+          '**Verificá el fondo de reserva si tu edificio lo tiene.** Si existe, tiene que aparecer en cada liquidación con saldo actualizado. Si lleva años sin crecer o aparece en cero después de gastos que no pasaron por asamblea, hay que preguntar.',
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'cuando-aumento-problema',
+        text: '¿Cuándo un aumento de expensas es un problema real?',
+      },
+      {
+        type: 'p',
+        text: 'No todo aumento es abusivo. Las expensas suben cuando suben los costos reales que las componen: paritarias del SUTERH, tarifas de Aysa, Edesur o Metrogas, inflación en contratos de mantenimiento. En un contexto inflacionario como el argentino, las expensas que no suben son, en muchos casos, la señal de que algo no está bien calculado.',
+      },
+      {
+        type: 'p',
+        text: 'El problema real no es el aumento en sí: es el aumento que no se explica. Un aumento de expensas es problemático cuando:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Supera consistentemente los índices que explican los costos del edificio sin que aparezca ninguna obra o mejora que lo justifique',
+          'Coincide con el vencimiento del contrato con un proveedor y la renovación no fue a licitación',
+          'Se explica principalmente por el crecimiento de los honorarios del administrador sin aprobación de asamblea',
+          'Aparece concentrado en el rubro "gastos de administración y varios" sin desglose',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'En los edificios de más de 15 unidades en Palermo, Belgrano y Recoleta que analizamos, el ítem que más frecuentemente crece por encima del resto —y el que menos frecuentemente tiene documentación de respaldo disponible— es exactamente ese: "gastos de administración y varios". Es un rubro lo suficientemente amplio como para absorber muchas cosas.',
+      },
+      {
+        type: 'h2',
+        id: 'fondo-reserva',
+        text: 'El fondo de reserva: qué es y por qué conviene tenerlo',
+      },
+      {
+        type: 'p',
+        text: 'El CCyC no impone la creación de un fondo de reserva como obligación universal. El artículo 2046 establece que el propietario está obligado a contribuir al fondo de reserva "si lo hay", lo que significa que su existencia depende de lo que haya resuelto cada consorcio en su reglamento o en asamblea.',
+      },
+      {
+        type: 'p',
+        text: 'Dicho eso, los consorcios que tienen un fondo de reserva bien constituido están en una posición notablemente mejor frente a gastos imprevistos: una rotura de cañería, un problema en el ascensor o un siniestro cubierto parcialmente por el seguro se absorben sin necesidad de cobrar expensas extraordinarias de emergencia ni de pedirle plata a los propietarios en 48 horas.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que vemos en los edificios que se suman a nuestra plataforma es que cuando el fondo existe, en muchos casos el saldo real es mínimo o no está invertido en ningún instrumento que lo proteja de la inflación. Un fondo que nominalmente tiene $500.000 pesos pero no fue actualizado en dos años vale, en términos reales, una fracción de lo que debería. Si tu consorcio tiene fondo de reserva, la decisión sobre cómo administrarlo debería pasar por asamblea, no quedar en criterio exclusivo del administrador.',
+      },
+      {
+        type: 'h2',
+        id: 'que-podes-reclamar',
+        text: 'Qué podés reclamar y ante quién',
+      },
+      {
+        type: 'p',
+        text: '**Ante el administrador:** cualquier propietario puede pedir por escrito acceso a las facturas, contratos y comprobantes de pago. El administrador tiene obligación de responder en plazo. Si no responde, eso es denunciable.',
+      },
+      {
+        type: 'p',
+        text: '**Ante la DGDyPC:** la falta de rendición de cuentas, la negativa a mostrar documentación, la falta de convocatoria a asamblea ordinaria y los honorarios cobrados sin aprobación de asamblea son infracciones a la Ley 941. La DGDyPC puede intimar al administrador, multar y suspender su inscripción en el RPA.',
+      },
+      {
+        type: 'p',
+        text: '**En asamblea:** los consorcistas tienen derecho a someter cualquier punto económico a votación. Si la asamblea no aprueba la rendición de cuentas, el administrador no puede darse por descargado de su gestión.',
+      },
+      {
+        type: 'p',
+        text: '**En sede judicial:** si hay daño patrimonial demostrable, hay acción civil. Es la vía más costosa y lenta, pero la que puede producir reparación económica real.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Las expensas pueden subir sin que lo vote la asamblea?',
+        a: 'Las expensas ordinarias pueden ajustarse dentro del presupuesto anual aprobado en asamblea. Si los costos reales superan el presupuesto por una paritaria más alta o un aumento de tarifa, el administrador puede liquidar por encima, pero debe informarlo y someterlo a aprobación en la próxima asamblea ordinaria. Los honorarios del administrador específicamente deben estar fijados o actualizados por asamblea.',
+      },
+      {
+        q: '¿El inquilino tiene que pagar las expensas extraordinarias?',
+        a: 'En la mayoría de los casos, no. Las expensas extraordinarias suelen ser responsabilidad del propietario, aunque esto puede variar según lo que establezca cada contrato de alquiler. Si tenés dudas sobre tu situación específica, revisá el contrato o consultalo con la inmobiliaria interviniente.',
+      },
+      {
+        q: '¿Cómo sé si el administrador está cobrando comisiones de los proveedores?',
+        a: 'Es difícil saberlo sin una auditoría, porque las comisiones no suelen aparecer en los estados contables del consorcio: son pagadas directamente por el proveedor al administrador. La señal indirecta más frecuente es que los precios de ciertos servicios son consistentemente más altos que los del mercado para edificios similares, y que los proveedores no cambian nunca aunque haya quejas. La Ley 941 prohíbe expresamente que el administrador perciba beneficios de proveedores sin autorización expresa de asamblea.',
+      },
+      {
+        q: '¿Qué pasa si no pago las expensas?',
+        a: 'Las expensas impagas generan intereses punitorios según lo que establezca el reglamento de copropiedad. El consorcio puede iniciar juicio ejecutivo por la deuda, que tiene un trámite relativamente ágil. La deuda de expensas no se detiene alegando que el administrador no rinde cuentas: son dos cuestiones separadas en la jurisprudencia porteña.',
+      },
+      {
+        q: '¿Puedo dejar de pagar las expensas si sospecho irregularidades?',
+        a: 'No es recomendable. La deuda de expensas es ejecutable judicialmente y las irregularidades del administrador no son una defensa válida para el no pago. La vía correcta es pagar y simultáneamente reclamar, documentar e iniciar el proceso de control o cambio de administrador. Las dos cosas se pueden hacer al mismo tiempo.',
+      },
+      {
+        q: '¿La DGDyPC puede obligar al administrador a devolver dinero?',
+        a: 'La DGDyPC tiene facultades sancionatorias —multas, suspensión del RPA— pero no puede ordenar la devolución de dinero al consorcio, eso es una acción civil. Sin embargo, la sola apertura de un sumario ante la DGDyPC suele producir un efecto práctico: muchos administradores aceleran la rendición de cuentas y la entrega de documentación cuando ven que el proceso sancionatorio avanzó.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
