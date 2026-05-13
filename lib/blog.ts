@@ -319,7 +319,7 @@ export const articles: Article[] = [
       },
       {
         type: 'p',
-        text: 'La Ley 941 establece la obligación de pedir al menos tres presupuestos para obras o reparaciones que superen ciertos montos. En la práctica, muchos administradores trabajan siempre con los mismos proveedores, a veces con una relación comercial que el consorcio no conoce. Si en años de gestión los plomeros, los electricistas y los ascensoristas son siempre exactamente los mismos, sin ninguna comparación documentada, vale preguntar por qué.',
+        text: 'La Ley 941 establece ciertos requisitos para los presupuestos. En la práctica, muchos administradores trabajan siempre con los mismos proveedores, a veces con una relación comercial que el consorcio no conoce. Si en años de gestión los plomeros, los electricistas y los ascensoristas son siempre exactamente los mismos, sin ninguna comparación documentada, vale preguntar por qué.',
       },
       {
         type: 'h3',
