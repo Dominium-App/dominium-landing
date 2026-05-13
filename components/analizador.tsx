@@ -8,6 +8,7 @@ import {
   XCircle,
   MessageSquare,
   RotateCcw,
+  Lock,
 } from "lucide-react";
 
 // ============================================================
@@ -16,6 +17,7 @@ import {
 
 interface LeadData {
   nombre: string;
+  localidad: string;
   whatsapp: string;
 }
 
@@ -44,8 +46,8 @@ interface AnalysisResult {
   };
 }
 
-// 1: upload (auto-analiza al subir) · 2: loading · 3: results
-type Step = 1 | 2 | 3;
+// 1: upload (auto-analiza al subir) · 2: loading · 3: gate (lead capture) · 4: results
+type Step = 1 | 2 | 3 | 4;
 
 // ============================================================
 // HELPERS
@@ -401,209 +403,298 @@ function Step2Loading() {
 }
 
 // ============================================================
-// LEAD CAPTURE FORM (inline, dentro de los resultados)
+// STEP 3 — Gate (lead capture entre análisis y resultados)
 // ============================================================
 
-interface LeadCaptureFormProps {
+interface Step3GateProps {
   result: AnalysisResult;
+  onUnlock: (lead: LeadData) => Promise<void>;
 }
 
-function LeadCaptureForm({ result }: LeadCaptureFormProps) {
+function Step3Gate({ result, onUnlock }: Step3GateProps) {
   const [nombre, setNombre] = useState("");
+  const [localidad, setLocalidad] = useState("");
   const [whatsapp, setWhatsapp] = useState("");
   const [submitting, setSubmitting] = useState(false);
-  const [status, setStatus] = useState<"form" | "success" | "error">("form");
+  const [error, setError] = useState<string | null>(null);
+
+  const alertasCount = result.rubros.filter((r) => r.estado === "alerta").length;
+  const elevadosCount = result.rubros.filter((r) => r.estado === "elevado").length;
+  const teaserRubros = result.rubros.slice(0, 3);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (submitting) return;
-    if (!nombre.trim() || !whatsapp.trim()) return;
+    if (!nombre.trim() || !localidad.trim() || !whatsapp.trim()) return;
 
     setSubmitting(true);
-    const lead: LeadData = {
-      nombre: nombre.trim(),
-      whatsapp: whatsapp.trim(),
-    };
-
+    setError(null);
     try {
-      const res = await fetch("/api/notify-analysis", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lead, result }),
+      await onUnlock({
+        nombre: nombre.trim(),
+        localidad: localidad.trim(),
+        whatsapp: whatsapp.trim(),
       });
-      if (!res.ok) throw new Error("notify failed");
-      setStatus("success");
     } catch {
-      setStatus("error");
-    } finally {
+      setError(
+        "No pudimos enviar tu informe. Probá de nuevo en unos segundos.",
+      );
       setSubmitting(false);
     }
   }
 
-  if (status === "success") {
-    return (
-      <div
-        className="rounded-xl p-5 flex flex-col gap-2"
-        style={{
-          backgroundColor: "var(--color-vero-light)",
-          border: "1.5px solid var(--color-vero)",
-        }}
-      >
-        <p
-          className="text-[15px] font-semibold"
-          style={{ color: "var(--color-ink)" }}
-        >
-          ✓ Listo, te contactamos pronto
-        </p>
-        <p
-          className="text-[13px]"
-          style={{ color: "var(--color-ink-secondary)" }}
-        >
-          En las próximas horas hábiles te escribimos por WhatsApp para repasar
-          tu informe y ver cómo podrías ahorrar.
-        </p>
-        <a
-          href="https://wa.me/5491136520670"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-[13px] font-semibold mt-1 self-start"
-          style={{ color: "var(--color-accent)" }}
-        >
-          También podés escribirnos directo →
-        </a>
-      </div>
-    );
-  }
-
   const canSubmit =
-    nombre.trim() !== "" && whatsapp.trim() !== "" && !submitting;
+    nombre.trim() !== "" &&
+    localidad.trim() !== "" &&
+    whatsapp.trim() !== "" &&
+    !submitting;
 
+  const inputClass =
+    "w-full h-[44px] px-3 rounded-lg text-[14px] outline-none transition-all duration-150";
   const inputStyle = {
     border: "1.5px solid var(--color-border)",
     backgroundColor: "white",
     color: "var(--color-ink)",
   };
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.currentTarget.style.borderColor = "var(--color-accent)";
+  };
+  const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.currentTarget.style.borderColor = "var(--color-border)";
+  };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="rounded-xl p-5 flex flex-col gap-3"
-      style={{
-        backgroundColor: "var(--color-surface-alt)",
-        border: "1px solid var(--color-border)",
-      }}
-    >
-      <div>
+    <div className="flex flex-col gap-5">
+      {/* Success indicator */}
+      <div className="flex flex-col items-center gap-2 text-center">
+        <div
+          className="w-12 h-12 rounded-full flex items-center justify-center"
+          style={{ backgroundColor: "#F0FAF5", border: "1.5px solid #B6E8CC" }}
+          aria-hidden="true"
+        >
+          <CheckCircle2 size={26} color="#1A7A4A" />
+        </div>
         <p
-          className="text-[15px] font-semibold"
+          className="text-[18px] font-semibold"
           style={{ color: "var(--color-ink)" }}
         >
-          ¿Querés que un asesor te explique tu informe?
+          Tu informe está listo
         </p>
         <p
-          className="text-[13px] mt-1"
+          className="text-[13px]"
           style={{ color: "var(--color-ink-secondary)" }}
         >
-          Te llamamos por WhatsApp en horario hábil para revisar cada rubro y
-          ver cómo podrías ahorrar.
+          Detectamos {alertasCount + elevadosCount > 0
+            ? `${alertasCount + elevadosCount} rubros que requieren tu atención`
+            : "todo dentro de los promedios del mercado"}
+          .
         </p>
       </div>
 
-      <input
-        type="text"
-        required
-        placeholder="Tu nombre"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-        className="w-full h-[44px] px-3 rounded-lg text-[14px] outline-none transition-all duration-150"
-        style={inputStyle}
-        onFocus={(e) =>
-          (e.currentTarget.style.borderColor = "var(--color-accent)")
-        }
-        onBlur={(e) =>
-          (e.currentTarget.style.borderColor = "var(--color-border)")
-        }
-        disabled={submitting}
-      />
+      {/* Teaser stats */}
+      <div className="grid grid-cols-3 gap-2">
+        <TeaserStat
+          label="Total expensas"
+          value={
+            result.total_expensas !== null
+              ? formatMonto(result.total_expensas)
+              : "—"
+          }
+        />
+        <TeaserStat
+          label="Con alerta"
+          value={alertasCount.toString()}
+          highlight={alertasCount > 0}
+        />
+        <TeaserStat
+          label="Ahorro estimado"
+          value={result.conclusion.ahorro_estimado}
+          prominent
+        />
+      </div>
 
-      <input
-        type="tel"
-        required
-        placeholder="WhatsApp (ej: 11 5555-1234)"
-        value={whatsapp}
-        onChange={(e) => setWhatsapp(e.target.value)}
-        className="w-full h-[44px] px-3 rounded-lg text-[14px] outline-none transition-all duration-150"
-        style={inputStyle}
-        onFocus={(e) =>
-          (e.currentTarget.style.borderColor = "var(--color-accent)")
-        }
-        onBlur={(e) =>
-          (e.currentTarget.style.borderColor = "var(--color-border)")
-        }
-        disabled={submitting}
-      />
-
-      {status === "error" && (
-        <p
-          className="text-[12px]"
-          style={{ color: "var(--color-destructive)" }}
-          role="alert"
+      {/* Blurred preview */}
+      <div className="relative rounded-xl overflow-hidden">
+        <div
+          className="flex flex-col gap-2 p-3"
+          style={{
+            filter: "blur(5px)",
+            pointerEvents: "none",
+            userSelect: "none",
+            border: "1px solid var(--color-border)",
+            borderRadius: "12px",
+            backgroundColor: "#FAFAF8",
+          }}
+          aria-hidden="true"
         >
-          Hubo un problema al enviar. Intentá de nuevo o escribinos directo a{" "}
-          <a
-            href="https://wa.me/5491136520670"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{ textDecoration: "underline" }}
+          {teaserRubros.map((rubro, i) => (
+            <div key={i} className="flex justify-between text-[13px]">
+              <span style={{ color: "var(--color-ink)" }}>{rubro.nombre}</span>
+              <span
+                className="font-semibold"
+                style={{ color: "var(--color-ink)" }}
+              >
+                {formatMonto(rubro.monto)}
+              </span>
+            </div>
+          ))}
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span
+            className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-[12px] font-semibold"
+            style={{
+              backgroundColor: "white",
+              border: "1px solid var(--color-border)",
+              color: "var(--color-ink-secondary)",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.08)",
+            }}
           >
-            WhatsApp
-          </a>
-          .
+            <Lock size={12} />
+            Desbloqueá el desglose completo
+          </span>
+        </div>
+      </div>
+
+      {/* Form */}
+      <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <input
+            type="text"
+            required
+            placeholder="Tu nombre"
+            value={nombre}
+            onChange={(e) => setNombre(e.target.value)}
+            className={inputClass}
+            style={inputStyle}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            disabled={submitting}
+          />
+          <input
+            type="text"
+            required
+            placeholder="Localidad (ej: Palermo)"
+            value={localidad}
+            onChange={(e) => setLocalidad(e.target.value)}
+            className={inputClass}
+            style={inputStyle}
+            onFocus={handleFocus}
+            onBlur={handleBlur}
+            disabled={submitting}
+          />
+        </div>
+        <input
+          type="tel"
+          required
+          placeholder="WhatsApp (ej: 11 5555-1234)"
+          value={whatsapp}
+          onChange={(e) => setWhatsapp(e.target.value)}
+          className={inputClass}
+          style={inputStyle}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
+          disabled={submitting}
+        />
+
+        {error && (
+          <p
+            className="text-[12px] px-3 py-2 rounded-lg"
+            style={{
+              color: "var(--color-destructive)",
+              backgroundColor: "#FEF2F2",
+              border: "1px solid #FCA5A5",
+            }}
+            role="alert"
+          >
+            {error}
+          </p>
+        )}
+
+        <button
+          type="submit"
+          disabled={!canSubmit}
+          className="h-[52px] rounded-full text-[15px] font-semibold text-white transition-all duration-150 mt-1"
+          style={{
+            backgroundColor: canSubmit
+              ? "var(--color-accent)"
+              : "var(--color-border)",
+            cursor: canSubmit ? "pointer" : "not-allowed",
+          }}
+          onMouseEnter={(e) => {
+            if (canSubmit)
+              e.currentTarget.style.backgroundColor =
+                "var(--color-accent-light)";
+          }}
+          onMouseLeave={(e) => {
+            if (canSubmit)
+              e.currentTarget.style.backgroundColor = "var(--color-accent)";
+          }}
+        >
+          {submitting ? "Preparando tu informe..." : "Ver mi informe completo →"}
+        </button>
+
+        <p
+          className="text-[11px] text-center"
+          style={{ color: "var(--color-ink-tertiary)" }}
+        >
+          Tu información es confidencial. No hacemos spam.
         </p>
-      )}
+      </form>
+    </div>
+  );
+}
 
-      <button
-        type="submit"
-        disabled={!canSubmit}
-        className="h-[48px] rounded-full text-[14px] font-semibold text-white transition-all duration-150 mt-1"
-        style={{
-          backgroundColor: canSubmit
-            ? "var(--color-accent)"
-            : "var(--color-border)",
-          cursor: canSubmit ? "pointer" : "not-allowed",
-        }}
-        onMouseEnter={(e) => {
-          if (canSubmit)
-            e.currentTarget.style.backgroundColor = "var(--color-accent-light)";
-        }}
-        onMouseLeave={(e) => {
-          if (canSubmit)
-            e.currentTarget.style.backgroundColor = "var(--color-accent)";
-        }}
-      >
-        {submitting ? "Enviando..." : "Que me llamen →"}
-      </button>
+interface TeaserStatProps {
+  label: string;
+  value: string;
+  highlight?: boolean;
+  prominent?: boolean;
+}
 
+function TeaserStat({ label, value, highlight, prominent }: TeaserStatProps) {
+  return (
+    <div
+      className="flex flex-col gap-1 p-3 rounded-xl"
+      style={{
+        backgroundColor: prominent
+          ? "var(--color-vero-light)"
+          : "var(--color-surface-alt)",
+        border: `1px solid ${prominent ? "var(--color-vero)" : "var(--color-border)"}`,
+      }}
+    >
       <p
-        className="text-[11px] text-center"
+        className="text-[10px] font-semibold uppercase tracking-wide"
         style={{ color: "var(--color-ink-tertiary)" }}
       >
-        Tu información es confidencial. No hacemos spam.
+        {label}
       </p>
-    </form>
+      <p
+        className="font-serif font-bold leading-tight"
+        style={{
+          fontSize: "clamp(15px, 3vw, 20px)",
+          color: prominent
+            ? "var(--color-accent)"
+            : highlight
+              ? "#C0392B"
+              : "var(--color-ink)",
+        }}
+      >
+        {value}
+      </p>
+    </div>
   );
 }
 
 // ============================================================
-// STEP 3 — Results
+// STEP 4 — Results
 // ============================================================
 
-interface Step3Props {
+interface Step4Props {
   result: AnalysisResult;
   onRetry: () => void;
 }
 
-function Step3Results({ result, onRetry }: Step3Props) {
+function Step4Results({ result, onRetry }: Step4Props) {
   const [rowsVisible, setRowsVisible] = useState(false);
 
   useEffect(() => {
@@ -945,14 +1036,45 @@ function Step3Results({ result, onRetry }: Step3Props) {
         </p>
       </div>
 
-      {/* Lead capture form */}
+      {/* Hablar con un asesor */}
       <div
+        className="flex flex-col items-center gap-3"
         style={{
           opacity: rowsVisible ? 1 : 0,
           transition: "opacity 0.4s ease 0.75s",
         }}
       >
-        <LeadCaptureForm result={result} />
+        <div
+          className="my-1 w-full"
+          style={{ height: "1px", backgroundColor: "var(--color-border)" }}
+          aria-hidden="true"
+        />
+        <p
+          className="text-[14px] text-center"
+          style={{ color: "var(--color-ink-secondary)" }}
+        >
+          ¿Querés que un asesor te explique el informe en detalle?
+        </p>
+        <a
+          href="https://wa.me/5491136520670"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 h-[48px] px-6 rounded-full text-[14px] font-semibold transition-all duration-150"
+          style={{
+            border: "1.5px solid var(--color-accent)",
+            color: "var(--color-accent)",
+            backgroundColor: "transparent",
+          }}
+          onMouseEnter={(e) =>
+            (e.currentTarget.style.backgroundColor =
+              "var(--color-accent-glow)")
+          }
+          onMouseLeave={(e) =>
+            (e.currentTarget.style.backgroundColor = "transparent")
+          }
+        >
+          Hablar con un asesor →
+        </a>
       </div>
 
       {/* Retry */}
@@ -1034,8 +1156,26 @@ export default function Analizador() {
     }
 
     setResult(res);
-    setStep(3);
+    // Si el documento no es válido, saltamos el gate y mostramos el error directo.
+    // El gate (paso 3) solo aparece cuando hay un informe real para desbloquear.
+    setStep(res.es_liquidacion_valida ? 3 : 4);
   }, []);
+
+  const handleUnlock = useCallback(
+    async (lead: LeadData) => {
+      if (!result) throw new Error("Sin informe para enviar");
+
+      const res = await fetch("/api/notify-analysis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lead, result }),
+      });
+      if (!res.ok) throw new Error("notify failed");
+
+      setStep(4);
+    },
+    [result],
+  );
 
   function handleRetry() {
     setResult(null);
@@ -1046,7 +1186,8 @@ export default function Analizador() {
   const stepTitle: Record<Step, string> = {
     1: "Analizá tus expensas",
     2: "",
-    3: "Tu informe",
+    3: "Tu informe está listo",
+    4: "Tu informe",
   };
 
   return (
@@ -1125,7 +1266,7 @@ export default function Analizador() {
               </div>
               {/* Step dots */}
               <div className="flex items-center gap-1.5">
-                {([1, 2, 3] as Step[]).map((s) => (
+                {([1, 2, 3, 4] as Step[]).map((s) => (
                   <div
                     key={s}
                     className="rounded-full transition-all duration-300"
@@ -1163,6 +1304,10 @@ export default function Analizador() {
             {step === 2 && <Step2Loading />}
 
             {step === 3 && result && (
+              <Step3Gate result={result} onUnlock={handleUnlock} />
+            )}
+
+            {step === 4 && result && (
               <>
                 {!result.es_liquidacion_valida ? (
                   /* Invalid document — show error + back button */
@@ -1204,7 +1349,7 @@ export default function Analizador() {
                     </button>
                   </div>
                 ) : (
-                  <Step3Results result={result} onRetry={handleRetry} />
+                  <Step4Results result={result} onRetry={handleRetry} />
                 )}
               </>
             )}
