@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import {
   Upload,
-  FileText,
   CheckCircle2,
   AlertTriangle,
   XCircle,
@@ -12,59 +11,11 @@ import {
 } from "lucide-react";
 
 // ============================================================
-// CONSTANTS
-// ============================================================
-
-const BENCHMARK_DATA = {
-  fuente: "Promedios de mercado AMBA 2024-2025, elaboración Dominium",
-  rubros: [
-    {
-      nombre: "Honorarios del administrador",
-      referencia: "Entre 6% y 8% del total de la liquidación",
-      alerta_si: "Supera el 10% del total",
-      nota: "El rubro con mayor variación en el mercado",
-    },
-    {
-      nombre: "Seguro del edificio",
-      referencia:
-        "Entre $80.000 y $180.000/mes para edificios de 10-30 unidades",
-      alerta_si: "Supera $220.000 para edificios pequeños o medianos",
-      nota: "Muchos administradores perciben comisión del broker sin declararlo",
-    },
-    {
-      nombre: "Mantenimiento de ascensor",
-      referencia: "Entre $60.000 y $120.000/mes por equipo según marca",
-      alerta_si: "Supera $150.000 por equipo sin justificación",
-      nota: "Contratos cerrados sin licitación son señal de alerta",
-    },
-    {
-      nombre: "Sueldo encargado (SUTERH)",
-      referencia: "Fijado por escala sindical SUTERH vigente",
-      alerta_si: "Discrepancia entre lo declarado y la escala oficial",
-      nota: "Rubro fijo. Variaciones son errores o irregularidades",
-    },
-    {
-      nombre: "Gastos de administración varios",
-      referencia: "No debería superar el 3-5% del total",
-      alerta_si: "Supera el 7% o los ítems no están detallados",
-      nota: "Rubro frecuentemente usado para esconder costos no justificados",
-    },
-    {
-      nombre: "Limpieza y productos",
-      referencia: "Entre $30.000 y $70.000/mes según tamaño del edificio",
-      alerta_si: "Supera $90.000 sin personal propio declarado",
-      nota: "Verificar si hay encargado que ya incluye limpieza",
-    },
-  ],
-};
-
-// ============================================================
 // TYPES
 // ============================================================
 
 interface LeadData {
   nombre: string;
-  localidad: string;
   whatsapp: string;
 }
 
@@ -93,7 +44,8 @@ interface AnalysisResult {
   };
 }
 
-type Step = 1 | 2 | 3 | 4;
+// 1: upload (auto-analiza al subir) · 2: loading · 3: results
+type Step = 1 | 2 | 3;
 
 // ============================================================
 // HELPERS
@@ -178,91 +130,27 @@ function fileToBase64(file: File): Promise<string> {
 
 async function callAnthropic(file: File): Promise<AnalysisResult> {
   const base64 = await fileToBase64(file);
-  const isPdf = file.type === "application/pdf";
-
-  const mediaType = isPdf
-    ? "application/pdf"
-    : (file.type as "image/jpeg" | "image/png" | "image/webp");
-
-  const documentBlock = isPdf
-    ? {
-        type: "document",
-        source: { type: "base64", media_type: mediaType, data: base64 },
-      }
-    : {
-        type: "image",
-        source: { type: "base64", media_type: mediaType, data: base64 },
-      };
-
-  const systemPrompt = `Sos el analizador de expensas de Dominium, empresa de administración de consorcios con base tecnológica en Argentina.
-
-Tu trabajo es analizar liquidaciones de expensas de edificios del AMBA y detectar ítems sospechosos, inflados o sin justificación.
-
-DATOS DE REFERENCIA DEL MERCADO (usá estos únicamente, no inventes otros):
-${JSON.stringify(BENCHMARK_DATA)}
-
-REGLAS:
-1. Identificá todos los rubros presentes en el documento
-2. Para cada rubro determiná si está normal, elevado o es una alerta, usando los benchmarks provistos
-3. Mencioná los montos exactos que ves en el documento
-4. Si no podés leer bien algún rubro, indicalo en items_sin_detalle
-5. No inventes números que no estén en el documento
-6. Usá lenguaje directo, claro, sin tecnicismos
-7. Tono profesional pero cercano — hablás con un propietario frustrado con sus gastos
-8. Si el documento no es una liquidación de expensas, indicalo con es_liquidacion_valida: false
-
-RESPONDÉ ÚNICAMENTE CON JSON PURO. Sin markdown, sin backticks, sin texto antes o después. Solo el objeto JSON:
-
-{
-  "es_liquidacion_valida": boolean,
-  "mensaje_error": string | null,
-  "edificio_detectado": string | null,
-  "periodo": string | null,
-  "total_expensas": number | null,
-  "unidad": string | null,
-  "rubros": [
-    {
-      "nombre": string,
-      "monto": number,
-      "estado": "normal" | "elevado" | "alerta",
-      "comentario": string
-    }
-  ],
-  "items_sin_detalle": [string],
-  "conclusion": {
-    "resumen": string,
-    "ahorro_estimado": string,
-    "principal_problema": string
-  }
-}`;
-
-  const body = {
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 1500,
-    system: systemPrompt,
-    messages: [
-      {
-        role: "user",
-        content: [
-          documentBlock,
-          {
-            type: "text",
-            text: "Analizá esta liquidación de expensas y devolvé el JSON solicitado.",
-          },
-        ],
-      },
-    ],
-  };
+  const mediaType = file.type;
 
   const res = await fetch("/api/analyze", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
+    body: JSON.stringify({ base64, mediaType }),
   });
 
   if (!res.ok) {
-    const err = await res.text();
-    throw new Error(`API error ${res.status}: ${err}`);
+    let errMsg = `API error ${res.status}`;
+    try {
+      const errBody = await res.json();
+      if (errBody?.error) errMsg = errBody.error;
+    } catch {
+      try {
+        errMsg = await res.text();
+      } catch {
+        // Ignorar — usar mensaje por defecto
+      }
+    }
+    throw new Error(errMsg);
   }
 
   const data = await res.json();
@@ -271,162 +159,29 @@ RESPONDÉ ÚNICAMENTE CON JSON PURO. Sin markdown, sin backticks, sin texto ante
   return JSON.parse(text) as AnalysisResult;
 }
 
-// ============================================================
-// STEP 1 — Lead form
-// ============================================================
-
-function Step1Form({ onNext }: { onNext: (lead: LeadData) => void }) {
-  const [nombre, setNombre] = useState("");
-  const [localidad, setLocalidad] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
-
-  const allFilled =
-    nombre.trim() !== "" && localidad.trim() !== "" && whatsapp.trim() !== "";
-
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (!allFilled) return;
-    const lead: LeadData = {
-      nombre: nombre.trim(),
-      localidad: localidad.trim(),
-      whatsapp: whatsapp.trim(),
-    };
-    try {
-      localStorage.setItem("dominium_lead", JSON.stringify(lead));
-    } catch {
-      // localStorage puede no estar disponible en algunos contextos
-    }
-    onNext(lead);
-  }
-
-  const inputClass =
-    "w-full h-[48px] px-4 rounded-lg text-[15px] outline-none transition-all duration-150";
-  const inputStyle = {
-    border: "1.5px solid var(--color-border)",
-    backgroundColor: "white",
-    color: "var(--color-ink)",
-  };
-
-  function handleFocus(e: React.FocusEvent<HTMLInputElement>) {
-    e.currentTarget.style.borderColor = "var(--color-accent)";
-  }
-  function handleBlur(e: React.FocusEvent<HTMLInputElement>) {
-    e.currentTarget.style.borderColor = "var(--color-border)";
-  }
-
+function TrustItem({ label }: { label: string }) {
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <div className="flex flex-col gap-1.5">
-        <label
-          htmlFor="nombre"
-          className="text-[13px] font-medium"
-          style={{ color: "var(--color-ink-secondary)" }}
-        >
-          Tu nombre
-        </label>
-        <input
-          id="nombre"
-          type="text"
-          required
-          placeholder="Tu nombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          className={inputClass}
-          style={inputStyle}
-        />
-      </div>
-
-      <div className="flex flex-col gap-1.5">
-        <label
-          htmlFor="localidad"
-          className="text-[13px] font-medium"
-          style={{ color: "var(--color-ink-secondary)" }}
-        >
-          Localidad
-        </label>
-        <input
-          id="localidad"
-          type="text"
-          required
-          placeholder="Ej: Quilmes, Palermo, Lanús"
-          value={localidad}
-          onChange={(e) => setLocalidad(e.target.value)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          className={inputClass}
-          style={inputStyle}
-        />
-      </div>
-
-      <div className="flex flex-col gap-1.5">
-        <label
-          htmlFor="whatsapp"
-          className="text-[13px] font-medium"
-          style={{ color: "var(--color-ink-secondary)" }}
-        >
-          WhatsApp
-        </label>
-        <input
-          id="whatsapp"
-          type="tel"
-          required
-          placeholder="11 5555-1234"
-          value={whatsapp}
-          onChange={(e) => setWhatsapp(e.target.value)}
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          className={inputClass}
-          style={inputStyle}
-        />
-      </div>
-
-      <button
-        type="submit"
-        disabled={!allFilled}
-        className="h-[52px] rounded-full text-[15px] font-semibold text-white transition-all duration-150 mt-1"
-        style={{
-          backgroundColor: allFilled
-            ? "var(--color-accent)"
-            : "var(--color-border)",
-          cursor: allFilled ? "pointer" : "not-allowed",
-        }}
-        onMouseEnter={(e) => {
-          if (allFilled)
-            e.currentTarget.style.backgroundColor = "var(--color-accent-light)";
-        }}
-        onMouseLeave={(e) => {
-          if (allFilled)
-            e.currentTarget.style.backgroundColor = "var(--color-accent)";
-        }}
-      >
-        Continuar →
-      </button>
-
-      <p
-        className="text-[12px] text-center"
-        style={{ color: "var(--color-ink-tertiary)" }}
-      >
-        Tu información es confidencial. No hacemos spam.
-      </p>
-    </form>
+    <span
+      className="inline-flex items-center gap-1.5 text-[13px]"
+      style={{ color: "var(--color-ink-secondary)" }}
+    >
+      <CheckCircle2 size={14} color="#1A7A4A" aria-hidden="true" />
+      {label}
+    </span>
   );
 }
 
 // ============================================================
-// STEP 2 — File upload
+// STEP 1 — Upload (auto-analiza al subir un archivo válido)
 // ============================================================
 
-interface Step2Props {
+interface Step1Props {
   onNext: (file: File) => void;
 }
 
-function Step2Upload({ onNext }: Step2Props) {
-  const [file, setFile] = useState<File | null>(null);
+function Step1Upload({ onNext }: Step1Props) {
   const [isDragging, setIsDragging] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [preview, setPreview] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   const MAX_SIZE_MB = 10;
@@ -438,7 +193,7 @@ function Step2Upload({ onNext }: Step2Props) {
     "image/webp",
   ];
 
-  function validateAndSet(f: File) {
+  function validateAndSubmit(f: File) {
     setError(null);
     if (!ACCEPTED_TYPES.includes(f.type)) {
       setError("Ese formato no está soportado. Subí un PDF, JPG o PNG.");
@@ -448,13 +203,7 @@ function Step2Upload({ onNext }: Step2Props) {
       setError("El archivo es muy grande. Intentá con uno de menos de 10MB.");
       return;
     }
-    setFile(f);
-    if (f.type.startsWith("image/")) {
-      const url = URL.createObjectURL(f);
-      setPreview(url);
-    } else {
-      setPreview(null);
-    }
+    onNext(f);
   }
 
   function handleDragOver(e: React.DragEvent) {
@@ -468,19 +217,12 @@ function Step2Upload({ onNext }: Step2Props) {
     e.preventDefault();
     setIsDragging(false);
     const f = e.dataTransfer.files[0];
-    if (f) validateAndSet(f);
+    if (f) validateAndSubmit(f);
   }
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     const f = e.target.files?.[0];
-    if (f) validateAndSet(f);
+    if (f) validateAndSubmit(f);
   }
-
-  // Clean up object URL on unmount
-  useEffect(() => {
-    return () => {
-      if (preview) URL.revokeObjectURL(preview);
-    };
-  }, [preview]);
 
   return (
     <div className="flex flex-col gap-5">
@@ -499,110 +241,68 @@ function Step2Upload({ onNext }: Step2Props) {
         </p>
       </div>
 
-      {/* Dropzone */}
+      {/* Trust signals */}
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+        <TrustItem label="100% gratis" />
+        <TrustItem label="Sin registro" />
+        <TrustItem label="Resultado en 60 segundos" />
+      </div>
+
+      {/* Dropzone — click anywhere abre el picker; al elegir archivo arranca el análisis */}
       <div
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
         onDrop={handleDrop}
-        onClick={() => !file && fileRef.current?.click()}
-        className="relative flex flex-col items-center gap-4 rounded-[16px] py-10 px-6 text-center transition-all duration-200"
+        onClick={() => fileRef.current?.click()}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            fileRef.current?.click();
+          }
+        }}
+        className="relative flex flex-col items-center gap-4 rounded-[16px] py-10 px-6 text-center transition-all duration-200 cursor-pointer"
         style={{
           border: isDragging
             ? "2px solid #3B7DD8"
             : "2px dashed var(--color-border)",
           backgroundColor: isDragging ? "var(--color-vero-light)" : "#FAFAF8",
-          cursor: file ? "default" : "pointer",
         }}
         aria-label="Zona de carga de liquidación"
       >
-        {file ? (
-          /* Preview state */
-          <div className="flex flex-col items-center gap-3 w-full">
-            {preview ? (
-              /* Image thumbnail */
-              <div className="w-full max-w-[280px] overflow-hidden rounded-lg border border-[var(--color-border)]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={preview}
-                  alt="Preview de la liquidación"
-                  className="w-full object-contain max-h-[180px]"
-                />
-              </div>
-            ) : (
-              /* PDF icon */
-              <div
-                className="w-14 h-14 rounded-xl flex items-center justify-center"
-                style={{ backgroundColor: "var(--color-accent-glow)" }}
-              >
-                <FileText size={28} color="var(--color-accent)" />
-              </div>
-            )}
-            <p
-              className="text-[14px] font-medium truncate max-w-full px-4"
-              style={{ color: "var(--color-ink)" }}
-            >
-              {file.name}
-            </p>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                setFile(null);
-                setPreview(null);
-                setError(null);
-                if (fileRef.current) fileRef.current.value = "";
-              }}
-              className="text-[13px] transition-colors"
-              style={{ color: "var(--color-ink-tertiary)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--color-destructive)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--color-ink-tertiary)")
-              }
-            >
-              Cambiar archivo
-            </button>
-          </div>
-        ) : (
-          /* Empty state */
-          <>
-            <div
-              className="w-14 h-14 rounded-full flex items-center justify-center"
-              style={{
-                backgroundColor: isDragging
-                  ? "var(--color-vero-light)"
-                  : "var(--color-surface-alt)",
-              }}
-              aria-hidden="true"
-            >
-              <Upload
-                size={24}
-                color={
-                  isDragging
-                    ? "var(--color-vero)"
-                    : "var(--color-ink-secondary)"
-                }
-              />
-            </div>
-            <div>
-              <p
-                className="text-[16px] font-semibold"
-                style={{
-                  color: isDragging ? "var(--color-vero)" : "var(--color-ink)",
-                }}
-              >
-                Arrastrá o tocá para subir
-              </p>
-              <p
-                className="text-[13px] mt-1"
-                style={{ color: "var(--color-ink-tertiary)" }}
-              >
-                {ACCEPTED.join(", ")} · Máximo {MAX_SIZE_MB}MB
-              </p>
-            </div>
-          </>
-        )}
+        <div
+          className="w-14 h-14 rounded-full flex items-center justify-center"
+          style={{
+            backgroundColor: isDragging
+              ? "var(--color-vero-light)"
+              : "var(--color-surface-alt)",
+          }}
+          aria-hidden="true"
+        >
+          <Upload
+            size={24}
+            color={
+              isDragging ? "var(--color-vero)" : "var(--color-ink-secondary)"
+            }
+          />
+        </div>
+        <div>
+          <p
+            className="text-[16px] font-semibold"
+            style={{
+              color: isDragging ? "var(--color-vero)" : "var(--color-ink)",
+            }}
+          >
+            Arrastrá o tocá para analizar
+          </p>
+          <p
+            className="text-[13px] mt-1"
+            style={{ color: "var(--color-ink-tertiary)" }}
+          >
+            {ACCEPTED.join(", ")} · Máximo {MAX_SIZE_MB}MB
+          </p>
+        </div>
 
         <input
           ref={fileRef}
@@ -614,7 +314,6 @@ function Step2Upload({ onNext }: Step2Props) {
         />
       </div>
 
-      {/* Inline error */}
       {error && (
         <p
           className="text-[13px] px-3 py-2 rounded-lg"
@@ -628,36 +327,15 @@ function Step2Upload({ onNext }: Step2Props) {
           {error}
         </p>
       )}
-
-      <button
-        type="button"
-        disabled={!file}
-        onClick={() => file && onNext(file)}
-        className="h-[52px] rounded-full text-[15px] font-semibold text-white transition-all duration-150"
-        style={{
-          backgroundColor: file ? "var(--color-accent)" : "var(--color-border)",
-          cursor: file ? "pointer" : "not-allowed",
-        }}
-        onMouseEnter={(e) => {
-          if (file)
-            e.currentTarget.style.backgroundColor = "var(--color-accent-light)";
-        }}
-        onMouseLeave={(e) => {
-          if (file)
-            e.currentTarget.style.backgroundColor = "var(--color-accent)";
-        }}
-      >
-        Analizar mis expensas →
-      </button>
     </div>
   );
 }
 
 // ============================================================
-// STEP 3 — Loading
+// STEP 2 — Loading
 // ============================================================
 
-function Step3Loading() {
+function Step2Loading() {
   const [msgIndex, setMsgIndex] = useState(0);
 
   useEffect(() => {
@@ -669,7 +347,6 @@ function Step3Loading() {
 
   return (
     <div className="flex flex-col items-center gap-6 py-6">
-      {/* Pulsing Vero circle */}
       <div
         className="w-16 h-16 rounded-full flex items-center justify-center"
         style={{
@@ -697,7 +374,6 @@ function Step3Loading() {
         </p>
       </div>
 
-      {/* Indeterminate bar */}
       <div
         className="w-full max-w-xs overflow-hidden rounded-full"
         style={{ height: "3px", backgroundColor: "var(--color-border)" }}
@@ -725,16 +401,209 @@ function Step3Loading() {
 }
 
 // ============================================================
-// STEP 4 — Results
+// LEAD CAPTURE FORM (inline, dentro de los resultados)
 // ============================================================
 
-interface Step4Props {
+interface LeadCaptureFormProps {
   result: AnalysisResult;
-  lead: LeadData;
+}
+
+function LeadCaptureForm({ result }: LeadCaptureFormProps) {
+  const [nombre, setNombre] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+  const [status, setStatus] = useState<"form" | "success" | "error">("form");
+
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    if (submitting) return;
+    if (!nombre.trim() || !whatsapp.trim()) return;
+
+    setSubmitting(true);
+    const lead: LeadData = {
+      nombre: nombre.trim(),
+      whatsapp: whatsapp.trim(),
+    };
+
+    try {
+      const res = await fetch("/api/notify-analysis", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ lead, result }),
+      });
+      if (!res.ok) throw new Error("notify failed");
+      setStatus("success");
+    } catch {
+      setStatus("error");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
+  if (status === "success") {
+    return (
+      <div
+        className="rounded-xl p-5 flex flex-col gap-2"
+        style={{
+          backgroundColor: "var(--color-vero-light)",
+          border: "1.5px solid var(--color-vero)",
+        }}
+      >
+        <p
+          className="text-[15px] font-semibold"
+          style={{ color: "var(--color-ink)" }}
+        >
+          ✓ Listo, te contactamos pronto
+        </p>
+        <p
+          className="text-[13px]"
+          style={{ color: "var(--color-ink-secondary)" }}
+        >
+          En las próximas horas hábiles te escribimos por WhatsApp para repasar
+          tu informe y ver cómo podrías ahorrar.
+        </p>
+        <a
+          href="https://wa.me/5491136520670"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[13px] font-semibold mt-1 self-start"
+          style={{ color: "var(--color-accent)" }}
+        >
+          También podés escribirnos directo →
+        </a>
+      </div>
+    );
+  }
+
+  const canSubmit =
+    nombre.trim() !== "" && whatsapp.trim() !== "" && !submitting;
+
+  const inputStyle = {
+    border: "1.5px solid var(--color-border)",
+    backgroundColor: "white",
+    color: "var(--color-ink)",
+  };
+
+  return (
+    <form
+      onSubmit={handleSubmit}
+      className="rounded-xl p-5 flex flex-col gap-3"
+      style={{
+        backgroundColor: "var(--color-surface-alt)",
+        border: "1px solid var(--color-border)",
+      }}
+    >
+      <div>
+        <p
+          className="text-[15px] font-semibold"
+          style={{ color: "var(--color-ink)" }}
+        >
+          ¿Querés que un asesor te explique tu informe?
+        </p>
+        <p
+          className="text-[13px] mt-1"
+          style={{ color: "var(--color-ink-secondary)" }}
+        >
+          Te llamamos por WhatsApp en horario hábil para revisar cada rubro y
+          ver cómo podrías ahorrar.
+        </p>
+      </div>
+
+      <input
+        type="text"
+        required
+        placeholder="Tu nombre"
+        value={nombre}
+        onChange={(e) => setNombre(e.target.value)}
+        className="w-full h-[44px] px-3 rounded-lg text-[14px] outline-none transition-all duration-150"
+        style={inputStyle}
+        onFocus={(e) =>
+          (e.currentTarget.style.borderColor = "var(--color-accent)")
+        }
+        onBlur={(e) =>
+          (e.currentTarget.style.borderColor = "var(--color-border)")
+        }
+        disabled={submitting}
+      />
+
+      <input
+        type="tel"
+        required
+        placeholder="WhatsApp (ej: 11 5555-1234)"
+        value={whatsapp}
+        onChange={(e) => setWhatsapp(e.target.value)}
+        className="w-full h-[44px] px-3 rounded-lg text-[14px] outline-none transition-all duration-150"
+        style={inputStyle}
+        onFocus={(e) =>
+          (e.currentTarget.style.borderColor = "var(--color-accent)")
+        }
+        onBlur={(e) =>
+          (e.currentTarget.style.borderColor = "var(--color-border)")
+        }
+        disabled={submitting}
+      />
+
+      {status === "error" && (
+        <p
+          className="text-[12px]"
+          style={{ color: "var(--color-destructive)" }}
+          role="alert"
+        >
+          Hubo un problema al enviar. Intentá de nuevo o escribinos directo a{" "}
+          <a
+            href="https://wa.me/5491136520670"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{ textDecoration: "underline" }}
+          >
+            WhatsApp
+          </a>
+          .
+        </p>
+      )}
+
+      <button
+        type="submit"
+        disabled={!canSubmit}
+        className="h-[48px] rounded-full text-[14px] font-semibold text-white transition-all duration-150 mt-1"
+        style={{
+          backgroundColor: canSubmit
+            ? "var(--color-accent)"
+            : "var(--color-border)",
+          cursor: canSubmit ? "pointer" : "not-allowed",
+        }}
+        onMouseEnter={(e) => {
+          if (canSubmit)
+            e.currentTarget.style.backgroundColor = "var(--color-accent-light)";
+        }}
+        onMouseLeave={(e) => {
+          if (canSubmit)
+            e.currentTarget.style.backgroundColor = "var(--color-accent)";
+        }}
+      >
+        {submitting ? "Enviando..." : "Que me llamen →"}
+      </button>
+
+      <p
+        className="text-[11px] text-center"
+        style={{ color: "var(--color-ink-tertiary)" }}
+      >
+        Tu información es confidencial. No hacemos spam.
+      </p>
+    </form>
+  );
+}
+
+// ============================================================
+// STEP 3 — Results
+// ============================================================
+
+interface Step3Props {
+  result: AnalysisResult;
   onRetry: () => void;
 }
 
-function Step4Results({ result, lead, onRetry }: Step4Props) {
+function Step3Results({ result, onRetry }: Step3Props) {
   const [rowsVisible, setRowsVisible] = useState(false);
 
   useEffect(() => {
@@ -812,12 +681,6 @@ function Step4Results({ result, lead, onRetry }: Step4Props) {
           {[result.edificio_detectado, result.periodo]
             .filter(Boolean)
             .join(" · ")}
-        </p>
-        <p
-          className="text-[13px] mt-0.5"
-          style={{ color: "var(--color-ink-secondary)" }}
-        >
-          Informe para {lead.nombre}
         </p>
         {result.total_expensas !== null && (
           <p
@@ -1045,7 +908,7 @@ function Step4Results({ result, lead, onRetry }: Step4Props) {
         </div>
       </div>
 
-      {/* CTA WhatsApp */}
+      {/* WhatsApp share */}
       <div
         className="flex flex-col gap-3"
         style={{
@@ -1080,42 +943,16 @@ function Step4Results({ result, lead, onRetry }: Step4Props) {
           Se abre WhatsApp con el informe listo para compartir en tu grupo de
           consorcio.
         </p>
+      </div>
 
-        {/* Divider */}
-        <div
-          className="my-1"
-          style={{ height: "1px", backgroundColor: "var(--color-border)" }}
-          aria-hidden="true"
-        />
-
-        <div className="flex flex-col items-center gap-3">
-          <p
-            className="text-[14px] text-center"
-            style={{ color: "var(--color-ink-secondary)" }}
-          >
-            ¿Querés que te llamemos para explicarte el informe?
-          </p>
-          <a
-            href="https://wa.me/5491136520670"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 h-[48px] px-6 rounded-full text-[14px] font-semibold transition-all duration-150"
-            style={{
-              border: "1.5px solid var(--color-accent)",
-              color: "var(--color-accent)",
-              backgroundColor: "transparent",
-            }}
-            onMouseEnter={(e) =>
-              (e.currentTarget.style.backgroundColor =
-                "var(--color-accent-glow)")
-            }
-            onMouseLeave={(e) =>
-              (e.currentTarget.style.backgroundColor = "transparent")
-            }
-          >
-            Hablar con un asesor →
-          </a>
-        </div>
+      {/* Lead capture form */}
+      <div
+        style={{
+          opacity: rowsVisible ? 1 : 0,
+          transition: "opacity 0.4s ease 0.75s",
+        }}
+      >
+        <LeadCaptureForm result={result} />
       </div>
 
       {/* Retry */}
@@ -1152,7 +989,6 @@ function Step4Results({ result, lead, onRetry }: Step4Props) {
 
 export default function Analizador() {
   const [step, setStep] = useState<Step>(1);
-  const [lead, setLead] = useState<LeadData | null>(null);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
 
@@ -1174,14 +1010,9 @@ export default function Analizador() {
     return () => observer.disconnect();
   }, []);
 
-  function handleLeadNext(l: LeadData) {
-    setLead(l);
-    setStep(2);
-  }
-
   const handleFileNext = useCallback(async (file: File) => {
     setApiError(null);
-    setStep(3);
+    setStep(2);
 
     async function attempt(): Promise<AnalysisResult> {
       return callAnthropic(file);
@@ -1197,42 +1028,25 @@ export default function Analizador() {
       } catch (err2) {
         const msg = err2 instanceof Error ? err2.message : "Error desconocido";
         setApiError(`Hubo un problema al analizar. Intentá de nuevo. (${msg})`);
-        setStep(2);
+        setStep(1);
         return;
       }
     }
 
-    if (!res.es_liquidacion_valida) {
-      // Mostrar error de validación inline en step 4 con opción de volver
-      setResult(res);
-      setStep(4);
-      return;
-    }
-
-    // Fire-and-forget: notificar al equipo por email. No bloquea la UX si falla.
-    if (lead) {
-      fetch("/api/notify-analysis", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lead, result: res }),
-      }).catch(() => {});
-    }
-
     setResult(res);
-    setStep(4);
-  }, [lead]);
+    setStep(3);
+  }, []);
 
   function handleRetry() {
     setResult(null);
     setApiError(null);
-    setStep(2);
+    setStep(1);
   }
 
   const stepTitle: Record<Step, string> = {
-    1: "Antes de empezar",
-    2: "Tu liquidación",
-    3: "",
-    4: "Tu informe",
+    1: "Analizá tus expensas",
+    2: "",
+    3: "Tu informe",
   };
 
   return (
@@ -1293,7 +1107,7 @@ export default function Analizador() {
           }}
         >
           {/* Card header with step indicator */}
-          {step !== 3 && (
+          {step !== 2 && (
             <div
               className="px-6 pt-6 pb-4 flex items-center justify-between"
               style={{ borderBottom: "1px solid var(--color-border)" }}
@@ -1311,7 +1125,7 @@ export default function Analizador() {
               </div>
               {/* Step dots */}
               <div className="flex items-center gap-1.5">
-                {([1, 2, 3, 4] as Step[]).map((s) => (
+                {([1, 2, 3] as Step[]).map((s) => (
                   <div
                     key={s}
                     className="rounded-full transition-all duration-300"
@@ -1328,7 +1142,7 @@ export default function Analizador() {
             </div>
           )}
 
-          <div className={step === 3 ? "p-8 md:p-10" : "p-6 md:p-8"}>
+          <div className={step === 2 ? "p-8 md:p-10" : "p-6 md:p-8"}>
             {/* Error banner for API errors */}
             {apiError && (
               <div
@@ -1344,13 +1158,11 @@ export default function Analizador() {
               </div>
             )}
 
-            {step === 1 && <Step1Form onNext={handleLeadNext} />}
+            {step === 1 && <Step1Upload onNext={handleFileNext} />}
 
-            {step === 2 && <Step2Upload onNext={handleFileNext} />}
+            {step === 2 && <Step2Loading />}
 
-            {step === 3 && <Step3Loading />}
-
-            {step === 4 && result && (
+            {step === 3 && result && (
               <>
                 {!result.es_liquidacion_valida ? (
                   /* Invalid document — show error + back button */
@@ -1392,11 +1204,7 @@ export default function Analizador() {
                     </button>
                   </div>
                 ) : (
-                  <Step4Results
-                    result={result}
-                    lead={lead!}
-                    onRetry={handleRetry}
-                  />
+                  <Step3Results result={result} onRetry={handleRetry} />
                 )}
               </>
             )}
@@ -1406,21 +1214,3 @@ export default function Analizador() {
     </section>
   );
 }
-
-/*
- * SUPUESTOS ASUMIDOS:
- * 1. La API de Anthropic soporta acceso directo desde el browser con el header
- *    `anthropic-dangerous-direct-browser-access: true`. En producción, esto
- *    debería pasar por un backend proxy para no exponer la API key.
- * 2. El número de WhatsApp del asesor (`wa.me/5491100000000`) es un placeholder;
- *    reemplazar con el número real antes de producción.
- * 3. El componente reutiliza el nombre de exportación `default function Analizador`
- *    para no romper el import en `app/page.tsx`.
- * 4. `localStorage` puede no estar disponible en SSR; el acceso está envuelto en try/catch.
- * 5. Las imágenes muy grandes (>10MB pero leídas como base64) pueden superar límites
- *    de tokens del modelo; el límite de 10MB en el input mitiga esto parcialmente.
- * 6. El reintentar silencioso ante JSON inválido solo lo hace una vez para no entrar
- *    en loop y consumir créditos de API innecesariamente.
- * 7. El modelo `claude-sonnet-4-20250514` puede no estar disponible en todas las
- *    regiones; considerar fallback a `claude-3-5-sonnet-20241022` si aparece error 404.
- */

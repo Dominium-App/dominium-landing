@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 
 interface LeadData {
   nombre: string
-  localidad: string
+  localidad?: string
   whatsapp: string
 }
 
@@ -84,7 +84,7 @@ function buildHtml(lead: LeadData, result: AnalysisResult): string {
     <div style="padding:20px 24px;border-bottom:1px solid #eaeaea;">
       <p style="margin:0 0 12px;font-size:12px;font-weight:600;text-transform:uppercase;color:#666;">Datos del contacto</p>
       <p style="margin:4px 0;font-size:15px;"><strong>${escapeHtml(lead.nombre)}</strong></p>
-      <p style="margin:4px 0;font-size:14px;color:#555;">${escapeHtml(lead.localidad)}</p>
+      ${lead.localidad ? `<p style="margin:4px 0;font-size:14px;color:#555;">${escapeHtml(lead.localidad)}</p>` : ''}
       <p style="margin:4px 0;font-size:14px;">
         <a href="https://wa.me/${waDigits}" style="color:#25D366;text-decoration:none;font-weight:600;">WhatsApp: ${escapeHtml(lead.whatsapp)}</a>
       </p>
@@ -132,7 +132,9 @@ export async function POST(req: NextRequest) {
   }
 
   const to = process.env.NOTIFICATION_EMAIL ?? 'hola@dominium.com.ar'
-  const subject = `Nuevo análisis — ${lead.nombre} · ${lead.localidad}`
+  const subject = lead.localidad
+    ? `Nuevo análisis — ${lead.nombre} · ${lead.localidad}`
+    : `Nuevo análisis — ${lead.nombre}`
 
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
