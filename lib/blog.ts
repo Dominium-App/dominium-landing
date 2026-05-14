@@ -1008,6 +1008,245 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'como-leer-liquidacion-expensas-caba-partida-por-partida',
+    title: 'Cómo leer la liquidación de expensas de tu edificio en CABA: partida por partida',
+    excerpt:
+      'La mayoría de los propietarios va directo al número final de la liquidación y nunca lee el detalle. Esta guía explica qué significa cada partida, qué números podés verificar y dónde aparecen las irregularidades más frecuentes.',
+    hub: 'Expensas',
+    date: '2026-05-13',
+    readingMinutes: 9,
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'La liquidación de expensas llega todos los meses y la mayoría de los propietarios hace siempre lo mismo: van directo al número final, ven cuánto tienen que pagar y listo. El detalle de adentro no lo lee casi nadie.',
+      },
+      {
+        type: 'p',
+        text: 'Eso es exactamente lo que hace que sea tan fácil cobrar de más sin que nadie lo note.',
+      },
+      {
+        type: 'p',
+        text: 'Esta guía te explica qué significa cada partida de una liquidación típica de un edificio en CABA, qué números podés verificar vos mismo y dónde están los puntos donde más frecuentemente aparecen irregularidades.',
+      },
+      {
+        type: 'h2',
+        id: 'estructura-basica',
+        text: 'La estructura básica de una liquidación',
+      },
+      {
+        type: 'p',
+        text: 'Una liquidación de expensas es, en esencia, un estado de resultados del consorcio para el período. Tiene ingresos, tiene egresos y tiene un saldo. Lo que varía entre administradores es el nivel de detalle con el que presentan cada uno de esos bloques.',
+      },
+      {
+        type: 'p',
+        text: 'Una liquidación bien hecha tiene tres secciones claramente separadas:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '**Ingresos del período:** lo que entró a la cuenta del consorcio',
+          '**Egresos del período:** lo que salió, desglosado por rubro',
+          '**Estado de fondos:** el saldo inicial, los movimientos y el saldo final',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Si la liquidación que recibís no tiene esa estructura o mezcla todo en una sola columna de números sin separación, ahí hay un problema de transparencia.',
+      },
+      {
+        type: 'h2',
+        id: 'ingresos',
+        text: 'Los ingresos: lo que debería entrar',
+      },
+      {
+        type: 'p',
+        text: 'El ingreso principal es la recaudación de expensas del período. En un edificio sin morosidad, ese número debería coincidir con la suma de las expensas individuales de todas las unidades. Si hay diferencia, tiene que estar explicada —por mora de alguna unidad, por unidades exentas según el reglamento, o por cualquier otra razón documentada.',
+      },
+      {
+        type: 'p',
+        text: 'Otros ingresos que pueden aparecer:',
+      },
+      {
+        type: 'p',
+        text: '**Intereses por mora.** Cuando algún propietario paga tarde, el reglamento suele establecer un interés punitorio. Ese dinero entra al consorcio, no al administrador. Si aparecen intereses cobrados pero no aparecen en el estado de fondos como ingreso, hay una diferencia que explicar.',
+      },
+      {
+        type: 'p',
+        text: '**Rendimientos del fondo de reserva.** Si el consorcio tiene fondo de reserva invertido en algún instrumento financiero, los rendimientos tienen que aparecer como ingreso. Si el fondo existe pero nunca genera rendimientos, la pregunta es dónde está depositado y por qué no rinde nada.',
+      },
+      {
+        type: 'p',
+        text: '**Recuperos de seguros.** Si hubo un siniestro y la aseguradora pagó algo, ese ingreso tiene que aparecer en la liquidación del período correspondiente.',
+      },
+      {
+        type: 'h2',
+        id: 'egresos',
+        text: 'Los egresos: donde está el detalle que importa',
+      },
+      {
+        type: 'p',
+        text: 'Acá es donde la mayoría de las liquidaciones se ponen vagas. Te explicamos cada rubro y qué checar en cada uno.',
+      },
+      {
+        type: 'h3',
+        id: 'sueldo-encargado',
+        text: 'Sueldo del encargado',
+      },
+      {
+        type: 'p',
+        text: 'Es típicamente el egreso más grande en edificios con encargado permanente, y el más fácil de verificar de manera independiente.',
+      },
+      {
+        type: 'p',
+        text: 'El sueldo básico del encargado está fijado por la escala del **SUTERH** (Sindicato Único de Trabajadores de Edificios de Renta y Horizontal), que se actualiza después de cada paritaria. La escala es pública y podés consultarla en el sitio del SUTERH. Lo que aparece en la liquidación tiene que coincidir con la categoría del encargado de tu edificio —encargado permanente con vivienda, sin vivienda, encargado no permanente, etc.',
+      },
+      {
+        type: 'p',
+        text: 'Además del básico, la liquidación debería mostrar por separado:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Adicional por antigüedad',
+          'Horas extra si las hubo',
+          'Adicional por vivienda si el encargado vive en el edificio',
+          'Sueldo anual complementario (SAC) prorrateado mes a mes o en junio y diciembre',
+          'Aportes y contribuciones patronales',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Si todos esos ítems aparecen sumados en un solo número sin desglose, no podés verificar si el cálculo es correcto.',
+      },
+      {
+        type: 'h3',
+        id: 'servicios',
+        text: 'Servicios: Aysa, Edesur o Edenor, Metrogas',
+      },
+      {
+        type: 'p',
+        text: 'Estos son los más fáciles de cruzar porque las facturas son digitales y cualquier propietario puede pedirle al administrador que las muestre. El importe que figura en la liquidación tiene que coincidir con el importe de la factura del período.',
+      },
+      {
+        type: 'p',
+        text: 'Un detalle que muy poca gente nota: en algunos edificios de CABA el medidor de gas o de agua de las partes comunes está a nombre del administrador, no del consorcio, lo cual representa una anomalía administrativa y fiscal, ya que el consorcio es una persona jurídica con patrimonio y CUIT propios facultada para ser titular de sus suministros. Esta práctica afecta la trazabilidad de los pagos, que deben realizarse desde la cuenta bancaria del consorcio.',
+      },
+      {
+        type: 'h3',
+        id: 'ascensores',
+        text: 'Mantenimiento de ascensores',
+      },
+      {
+        type: 'p',
+        text: 'En edificios con ascensor en CABA, el contrato de mantenimiento es uno de los gastos fijos más importantes después del encargado. La liquidación tiene que mostrar el nombre de la empresa, el importe del contrato y —esto es lo que casi nunca aparece— la fecha de vencimiento del contrato vigente.',
+      },
+      {
+        type: 'p',
+        text: '¿Por qué importa la fecha de vencimiento? Porque cuando vence el contrato es el momento en que el administrador puede renovarlo con la misma empresa sin licitación, muchas veces con aumento. Si no sabés cuándo vence, no podés pedir que se llamen nuevos presupuestos antes de la renovación.',
+      },
+      {
+        type: 'h3',
+        id: 'seguros-egreso',
+        text: 'Seguros',
+      },
+      {
+        type: 'p',
+        text: 'La liquidación tiene que mostrar por lo menos: nombre de la compañía aseguradora, número de póliza, tipo y detalle de cobertura, y fecha de vencimiento. El seguro de incendio y el seguro de responsabilidad civil son obligatorios por ley.',
+      },
+      {
+        type: 'p',
+        text: 'Si el seguro vence y se renueva automáticamente sin que la asamblea haya aprobado la renovación ni el monto asegurado, es una decisión de gestión que quedó fuera del control del consorcio. En un contexto inflacionario, un edificio asegurado por el mismo valor nominal que hace tres años está efectivamente subasegurado.',
+      },
+      {
+        type: 'h3',
+        id: 'honorarios-administrador',
+        text: 'Honorarios del administrador',
+      },
+      {
+        type: 'p',
+        text: 'Este es el rubro que más preguntas genera y el que más frecuentemente se actualiza sin que los propietarios lo noten.',
+      },
+      {
+        type: 'p',
+        text: 'La liquidación tiene que mostrar la base de cálculo: si los honorarios son un porcentaje de la recaudación total de expensas, ese porcentaje tiene que estar explícito. Si son un monto fijo actualizado por algún índice, tiene que aparecer el índice y el período de aplicación.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que vemos repetidamente en edificios de Almagro, Villa Urquiza y Flores es que los honorarios crecen mes a mes de manera proporcional al crecimiento de las expensas totales, porque están calculados como porcentaje de la recaudación. Eso significa que cada vez que sube el sueldo del encargado o la tarifa de Aysa, los honorarios del administrador también suben automáticamente —sin que ninguna asamblea lo haya aprobado explícitamente. No es necesariamente ilegal si el reglamento lo prevé, pero es algo que el consorcio debería entender y decidir conscientemente.',
+      },
+      {
+        type: 'h3',
+        id: 'gastos-administracion-varios',
+        text: 'Gastos de administración y varios',
+      },
+      {
+        type: 'p',
+        text: 'Este es el rubro más opaco de cualquier liquidación y el que merece más atención. Bajo este ítem pueden aparecer: gastos de librería, franqueo, honorarios de gestión extraordinaria, gastos de cobranza, comisiones bancarias y decenas de otros conceptos.',
+      },
+      {
+        type: 'p',
+        text: 'El problema no es que existan esos gastos: el problema es cuando representan un porcentaje significativo del total sin ningún detalle. Si "gastos varios" es el segundo o tercer egreso más grande de tu liquidación, tenés todo el derecho de pedir el detalle ítem por ítem.',
+      },
+      {
+        type: 'h2',
+        id: 'estado-de-fondos-final',
+        text: 'El estado de fondos: el número que más se ignora',
+      },
+      {
+        type: 'p',
+        text: 'Al final de la liquidación tiene que aparecer el saldo de la cuenta bancaria del consorcio al inicio y al final del período, y la variación explicada por los ingresos y egresos del mes.',
+      },
+      {
+        type: 'p',
+        text: 'Si el saldo final de un mes no coincide con el saldo inicial del mes siguiente, hay una diferencia que tiene que estar explicada. Puede ser una transferencia entre cuentas, un depósito en plazo fijo o cualquier otra operación legítima —pero tiene que estar documentada y visible.',
+      },
+      {
+        type: 'p',
+        text: 'Si tu edificio tiene fondo de reserva, tiene que aparecer con su propio saldo separado del saldo operativo. Los dos fondos no deberían mezclarse.',
+      },
+      {
+        type: 'h2',
+        id: 'tres-preguntas',
+        text: 'Tres preguntas para hacerle a tu liquidación este mes',
+      },
+      {
+        type: 'p',
+        text: 'Si nunca revisaste una liquidación en detalle y no sabés por dónde empezar, arrancá con estas tres:',
+      },
+      {
+        type: 'p',
+        text: '**¿El sueldo del encargado coincide con la escala SUTERH vigente para su categoría?** Buscá la escala en el sitio del SUTERH, identificá la categoría de tu encargado y comparala con el básico que figura en la liquidación.',
+      },
+      {
+        type: 'p',
+        text: '**¿Los honorarios del administrador tienen base de cálculo explícita?** Si dicen solamente "$X" sin explicar cómo se llegó a ese número, pedí la explicación por escrito.',
+      },
+      {
+        type: 'p',
+        text: '**¿El saldo final de este mes coincide con el saldo inicial de la liquidación del mes que viene?** Si tenés liquidaciones de dos meses consecutivos, cruzá ese número. Una discrepancia sin explicación es la señal de alerta más directa que existe.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Tengo derecho a pedir las facturas originales de los gastos que aparecen en la liquidación?',
+        a: 'Sí. La documentación de respaldo de cada gasto del consorcio es documentación del consorcio, no del administrador. Cualquier propietario puede solicitarla por escrito o consultarla de manera digital. Si el administrador se niega a mostrarla, ese rechazo es en sí mismo una infracción a la Ley 941 denunciable ante la DGDyPC.',
+      },
+      {
+        q: '¿Qué hago si encuentro una diferencia entre lo que dice la liquidación y lo que dice la factura de un servicio?',
+        a: 'Documentá la diferencia con capturas o copias de ambos documentos y pedí explicación por escrito al administrador. Si la diferencia es sistemática o no tiene explicación razonable, es la base de una denuncia ante la DGDyPC. No resolvás esto de manera informal: el registro escrito es lo que da valor probatorio al reclamo.',
+      },
+      {
+        q: '¿El administrador puede cobrar honorarios extra por gestiones que no estaban en el contrato original?',
+        a: 'Solo si la asamblea lo aprobó. Los honorarios adicionales por gestiones extraordinarias —tramitación de seguros, gestión de obras, cobranza judicial— tienen que estar previstos en el contrato con el administrador o aprobados en asamblea. Si aparecen en la liquidación sin ese respaldo, son cobros que el consorcio puede cuestionar.',
+      },
+      {
+        q: '¿Con qué frecuencia debería revisar la liquidación?',
+        a: 'Todos los meses, aunque sea una revisión rápida de los tres números clave: total de egresos vs. mes anterior, honorarios del administrador y saldo final. Una revisión profunda —cruzando facturas y chequeando el SUTERH— conviene hacerla al menos una vez por año, idealmente antes de la asamblea ordinaria donde se aprueba la rendición de cuentas.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
