@@ -25,7 +25,6 @@ export type Article = {
   excerpt: string
   hub: Hub
   date: string
-  readingMinutes: number
   ctaType: CtaType
   content: ContentBlock[]
   faqs?: FaqItem[]
@@ -75,7 +74,6 @@ export const articles: Article[] = [
       'Un edificio de 18 unidades en Villa Crespo llevaba tres años con el fondo de reserva sin movimiento documentado. Esta guía documenta los pasos reales.',
     hub: 'Cambiar administrador',
     date: '2026-04-21',
-    readingMinutes: 9,
     ctaType: 'champion',
     content: [
       {
@@ -265,7 +263,6 @@ export const articles: Article[] = [
       'De cada 10 reclamos a la DGDyPC por administración de consorcios en CABA, más de la mitad corresponden a falta de rendición de cuentas. Cómo distinguir incompetencia real de gestión normal imperfecta.',
     hub: 'Ley 941',
     date: '2026-04-22',
-    readingMinutes: 8,
     ctaType: 'analizador',
     content: [
       {
@@ -428,7 +425,6 @@ export const articles: Article[] = [
       'En muchos consorcios de Caballito, Palermo o Belgrano, el freno no es la falta de voluntad: es que nadie sabe exactamente cómo se convoca una asamblea extraordinaria de manera válida.',
     hub: 'Cambiar administrador',
     date: '2026-05-05',
-    readingMinutes: 7,
     ctaType: 'champion',
     content: [
       {
@@ -567,7 +563,6 @@ export const articles: Article[] = [
       'La asamblea aprobó el cambio, pero el administrador removido sigue firmando contratos y cobrando honorarios. La carta documento es el acto jurídico que produce el cese efectivo: modelo, plazos y los errores que la dejan sin valor.',
     hub: 'Cambiar administrador',
     date: '2026-05-08',
-    readingMinutes: 9,
     ctaType: 'champion',
     content: [
       {
@@ -791,7 +786,6 @@ export const articles: Article[] = [
       'El rubro "honorarios del administrador" subió por encima del IPC en muchos edificios de CABA. Cómo entender la liquidación, auditarla en serio y reclamar lo que corresponde.',
     hub: 'Expensas',
     date: '2026-05-12',
-    readingMinutes: 11,
     ctaType: 'analizador',
     content: [
       {
@@ -1015,7 +1009,6 @@ export const articles: Article[] = [
       'La mayoría de los propietarios va directo al número final de la liquidación y nunca lee el detalle. Esta guía explica qué significa cada partida, qué números podés verificar y dónde aparecen las irregularidades más frecuentes.',
     hub: 'Expensas',
     date: '2026-05-13',
-    readingMinutes: 9,
     ctaType: 'analizador',
     content: [
       {

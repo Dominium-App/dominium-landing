@@ -5,7 +5,7 @@ import { type Article, HUB_COLORS, formatDate, readingMinutesFromContent } from 
 
 export default function ArticleCard({ article }: { article: Article }) {
   const hubColors = HUB_COLORS[article.hub]
-  const minutes = readingMinutesFromContent(article.content) || article.readingMinutes
+  const minutes = readingMinutesFromContent(article.content)
 
   return (
     <Link

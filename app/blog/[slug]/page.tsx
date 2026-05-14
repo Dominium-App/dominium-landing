@@ -71,7 +71,7 @@ export default async function ArticlePage({ params }: PageProps) {
   if (!article) notFound()
 
   const headings = extractHeadings(article.content)
-  const minutes = readingMinutesFromContent(article.content) || article.readingMinutes
+  const minutes = readingMinutesFromContent(article.content)
   const related = getRelatedArticles(article.slug, article.hub)
   const hubColors = HUB_COLORS[article.hub]
 
