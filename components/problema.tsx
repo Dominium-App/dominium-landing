@@ -31,7 +31,7 @@ const stats = [
   {
     value: 15,
     display: (n: number) => `${n}`,
-    label: 'edificios que maneja un administrador tradicional. Dominium: 200+',
+    label: 'edificios maneja en promedio un administrador tradicional — sin escalar con tecnología',
   },
   {
     value: 0,

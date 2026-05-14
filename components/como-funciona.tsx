@@ -12,12 +12,12 @@ const cards = [
   {
     Icon: Bot,
     title: 'Vero trabaja por vos',
-    body: 'Nuestra IA gestiona reclamos, proveedores y comunicaciones 24/7. El 80% de los tickets se resuelven sin intervención humana.',
+    body: 'Nuestra IA analiza liquidaciones, audita proveedores y responde consultas 24/7. Lo que un administrador hace en una semana, en minutos.',
   },
   {
     Icon: TrendingDown,
-    title: 'Ahorro Real',
-    body: 'Detectamos ineficiencias sistémicas y las eliminamos. El ahorro promedio en los primeros 6 meses es del 18% en gastos variables.',
+    title: 'Reducción de gastos',
+    body: 'Auditamos cada proveedor, eliminamos comisiones ocultas y optimizamos el fondo de reserva. El ahorro depende del estado de cada consorcio.',
   },
 ]
 

@@ -8,9 +8,9 @@ import { articles } from '@/lib/blog'
 const SITE_URL = 'https://dominium.com.ar'
 
 export const metadata: Metadata = {
-  title: 'Blog — Guías sobre consorcios, expensas y administración',
+  title: 'Blog: cambiar administrador, auditar expensas y Ley 941 (2026)',
   description:
-    'Guías prácticas sobre cambio de administrador, auditoría de expensas, Ley 941 y derechos del consorcista. Normativa CABA y GBA explicada sin lenguaje de abogado.',
+    'Guías prácticas paso a paso sobre cambio de administrador, auditoría de expensas, Ley 941 y derechos del consorcista. CABA y GBA explicado sin lenguaje de abogado.',
   alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Blog Dominium — Todo lo que necesitás saber sobre tu consorcio',
@@ -57,6 +57,53 @@ const blogJsonLd = {
   })),
 }
 
+const blogFaqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: '¿Cómo cambio de administrador de consorcio en CABA?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'En CABA, el cambio se rige por la Ley 941 y el Código Civil y Comercial. Los pasos esenciales son: (1) convocar asamblea extraordinaria con los plazos legales, (2) alcanzar el quórum y la mayoría exigidos por el reglamento, (3) labrar el acta y notificar al administrador removido, (4) si el administrador removido se niega al traspaso, enviar carta documento. Tenemos una guía completa paso a paso.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Cómo audito las expensas de mi edificio?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Podés auditarlas en tres niveles: (1) revisión manual contrastando rubros con facturas, (2) comparación con edificios similares del barrio usando nuestra calculadora, (3) análisis con IA partida por partida usando Vero, nuestro analizador. El tercer método es gratis, sin registro y devuelve resultados en menos de 60 segundos.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué obligaciones tiene el administrador según la Ley 941?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'La Ley 941 obliga al administrador inscripto en el RPA a: rendir cuentas documentadas, dar acceso a facturas a los copropietarios, convocar asambleas anuales, mantener al día el libro de actas y el fondo de reserva, contratar seguros vigentes y proveedores en regla. El incumplimiento puede derivar en multas y suspensión por parte de la DGDyPC.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿Qué hacer si el administrador no responde o no muestra facturas?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'El acceso a facturas es un derecho del consorcista según Ley 941. Si el administrador no responde por escrito, podés: (1) labrar nota formal con acuse de recibo, (2) llevar el tema a asamblea, (3) hacer denuncia en la DGDyPC. Si la situación es estructural, conviene evaluar el cambio de administrador.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: '¿En qué se diferencia un administrador con IA de uno tradicional?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Un administrador con IA puede auditar liquidaciones, detectar sobreprecios y procesar consultas en tiempo real, sin depender de horarios humanos. Un administrador tradicional opera con Excel y mail, sin trazabilidad automática. La diferencia clave es transparencia: acceso 24/7 a cada peso del consorcio vs. depender de un pedido formal.',
+      },
+    },
+  ],
+}
+
 export default function BlogIndexPage() {
   return (
     <>
@@ -67,6 +114,10 @@ export default function BlogIndexPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(blogJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogFaqJsonLd) }}
       />
       <main>
         <Navigation />

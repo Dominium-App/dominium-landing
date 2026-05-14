@@ -28,6 +28,10 @@ export type Article = {
   ctaType: CtaType
   content: ContentBlock[]
   faqs?: FaqItem[]
+  /** Optional SEO title override — used only in <title> tag, never in H1 */
+  seoTitle?: string
+  /** Optional SEO meta description override — used only in <meta description>, never in body */
+  seoDescription?: string
 }
 
 export const HUB_COLORS: Record<Hub, { bg: string; text: string; border: string }> = {
@@ -72,6 +76,9 @@ export const articles: Article[] = [
     title: 'Cómo cambiar de administrador de consorcio en CABA: guía completa 2026',
     excerpt:
       'Un edificio de 18 unidades en Villa Crespo llevaba tres años con el fondo de reserva sin movimiento documentado. Esta guía documenta los pasos reales.',
+    seoTitle: 'Cambiar administrador de consorcio en CABA: guía paso a paso 2026',
+    seoDescription:
+      'Convocatoria válida, quórum, acta y carta documento para remover al administrador según Ley 941. Plazos reales y errores que invalidan el proceso. Sin abogados.',
     hub: 'Cambiar administrador',
     date: '2026-04-21',
     ctaType: 'champion',
@@ -423,6 +430,9 @@ export const articles: Article[] = [
     title: 'Asamblea extraordinaria de consorcio en CABA: guía para convocarla sin errores',
     excerpt:
       'En muchos consorcios de Caballito, Palermo o Belgrano, el freno no es la falta de voluntad: es que nadie sabe exactamente cómo se convoca una asamblea extraordinaria de manera válida.',
+    seoTitle: 'Asamblea extraordinaria consorcio CABA: quórum, plazos y modelo 2026',
+    seoDescription:
+      'Cómo convocar una asamblea extraordinaria sin que sea anulada: quórum mínimo, plazos legales, modelo de convocatoria y qué hacer si el administrador se niega. Ley 941 + Código Civil.',
     hub: 'Cambiar administrador',
     date: '2026-05-05',
     ctaType: 'champion',

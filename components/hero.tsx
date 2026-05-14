@@ -17,25 +17,32 @@ function VeroMark({ size = 32 }: { size?: number }) {
 
 const mockFindings = [
   {
-    icon: <CheckCircle2 size={16} />,
-    text: 'Consorcio general — dentro del rango',
-    color: '#1A7A4A',
-    bg: '#F0FAF5',
-    border: '#B6E8CC',
+    icon: <XCircle size={16} />,
+    text: 'Honorarios admin — 47% por encima del mercado',
+    color: '#C0392B',
+    bg: '#FEF2F2',
+    border: '#FCA5A5',
   },
   {
     icon: <AlertTriangle size={16} />,
-    text: 'Servicio de limpieza — 34% por encima del promedio',
+    text: 'Factura de ascensor duplicada — $89.400',
     color: '#B45309',
     bg: '#FFFBEB',
     border: '#FCD34D',
   },
   {
     icon: <XCircle size={16} />,
-    text: 'Fondo de reserva — acumulación insuficiente',
+    text: 'Fondo de reserva sin movimiento documentado',
     color: '#C0392B',
     bg: '#FEF2F2',
     border: '#FCA5A5',
+  },
+  {
+    icon: <CheckCircle2 size={16} />,
+    text: 'Sueldo encargado — alineado a escala SUTERH',
+    color: '#1A7A4A',
+    bg: '#F0FAF5',
+    border: '#B6E8CC',
   },
 ]
 
@@ -98,20 +105,21 @@ export default function Hero() {
               className="hero-reveal text-[12px] font-medium tracking-[0.1em] uppercase"
               style={{ color: 'var(--color-accent)' }}
             >
-              Administración Inteligente de Consorcios
+              La primera administradora AI-first de Argentina
             </p>
 
             {/* H1 */}
             <h1
-              className="hero-reveal font-serif font-bold leading-[1.1] tracking-[-0.02em] text-balance"
+              className="hero-reveal font-serif font-bold leading-[1.05] tracking-[-0.02em] text-balance"
               style={{
-                fontSize: 'clamp(40px, 5vw, 64px)',
+                fontSize: 'clamp(36px, 5vw, 60px)',
                 color: 'var(--color-ink)',
               }}
             >
-              ¿Cuánto estás<br />
-              pagando de más<br />
-              en expensas?
+              Las expensas no paran<br />
+              de subir y nadie te<br />
+              explica por qué.<br />
+              <span style={{ color: 'var(--color-accent)' }}>Nosotros sí.</span>
             </h1>
 
             {/* Subheadline */}
@@ -119,15 +127,15 @@ export default function Hero() {
               className="hero-reveal text-[18px] leading-relaxed max-w-[480px]"
               style={{ color: 'var(--color-ink-secondary)' }}
             >
-              Subí tu última liquidación y Vero, nuestra IA, detecta en segundos si estás pagando de más, si hay gastos ocultos, o si tu fondo de reserva está mal administrado.
+              Subí tu última liquidación. En 60 segundos, <strong>Vero</strong> (nuestra IA) te muestra <strong>partida por partida</strong> cuánto pagás de más, qué rubros no están justificados y dónde se está yendo el fondo de reserva.
             </p>
 
             {/* CTAs */}
             <div className="hero-reveal flex flex-col gap-3">
-              <div>
+              <div className="flex flex-col sm:flex-row gap-3">
                 <a
                   href="#analizador"
-                  className="inline-flex items-center h-[50px] px-6 rounded-full text-[15px] font-semibold text-white transition-colors duration-150"
+                  className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-[15px] font-semibold text-white transition-colors duration-150"
                   style={{
                     backgroundColor: 'var(--color-accent)',
                     letterSpacing: '0.02em',
@@ -135,14 +143,27 @@ export default function Hero() {
                   onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent-light)')}
                   onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent)')}
                 >
-                  Analizar mis expensas gratis →
+                  Auditar mi liquidación gratis →
+                </a>
+                <a
+                  href="#como-funciona"
+                  className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-[15px] font-semibold transition-colors duration-150"
+                  style={{
+                    border: '1.5px solid var(--color-border-strong, #D5D2CC)',
+                    color: 'var(--color-ink)',
+                    backgroundColor: 'transparent',
+                  }}
+                  onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-surface-alt, #F0EFEB)')}
+                  onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                >
+                  Ver cómo funciona ↓
                 </a>
               </div>
               <p
-                className="text-[13px]"
+                className="text-[13px] leading-relaxed"
                 style={{ color: 'var(--color-ink-tertiary)' }}
               >
-                Sin registro · Resultado en 60 segundos · +500 liquidaciones analizadas
+                Sin registro · Resultado en 60s · Auditoría con IA · Datos cifrados
               </p>
             </div>
           </div>
@@ -168,15 +189,17 @@ export default function Hero() {
               </div>
 
               {/* Header */}
-              <div className="flex items-center gap-3">
-                <VeroMark size={36} />
-                <div>
-                  <p className="text-[13px] font-semibold" style={{ color: 'var(--color-ink)' }}>
-                    Vero analizó tu liquidación
-                  </p>
-                  <p className="text-[12px]" style={{ color: 'var(--color-ink-tertiary)' }}>
-                    Análisis completado · 3 hallazgos
-                  </p>
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3">
+                  <VeroMark size={36} />
+                  <div>
+                    <p className="text-[13px] font-semibold" style={{ color: 'var(--color-ink)' }}>
+                      Así se ve un informe de Vero
+                    </p>
+                    <p className="text-[12px]" style={{ color: 'var(--color-ink-tertiary)' }}>
+                      Ejemplo ilustrativo · El tuyo será específico
+                    </p>
+                  </div>
                 </div>
               </div>
 
@@ -212,13 +235,43 @@ export default function Hero() {
                 aria-hidden="true"
               />
 
-              {/* Savings */}
-              <div className="flex items-center justify-between">
-                <p className="text-[13px] font-medium uppercase tracking-wide" style={{ color: 'var(--color-ink-tertiary)' }}>
-                  Ahorro potencial detectado
+              {/* Before/After savings */}
+              <div className="grid grid-cols-2 gap-3">
+                <div
+                  className="rounded-lg p-3"
+                  style={{ backgroundColor: '#FEF2F2', border: '1px solid #FCA5A5' }}
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: '#9A2E22' }}>
+                    Pagás hoy
+                  </p>
+                  <p className="text-[18px] font-bold font-serif mt-1" style={{ color: '#C0392B', textDecoration: 'line-through' }}>
+                    $284.500
+                  </p>
+                </div>
+                <div
+                  className="rounded-lg p-3"
+                  style={{ backgroundColor: 'var(--color-accent-glow)', border: '1px solid var(--color-accent)' }}
+                >
+                  <p className="text-[10px] font-semibold uppercase tracking-wide" style={{ color: 'var(--color-accent)' }}>
+                    Deberías pagar
+                  </p>
+                  <p className="text-[18px] font-bold font-serif mt-1" style={{ color: 'var(--color-accent)' }}>
+                    $237.300
+                  </p>
+                </div>
+              </div>
+              <div
+                className="rounded-lg px-3 py-2.5 flex items-center justify-between"
+                style={{ backgroundColor: 'var(--color-ink)', color: 'white' }}
+              >
+                <p className="text-[12px] uppercase tracking-wide" style={{ color: 'rgba(255,255,255,0.7)' }}>
+                  Ahorro / mes
                 </p>
-                <p className="text-[18px] font-bold font-serif" style={{ color: 'var(--color-accent)' }}>
-                  $47.200<span className="text-[13px] font-sans font-medium">/mes</span>
+                <p className="text-[18px] font-bold font-serif">
+                  $47.200
+                  <span className="text-[12px] font-sans font-normal" style={{ color: 'rgba(255,255,255,0.6)' }}>
+                    {' '}· $566K/año
+                  </span>
                 </p>
               </div>
             </div>
