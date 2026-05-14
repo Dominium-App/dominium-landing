@@ -20,7 +20,7 @@ const playfair = Playfair_Display({
 });
 
 const SITE_URL = "https://dominium.com.ar";
-const IS_PROD = process.env.VERCEL_ENV === "production";
+const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
     description:
       "Subí tu liquidación y Vero detecta sobreprecios, gastos ocultos y problemas en el fondo de reserva. Gratis. Sin registro.",
   },
-  robots: IS_PROD
+  robots: ALLOW_INDEXING
     ? {
         index: true,
         follow: true,

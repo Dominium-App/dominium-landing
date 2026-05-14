@@ -1,10 +1,10 @@
 import type { MetadataRoute } from 'next'
 
 const SITE_URL = 'https://dominium.com.ar'
-const IS_PROD = process.env.VERCEL_ENV === 'production'
+const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === 'true'
 
 export default function robots(): MetadataRoute.Robots {
-  if (!IS_PROD) {
+  if (!ALLOW_INDEXING) {
     return {
       rules: [{ userAgent: '*', disallow: '/' }],
     }
