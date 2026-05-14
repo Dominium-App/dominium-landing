@@ -3,8 +3,11 @@ import { articles } from '@/lib/blog'
 import { BARRIOS } from '@/lib/barrios'
 
 const SITE_URL = 'https://dominium.com.ar'
+const IS_PROD = process.env.VERCEL_ENV === 'production'
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!IS_PROD) return []
+
   const now = new Date()
 
   const staticRoutes: MetadataRoute.Sitemap = [
