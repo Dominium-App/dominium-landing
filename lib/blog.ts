@@ -1240,6 +1240,180 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'honorarios-administrador-consorcio-caba',
+    title: 'Honorarios del administrador de consorcio en CABA: cuánto es razonable y cuándo es un abuso',
+    excerpt:
+      'No existe un tope legal ni una escala oficial para los honorarios del administrador. Esta guía te da los rangos de referencia y las situaciones que, independientemente del monto, son directamente irregulares.',
+    hub: 'Expensas',
+    date: '2026-05-19',
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'Hay una pregunta que aparece en casi todas las conversaciones que tenemos con propietarios que están evaluando cambiar de administrador: "¿Lo que pagamos es mucho o es normal?" La respuesta honesta es que depende de varios factores, pero hay rangos de referencia claros y hay situaciones que, independientemente del monto, son directamente irregulares.',
+      },
+      {
+        type: 'p',
+        text: 'Esta guía te da los elementos para responder esa pregunta en tu edificio específico.',
+      },
+      {
+        type: 'h2',
+        id: 'por-que-dificil-saber',
+        text: 'Por qué es tan difícil saber si los honorarios son razonables',
+      },
+      {
+        type: 'p',
+        text: 'A diferencia del sueldo del encargado —que tiene una escala del SUTERH pública y verificable— los honorarios del administrador de consorcio en Argentina no tienen un tope legal ni una escala oficial obligatoria. No existe un organismo que fije el precio del servicio.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que existe es:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'El **contrato entre el consorcio y el administrador**, que debería especificar el monto o el porcentaje y la fórmula de actualización',
+          'El **reglamento de copropiedad**, que en algunos casos establece límites o condiciones',
+          'La **decisión de la asamblea**, que es la única instancia que puede aprobar o modificar los honorarios',
+          'Los **valores de mercado** para edificios de características similares, que no están publicados en ningún lado oficial pero existen como referencia práctica',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'La combinación de ausencia de tope legal y falta de transparencia del mercado es lo que le da al administrador un margen de maniobra que en muchos edificios se usa sin que nadie lo cuestione.',
+      },
+      {
+        type: 'h2',
+        id: 'como-se-calculan',
+        text: '¿Cómo se calculan los honorarios en la práctica?',
+      },
+      {
+        type: 'p',
+        text: 'Hay tres modalidades que se usan en CABA:',
+      },
+      {
+        type: 'p',
+        text: '**Porcentaje de la recaudación total.** Es la más común. El administrador cobra un porcentaje —típicamente entre el 8% y el 12% de la recaudación mensual de expensas, aunque los rangos varían— sobre el total que recauda el consorcio. El problema de esta modalidad es el que mencionamos en el artículo sobre liquidaciones: cuando suben las expensas por cualquier razón —paritaria del encargado, aumento de Aysa, lo que sea— los honorarios suben automáticamente aunque el trabajo del administrador no haya cambiado.',
+      },
+      {
+        type: 'p',
+        text: '**Monto fijo actualizable.** El administrador cobra un monto fijo que se actualiza periódicamente según algún índice: IPC, CVS, o un índice sectorial. Es más transparente que el porcentaje porque desacopla los honorarios del crecimiento de las expensas, pero requiere que la fórmula de actualización esté claramente definida y aprobada en asamblea.',
+      },
+      {
+        type: 'p',
+        text: '**Monto fijo sin actualización automática.** Menos frecuente. El monto se renegocia en asamblea cada vez que el administrador considera que necesita un ajuste. Es el esquema más controlable para el consorcio, pero requiere que la asamblea funcione regularmente.',
+      },
+      {
+        type: 'h2',
+        id: 'cuanto-es-razonable',
+        text: '¿Cuánto es razonable pagar?',
+      },
+      {
+        type: 'p',
+        text: 'Sin una escala oficial, la referencia más útil es la comparación entre edificios de características similares. Los factores que más influyen en el valor del servicio son:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '**Cantidad de unidades funcionales.** Un edificio de 8 unidades requiere menos gestión administrativa que uno de 60. El honorario por unidad debería reflejar esa diferencia.',
+          '**Presencia o ausencia de encargado.** Un edificio sin encargado transfiere al administrador más carga operativa: proveedores de limpieza, control de accesos, coordinación de reparaciones.',
+          '**Cantidad de proveedores y contratos.** Más contratos implica más gestión. Un edificio con ascensor, calefacción central, pileta y generador tiene más complejidad administrativa que uno sin esos servicios.',
+          '**Nivel de conflictividad.** Un consorcio con morosidad alta o con disputas frecuentes entre vecinos demanda más tiempo del administrador.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Como referencia orientativa —no como tope ni como garantía— en edificios de entre 15 y 30 unidades en CABA, los honorarios que vemos con más frecuencia en 2025 se ubican entre el 8% y el 10% de la recaudación mensual cuando se usa la modalidad de porcentaje, dependiendo del tamaño y complejidad del edificio. Estos valores son estimaciones de mercado basadas en los casos que analizamos: no son datos oficiales y varían significativamente según el barrio y el perfil del edificio.',
+      },
+      {
+        type: 'h2',
+        id: 'cuando-son-irregulares',
+        text: 'Cuándo los honorarios son directamente irregulares',
+      },
+      {
+        type: 'p',
+        text: 'Más allá del monto, hay situaciones donde los honorarios son cuestionables con independencia de lo que cobren:',
+      },
+      {
+        type: 'p',
+        text: '**Cuando no fueron aprobados por asamblea.** Los honorarios del administrador tienen que estar fijados o actualizados por decisión de la asamblea. Si el administrador los aumentó sin convocar asamblea y sin que ningún reglamento lo autorice expresamente, ese aumento no tiene respaldo legal.',
+      },
+      {
+        type: 'p',
+        text: '**Cuando la fórmula de actualización no fue aprobada.** Algunos contratos incluyen cláusulas de actualización automática atadas a índices que el consorcio nunca aprobó en asamblea. Si el reglamento no prevé esa fórmula y la asamblea nunca la votó, el administrador no puede aplicarla unilateralmente.',
+      },
+      {
+        type: 'p',
+        text: '**Cuando se cobran honorarios adicionales sin autorización.** Gestión de obras, tramitación de seguros, cobranza judicial, asesoramiento legal: si el administrador cobra por estas gestiones adicionales sin que estén previstas en el contrato original o aprobadas en asamblea, son cobros que el consorcio puede cuestionar y reclamar.',
+      },
+      {
+        type: 'p',
+        text: '**Cuando se cobran honorarios después de la remoción.** Una vez notificado fehacientemente de su remoción, el administrador pierde el derecho a cobrar honorarios por cualquier gestión posterior. Si los cobra igual, hay acción de repetición y denuncia ante la DGDyPC.',
+      },
+      {
+        type: 'p',
+        text: '**Cuando el administrador no está inscripto en el RPA.** Un administrador sin inscripción vigente en el Registro Público de Administradores de CABA está operando en infracción a la Ley 941. Que esté cobrando honorarios en esa situación agrava la irregularidad.',
+      },
+      {
+        type: 'h2',
+        id: 'trampa-del-porcentaje',
+        text: 'La trampa del porcentaje que nadie nota',
+      },
+      {
+        type: 'p',
+        text: 'Nuestra lectura sobre la modalidad de honorarios como porcentaje de la recaudación es clara: es el esquema que más frecuentemente produce aumentos de honorarios que el consorcio no aprobó conscientemente.',
+      },
+      {
+        type: 'p',
+        text: 'El mecanismo es simple. El encargado tiene una paritaria y el básico sube 30%. Eso sube las expensas totales. Si los honorarios son el 9% de la recaudación, también suben 30% automáticamente. El administrador no hizo nada diferente ese mes. No gestionó más proveedores, no resolvió ningún problema adicional, no dedicó más horas al edificio. Pero cobró 30% más.',
+      },
+      {
+        type: 'p',
+        text: 'Multiplicado por todos los aumentos de costos del año en un contexto inflacionario, el resultado es que los honorarios del administrador pueden crecer significativamente más que cualquier índice de referencia sin que ninguna asamblea lo haya decidido. No estamos diciendo que sea ilegal en todos los casos: estamos diciendo que es una estructura que conviene que el consorcio entienda y decida conscientemente si quiere mantener.',
+      },
+      {
+        type: 'h2',
+        id: 'como-plantear-asamblea',
+        text: 'Cómo plantear el tema en la asamblea',
+      },
+      {
+        type: 'p',
+        text: 'Si después de leer esto querés llevar el tema de los honorarios a la asamblea de tu edificio, estos son los pasos concretos:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '**Solicitá el contrato vigente con el administrador.** Es documentación del consorcio y tenés derecho a verlo. Ahí vas a encontrar la modalidad de cálculo y la fórmula de actualización si existe.',
+          '**Calculá cuánto creció el honorario en los últimos 12 meses.** Tomá las liquidaciones del año y sumá solo la línea de honorarios. Comparala con el crecimiento del IPC en el mismo período.',
+          '**Pedí que se incluya en el orden del día de la próxima asamblea.** El punto tiene que decir explícitamente "revisión y aprobación de honorarios del administrador". Un punto genérico como "gestión administrativa" no habilita una votación vinculante sobre los honorarios.',
+          '**Llevá una propuesta concreta.** No alcanza con decir "los honorarios son altos". La asamblea necesita votar algo específico: mantener el monto actual, reducirlo a X, cambiarlo de porcentaje a monto fijo, o establecer una fórmula de actualización distinta.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Puede el administrador negarse a mostrar el contrato que tiene con el consorcio?',
+        a: 'No. El contrato entre el consorcio y el administrador es documentación del consorcio. Cualquier propietario puede solicitarlo por escrito. Si el administrador se niega a mostrarlo, ese rechazo es una infracción a la Ley 941 denunciable ante la DGDyPC.',
+      },
+      {
+        q: '¿Qué pasa si el contrato con el administrador no dice nada sobre los honorarios?',
+        a: 'Si el contrato no especifica el monto ni la fórmula de cálculo, los honorarios no tienen base contractual clara y cualquier cobro debería haber sido aprobado en asamblea. Es una situación irregular que conviene regularizar, sea renovando el contrato con condiciones claras o cambiando de administrador.',
+      },
+      {
+        q: '¿La asamblea puede bajar los honorarios del administrador?',
+        a: 'Sí. La asamblea tiene la facultad de fijar y modificar los honorarios del administrador. El administrador puede no estar de acuerdo y en ese caso tiene la opción de renunciar al cargo, pero no puede cobrar un monto diferente al que aprobó la asamblea.',
+      },
+      {
+        q: '¿Hay algún organismo que regule cuánto puede cobrar un administrador en CABA?',
+        a: 'No existe tope legal ni escala oficial para los honorarios de administradores en Argentina. La DGDyPC regula las obligaciones del administrador y puede sancionar incumplimientos, pero no fija precios. La única instancia que puede regular los honorarios en cada edificio es la asamblea de propietarios.',
+      },
+      {
+        q: '¿Puedo comparar los honorarios de mi administrador con los de otros edificios?',
+        a: 'No hay un registro público de honorarios por edificio. La comparación más útil es informal: hablar con propietarios de edificios similares en el mismo barrio. Otra opción es pedirle a dos o tres administradores inscriptos en el RPA que coticen el servicio para tu edificio: esas cotizaciones te dan un parámetro de mercado concreto y actualizado.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
