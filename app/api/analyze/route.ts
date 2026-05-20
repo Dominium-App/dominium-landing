@@ -212,6 +212,7 @@ PASO 4 — REGLAS GENERALES
 7. Tono profesional pero cercano — hablás con un propietario frustrado con sus gastos.
 8. Si el documento no es una liquidación de expensas, indicalo con es_liquidacion_valida: false.
 9. Si el período de la liquidación es claramente posterior a la vigencia del benchmark, mencionalo brevemente en el comentario del rubro afectado y apoyate más en porcentajes que en montos absolutos.
+10. Los "comentario" de cada rubro deben ser BREVES: 1 a 2 oraciones, máximo ~250 caracteres. No repitas el monto ni el porcentaje en el texto (ya están en otros campos). Decí solo el veredicto y la razón. Reservá explicaciones largas para los rubros con estado "alerta".
 
 RESPONDÉ ÚNICAMENTE CON JSON PURO. Sin markdown, sin backticks, sin texto antes o después. Solo el objeto JSON:
 
@@ -295,7 +296,7 @@ export async function POST(req: NextRequest) {
 
   const anthropicBody = {
     model: 'claude-sonnet-4-6',
-    max_tokens: 1500,
+    max_tokens: 8000,
     system: SYSTEM_PROMPT,
     messages: [
       {
@@ -325,6 +326,16 @@ export async function POST(req: NextRequest) {
 
   if (!res.ok) {
     return NextResponse.json(data, { status: res.status })
+  }
+
+  if (data?.stop_reason === 'max_tokens') {
+    return NextResponse.json(
+      {
+        error:
+          'La respuesta del análisis se cortó por extensión. Probá con una liquidación más corta o reintentá.',
+      },
+      { status: 502 },
+    )
   }
 
   return NextResponse.json(data)
