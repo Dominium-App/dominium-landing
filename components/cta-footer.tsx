@@ -2,11 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Lock, ClipboardList, Bot, MessageCircle, Mail } from "lucide-react";
+import { Sparkles, ShieldCheck, Bot, MessageCircle, Mail } from "lucide-react";
 
 const trustItems = [
-  { Icon: Lock, text: "Fondos protegidos por regulación BCRA" },
-  { Icon: ClipboardList, text: "Administradora registrada GCBA" },
+  { Icon: Sparkles, text: "Auditoría con IA en cada liquidación" },
+  {
+    Icon: ShieldCheck,
+    text: "Infraestructura bancaria regulada por BCRA (vía Cresium)",
+  },
 ];
 
 export default function CtaFooter() {
@@ -135,9 +138,10 @@ export default function CtaFooter() {
               </p>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  { label: "Para propietarios", href: "/#analizador" },
+                  { label: "Auditar expensas", href: "/auditar-expensas" },
+                  { label: "Cambiar administrador", href: "/cambiar-administrador" },
+                  { label: "Cobertura por barrio", href: "/administrador-consorcio" },
                   { label: "Para administradores", href: "/administradores" },
-                  { label: "Cómo funciona", href: "/#como-funciona" },
                   { label: "Blog", href: "/blog" },
                   { label: "Nosotros", href: "/nosotros" },
                 ].map((link) => (
@@ -170,14 +174,12 @@ export default function CtaFooter() {
               </p>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  "Inscripción GCBA",
-                  "Términos y condiciones",
-                  "Política de privacidad",
-                  "Regulación BCRA",
+                  { label: "Términos y condiciones", href: "/terminos" },
+                  { label: "Política de privacidad", href: "/privacidad" },
                 ].map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
                       className="text-[14px] transition-colors duration-150"
                       style={{ color: "#9B9A96" }}
                       onMouseEnter={(e) =>
@@ -187,8 +189,8 @@ export default function CtaFooter() {
                         (e.currentTarget.style.color = "#9B9A96")
                       }
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -271,8 +273,7 @@ export default function CtaFooter() {
         <div className="border-t" style={{ borderColor: "#2A2A28" }}>
           <div className="mx-auto max-w-[1120px] px-6 py-4 flex justify-center">
             <p className="text-[12px] text-center" style={{ color: "#5C5B57" }}>
-              Dominium SAS · Administradora de Consorcios registrada · CABA,
-              Argentina
+              Dominium SAS · CABA, Argentina
             </p>
           </div>
         </div>

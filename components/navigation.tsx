@@ -23,8 +23,8 @@ export default function Navigation() {
   }, [])
 
   const links = [
-    { label: 'Para propietarios', href: '/#analizador' },
-    { label: 'Para administradores', href: '/administradores' },
+    { label: 'Auditar expensas', href: '/auditar-expensas' },
+    { label: 'Cambiar administrador', href: '/cambiar-administrador' },
     { label: 'Blog', href: '/blog' },
     { label: 'Nosotros', href: '/nosotros' },
   ]

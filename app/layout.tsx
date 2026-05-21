@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import StickyMobileCta from "@/components/sticky-mobile-cta";
+import WhatsappFab from "@/components/whatsapp-fab";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -18,27 +20,31 @@ const playfair = Playfair_Display({
 });
 
 const SITE_URL = "https://dominium.com.ar";
+const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default:
-      "Dominium | Administración de consorcios con IA — Auditá tus expensas gratis",
+      "Auditá tus expensas con IA: gratis y en 60 segundos | Dominium",
     template: "%s | Dominium",
   },
   description:
-    "Administradora de consorcios potenciada por IA en CABA y AMBA. Subí tu liquidación y Vero detecta en segundos cuánto pagás de más en expensas. Sin registro.",
+    "¿Las expensas no paran de subir y nadie te explica por qué? Subí tu liquidación y Vero detecta sobreprecios en 60 segundos. Administradora con IA en CABA y AMBA. Sin registro.",
   keywords: [
-    "administración de consorcios",
-    "administradora de consorcios CABA",
-    "analizador de expensas",
-    "auditoría de expensas",
-    "expensas AMBA",
-    "liquidación de expensas",
-    "IA administración consorcios",
+    "auditar expensas",
+    "expensas muy altas",
+    "administración de consorcios CABA",
+    "administradora de consorcios",
+    "analizador de expensas online",
+    "auditoría de expensas IA",
+    "cambiar administrador consorcio",
+    "expensas Palermo Belgrano Caballito",
+    "Ley 941 administrador",
+    "administrador no muestra facturas",
     "Vero Dominium",
-    "cambiar de administrador",
     "consorcio propiedad horizontal",
+    "denunciar administrador consorcio",
   ],
   authors: [{ name: "Dominium SAS" }],
   creator: "Dominium SAS",
@@ -54,27 +60,34 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: SITE_URL,
     siteName: "Dominium",
-    title: "Dominium | Administración de consorcios con IA",
+    title: "Las expensas no paran de subir y nadie te explica por qué",
     description:
-      "Subí tu liquidación y descubrí en segundos cuánto pagás de más en expensas. Análisis gratuito con IA. Administradora registrada en CABA.",
+      "Subí tu liquidación. Vero, nuestra IA, te muestra partida por partida cuánto pagás de más, qué rubros no están justificados y dónde se está yendo el fondo de reserva. Gratis y en 60 segundos.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dominium | Auditá tus expensas con IA — Gratis",
+    title: "Auditá tus expensas con IA en 60 segundos — Dominium",
     description:
-      "¿Cuánto pagás de más en expensas? Vero, nuestra IA, te lo dice en segundos. Análisis gratuito sin registro.",
+      "Subí tu liquidación y Vero detecta sobreprecios, gastos ocultos y problemas en el fondo de reserva. Gratis. Sin registro.",
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: ALLOW_INDEXING
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      }
+    : {
+        index: false,
+        follow: false,
+        nocache: true,
+        googleBot: { index: false, follow: false, noimageindex: true },
+      },
   icons: {
     icon: { url: "/favicon.png", type: "image/png" },
     shortcut: "/favicon.png",
@@ -98,30 +111,54 @@ export const viewport: Viewport = {
 
 const organizationJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
   "@id": `${SITE_URL}/#organization`,
   name: "Dominium",
   legalName: "Dominium SAS",
   url: SITE_URL,
   logo: `${SITE_URL}/icon-1200.png`,
+  image: `${SITE_URL}/icon-1200.png`,
   description:
-    "Administradora de consorcios de nueva generación potenciada por IA. Auditoría de expensas en tiempo real.",
+    "Administradora de consorcios AI-first en CABA y AMBA. Auditoría de expensas con IA en tiempo real, transparencia total y reducción de gastos.",
+  slogan: "La administración que siempre debió existir.",
   foundingDate: "2026",
-  areaServed: { "@type": "AdministrativeArea", name: "AMBA, Argentina" },
+  priceRange: "$$",
+  areaServed: [
+    { "@type": "AdministrativeArea", name: "Ciudad Autónoma de Buenos Aires" },
+    { "@type": "AdministrativeArea", name: "AMBA, Argentina" },
+    { "@type": "City", name: "Palermo" },
+    { "@type": "City", name: "Belgrano" },
+    { "@type": "City", name: "Caballito" },
+    { "@type": "City", name: "Recoleta" },
+    { "@type": "City", name: "Villa Crespo" },
+    { "@type": "City", name: "Núñez" },
+    { "@type": "City", name: "Almagro" },
+  ],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Ciudad Autónoma de Buenos Aires",
     addressRegion: "CABA",
     addressCountry: "AR",
   },
-  contactPoint: {
-    "@type": "ContactPoint",
-    contactType: "customer service",
-    email: "hola@dominium.com.ar",
-    availableLanguage: ["Spanish"],
-    areaServed: "AR",
-  },
-  sameAs: [],
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      contactType: "customer service",
+      email: "hola@dominium.com.ar",
+      telephone: "+54 9 11 3652-0670",
+      availableLanguage: ["Spanish"],
+      areaServed: "AR",
+    },
+  ],
+  knowsAbout: [
+    "Administración de consorcios",
+    "Propiedad horizontal",
+    "Ley 941",
+    "Auditoría de expensas",
+    "Fondo de reserva",
+    "Asamblea de copropietarios",
+  ],
+  sameAs: ["https://instagram.com/dominium.com.ar"],
 };
 
 const softwareJsonLd = {
@@ -164,6 +201,8 @@ export default function RootLayout({
       <body className="font-sans antialiased">
         {children}
 
+        <StickyMobileCta />
+        <WhatsappFab />
         <Analytics />
       </body>
     </html>

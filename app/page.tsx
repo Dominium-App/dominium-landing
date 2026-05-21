@@ -1,22 +1,27 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
 import Hero from '@/components/hero'
+import TrustBar from '@/components/trust-bar'
 import Problema from '@/components/problema'
+import PorQueSuben from '@/components/por-que-suben'
 import Analizador from '@/components/analizador'
 import AnalizadorSeoContent from '@/components/analizador-seo-content'
+import LoQueDetectaVero from '@/components/lo-que-detecta-vero'
+import Comparador from '@/components/comparador'
 import ComoFunciona from '@/components/como-funciona'
+import FaqHome from '@/components/faq-home'
 import Administradores from '@/components/administradores'
 import CtaFooter from '@/components/cta-footer'
 
 export const metadata: Metadata = {
-  title: 'Administración de consorcios con IA | Auditá tus expensas gratis',
+  title: 'Auditá tus expensas con IA: gratis y en 60 segundos',
   description:
-    'Subí tu liquidación y Vero, nuestra IA, detecta cuánto pagás de más en expensas. Administradora de consorcios en CABA y AMBA. Análisis gratuito sin registro.',
+    '¿Las expensas no paran de subir y nadie te explica por qué? Subí tu liquidación y Vero detecta sobreprecios, gastos ocultos y mala administración del fondo de reserva. CABA + AMBA. Sin registro.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Administración de consorcios con IA | Dominium',
+    title: 'Las expensas no paran de subir y nadie te explica por qué. Nosotros sí.',
     description:
-      'Auditá tu liquidación de expensas con IA. Detectá sobreprecios, gastos ocultos y mala administración del fondo de reserva. Gratis.',
+      'Subí tu liquidación. Vero, nuestra IA, te muestra partida por partida cuánto pagás de más en expensas. Administradora AI-first en CABA y AMBA. Gratis.',
     url: '/',
     type: 'website',
   },
@@ -47,7 +52,7 @@ const faqJsonLd = {
       name: '¿Dominium es una administradora de consorcios real?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Sí. Dominium es una administradora de consorcios registrada en CABA, con fondos protegidos por regulación BCRA. Combinamos administración profesional con tecnología de IA para ofrecer transparencia total.',
+        text: 'Sí. Dominium es una administradora de consorcios en CABA y AMBA que combina administración profesional con tecnología de IA. La propuesta se basa en transparencia total: dashboard online con cada peso, acceso a facturas 24/7 y auditoría continua de proveedores. Los fondos operativos se manejan a través de infraestructura bancaria regulada por BCRA (vía Cresium).',
       },
     },
     {
@@ -79,10 +84,15 @@ export default function Home() {
       <main>
         <Navigation />
         <Hero />
-        <Problema />
+        <TrustBar />
         <Analizador />
-        <AnalizadorSeoContent />
+        <PorQueSuben />
+        <Problema />
+        <LoQueDetectaVero />
+        <Comparador />
         <ComoFunciona />
+        <AnalizadorSeoContent />
+        <FaqHome />
         <Administradores />
         <CtaFooter />
       </main>

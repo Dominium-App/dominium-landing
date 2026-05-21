@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { Lock, MessageCircle, Mail, Bot } from "lucide-react";
 
 export default function AdmContact() {
@@ -426,14 +427,12 @@ export default function AdmContact() {
               </p>
               <ul className="flex flex-col gap-2.5">
                 {[
-                  "Inscripción GCBA",
-                  "Términos y condiciones",
-                  "Política de privacidad",
-                  "Regulación BCRA",
+                  { label: "Términos y condiciones", href: "/terminos" },
+                  { label: "Política de privacidad", href: "/privacidad" },
                 ].map((link) => (
-                  <li key={link}>
-                    <a
-                      href="#"
+                  <li key={link.href}>
+                    <Link
+                      href={link.href}
                       className="text-[14px] transition-colors duration-150"
                       style={{ color: "#9B9A96" }}
                       onMouseEnter={(e) =>
@@ -443,8 +442,8 @@ export default function AdmContact() {
                         (e.currentTarget.style.color = "#9B9A96")
                       }
                     >
-                      {link}
-                    </a>
+                      {link.label}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -500,8 +499,7 @@ export default function AdmContact() {
         <div className="border-t" style={{ borderColor: "#2A2A28" }}>
           <div className="mx-auto max-w-[1120px] px-6 py-4 flex justify-center">
             <p className="text-[12px] text-center" style={{ color: "#5C5B57" }}>
-              Dominium SAS · Administradora de Consorcios registrada · CABA,
-              Argentina
+              Dominium SAS · CABA, Argentina
             </p>
           </div>
         </div>

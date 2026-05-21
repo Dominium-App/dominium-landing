@@ -36,8 +36,9 @@ export default function AnalizadorSeoContent() {
               Honorarios del administrador de consorcio
             </h3>
             <p className="text-[15px] leading-relaxed" style={{ color: 'var(--color-ink-secondary)' }}>
-              Vero compara los honorarios del administrador con valores de referencia del mercado y
-              te avisa cuando hay margen para renegociar o cambiar de administradora.
+              Vero compara los honorarios del administrador con las tablas de referencia de CAPHAI
+              (Cámara Argentina de Propiedad Horizontal y Actividades Inmobiliarias) y te avisa
+              cuando hay margen para renegociar o cambiar de administradora.
             </p>
           </article>
 
@@ -180,9 +181,11 @@ export default function AnalizadorSeoContent() {
                 ¿Dominium es una administradora de consorcios real?
               </summary>
               <p className="text-[14px] mt-3 leading-relaxed" style={{ color: 'var(--color-ink-secondary)' }}>
-                Sí. Dominium es una administradora de consorcios registrada en CABA, con fondos
-                protegidos por regulación BCRA. Combinamos administración profesional con tecnología
-                de IA para ofrecer transparencia total.
+                Sí. Dominium es una administradora de consorcios en CABA y AMBA que combina
+                administración profesional con tecnología de IA. La propuesta se basa en
+                transparencia total: dashboard online con cada peso, acceso a facturas 24/7 y
+                auditoría continua de proveedores. Los fondos operativos se manejan a través de
+                infraestructura bancaria regulada por BCRA (vía Cresium).
               </p>
             </details>
 
