@@ -42,10 +42,6 @@ const breadcrumbJsonLd = {
   ],
 }
 
-function fmt(n: number) {
-  return '$' + n.toLocaleString('es-AR')
-}
-
 export default function AdministradorConsorcioPage() {
   return (
     <>
@@ -85,7 +81,7 @@ export default function AdministradorConsorcioPage() {
               style={{ color: 'var(--color-ink-secondary)' }}
             >
               Operamos en los principales barrios de CABA y todo el AMBA. Auditá tu liquidación
-              actual y conocé los datos de mercado de tu zona.
+              actual y descubrí cómo administramos consorcios en tu zona.
             </p>
           </div>
         </section>
@@ -123,21 +119,6 @@ export default function AdministradorConsorcioPage() {
                     >
                       Comuna {b.comuna}
                     </span>
-                  </div>
-
-                  <div className="flex flex-col gap-1">
-                    <p
-                      className="text-[11px] font-semibold uppercase tracking-wider"
-                      style={{ color: 'var(--color-ink-tertiary)' }}
-                    >
-                      Rango de expensas / unidad
-                    </p>
-                    <p
-                      className="font-serif font-bold text-[18px] leading-tight"
-                      style={{ color: 'var(--color-ink)' }}
-                    >
-                      {fmt(b.rangoExpensas.min)} – {fmt(b.rangoExpensas.max)}
-                    </p>
                   </div>
 
                   <p

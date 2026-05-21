@@ -36,8 +36,9 @@ export default function AnalizadorSeoContent() {
               Honorarios del administrador de consorcio
             </h3>
             <p className="text-[15px] leading-relaxed" style={{ color: 'var(--color-ink-secondary)' }}>
-              Vero compara los honorarios del administrador con valores de referencia del mercado y
-              te avisa cuando hay margen para renegociar o cambiar de administradora.
+              Vero compara los honorarios del administrador con las tablas de referencia de CAPHAI
+              (Cámara Argentina de Propiedad Horizontal y Actividades Inmobiliarias) y te avisa
+              cuando hay margen para renegociar o cambiar de administradora.
             </p>
           </article>
 

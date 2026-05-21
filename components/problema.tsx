@@ -2,56 +2,25 @@
 
 import { useEffect, useRef, useState } from 'react'
 
-function useCountUp(target: number, duration = 2000, start = false) {
-  const [count, setCount] = useState(0)
-
-  useEffect(() => {
-    if (!start) return
-    let startTime: number | null = null
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp
-      const progress = Math.min((timestamp - startTime) / duration, 1)
-      const eased = 1 - Math.pow(1 - progress, 3) // ease-out cubic
-      setCount(Math.floor(eased * target))
-      if (progress < 1) requestAnimationFrame(step)
-    }
-    requestAnimationFrame(step)
-  }, [start, target, duration])
-
-  return count
-}
-
-const stats = [
+const cards = [
   {
-    value: 180000,
-    display: (n: number) =>
-      n >= 1000 ? `${Math.floor(n / 1000).toLocaleString('es-AR')}K+` : `${n}+`,
-    label: 'edificios en propiedad horizontal solo en AMBA',
+    headline: 'Solo un PDF',
+    label:
+      'La liquidación de expensas llega cada mes sin un desglose claro y sin nada con qué compararla.',
   },
   {
-    value: 15,
-    display: (n: number) => `${n}`,
-    label: 'edificios maneja en promedio un administrador tradicional — sin escalar con tecnología',
+    headline: 'Excel y mail',
+    label:
+      'El administrador tradicional opera sin trazabilidad: para ver una factura hay que pedirla y esperar.',
   },
   {
-    value: 0,
-    display: () => '0%',
-    label: 'de las liquidaciones tradicionales permiten auditoría en tiempo real',
+    headline: 'Sin auditoría',
+    label:
+      'Nadie contrasta los rubros contra precios de mercado actuales. Los sobreprecios se repiten mes a mes.',
   },
 ]
 
-function StatCard({
-  value,
-  display,
-  label,
-  animate,
-}: {
-  value: number
-  display: (n: number) => string
-  label: string
-  animate: boolean
-}) {
-  const count = useCountUp(value, value === 0 ? 300 : 2000, animate)
+function ProblemaCard({ headline, label }: { headline: string; label: string }) {
   return (
     <article
       className="rounded-[16px] p-8 flex flex-col gap-3"
@@ -61,16 +30,12 @@ function StatCard({
       }}
     >
       <p
-        className="font-serif font-bold leading-none"
-        style={{ fontSize: 'clamp(42px, 5vw, 52px)', color: '#6B9E7A' }}
-        aria-label={display(value)}
+        className="font-serif font-bold leading-[1.1]"
+        style={{ fontSize: 'clamp(26px, 3vw, 32px)', color: '#6B9E7A' }}
       >
-        {display(count)}
+        {headline}
       </p>
-      <p
-        className="text-[15px] leading-relaxed"
-        style={{ color: '#C4C3BF' }}
-      >
+      <p className="text-[15px] leading-relaxed" style={{ color: '#C4C3BF' }}>
         {label}
       </p>
     </article>
@@ -125,13 +90,13 @@ export default function Problema() {
             className="text-[17px] leading-relaxed max-w-[600px] mx-auto"
             style={{ color: '#C4C3BF' }}
           >
-            La liquidación de expensas promedio tiene 23 ítems sin descripción, 4 servicios sin cotización alternativa, y un fondo de reserva que nadie monitorea. Así funcionó siempre. Hasta ahora.
+            Una liquidación de expensas típica está llena de ítems sin descripción y servicios sin cotización alternativa, con un fondo de reserva que nadie monitorea. Así funcionó siempre. Hasta ahora.
           </p>
         </div>
 
-        {/* Stats grid */}
+        {/* Cards grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
-          {stats.map((stat, i) => (
+          {cards.map((card, i) => (
             <div
               key={i}
               style={{
@@ -140,7 +105,7 @@ export default function Problema() {
                 transition: `opacity 0.6s ease ${0.1 + i * 0.1}s, transform 0.6s ease ${0.1 + i * 0.1}s`,
               }}
             >
-              <StatCard {...stat} animate={visible} />
+              <ProblemaCard {...card} />
             </div>
           ))}
         </div>

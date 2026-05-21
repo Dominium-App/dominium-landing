@@ -2,8 +2,6 @@ export type Barrio = {
   slug: string
   nombre: string
   comuna: string
-  /** Rango estimado de expensas por unidad (mensual, $ARS) */
-  rangoExpensas: { min: number; max: number }
   caracteristicas: string[]
   /** Frase corta para meta description (max ~120 chars) */
   hookSeo: string
@@ -20,7 +18,6 @@ export const BARRIOS: Barrio[] = [
     slug: 'palermo',
     nombre: 'Palermo',
     comuna: '14',
-    rangoExpensas: { min: 165000, max: 320000 },
     caracteristicas: [
       'Mezcla de edificios nuevos premium y construcciones de los 70-80',
       'Amenities frecuentes (SUM, gym, piscina) en torres recientes',
@@ -39,7 +36,6 @@ export const BARRIOS: Barrio[] = [
     slug: 'belgrano',
     nombre: 'Belgrano',
     comuna: '13',
-    rangoExpensas: { min: 160000, max: 310000 },
     caracteristicas: [
       'Edificios consolidados con encargado permanente',
       'Belgrano R con casas y edificios bajos; Belgrano C con torres',
@@ -58,7 +54,6 @@ export const BARRIOS: Barrio[] = [
     slug: 'caballito',
     nombre: 'Caballito',
     comuna: '6',
-    rangoExpensas: { min: 130000, max: 250000 },
     caracteristicas: [
       'Alta densidad de edificios en propiedad horizontal',
       'Caballito Norte y Sur con perfiles distintos',
@@ -77,7 +72,6 @@ export const BARRIOS: Barrio[] = [
     slug: 'recoleta',
     nombre: 'Recoleta',
     comuna: '2',
-    rangoExpensas: { min: 175000, max: 360000 },
     caracteristicas: [
       'Edificios antiguos de alto valor patrimonial',
       'Costos de mantenimiento más altos por instalaciones complejas',
@@ -96,7 +90,6 @@ export const BARRIOS: Barrio[] = [
     slug: 'villa-crespo',
     nombre: 'Villa Crespo',
     comuna: '15',
-    rangoExpensas: { min: 140000, max: 265000 },
     caracteristicas: [
       'Edificios de los 70 y 80 conviviendo con nuevos desarrollos',
       'Buen mix de unidades funcionales y departamentos familiares',

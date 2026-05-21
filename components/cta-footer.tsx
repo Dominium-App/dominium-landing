@@ -140,7 +140,6 @@ export default function CtaFooter() {
                 {[
                   { label: "Auditar expensas", href: "/auditar-expensas" },
                   { label: "Cambiar administrador", href: "/cambiar-administrador" },
-                  { label: "Calculadora de expensas", href: "/calculadora-expensas" },
                   { label: "Cobertura por barrio", href: "/administrador-consorcio" },
                   { label: "Para administradores", href: "/administradores" },
                   { label: "Blog", href: "/blog" },

@@ -44,10 +44,6 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-function fmt(n: number) {
-  return '$' + n.toLocaleString('es-AR')
-}
-
 export default async function BarrioPage({ params }: PageProps) {
   const { barrio: slug } = await params
   const b = getBarrio(slug)
@@ -141,13 +137,6 @@ export default async function BarrioPage({ params }: PageProps) {
                   >
                     Auditar mi liquidación →
                   </Link>
-                  <Link
-                    href="/calculadora-expensas"
-                    className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-[15px] font-semibold"
-                    style={{ border: '1.5px solid var(--color-border)', color: 'var(--color-ink)' }}
-                  >
-                    Calcular rango esperado
-                  </Link>
                 </div>
               </div>
 
@@ -160,49 +149,6 @@ export default async function BarrioPage({ params }: PageProps) {
                   boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 8px 32px rgba(0,0,0,0.06)',
                 }}
               >
-                <p
-                  className="text-[12px] font-semibold tracking-[0.1em] uppercase"
-                  style={{ color: 'var(--color-ink-tertiary)' }}
-                >
-                  Datos de {b.nombre}
-                </p>
-
-                <div className="flex flex-col gap-1">
-                  <p
-                    className="text-[12.5px] font-semibold uppercase tracking-wide"
-                    style={{ color: 'var(--color-ink-tertiary)' }}
-                  >
-                    Rango de expensas / unidad
-                  </p>
-                  <p
-                    className="font-serif font-bold leading-none"
-                    style={{
-                      fontSize: 'clamp(22px, 3vw, 30px)',
-                      color: 'var(--color-ink)',
-                    }}
-                  >
-                    {fmt(b.rangoExpensas.min)}
-                    <span
-                      className="text-[14px] font-sans font-normal mx-2"
-                      style={{ color: 'var(--color-ink-tertiary)' }}
-                    >
-                      a
-                    </span>
-                    {fmt(b.rangoExpensas.max)}
-                  </p>
-                  <p
-                    className="text-[12px] mt-1"
-                    style={{ color: 'var(--color-ink-tertiary)' }}
-                  >
-                    Estimado en base a datos de mercado AMBA.
-                  </p>
-                </div>
-
-                <div
-                  className="h-px w-full"
-                  style={{ backgroundColor: 'var(--color-border)' }}
-                />
-
                 <div className="flex flex-col gap-2">
                   <p
                     className="text-[12.5px] font-semibold uppercase tracking-wide"

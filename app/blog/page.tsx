@@ -74,7 +74,7 @@ const blogFaqJsonLd = {
       name: '¿Cómo audito las expensas de mi edificio?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Podés auditarlas en tres niveles: (1) revisión manual contrastando rubros con facturas, (2) comparación con edificios similares del barrio usando nuestra calculadora, (3) análisis con IA partida por partida usando Vero, nuestro analizador. El tercer método es gratis, sin registro y devuelve resultados en menos de 60 segundos.',
+        text: 'Podés auditarlas en dos niveles: (1) revisión manual contrastando rubros con facturas y precios de mercado, (2) análisis con IA partida por partida usando Vero, nuestro analizador. El segundo método es gratis, sin registro y devuelve resultados en menos de 60 segundos.',
       },
     },
     {
