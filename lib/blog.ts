@@ -1414,6 +1414,162 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'aumentos-expensas-caba-cuando-reclamar',
+    title: 'Aumentos de expensas en CABA: cuándo reclamar y cómo hacerlo',
+    excerpt:
+      'Las expensas subieron dos meses seguidos sin una sola explicación en la liquidación. Cómo distinguir un aumento legítimo de uno injustificado y el procedimiento exacto para reclamarlo en CABA.',
+    hub: 'Expensas',
+    date: '2026-05-21',
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'El mes pasado las expensas subieron $15.000. El mes anterior habían subido $12.000. Ninguna de las dos veces hubo una explicación en la liquidación. Ninguna de las dos veces el administrador convocó una asamblea para informarlo. Y sin embargo, el débito llegó puntual.',
+      },
+      {
+        type: 'p',
+        text: 'Ese escenario es tan frecuente en edificios de Caballito, Villa Crespo y Flores que la mayoría de los propietarios lo normaliza. No debería ser así. Un aumento de expensas sin justificación documentada no es un hecho de la naturaleza: es una decisión de gestión que el consorcio tiene derecho a cuestionar.',
+      },
+      {
+        type: 'h2',
+        id: 'distinguir-aumento-legitimo',
+        text: 'Primero: distinguir aumento legítimo de aumento injustificado',
+      },
+      {
+        type: 'p',
+        text: 'No todo aumento de expensas es un problema. En un contexto inflacionario como el argentino, las expensas que no suben durante meses seguidos son, en muchos casos, la señal de que algo no se está liquidando correctamente —no de que el administrador es eficiente.',
+      },
+      {
+        type: 'p',
+        text: 'Las expensas suben legítimamente cuando suben los costos reales que las componen:',
+      },
+      {
+        type: 'p',
+        text: '**Paritarias del SUTERH.** Cada acuerdo salarial del sindicato de encargados impacta directamente en el rubro más grande de la mayoría de las liquidaciones. Un acuerdo del 30% sube ese ítem 30%, y eso se traslada a las expensas totales. Es un aumento legítimo y verificable.',
+      },
+      {
+        type: 'p',
+        text: '**Aumentos de tarifas de servicios.** Cuando Aysa, Edesur, Edenor o Metrogas aumentan sus tarifas, el impacto aparece en la liquidación del mes siguiente. También verificable con la factura.',
+      },
+      {
+        type: 'p',
+        text: '**Inflación en contratos de mantenimiento.** El contrato de ascensores, la empresa de limpieza, el seguro del edificio: todos se actualizan periódicamente. Si el contrato tiene cláusula de ajuste por IPC, el aumento es previsible y está documentado.',
+      },
+      {
+        type: 'p',
+        text: '**Obras o reparaciones aprobadas en asamblea.** Si la asamblea votó refaccionar el frente o cambiar el portero eléctrico, las expensas extraordinarias para financiar esa obra son legítimas aunque duelan.',
+      },
+      {
+        type: 'p',
+        text: 'El problema empieza cuando las expensas suben y ninguno de esos factores explica el incremento en la liquidación.',
+      },
+      {
+        type: 'h2',
+        id: 'senales-aumento-cuestionable',
+        text: 'Las señales de que un aumento merece ser cuestionado',
+      },
+      {
+        type: 'p',
+        text: 'Un aumento de expensas es cuestionable cuando se da alguna de estas situaciones:',
+      },
+      {
+        type: 'p',
+        text: '**El incremento supera la suma de los aumentos de costos reales.** Si el SUTERH subió 25%, Aysa subió 15% y los demás contratos subieron en línea con el IPC, el aumento total de expensas no debería superar significativamente esos valores. Si supera, la diferencia tiene que estar explicada en algún rubro concreto.',
+      },
+      {
+        type: 'p',
+        text: '**El rubro que más crece es "gastos varios" o "administración".** Como vimos en artículos anteriores, ese es el rubro más opaco de cualquier liquidación. Si es el que más crece sin desglose, hay algo que no se está mostrando.',
+      },
+      {
+        type: 'p',
+        text: '**Los honorarios del administrador crecen por encima de cualquier índice.** Si están calculados como porcentaje de la recaudación y las expensas subieron mucho, los honorarios suben automáticamente. En un año de alta inflación eso puede implicar un aumento real de honorarios que ninguna asamblea aprobó conscientemente.',
+      },
+      {
+        type: 'p',
+        text: '**Hay gastos de obra que no pasaron por asamblea.** Si aparecen en la liquidación trabajos de refacción o mejora que nunca se votaron, ese gasto no tiene respaldo y el consorcio puede cuestionarlo.',
+      },
+      {
+        type: 'p',
+        text: '**El aumento coincide con el vencimiento de un contrato con un proveedor.** Cuando un contrato se renueva sin llamar a nuevos presupuestos, el nuevo precio queda a criterio del proveedor y del administrador. Si el aumento es notoriamente superior al de mercado, hay que preguntar.',
+      },
+      {
+        type: 'h2',
+        id: 'como-reclamar-paso-a-paso',
+        text: 'Cómo reclamar: el camino correcto paso a paso',
+      },
+      {
+        type: 'p',
+        text: 'Reclamar un aumento de expensas no es gritar en el grupo de WhatsApp del edificio. Tiene un procedimiento que, si se sigue correctamente, produce resultados. Si no se sigue, produce ruido sin consecuencias.',
+      },
+      {
+        type: 'ol',
+        items: [
+          '**Documentá el aumento con las liquidaciones.** Juntá las liquidaciones de los últimos seis meses. Identificá en cuáles períodos hubo aumentos y en qué rubros específicos se concentraron. Sin esa información, cualquier reclamo es vago y fácil de desestimar.',
+          '**Pedí la documentación de respaldo por escrito.** Mandá una nota al administrador —por escrito, con constancia de recepción— pidiendo los comprobantes de los rubros que no podés verificar. Tenés derecho a esa documentación. El pedido tiene que ser específico: no "quiero ver los gastos del mes", sino "quiero ver la factura de Aysa del período X, el comprobante de pago del contrato de ascensores y el detalle del rubro gastos varios".',
+          '**Esperá la respuesta en el plazo legal.** La Ley 941 establece el plazo de 5 días hábiles para que el administrador responda reclamos de los consorcistas. Si no responde en ese plazo, el incumplimiento ya es denunciable por sí solo, con independencia de si los aumentos son o no irregulares.',
+          '**Llevá el tema a la asamblea.** Si la respuesta del administrador no te satisface o directamente no llega, pedí que el tema se incluya en el orden del día de la próxima asamblea ordinaria, o solicitá la convocatoria de una asamblea extraordinaria si el monto en disputa lo justifica. En la asamblea, el administrador tiene que rendir cuentas frente a todos los propietarios.',
+          '**Denunciá ante la DGDyPC si hay infracción.** Si el administrador no rinde cuentas, no muestra la documentación o los aumentos tienen respaldo en cobros no autorizados por asamblea, la denuncia ante la Dirección General de Defensa y Protección del Consumidor es el siguiente paso. La denuncia se hace online en el sitio del Gobierno de la Ciudad y no requiere abogado.',
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'que-puede-dgdypc',
+        text: 'Lo que la DGDyPC puede y no puede hacer',
+      },
+      {
+        type: 'p',
+        text: 'La DGDyPC es el organismo de control de los administradores inscriptos en el RPA en CABA. Tiene facultades reales pero limitadas, y conviene saber exactamente qué esperar.',
+      },
+      {
+        type: 'p',
+        text: '**Puede:** intimar al administrador a que rinda cuentas, aplicar multas por incumplimiento de las obligaciones de la Ley 941, suspender o inhabilitar la inscripción en el Registro Público de Administradores de Consorcios.',
+      },
+      {
+        type: 'p',
+        text: '**No puede:** ordenar la devolución de dinero al consorcio ni resolver disputas sobre el monto de los honorarios. Para eso existe la vía judicial civil.',
+      },
+      {
+        type: 'p',
+        text: 'En la práctica, el efecto más útil de una denuncia ante la DGDyPC no es siempre la sanción formal —que puede tardar meses— sino el efecto inmediato que produce sobre el administrador saber que hay un sumario abierto. En muchos casos que conocemos, la documentación que "no estaba disponible" apareció en días después de notificada la denuncia.',
+      },
+      {
+        type: 'h2',
+        id: 'edificios-zona-sur-gba',
+        text: 'Una aclaración sobre los edificios en Zona Sur del GBA',
+      },
+      {
+        type: 'p',
+        text: 'Todo lo que describimos sobre la DGDyPC y el RPA aplica exclusivamente en CABA. En Quilmes, Avellaneda, Lomas de Zamora, Lanús, Berazategui y Florencio Varela no existe un registro equivalente ni un organismo con las mismas facultades sancionatorias sobre los administradores.',
+      },
+      {
+        type: 'p',
+        text: 'En esos partidos, el camino para reclamar aumentos injustificados pasa por la asamblea de propietarios y, si hay daño patrimonial demostrable, por la vía judicial civil. El CCyC aplica en todo el país, lo que significa que las obligaciones del administrador de rendir cuentas y convocar asambleas son exigibles igual, pero los mecanismos de refuerzo son más limitados.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Puedo negarme a pagar el aumento mientras lo reclamo?',
+        a: 'No es recomendable. La deuda de expensas es ejecutable judicialmente y el reclamo sobre los aumentos no suspende la obligación de pago. Lo correcto es pagar y reclamar en paralelo. Si después se determina que hubo cobros indebidos, hay acción de repetición para recuperar lo pagado de más.',
+      },
+      {
+        q: '¿Cuántos propietarios tienen que firmar el reclamo para que tenga peso?',
+        a: 'Un solo propietario puede hacer el reclamo por escrito y tiene los mismos derechos que si lo firmaran diez. Dicho eso, un reclamo firmado por varios propietarios tiene más peso político dentro del consorcio y le hace más difícil al administrador ignorarlo sin consecuencias.',
+      },
+      {
+        q: '¿El administrador puede aumentar las expensas en medio del mes?',
+        a: 'Los ajustes de expensas aplican al período de liquidación, que en casi todos los edificios es mensual. Un aumento que entra en la liquidación de un mes aplica desde el inicio de ese período. No existe el concepto de aumento "a mitad de mes" en la liquidación ordinaria, aunque pueden existir expensas extraordinarias que se cobren en cualquier momento si la asamblea las aprobó.',
+      },
+      {
+        q: '¿Qué pasa si la asamblea rechaza la rendición de cuentas del administrador?',
+        a: 'Si la asamblea no aprueba la rendición de cuentas, el administrador no queda descargado de su gestión económica. Eso abre la puerta a una auditoría formal y eventualmente a acciones legales por los períodos no aprobados. Es uno de los actos más contundentes que puede tomar una asamblea sin necesidad de llegar a la remoción.',
+      },
+      {
+        q: '¿Cuánto tiempo tengo para reclamar cobros indebidos del pasado?',
+        a: 'Aunque la regla general es de cinco años, el Código Civil y Comercial establece un plazo de solo dos años para reclamos por pagos que se devengan en plazos periódicos, como las expensas (Art. 2562). Por seguridad jurídica, no dejes pasar más de ese tiempo para impugnar liquidaciones erróneas o injustificadas. Para casos de maniobras fraudulentas complejas, consultá siempre a un abogado especializado.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
