@@ -133,6 +133,8 @@ const organizationJsonLd = {
     { "@type": "City", name: "Villa Crespo" },
     { "@type": "City", name: "Núñez" },
     { "@type": "City", name: "Almagro" },
+    { "@type": "City", name: "Colegiales" },
+    { "@type": "City", name: "Flores" },
   ],
   address: {
     "@type": "PostalAddress",

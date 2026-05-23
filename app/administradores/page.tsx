@@ -4,7 +4,6 @@ import AdmHero from '@/components/adm-hero'
 import AdmAcknowledgment from '@/components/adm-acknowledgment'
 import AdmOfferings from '@/components/adm-offerings'
 import AdmProcess from '@/components/adm-process'
-import AdmTestimonials from '@/components/adm-testimonials'
 import AdmContact from '@/components/adm-contact'
 
 const SITE_URL = 'https://dominium.com.ar'
@@ -90,7 +89,6 @@ export default function AdministradoresPage() {
         <AdmAcknowledgment />
         <AdmOfferings />
         <AdmProcess />
-        <AdmTestimonials />
         <AdmContact />
       </main>
     </>

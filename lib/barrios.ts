@@ -30,7 +30,7 @@ export const BARRIOS: Barrio[] = [
       'La administración que tu edificio de Palermo merece.',
     contexto:
       'Palermo concentra una alta densidad de edificios en propiedad horizontal, con realidades muy distintas según subzona: torres premium con amenities completos en Palermo Chico y Las Cañitas, edificios de los 70-80 en Palermo Viejo, y construcciones recientes en Palermo Hollywood y Soho. Los honorarios de administración suelen estar por encima del promedio porteño.',
-    vecinos: ['villa-crespo', 'belgrano', 'recoleta'],
+    vecinos: ['villa-crespo', 'belgrano', 'recoleta', 'colegiales'],
   },
   {
     slug: 'belgrano',
@@ -48,7 +48,7 @@ export const BARRIOS: Barrio[] = [
       'Administración moderna para edificios de Belgrano.',
     contexto:
       'Belgrano combina edificios de larga data (Belgrano C y Bajo Belgrano) con desarrollos más recientes. Es una de las zonas con mayor proporción de encargados permanentes y servicios contratados a largo plazo, lo que muchas veces genera rubros sin licitación renovados automáticamente desde hace años.',
-    vecinos: ['nunez', 'palermo'],
+    vecinos: ['nunez', 'palermo', 'colegiales'],
   },
   {
     slug: 'caballito',
@@ -66,7 +66,7 @@ export const BARRIOS: Barrio[] = [
       'Tu consorcio en Caballito, administrado distinto.',
     contexto:
       'Caballito tiene una densidad altísima de edificios en propiedad horizontal y propietarios involucrados, lo que históricamente ha generado asambleas activas. Es uno de los barrios donde más cambios de administrador se procesan al año en CABA.',
-    vecinos: ['almagro', 'villa-crespo'],
+    vecinos: ['almagro', 'villa-crespo', 'flores'],
   },
   {
     slug: 'recoleta',
@@ -103,6 +103,78 @@ export const BARRIOS: Barrio[] = [
     contexto:
       'Villa Crespo mezcla edificios de los 70 y 80, construcciones más recientes y propietarios con perfiles diversos. Es uno de los barrios donde más liquidaciones auditamos con discrepancias entre lo que cobra el administrador y los valores de mercado.',
     vecinos: ['palermo', 'caballito', 'almagro'],
+  },
+  {
+    slug: 'almagro',
+    nombre: 'Almagro',
+    comuna: '5',
+    caracteristicas: [
+      'Densidad altísima de edificios en propiedad horizontal',
+      'Predominan construcciones de los 60-80 con encargado SUTERH',
+      'Proveedores históricos cuyas tarifas raramente se renegocian',
+      'Propietarios involucrados, asambleas activas',
+    ],
+    hookSeo:
+      'Administrador de consorcio en Almagro. Auditá tus expensas con IA. Transparencia para edificios de Almagro Norte y Sur.',
+    hookHero:
+      'Almagro: tu edificio, sin sorpresas en la liquidación.',
+    contexto:
+      'Almagro tiene una de las densidades de propiedad horizontal más altas de CABA, con edificios construidos entre los 60 y los 80 que requieren mantenimiento intensivo. Los consorcios suelen tener encargado SUTERH y contratos con proveedores históricos que rara vez se ponen a licitación, lo que abre un margen claro de optimización cuando se auditan partida por partida.',
+    vecinos: ['caballito', 'villa-crespo'],
+  },
+  {
+    slug: 'nunez',
+    nombre: 'Núñez',
+    comuna: '13',
+    caracteristicas: [
+      'Edificios residenciales tranquilos cerca del Río de la Plata',
+      'Mezcla de casas, edificios bajos y torres sobre Cabildo',
+      'Encargado permanente común en la mayoría de los edificios',
+      'Propietarios estables, reglamentos de copropiedad antiguos',
+    ],
+    hookSeo:
+      'Administrador de consorcio en Núñez. Administración transparente con IA para edificios sobre Cabildo y zonas residenciales cerca del Río.',
+    hookHero:
+      'Núñez merece administración a la altura del barrio.',
+    contexto:
+      'Núñez combina edificios de altura sobre la avenida Cabildo con zonas residenciales más tranquilas hacia el Río de la Plata. Es un barrio de propietarios estables, con encargados permanentes en la mayoría de los edificios y reglamentos de copropiedad de larga data, lo que dificulta renegociar proveedores sin una auditoría previa.',
+    vecinos: ['belgrano'],
+  },
+  {
+    slug: 'colegiales',
+    nombre: 'Colegiales',
+    comuna: '13',
+    caracteristicas: [
+      'Ex zona industrial reconvertida en barrio residencial premium',
+      'Edificios nuevos con amenities completos (SUM, gym, pileta)',
+      'Propietarios jóvenes y alta demanda de alquileres',
+      'Costos de proveedores en alza por la cantidad de servicios comunes',
+    ],
+    hookSeo:
+      'Administrador de consorcio en Colegiales. Auditá expensas con IA. Administración moderna para edificios premium y reconvertidos.',
+    hookHero:
+      'Colegiales: administración tan moderna como tu edificio.',
+    contexto:
+      'Colegiales se transformó de zona industrial en uno de los barrios con más desarrollos premium de CABA. Predominan edificios nuevos con amenities completos que requieren administradores capaces de manejar proveedores múltiples, expensas con muchos rubros y costos en alza sin que el propietario pierda visibilidad de a dónde se va cada peso.',
+    vecinos: ['belgrano', 'palermo'],
+  },
+  {
+    slug: 'flores',
+    nombre: 'Flores',
+    comuna: '7',
+    caracteristicas: [
+      'Barrio extenso con perfiles muy diversos según subzona',
+      'Edificios de los 70-80 conviven con torres recientes sobre Rivadavia',
+      'Comercio activo y demanda inmobiliaria sostenida',
+      'Costos de administración por debajo del promedio CABA',
+    ],
+    hookSeo:
+      'Administrador de consorcio en Flores. Auditoría de expensas con IA. Transparencia para edificios de Flores Norte y Sur.',
+    hookHero:
+      'Tu consorcio en Flores, administrado distinto.',
+    contexto:
+      'Flores es uno de los barrios más extensos y heterogéneos de CABA, con edificios desde los 60 hasta torres premium recientes sobre Rivadavia y Pedro Goyena. Los costos de administración suelen ser menores al promedio porteño, pero la dispersión de proveedores genera oportunidades concretas de optimización cuando se audita la liquidación con criterio.',
+    vecinos: ['caballito'],
   },
 ]
 
