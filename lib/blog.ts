@@ -1580,6 +1580,203 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'denunciar-administrador-dgdypc-caba',
+    title: 'Cómo denunciar a un administrador de consorcio ante la DGDyPC en CABA',
+    excerpt:
+      'Cuando los reclamos informales ya se agotaron, el siguiente paso es la denuncia formal ante la Dirección General de Defensa y Protección del Consumidor. Qué podés denunciar, cómo presentarla y qué pasa después.',
+    seoTitle: 'Denunciar administrador ante la DGDyPC en CABA: guía Ley 941 (2026)',
+    seoDescription:
+      'Qué infracciones podés denunciar, cómo presentar la denuncia online sin abogado y qué sanciones puede aplicar la DGDyPC. Diferencias con la acción judicial civil.',
+    hub: 'Ley 941',
+    date: '2026-05-26',
+    ctaType: 'champion',
+    content: [
+      {
+        type: 'p',
+        text: 'Hay un momento en el proceso de conflicto con un administrador donde los reclamos informales ya se agotaron. Le mandaste notas, le pediste la documentación, planteaste el tema en la asamblea. Y nada cambió. El siguiente paso es la denuncia formal ante la Dirección General de Defensa y Protección del Consumidor.',
+      },
+      {
+        type: 'p',
+        text: 'Mucha gente llega a ese punto y frena. No sabe exactamente qué puede denunciar, qué va a pasar después ni si vale la pena el esfuerzo. Esta guía responde esas tres preguntas.',
+      },
+      {
+        type: 'h2',
+        id: 'que-es-dgdypc',
+        text: 'Qué es la DGDyPC y por qué tiene poder real sobre tu administrador',
+      },
+      {
+        type: 'p',
+        text: 'La Dirección General de Defensa y Protección del Consumidor es el organismo del Gobierno de la Ciudad de Buenos Aires que regula y controla a los administradores inscriptos en el Registro Público de Administradores (RPA) bajo la Ley 941.',
+      },
+      {
+        type: 'p',
+        text: 'No es un buzón de quejas. Es un organismo con facultades sancionatorias concretas:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Puede **intimar** al administrador a cumplir sus obligaciones bajo apercibimiento de sanción',
+          'Puede **multar** con importes que se actualizan periódicamente',
+          'Puede **suspender** la inscripción en el RPA, lo que le impide ejercer como administrador en CABA mientras dure la suspensión',
+          'Puede **inhabilitar** definitivamente al administrador en casos graves o de reincidencia',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Para un administrador que tiene varios edificios a cargo, una suspensión del RPA es una consecuencia económica seria. Eso es lo que le da peso real a la denuncia.',
+      },
+      {
+        type: 'h2',
+        id: 'que-podes-denunciar',
+        text: 'Qué podés denunciar: las infracciones más frecuentes a la Ley 941',
+      },
+      {
+        type: 'p',
+        text: 'No cualquier queja es denunciable ante la DGDyPC. Lo que el organismo puede sancionar son infracciones concretas a las obligaciones que establece la Ley 941. Las más frecuentes:',
+      },
+      {
+        type: 'p',
+        text: '**Falta de convocatoria a asamblea ordinaria anual.** El administrador tiene obligación de convocar asamblea ordinaria al menos una vez por año. Si no lo hizo, es una infracción directa y fácil de documentar.',
+      },
+      {
+        type: 'p',
+        text: '**Negativa a mostrar o entregar documentación del consorcio.** Libros de actas, libros contables, contratos, pólizas: son documentos del consorcio. Si el administrador se niega a mostrarlos, ese rechazo es denunciable.',
+      },
+      {
+        type: 'p',
+        text: '**Falta de rendición de cuentas documentada.** La liquidación de expensas tiene que mostrar el detalle de ingresos y egresos con respaldo. Si la liquidación es vaga o los comprobantes no están disponibles, hay infracción.',
+      },
+      {
+        type: 'p',
+        text: '**Cobros no autorizados por asamblea.** Honorarios aumentados sin aprobación de asamblea, comisiones de proveedores no declaradas, gastos extraordinarios sin votación.',
+      },
+      {
+        type: 'p',
+        text: '**Seguros vencidos o insuficientes.** El administrador tiene obligación de mantener vigente el seguro de incendio del edificio. Si está vencido, es una infracción documentable con solo pedir la póliza.',
+      },
+      {
+        type: 'p',
+        text: '**Administrador sin inscripción vigente en el RPA.** Si tu administrador no figura en el RPA o su inscripción está vencida o suspendida, está operando en infracción a la Ley 941. Podés verificarlo en el sitio del Gobierno de la Ciudad antes de hacer cualquier otra cosa.',
+      },
+      {
+        type: 'p',
+        text: '**Retención de documentación tras la remoción.** Si el administrador fue removido y no entrega la documentación del consorcio en el plazo establecido, ese incumplimiento es denunciable de manera independiente al proceso de cambio.',
+      },
+      {
+        type: 'h2',
+        id: 'como-hacer-denuncia',
+        text: 'Cómo hacer la denuncia: el proceso paso a paso',
+      },
+      {
+        type: 'ol',
+        items: [
+          '**Reuní la documentación que respalda la infracción.** Una denuncia sin documentación es una queja. Una denuncia con documentación es un expediente. Lo que necesitás depende de la infracción, pero en general: liquidaciones del período en cuestión, notas enviadas al administrador con constancia de recepción, respuestas recibidas o constancia de falta de respuesta, y cualquier otro comprobante que muestre el incumplimiento.',
+          '**Verificá la inscripción del administrador en el RPA.** Antes de presentar la denuncia, confirmá que el administrador está inscripto en el RPA de CABA. Si no está inscripto, la DGDyPC igualmente puede actuar, pero el canal puede ser distinto. Si está inscripto, su número de matrícula va en la denuncia.',
+          '**Ingresá la denuncia en el sistema del Gobierno de la Ciudad.** La denuncia se puede hacer online a través del sitio del Gobierno de la Ciudad de Buenos Aires, en la sección de Defensa del Consumidor. No necesitás abogado para presentarla. El formulario pide datos del consorcio, datos del administrador, descripción de la infracción y adjuntos con la documentación de respaldo.',
+          '**Guardá el número de expediente.** Una vez presentada la denuncia, el sistema te asigna un número de expediente. Guardalo: es lo que te permite hacer seguimiento del trámite y lo que acredita la fecha de presentación si el administrador alega que no hubo denuncia previa.',
+          '**Seguí el expediente.** La DGDyPC notifica al administrador denunciado y le da plazo para responder. Después puede convocar a una audiencia de conciliación o instruir un sumario. El proceso puede tardar semanas o meses dependiendo de la carga del organismo y la complejidad del caso.',
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'que-produce-denuncia',
+        text: 'Lo que la denuncia produce en la práctica',
+      },
+      {
+        type: 'p',
+        text: 'Más allá del resultado formal del expediente, lo que vemos repetidamente es que la sola notificación de la denuncia produce efectos inmediatos. Administradores que llevaban meses sin responder reclamos escritos de repente encuentran la documentación que "no estaba disponible". Liquidaciones que nunca tuvieron desglose empiezan a tenerlo. Convocatorias a asamblea que se postergaban aparecen en el buzón la semana siguiente.',
+      },
+      {
+        type: 'p',
+        text: 'No estamos diciendo que la denuncia siempre produce ese efecto. Estamos diciendo que en muchos casos el costo reputacional y operativo de tener un sumario abierto ante la DGDyPC es suficiente para que el administrador corrija el comportamiento sin esperar la resolución formal.',
+      },
+      {
+        type: 'h2',
+        id: 'denuncia-vs-judicial',
+        text: 'Denuncia ante la DGDyPC vs. acción judicial: cuál corresponde en cada caso',
+      },
+      {
+        type: 'p',
+        text: 'Son dos vías distintas con objetivos distintos. No son excluyentes.',
+      },
+      {
+        type: 'table',
+        headers: ['', 'DGDyPC', 'Acción judicial civil'],
+        rows: [
+          [
+            '**Para qué sirve**',
+            'Sancionar al administrador por incumplimiento de la Ley 941',
+            'Reclamar daños económicos al consorcio',
+          ],
+          [
+            '**Quién puede iniciarla**',
+            'Cualquier propietario, sin abogado',
+            'Requiere representación letrada',
+          ],
+          [
+            '**Costo**',
+            'Gratuita',
+            'Honorarios de abogado + tasas judiciales',
+          ],
+          [
+            '**Tiempo estimado**',
+            'Semanas a meses',
+            'Meses a años',
+          ],
+          [
+            '**Resultado posible**',
+            'Multa, suspensión o inhabilitación del RPA',
+            'Indemnización económica al consorcio',
+          ],
+          [
+            '**Aplica en**',
+            'Solo CABA (Ley 941)',
+            'Todo el país (CCyC)',
+          ],
+        ],
+      },
+      {
+        type: 'p',
+        text: 'La regla práctica es simple: si querés que el administrador sea sancionado y que corrija su comportamiento, la DGDyPC es el camino. Si hay daño económico concreto y querés recuperar el dinero, necesitás la vía judicial además de la administrativa.',
+      },
+      {
+        type: 'h2',
+        id: 'zona-sur-gba',
+        text: 'Una aclaración para propietarios de Zona Sur del GBA',
+      },
+      {
+        type: 'p',
+        text: 'La DGDyPC y el RPA son instituciones exclusivas de CABA. En Quilmes, Avellaneda, Lomas de Zamora, Lanús, Berazategui y Florencio Varela no existe un equivalente con las mismas facultades sancionatorias sobre los administradores.',
+      },
+      {
+        type: 'p',
+        text: 'En esos partidos, el camino para sancionar a un administrador por incumplimiento pasa por la asamblea de propietarios y, si hay daño patrimonial demostrable, por la vía judicial civil ante los tribunales de cada partido. El CCyC aplica en todo el país y las obligaciones del administrador son las mismas, pero los mecanismos de control son notablemente más débiles que en CABA.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Necesito abogado para hacer la denuncia ante la DGDyPC?',
+        a: 'No. Cualquier propietario puede presentar la denuncia directamente, sin representación letrada. Si el caso deriva en un sumario complejo o en una acción judicial posterior, ahí sí conviene contar con asesoramiento profesional.',
+      },
+      {
+        q: '¿La denuncia ante la DGDyPC es anónima?',
+        a: 'No. La denuncia requiere identificación del denunciante. El administrador denunciado es notificado del expediente y puede conocer quién lo inició. Eso no debe desalentar la denuncia, pero conviene saberlo antes de presentarla.',
+      },
+      {
+        q: '¿Qué pasa si el administrador ya no está a cargo del edificio cuando hago la denuncia?',
+        a: 'Podés denunciar igualmente. Las infracciones cometidas durante el período de gestión del administrador son sancionables aunque ya no esté en funciones. La prescripción de las infracciones a la Ley 941 tiene plazos específicos que conviene verificar al momento de la denuncia.',
+      },
+      {
+        q: '¿Puedo hacer la denuncia en nombre de todo el consorcio o solo en el mío propio?',
+        a: 'Cualquier propietario puede denunciar a título individual. Si varios propietarios quieren denunciar juntos, pueden hacerlo en una presentación conjunta, lo que le da más peso al expediente. No es necesario que la denuncia la haga el presidente del consorcio ni que haya una decisión de asamblea previa para iniciarla.',
+      },
+      {
+        q: '¿La DGDyPC puede ordenar al administrador que devuelva dinero al consorcio?',
+        a: 'No. La DGDyPC tiene facultades sancionatorias pero no puede ordenar la restitución de dinero. Para recuperar fondos indebidamente cobrados o malversados, la vía es la acción judicial civil. Las dos acciones pueden iniciarse en paralelo.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
