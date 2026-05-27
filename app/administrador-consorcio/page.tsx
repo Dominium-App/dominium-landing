@@ -6,7 +6,7 @@ import Comparador from '@/components/comparador'
 import CtaFooter from '@/components/cta-footer'
 import { BARRIOS } from '@/lib/barrios'
 
-const SITE_URL = 'https://dominium.com.ar'
+const SITE_URL = 'https://www.dominium.com.ar'
 
 export const metadata: Metadata = {
   title: 'Administrador de consorcio en CABA — Cobertura por barrio',

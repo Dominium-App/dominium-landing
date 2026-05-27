@@ -3,7 +3,7 @@ import Navigation from '@/components/navigation'
 import NosotrosHero from '@/components/nosotros-hero'
 import CtaFooter from '@/components/cta-footer'
 
-const SITE_URL = 'https://dominium.com.ar'
+const SITE_URL = 'https://www.dominium.com.ar'
 
 export const metadata: Metadata = {
   title: 'Nosotros — Equipo y misión de Dominium',

@@ -7,7 +7,7 @@ import LoQueDetectaVero from '@/components/lo-que-detecta-vero'
 import FaqHome from '@/components/faq-home'
 import CtaFooter from '@/components/cta-footer'
 
-const SITE_URL = 'https://dominium.com.ar'
+const SITE_URL = 'https://www.dominium.com.ar'
 
 export const metadata: Metadata = {
   title: 'Auditar expensas online con IA — gratis y en 60 segundos',

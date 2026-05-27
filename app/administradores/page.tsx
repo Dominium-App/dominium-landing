@@ -6,7 +6,7 @@ import AdmOfferings from '@/components/adm-offerings'
 import AdmProcess from '@/components/adm-process'
 import AdmContact from '@/components/adm-contact'
 
-const SITE_URL = 'https://dominium.com.ar'
+const SITE_URL = 'https://www.dominium.com.ar'
 
 export const metadata: Metadata = {
   title: 'Plan de Retiro para Administradores de Consorcios',

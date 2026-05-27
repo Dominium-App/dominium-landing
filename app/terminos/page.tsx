@@ -21,7 +21,7 @@ export default function TerminosPage() {
     >
       <h2>1. Quiénes somos</h2>
       <p>
-        Este sitio (<a href="https://dominium.com.ar">dominium.com.ar</a>) es
+        Este sitio (<a href="https://www.dominium.com.ar">dominium.com.ar</a>) es
         operado por <strong>Dominium SAS</strong> (en adelante, &ldquo;Dominium&rdquo;), con
         domicilio en la Ciudad Autónoma de Buenos Aires, Argentina. Podés
         contactarnos en{" "}

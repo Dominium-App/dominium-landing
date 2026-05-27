@@ -5,7 +5,7 @@ import BlogHero from '@/components/blog/blog-hero'
 import BlogListing from '@/components/blog/blog-listing'
 import { articles } from '@/lib/blog'
 
-const SITE_URL = 'https://dominium.com.ar'
+const SITE_URL = 'https://www.dominium.com.ar'
 
 export const metadata: Metadata = {
   title: 'Blog: cambiar administrador, auditar expensas y Ley 941 (2026)',

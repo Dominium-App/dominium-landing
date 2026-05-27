@@ -22,7 +22,7 @@ export default function PrivacidadPage() {
       <h2>1. Quién es el responsable de tus datos</h2>
       <p>
         El responsable del tratamiento de los datos personales recolectados a
-        través de <a href="https://dominium.com.ar">dominium.com.ar</a> es{" "}
+        través de <a href="https://www.dominium.com.ar">dominium.com.ar</a> es{" "}
         <strong>Dominium SAS</strong>, con domicilio en la Ciudad Autónoma de
         Buenos Aires, Argentina. Para cualquier consulta relacionada con tus
         datos, podés escribirnos a{" "}

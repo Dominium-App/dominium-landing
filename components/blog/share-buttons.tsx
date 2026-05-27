@@ -64,7 +64,7 @@ function LinkedInIcon({ size = 16 }: { size?: number }) {
   )
 }
 
-const CANONICAL_ORIGIN = 'https://dominium.com.ar'
+const CANONICAL_ORIGIN = 'https://www.dominium.com.ar'
 
 export default function ShareButtons({ title, slug }: Props) {
   const [copied, setCopied] = useState(false)
