@@ -1777,6 +1777,277 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'sueldo-encargado-edificio-caba-suterh-2026',
+    title: 'Cuánto gana un encargado de edificio en CABA en 2026: escala SUTERH actualizada',
+    excerpt:
+      'Cada vez que el SUTERH cierra una paritaria, el mismo mensaje aparece en decenas de grupos de WhatsApp de edificios en CABA: "¿Cuánto le tenemos que pagar al encargado ahora?" La respuesta tiene más capas de las que la mayoría imagina.',
+    seoTitle: 'Sueldo del encargado de edificio en CABA 2026: escala SUTERH explicada',
+    seoDescription:
+      'Categorías SUTERH, antigüedad, SAC, aportes y horas extra: cómo se compone el sueldo del encargado y cómo verificar si la liquidación de tu edificio es correcta.',
+    hub: 'Expensas',
+    date: '2026-05-28',
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'Cada vez que el SUTERH cierra una paritaria, el mismo mensaje aparece en decenas de grupos de WhatsApp de edificios en CABA: "¿Cuánto le tenemos que pagar al encargado ahora?" La pregunta parece simple. La respuesta tiene más capas de lo que la mayoría de los propietarios imagina, y entenderla bien es la diferencia entre una liquidación correcta y una que está pagando de más, de menos, o con ítems que no corresponden.',
+      },
+      {
+        type: 'h2',
+        id: 'quien-fija-sueldo',
+        text: 'Quién fija el sueldo del encargado: el SUTERH y la negociación paritaria',
+      },
+      {
+        type: 'p',
+        text: 'El sueldo del encargado de edificio en Argentina no lo fija el consorcio ni el administrador. Lo fija el **SUTERH** —Sindicato Único de Trabajadores de Edificios de Renta y Horizontal— a través de negociaciones paritarias con la cámara empleadora.',
+      },
+      {
+        type: 'p',
+        text: 'El SUTERH negocia aumentos periódicamente, típicamente en varias cuotas a lo largo del año. Cada acuerdo paritario establece nuevos básicos por categoría, que entran en vigencia en la fecha que fija el acuerdo y se aplican a todos los edificios del país con personal bajo convenio.',
+      },
+      {
+        type: 'p',
+        text: 'Eso significa que el sueldo del encargado de tu edificio sube automáticamente cada vez que hay un acuerdo paritario, con independencia de lo que decida la asamblea del consorcio. No es una decisión del administrador: es una obligación legal que el consorcio tiene como empleador.',
+      },
+      {
+        type: 'h2',
+        id: 'categorias-convenio',
+        text: 'Las categorías del convenio: no todos los encargados son iguales',
+      },
+      {
+        type: 'p',
+        text: 'El error más frecuente en las liquidaciones de expensas es aplicar la categoría incorrecta al encargado. Cada categoría tiene un básico distinto y ítems adicionales específicos. Las principales:',
+      },
+      {
+        type: 'p',
+        text: '**Encargado permanente con vivienda.** Es el caso más común en edificios de más de cierto número de unidades en CABA. Vive en el edificio, trabaja jornada completa y tiene derecho a una unidad funcional como parte de su remuneración.',
+      },
+      {
+        type: 'p',
+        text: '**Encargado permanente sin vivienda.** Trabaja jornada completa pero no vive en el edificio. Su básico en efectivo es mayor que el anterior porque no recibe la compensación en especie de la vivienda.',
+      },
+      {
+        type: 'p',
+        text: '**Encargado no permanente.** Trabaja menos horas que la jornada completa. Su remuneración se calcula proporcionalmente según las horas convenidas. Es el esquema más común en edificios chicos que no justifican un encargado de tiempo completo.',
+      },
+      {
+        type: 'p',
+        text: '**Ayudante de encargado.** Categoría que aplica cuando hay más de un trabajador en el edificio. Básico más bajo que el encargado principal.',
+      },
+      {
+        type: 'p',
+        text: '**Personal de limpieza.** En algunos edificios hay personal específico de limpieza bajo convenio SUTERH, distinto del encargado.',
+      },
+      {
+        type: 'p',
+        text: 'La categoría correcta depende de la cantidad de unidades del edificio, la cantidad de horas trabajadas y si el trabajador vive o no en el edificio. Si hay duda sobre la categoría que corresponde, el convenio colectivo del SUTERH tiene tablas específicas que lo determinan.',
+      },
+      {
+        type: 'h2',
+        id: 'composicion-sueldo-total',
+        text: 'Qué compone el sueldo total: más allá del básico',
+      },
+      {
+        type: 'p',
+        text: 'El básico de convenio es solo el punto de partida. El sueldo total que aparece en la liquidación de expensas tiene varios ítems adicionales que son obligatorios:',
+      },
+      {
+        type: 'h3',
+        id: 'antiguedad',
+        text: 'Antigüedad',
+      },
+      {
+        type: 'p',
+        text: 'Acá está uno de los errores técnicos más frecuentes en las liquidaciones, y vale la pena explicarlo con precisión porque tiene impacto económico real.',
+      },
+      {
+        type: 'p',
+        text: 'El CCT 589/2010 y la Resolución 106/09 establecen dos porcentajes distintos según la categoría del trabajador:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '**2% por año de antigüedad** para el personal de jornada completa: encargados permanentes con vivienda, sin vivienda y ayudantes permanentes.',
+          '**1% por año de antigüedad** para categorías específicas: personal de media jornada, suplentes y jornalizados.',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'El detalle que casi nadie conoce y que define si el cálculo es correcto o no: **la base de cálculo no es el básico del propio trabajador, sino el básico del "ayudante permanente sin vivienda de cuarta categoría"**, independientemente de la categoría real del encargado. Un encargado permanente con vivienda y 20 años de antigüedad no calcula su bonificación sobre su propio básico, sino sobre ese básico de referencia específico que fija el convenio. Es contraintuitivo y es fuente frecuente de errores en liquidaciones de edificios del AMBA, tanto de subdeclaración como de sobredeclaración.',
+      },
+      {
+        type: 'h3',
+        id: 'sac',
+        text: 'Sueldo anual complementario (SAC)',
+      },
+      {
+        type: 'p',
+        text: 'El aguinaldo equivale a la doceava parte de la mayor remuneración mensual normal y habitual del semestre. Se abona en dos cuotas: el **30 de junio** y el **18 de diciembre**. En la liquidación de expensas es habitual provisionarlo mes a mes —un dozavo del sueldo mensual— para distribuir el impacto entre todos los períodos, aunque el pago efectivo al trabajador se realiza en esas dos fechas fijas.',
+      },
+      {
+        type: 'h3',
+        id: 'adicional-vivienda',
+        text: 'Adicional por vivienda',
+      },
+      {
+        type: 'p',
+        text: 'Si el encargado vive en el edificio, la unidad funcional tiene un valor convencional establecido por el SUTERH que forma parte de la remuneración computable. Ese valor no es un pago en efectivo, pero impacta directamente en la base de cálculo de los aportes y contribuciones.',
+      },
+      {
+        type: 'h3',
+        id: 'aportes-contribuciones',
+        text: 'Aportes y contribuciones patronales',
+      },
+      {
+        type: 'p',
+        text: 'El consorcio, como empleador, paga contribuciones patronales sobre el sueldo bruto del encargado. Representan aproximadamente un 25-30% adicional sobre el bruto e incluyen aportes al SUSS (jubilación, PAMI, asignaciones familiares), a la OSPERyH (obra social específica del gremio), a la Caja de Protección a la Familia y a los seguros de los artículos 27 y 27 bis del convenio. El consorcio actúa además como agente de retención de los aportes personales del trabajador, que descuenta del sueldo y deposita en su nombre.',
+      },
+      {
+        type: 'p',
+        text: 'Un dato que impacta especialmente en edificios con personal de media jornada o jornalizado: **los aportes y contribuciones a la OSPERyH se calculan y pagan siempre sobre jornada completa de 8 horas**, independientemente de las horas reales trabajadas. Es un costo fijo que no escala con las horas y que muchas liquidaciones calculan mal.',
+      },
+      {
+        type: 'h3',
+        id: 'horas-extra',
+        text: 'Horas extra',
+      },
+      {
+        type: 'p',
+        text: 'Las horas trabajadas fuera de la jornada habitual se liquidan con los recargos del convenio:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '**50%** sobre el valor hora para días hábiles',
+          '**100%** para días feriados, domingos y días especiales',
+        ],
+      },
+      {
+        type: 'h3',
+        id: 'dia-del-encargado',
+        text: 'El 2 de octubre: Día del Encargado',
+      },
+      {
+        type: 'p',
+        text: 'El 2 de octubre es el Día del Trabajador de Edificios de Renta y Horizontal. Si el encargado trabaja ese día, corresponde abonar el valor de la jornada con un recargo del **100%** sobre el valor hora, exactamente igual que un feriado nacional. Aparece una vez por año en la liquidación y frecuentemente se paga mal por desconocimiento.',
+      },
+      {
+        type: 'h3',
+        id: 'licencias-ausencias',
+        text: 'Licencias y ausencias',
+      },
+      {
+        type: 'p',
+        text: 'Las vacaciones, las licencias por enfermedad y otras ausencias justificadas tienen tratamiento específico en el CCT 589/2010 que impacta en la liquidación del mes correspondiente. El administrador tiene la obligación de aplicar correctamente cada uno de estos casos, ya que los errores en su liquidación también generan deuda laboral para el consorcio.',
+      },
+      {
+        type: 'h2',
+        id: 'valores-escala-2026',
+        text: 'Los valores actuales de la escala SUTERH 2026',
+      },
+      {
+        type: 'p',
+        text: 'Los valores exactos de la escala SUTERH se actualizan con cada acuerdo paritario y pueden haber cambiado entre el momento en que escribimos este artículo y cuando lo estás leyendo. Los valores vigentes siempre están disponibles en el sitio oficial del SUTERH y en el portal del Ministerio de Trabajo de la Nación. Antes de liquidar, siempre confirmá la escala actualizada en la fuente oficial (suterh.org.ar).',
+      },
+      {
+        type: 'p',
+        text: 'Lo que sí podemos decir con certeza sobre la evolución reciente: los acuerdos paritarios del SUTERH en los últimos años estuvieron entre los más agresivos del sector privado en Argentina, con aumentos que en varios períodos superaron al IPC. Eso explica en gran parte por qué el rubro "sueldo del encargado" es frecuentemente el que más crece en las liquidaciones de expensas de edificios con personal.',
+      },
+      {
+        type: 'h2',
+        id: 'como-verificar-sueldo',
+        text: 'Cómo verificar si el sueldo liquidado es correcto',
+      },
+      {
+        type: 'p',
+        text: 'Cualquier propietario puede hacer esta verificación en 10 minutos:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '**Identificá la categoría del encargado de tu edificio.** Si no la sabés, preguntale al administrador o mirá el recibo de sueldo del encargado —tenés derecho a verlo como representante del consorcio empleador.',
+          '**Buscá la escala vigente en el sitio del SUTERH.** Entrá a suterh.org.ar y buscá la tabla de básicos correspondiente al último acuerdo paritario.',
+          '**Calculá el básico más antigüedad.** Básico de la categoría + porcentaje correspondiente por año de antigüedad en el edificio.',
+          '**Sumá el dozavo del SAC.** Dividí el sueldo bruto por 12.',
+          '**Agregá los aportes patronales.** Aproximadamente 25-30% sobre el bruto.',
+          '**Compará el resultado con lo que figura en la liquidación.**',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Si hay diferencia, puede ser un error de cálculo, una categoría incorrecta o un ítem que se está liquidando mal. Cualquiera de esos casos justifica un pedido de explicación por escrito al administrador.',
+      },
+      {
+        type: 'h2',
+        id: 'costo-laboral-consorcio',
+        text: 'El encargado como costo laboral del consorcio: lo que pocos administradores explican bien',
+      },
+      {
+        type: 'p',
+        text: 'Hay una realidad que muchos consorcistas no conocen hasta que aparece: el consorcio es el empleador del encargado, con todas las obligaciones que eso implica. No es el administrador quien emplea al encargado: es el consorcio como persona jurídica. El administrador gestiona esa relación laboral en nombre del consorcio, pero la responsabilidad es del consorcio.',
+      },
+      {
+        type: 'p',
+        text: 'Eso significa que si hay un conflicto laboral con el encargado —un despido, una denuncia ante el Ministerio de Trabajo, una demanda por diferencias salariales— quien responde es el consorcio. Y si el administrador liquidó mal el sueldo durante meses, las diferencias salariales que se acumularon son una deuda del consorcio, no del administrador.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que vemos en edificios que cambian de administrador y hacen una auditoría de la gestión anterior es que los errores de liquidación del sueldo del encargado son más frecuentes de lo que debería ser. A veces son errores sin intención —categoría desactualizada, antigüedad mal calculada. A veces son algo más. En cualquier caso, la deuda laboral resultante la hereda el consorcio.',
+      },
+      {
+        type: 'h2',
+        id: 'permanente-vs-tercerizado',
+        text: 'Encargado permanente vs. servicio tercerizado: la comparación que más se hace en asambleas',
+      },
+      {
+        type: 'p',
+        text: 'Cada vez con más frecuencia, los consorcios de edificios medianos en CABA discuten en asamblea si conviene mantener al encargado permanente o reemplazarlo por un servicio tercerizado de limpieza y mantenimiento.',
+      },
+      {
+        type: 'p',
+        text: 'La comparación no es simple porque los costos de cada opción no son directamente comparables:',
+      },
+      {
+        type: 'p',
+        text: '**Encargado permanente:** costo laboral total (básico + cargas sociales + SAC + antigüedad) más la unidad funcional ocupada por el encargado, que en muchos edificios de CABA tiene un valor de mercado significativo como alquiler.',
+      },
+      {
+        type: 'p',
+        text: '**Servicio tercerizado:** costo del contrato mensual con la empresa, que incluye el costo laboral del personal pero también el margen de la empresa.',
+      },
+      {
+        type: 'p',
+        text: 'La comparación correcta tiene que incluir el valor de la unidad del encargado como costo de oportunidad. En un edificio de Palermo o Belgrano donde esa unidad podría alquilarse a valores de mercado actuales, el análisis puede cambiar significativamente.',
+      },
+      {
+        type: 'p',
+        text: 'Dicho eso, la decisión no es solo económica. El encargado permanente con vivienda tiene una presencia en el edificio que una empresa de limpieza que viene tres veces por semana no puede reemplazar: atención de urgencias, control de accesos, relación con proveedores, gestión de emergencias. Ese valor es real aunque no aparezca en ninguna planilla.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El consorcio puede despedir al encargado si quiere bajar costos?',
+        a: 'Sí, pero con las indemnizaciones que corresponden por ley y convenio. Un encargado con muchos años de antigüedad puede tener una indemnización significativa. Antes de tomar esa decisión en asamblea, el consorcio debería calcular el costo total del despido y compararlo con el ahorro proyectado.',
+      },
+      {
+        q: '¿Qué pasa si el encargado vive en el edificio y lo despedimos?',
+        a: 'El despido del encargado con vivienda implica también la recuperación de la unidad funcional que ocupa. El plazo y las condiciones de desocupación están regulados por el convenio SUTERH y pueden variar según las circunstancias del despido. Es uno de los aspectos más complejos de la relación laboral en consorcios y conviene gestionarlo con asesoramiento letrado.',
+      },
+      {
+        q: '¿El encargado puede reclamar diferencias salariales de años anteriores?',
+        a: 'Sí. El plazo de prescripción laboral es de dos años desde que cada crédito es exigible. Si el administrador liquidó mal el sueldo durante varios años, el encargado puede reclamar las diferencias de los últimos dos años. Esa deuda es del consorcio.',
+      },
+      {
+        q: '¿Puede el administrador contratar a un familiar como encargado del edificio?',
+        a: 'No está prohibido expresamente, pero genera un conflicto de intereses evidente que el consorcio debería evaluar. Si el encargado es familiar del administrador, la supervisión de su desempeño y la gestión de eventuales conflictos laborales quedan en manos de alguien con interés personal en el resultado. La Ley 941 obliga al administrador a actuar en el mejor interés del consorcio: esa obligación es difícil de cumplir cuando hay un vínculo familiar con el empleado.',
+      },
+      {
+        q: '¿El encargado tiene derecho a usar las instalaciones del edificio?',
+        a: 'Depende de lo que establezca el convenio y el reglamento interno. En general, el encargado con vivienda tiene derecho a usar las instalaciones comunes en los mismos términos que los residentes, salvo restricciones específicas establecidas por el consorcio. Las restricciones tienen que ser razonables y no discriminatorias.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
