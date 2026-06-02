@@ -1,9 +1,13 @@
 export type Hub =
   | 'Cambiar administrador'
   | 'Expensas'
-  | 'Ley 941'
-  | 'Derechos'
-  | 'Local AMBA'
+  | 'Inquilinos'
+  | 'Encargado'
+  | 'Obras y mantenimiento'
+  | 'Seguros'
+  | 'Convivencia'
+  | 'Legal'
+  | 'Mercado y contexto'
 
 export type CtaType = 'analizador' | 'champion' | 'consulta'
 
@@ -45,17 +49,37 @@ export const HUB_COLORS: Record<Hub, { bg: string; text: string; border: string 
     text: 'var(--color-vero)',
     border: '#BAD3F3',
   },
-  'Ley 941': {
-    bg: '#FFFBEB',
-    text: '#B45309',
-    border: '#FCD34D',
-  },
-  Derechos: {
+  Inquilinos: {
     bg: '#F3EEFD',
     text: '#6D28D9',
     border: '#D6C7F5',
   },
-  'Local AMBA': {
+  Encargado: {
+    bg: '#FFFBEB',
+    text: '#B45309',
+    border: '#FCD34D',
+  },
+  'Obras y mantenimiento': {
+    bg: '#F1F5F9',
+    text: '#334155',
+    border: '#CBD5E1',
+  },
+  Seguros: {
+    bg: '#ECFEFF',
+    text: '#0E7490',
+    border: '#A5F3FC',
+  },
+  Convivencia: {
+    bg: '#FDF2F8',
+    text: '#BE185D',
+    border: '#FBCFE8',
+  },
+  Legal: {
+    bg: '#EEF2FF',
+    text: '#3730A3',
+    border: '#C7D2FE',
+  },
+  'Mercado y contexto': {
     bg: '#FEF2F2',
     text: '#9A2E22',
     border: '#FCA5A5',
@@ -65,12 +89,241 @@ export const HUB_COLORS: Record<Hub, { bg: string; text: string; border: string 
 export const HUBS: Hub[] = [
   'Cambiar administrador',
   'Expensas',
-  'Ley 941',
-  'Derechos',
-  'Local AMBA',
+  'Inquilinos',
+  'Encargado',
+  'Obras y mantenimiento',
+  'Seguros',
+  'Convivencia',
+  'Legal',
+  'Mercado y contexto',
 ]
 
 export const articles: Article[] = [
+  {
+    slug: 'encargado-permanente-vs-no-permanente-edificios-caba',
+    title:
+      'Encargado permanente vs. no permanente en edificios de CABA: diferencias, costos y qué le conviene a tu consorcio',
+    excerpt:
+      'En una asamblea de 24 unidades en Almagro, la decisión sobre el encargado se tomó por intuición, sin números reales sobre la mesa. Categorías del CCT 589/2010, comparación de costos reales (incluido el costo de la unidad) y qué modalidad conviene según tu edificio.',
+    seoTitle:
+      'Encargado permanente vs. no permanente en CABA: costos reales y qué conviene (2026)',
+    seoDescription:
+      'Diferencias entre encargado permanente con y sin vivienda, no permanente y suplente según el CCT 589/2010. Comparación de costos reales (incluido el costo de oportunidad de la unidad) y cuándo conviene cada modalidad.',
+    hub: 'Encargado',
+    date: '2026-06-02',
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'En la última asamblea de un edificio de 24 unidades en Almagro, el debate duró casi dos horas. El encargado permanente se había jubilado después de 22 años en el edificio y el consorcio tenía que decidir qué hacer. Un grupo quería contratar a alguien nuevo en las mismas condiciones. Otro quería aprovechar la oportunidad para pasarse a un esquema de encargado no permanente y bajar costos. Un tercero proponía directamente tercerizar la limpieza.',
+      },
+      {
+        type: 'p',
+        text: 'Nadie tenía los números reales sobre la mesa. La decisión se tomó por intuición.',
+      },
+      {
+        type: 'p',
+        text: 'Esta guía existe para que esa conversación se tenga con información concreta.',
+      },
+      {
+        type: 'h2',
+        id: 'categorias-cct-589',
+        text: 'Las categorías que define el CCT 589/2010',
+      },
+      {
+        type: 'p',
+        text: 'El Convenio Colectivo de Trabajo 589/2010 establece categorías claras que determinan no solo el sueldo sino las obligaciones del consorcio como empleador. Entender la diferencia entre ellas es el primer paso para tomar una decisión informada.',
+      },
+      {
+        type: 'h3',
+        id: 'permanente-con-vivienda',
+        text: 'Encargado permanente con vivienda',
+      },
+      {
+        type: 'p',
+        text: 'Trabaja jornada completa y vive en una unidad funcional del edificio cedida por el consorcio como parte de su remuneración. Es la figura más tradicional en edificios de CABA de mediana y gran escala.',
+      },
+      {
+        type: 'p',
+        text: 'Su presencia física en el edificio las 24 horas es el principal argumento a su favor: atención de urgencias fuera del horario laboral, control de accesos, recepción de proveedores, gestión de emergencias. Todo eso tiene un valor real aunque no figure en ninguna planilla.',
+      },
+      {
+        type: 'p',
+        text: 'El costo total de esta figura incluye el básico en efectivo —que es menor que el del encargado sin vivienda porque parte de la compensación es la vivienda en especie— más todas las cargas sociales, más el costo de oportunidad de la unidad funcional ocupada. Ese último ítem es el que más frecuentemente se omite en el análisis y el que más cambia la ecuación en barrios con valores de alquiler altos.',
+      },
+      {
+        type: 'h3',
+        id: 'permanente-sin-vivienda',
+        text: 'Encargado permanente sin vivienda',
+      },
+      {
+        type: 'p',
+        text: 'Trabaja jornada completa pero no vive en el edificio. Su básico en efectivo es mayor que el del encargado con vivienda porque toda su compensación es monetaria. Se va al terminar su jornada y no está disponible fuera de ese horario.',
+      },
+      {
+        type: 'p',
+        text: 'Es la figura que mejor funciona en edificios donde la presencia nocturna no es crítica —edificios con sistema de portería virtual, con seguridad privada contratada por separado, o donde los propietarios priorizan el control de costos sobre la disponibilidad permanente.',
+      },
+      {
+        type: 'h3',
+        id: 'no-permanente',
+        text: 'Encargado no permanente',
+      },
+      {
+        type: 'p',
+        text: 'Es el encargado que trabaja media jornada (cuatro horas diarias).',
+      },
+      {
+        type: 'p',
+        text: 'Su costo es proporcionalmente menor al del permanente, pero también su disponibilidad. En edificios chicos —menos de 10 unidades— o en edificios donde las tareas de mantenimiento y limpieza son limitadas, puede ser la opción más razonable económicamente.',
+      },
+      {
+        type: 'p',
+        text: 'La bonificación por antigüedad para esta categoría es del 1% por año —no del 2% que corresponde al personal de jornada completa— y los aportes a la OSPERyH se calculan sobre jornada completa independientemente de las horas reales trabajadas, como explicamos en el artículo anterior.',
+      },
+      {
+        type: 'h3',
+        id: 'suplente',
+        text: 'Suplente',
+      },
+      {
+        type: 'p',
+        text: 'Cubre ausencias del encargado titular: vacaciones, licencias, enfermedades. No es una figura de reemplazo permanente: el convenio regula específicamente su uso para cubrir ausencias temporales. Usarla de manera sistemática para evitar la contratación de un titular es una irregularidad laboral.',
+      },
+      {
+        type: 'h2',
+        id: 'comparacion-costos',
+        text: 'La comparación de costos reales',
+      },
+      {
+        type: 'p',
+        text: 'Acá está el análisis que pocas asambleas hacen correctamente porque mezclan el costo nominal con el costo real.',
+      },
+      {
+        type: 'h3',
+        id: 'costo-permanente-vivienda',
+        text: 'El costo del encargado permanente con vivienda',
+      },
+      {
+        type: 'p',
+        text: 'El costo total tiene tres componentes que hay que sumar:',
+      },
+      {
+        type: 'p',
+        text: '**Costo laboral directo:** básico en efectivo + antigüedad + SAC + adicional por vivienda computable + cargas sociales (aproximadamente 25-30% sobre el bruto). Este número aparece en la liquidación de expensas.',
+      },
+      {
+        type: 'p',
+        text: '**Costo de la unidad funcional:** la unidad que ocupa el encargado tiene un valor de mercado como alquiler. En un edificio de Caballito o Villa Crespo, una unidad de 1 ambiente en 2026 puede valer entre $500.000 y $700.000 pesos mensuales de alquiler. Ese es un costo de oportunidad real que el consorcio asume aunque no lo vea en la liquidación.',
+      },
+      {
+        type: 'p',
+        text: '**Costo de eventual despido:** un encargado con vivienda y muchos años de antigüedad tiene una indemnización potencial significativa que el consorcio debería provisionar aunque no lo haga en la práctica.',
+      },
+      {
+        type: 'h3',
+        id: 'costo-no-permanente',
+        text: 'El costo del encargado no permanente',
+      },
+      {
+        type: 'p',
+        text: '**Costo laboral directo:** básico proporcional a las horas + antigüedad al 1% + SAC + cargas sociales. Nominalmente menor que el permanente.',
+      },
+      {
+        type: 'p',
+        text: '**Sin costo de unidad:** no ocupa ninguna unidad funcional del edificio.',
+      },
+      {
+        type: 'p',
+        text: '**Mayor costo de coordinación:** proveedores, urgencias y tareas que el encargado permanente resolvía solo ahora requieren coordinación activa del administrador o del consejo de propietarios.',
+      },
+      {
+        type: 'h3',
+        id: 'costo-tercerizado',
+        text: 'El costo del servicio tercerizado',
+      },
+      {
+        type: 'p',
+        text: 'Una empresa de limpieza y mantenimiento cobra un precio mensual que incluye su margen comercial más el costo laboral del personal. En general ese precio es competitivo para edificios chicos, pero en edificios medianos y grandes el costo del servicio tercerizado puede superar al del encargado propio cuando se hace la comparación correcta.',
+      },
+      {
+        type: 'p',
+        text: 'La diferencia que más se subestima: una empresa tercerizada no tiene la presencia, el conocimiento del edificio ni la relación con los residentes que tiene un encargado con años en el cargo. Ese intangible tiene valor económico real cuando hay una urgencia a las 11 de la noche o cuando hay que coordinar una obra con los propietarios.',
+      },
+      {
+        type: 'h2',
+        id: 'factores-decision',
+        text: 'Los factores que más pesan en la decisión',
+      },
+      {
+        type: 'p',
+        text: 'No existe una respuesta universal sobre qué modalidad conviene. Depende de las características específicas de cada edificio. Estos son los factores que más impactan en la decisión:',
+      },
+      {
+        type: 'p',
+        text: '**Cantidad de unidades.** A mayor cantidad de unidades, mayor la carga de trabajo y más justificada la figura del encargado permanente. En edificios de más de 20 unidades, el encargado no permanente generalmente no alcanza para cubrir todas las tareas.',
+      },
+      {
+        type: 'p',
+        text: '**Valor de mercado de la unidad del encargado.** En barrios con alquileres altos —Palermo, Belgrano, Recoleta, Núñez— el costo de oportunidad de la unidad puede hacer que la figura del encargado con vivienda sea significativamente más cara que las alternativas. En barrios con alquileres más bajos, esa diferencia se achica.',
+      },
+      {
+        type: 'p',
+        text: '**Perfil de los residentes.** Edificios con alta proporción de adultos mayores o con residentes que valoran la presencia permanente de alguien de confianza en el edificio tienen una razón concreta para mantener la figura del encargado con vivienda más allá del análisis de costos.',
+      },
+      {
+        type: 'p',
+        text: '**Antigüedad del edificio y estado de mantenimiento.** Edificios viejos con más necesidades de mantenimiento justifican más horas de trabajo. Un edificio nuevo con todos los sistemas en buen estado puede funcionar bien con menos horas de encargado.',
+      },
+      {
+        type: 'p',
+        text: '**Historial de urgencias.** Si el edificio tiene antecedentes de urgencias fuera del horario laboral —inundaciones, cortes de luz, problemas de ascensor— la presencia permanente tiene un valor de seguro que no aparece en la planilla de costos pero es real.',
+      },
+      {
+        type: 'h2',
+        id: 'momento-del-cambio',
+        text: 'El momento del cambio: qué hacer cuando hay que tomar la decisión',
+      },
+      {
+        type: 'p',
+        text: 'La oportunidad más común para revisar la modalidad de contratación del encargado es cuando hay una vacante: jubilación, renuncia o despido del encargado.',
+      },
+      {
+        type: 'p',
+        text: 'Nuestra lectura sobre esto es clara: ese momento hay que aprovecharlo con análisis, no con urgencia. La presión por cubrir la vacante rápido lleva a muchos consorcios a contratar en las mismas condiciones que el anterior sin evaluar si esas condiciones siguen siendo las más convenientes para el edificio actual.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que recomendamos hacer antes de contratar:',
+      },
+      {
+        type: 'ol',
+        items: [
+          '**Calculá el costo total real de cada opción**, incluyendo el costo de oportunidad de la unidad si aplica.',
+          '**Llevá las opciones a la asamblea** con números concretos, no con intuiciones.',
+          '**Tomá la decisión en asamblea** y dejala documentada en el acta. El administrador necesita ese mandato para contratar.',
+        ],
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Puede el consorcio cambiar al encargado permanente por uno no permanente sin despedirlo?',
+        a: 'No unilateralmente. Modificar las condiciones esenciales del contrato de trabajo —jornada, categoría, modalidad— sin el acuerdo del trabajador configura un despido indirecto, con las mismas consecuencias indemnizatorias que un despido sin causa. Si el consorcio quiere cambiar la modalidad, tiene que negociarlo con el trabajador o esperar una vacante natural.',
+      },
+      {
+        q: '¿Qué pasa si el encargado hace tareas fuera de su jornada sin que se le pague?',
+        a: 'Esas horas generan deuda laboral para el consorcio aunque nadie las haya autorizado explícitamente. Si el encargado puede probar que realizó tareas fuera de su jornada habitual —mensajes, registros de acceso, testimonios de vecinos— puede reclamar esas horas como horas extra dentro del plazo de prescripción de dos años. Valga aclarar que estas horas solo aplican si se dieron por trabajos de urgencia o por pedido expreso del consorcio.',
+      },
+      {
+        q: '¿El encargado puede negarse a hacer tareas por fuera de su jornada?',
+        a: 'Sí. Fuera de su jornada contratada, el encargado no tiene obligación de atender el edificio, salvo eventos de fuerza mayor. Si el consorcio necesita disponibilidad fuera de ese horario, tiene que contemplarlo en el contrato y pagarlo de acuerdo al convenio.',
+      },
+      {
+        q: '¿Cuánto cuesta despedir a un encargado permanente con 15 años de antigüedad?',
+        a: 'La indemnización por despido sin causa equivale a un mes de sueldo por año de antigüedad, con un mínimo de dos meses, más el SAC proporcional y las vacaciones no gozadas. Para un encargado con 15 años y el básico actualizado de su categoría, el número puede ser significativo. Antes de tomar esa decisión en asamblea, el administrador debería presentar el cálculo exacto con los valores vigentes.',
+      },
+    ],
+  },
   {
     slug: 'como-cambiar-administrador-consorcio-caba',
     title: 'Cómo cambiar de administrador de consorcio en CABA: guía completa 2026',
@@ -268,7 +521,7 @@ export const articles: Article[] = [
     title: '10 señales de que tu administrador de consorcio está fallando (y no es paranoia)',
     excerpt:
       'De cada 10 reclamos a la DGDyPC por administración de consorcios en CABA, más de la mitad corresponden a falta de rendición de cuentas. Cómo distinguir incompetencia real de gestión normal imperfecta.',
-    hub: 'Ley 941',
+    hub: 'Cambiar administrador',
     date: '2026-04-22',
     ctaType: 'analizador',
     content: [
@@ -1588,7 +1841,7 @@ export const articles: Article[] = [
     seoTitle: 'Denunciar administrador ante la DGDyPC en CABA: guía Ley 941 (2026)',
     seoDescription:
       'Qué infracciones podés denunciar, cómo presentar la denuncia online sin abogado y qué sanciones puede aplicar la DGDyPC. Diferencias con la acción judicial civil.',
-    hub: 'Ley 941',
+    hub: 'Legal',
     date: '2026-05-26',
     ctaType: 'champion',
     content: [
@@ -1785,7 +2038,7 @@ export const articles: Article[] = [
     seoTitle: 'Sueldo del encargado de edificio en CABA 2026: escala SUTERH explicada',
     seoDescription:
       'Categorías SUTERH, antigüedad, SAC, aportes y horas extra: cómo se compone el sueldo del encargado y cómo verificar si la liquidación de tu edificio es correcta.',
-    hub: 'Expensas',
+    hub: 'Encargado',
     date: '2026-05-28',
     ctaType: 'analizador',
     content: [

@@ -7,14 +7,20 @@ import { type Article, HUBS, type Hub } from '@/lib/blog'
 
 type FilterValue = 'all' | Hub
 
-const FILTERS: { label: string; value: FilterValue }[] = [
-  { label: 'Todos', value: 'all' },
-  ...HUBS.map((h) => ({ label: h, value: h as FilterValue })),
-]
-
 export default function BlogListing({ articles }: { articles: Article[] }) {
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState<FilterValue>('all')
+
+  const filters = useMemo<{ label: string; value: FilterValue }[]>(
+    () => [
+      { label: 'Todos', value: 'all' },
+      ...HUBS.filter((h) => articles.some((a) => a.hub === h)).map((h) => ({
+        label: h,
+        value: h as FilterValue,
+      })),
+    ],
+    [articles],
+  )
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase()
@@ -64,7 +70,7 @@ export default function BlogListing({ articles }: { articles: Article[] }) {
           role="group"
           aria-label="Filtrar por categoría"
         >
-          {FILTERS.map((f) => {
+          {filters.map((f) => {
             const active = filter === f.value
             return (
               <button

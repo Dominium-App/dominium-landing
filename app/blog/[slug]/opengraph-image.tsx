@@ -8,9 +8,13 @@ export const alt = 'Dominium — Blog'
 const HUB_HEX: Record<Hub, { bg: string; text: string; border: string }> = {
   'Cambiar administrador': { bg: '#E8F2EC', text: '#1A3A2A', border: '#B6E8CC' },
   Expensas: { bg: '#EBF3FD', text: '#3B7DD8', border: '#BAD3F3' },
-  'Ley 941': { bg: '#FFFBEB', text: '#B45309', border: '#FCD34D' },
-  Derechos: { bg: '#F3EEFD', text: '#6D28D9', border: '#D6C7F5' },
-  'Local AMBA': { bg: '#FEF2F2', text: '#9A2E22', border: '#FCA5A5' },
+  Inquilinos: { bg: '#F3EEFD', text: '#6D28D9', border: '#D6C7F5' },
+  Encargado: { bg: '#FFFBEB', text: '#B45309', border: '#FCD34D' },
+  'Obras y mantenimiento': { bg: '#F1F5F9', text: '#334155', border: '#CBD5E1' },
+  Seguros: { bg: '#ECFEFF', text: '#0E7490', border: '#A5F3FC' },
+  Convivencia: { bg: '#FDF2F8', text: '#BE185D', border: '#FBCFE8' },
+  Legal: { bg: '#EEF2FF', text: '#3730A3', border: '#C7D2FE' },
+  'Mercado y contexto': { bg: '#FEF2F2', text: '#9A2E22', border: '#FCA5A5' },
 }
 
 async function loadFont(family: string): Promise<ArrayBuffer> {
