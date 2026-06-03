@@ -2301,6 +2301,205 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'derechos-inquilino-consorcio-caba',
+    title: 'Qué derechos tiene el inquilino en un consorcio en CABA',
+    excerpt:
+      'El inquilino baja a hablar con el administrador y la respuesta es siempre la misma: "yo con usted no puedo hablar, hable con su propietario". En muchos casos esa respuesta es directamente incorrecta. Los derechos concretos del inquilino dentro del consorcio que la mayoría desconoce.',
+    seoTitle: 'Derechos del inquilino en un consorcio de CABA: qué puede reclamar (2026)',
+    seoDescription:
+      'Qué derechos tiene el inquilino dentro del consorcio en CABA: uso de espacios comunes, reclamos al administrador, asambleas con mandato, información de expensas y habitabilidad. También sus obligaciones y lo que el administrador no puede hacer.',
+    hub: 'Inquilinos',
+    date: '2026-06-03',
+    ctaType: 'consulta',
+    content: [
+      {
+        type: 'p',
+        text: 'Hay una escena que se repite en edificios de todo CABA. El inquilino del cuarto piso baja a hablar con el administrador por un problema en las áreas comunes. La respuesta es siempre la misma: "Yo con usted no puedo hablar, hable con su propietario." El inquilino vuelve al departamento sin solución, llama al propietario, el propietario llama al administrador tres días después, y el problema sigue sin resolverse.',
+      },
+      {
+        type: 'p',
+        text: 'Esa dinámica no es solo incómoda. En muchos casos es directamente incorrecta desde el punto de vista legal.',
+      },
+      {
+        type: 'p',
+        text: 'Los inquilinos en CABA tienen derechos concretos dentro del consorcio que la mayoría desconoce, y los administradores que los ignoran sistemáticamente están en una zona gris que vale la pena conocer.',
+      },
+      {
+        type: 'h2',
+        id: 'marco-legal',
+        text: 'El inquilino dentro del consorcio: qué dice el marco legal',
+      },
+      {
+        type: 'p',
+        text: 'El inquilino no es propietario de la unidad funcional, pero es el usuario cotidiano del edificio y de sus espacios comunes. Esa realidad tiene reconocimiento legal en el CCyC y en la normativa específica de CABA, aunque con matices importantes.',
+      },
+      {
+        type: 'p',
+        text: 'El **Código Civil y Comercial** regula la propiedad horizontal en sus artículos 2037 a 2069 y establece los derechos y obligaciones de los propietarios. El inquilino, como usuario de la unidad, hereda algunas de esas obligaciones por la vía del contrato de alquiler pero también tiene derechos propios que el reglamento de copropiedad y la práctica del consorcio no pueden ignorar.',
+      },
+      {
+        type: 'p',
+        text: 'La **Ley 941** de CABA regula la administración de consorcios y establece obligaciones del administrador hacia los consorcistas, pero no menciona explícitamente a los inquilinos como sujetos de derechos. Eso no significa que el administrador pueda ignorarlos: significa que los derechos del inquilino dentro del consorcio surgen de otras fuentes normativas.',
+      },
+      {
+        type: 'h2',
+        id: 'derechos-concretos',
+        text: 'Los derechos concretos del inquilino en el consorcio',
+      },
+      {
+        type: 'h3',
+        id: 'usar-espacios-comunes',
+        text: 'Derecho a usar los espacios comunes',
+      },
+      {
+        type: 'p',
+        text: 'El inquilino tiene derecho a usar todas las áreas comunes del edificio en las mismas condiciones que cualquier otro residente: palier, ascensores, sum, lavadero, cocheras si las incluye el contrato, y cualquier otro espacio de uso común. El consorcio no puede restringir ese uso por la sola condición de inquilino.',
+      },
+      {
+        type: 'p',
+        text: 'Si el reglamento de copropiedad o una decisión de asamblea intenta crear una distinción entre propietarios e inquilinos en el uso de los espacios comunes, esa distinción tiene límites legales claros. Restringir el acceso al sum a los inquilinos, por ejemplo, o cobrarles un adicional por usar la pileta que los propietarios no pagan, son medidas cuestionables jurídicamente.',
+      },
+      {
+        type: 'h3',
+        id: 'reclamar-al-administrador',
+        text: 'Derecho a reclamar directamente al administrador',
+      },
+      {
+        type: 'p',
+        text: 'Este es el punto que más confusión genera. El administrador no puede negarse sistemáticamente a atender reclamos del inquilino bajo el argumento de que "solo habla con propietarios". El inquilino es usuario del edificio y tiene derecho a plantear problemas que afecten su habitabilidad o el uso de las áreas comunes.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que sí es cierto es que ciertas decisiones —como cambiar el administrador, aprobar obras, modificar el reglamento— corresponden exclusivamente a los propietarios. Pero un problema de humedad en las partes comunes, un ascensor que no funciona o una filtración del techo no son decisiones: son reclamos de mantenimiento que el inquilino puede y debe poder plantear directamente.',
+      },
+      {
+        type: 'h3',
+        id: 'participar-asambleas',
+        text: 'Derecho a participar en las asambleas con mandato del propietario',
+      },
+      {
+        type: 'p',
+        text: 'El inquilino no tiene voto propio en las asambleas de consorcio. El derecho de voto corresponde al propietario de cada unidad funcional. Sin embargo, el propietario puede otorgarle al inquilino un **mandato expreso por escrito** para que lo represente en la asamblea y vote en su nombre.',
+      },
+      {
+        type: 'p',
+        text: 'En la práctica esto es más frecuente de lo que parece, especialmente en edificios con alta proporción de propietarios no residentes que viven en el exterior o en otra ciudad y no pueden asistir a las asambleas. El inquilino con mandato tiene los mismos derechos que el propietario en esa asamblea específica.',
+      },
+      {
+        type: 'h3',
+        id: 'informacion-expensas',
+        text: 'Derecho a recibir información sobre las expensas',
+      },
+      {
+        type: 'p',
+        text: 'El inquilino que paga expensas ordinarias tiene derecho a saber qué está pagando. La liquidación de expensas es un documento que el inquilino puede solicitar y que el administrador o el propietario tienen obligación de proporcionarle. No puede haber cobro de expensas sin respaldo documental accesible para quien las paga.',
+      },
+      {
+        type: 'h3',
+        id: 'condiciones-habitables',
+        text: 'Derecho a vivir en condiciones habitables',
+      },
+      {
+        type: 'p',
+        text: 'El consorcio tiene obligación de mantener las partes comunes del edificio en condiciones que garanticen la habitabilidad de todas las unidades. Si el abandono de las áreas comunes afecta directamente la habitabilidad de la unidad alquilada —una filtración del techo que el consorcio no repara, un ascensor que no funciona en un edificio donde el inquilino vive en un piso alto— el inquilino tiene derecho a reclamar y eventualmente a accionar contra el propietario, quien a su vez puede accionar contra el consorcio.',
+      },
+      {
+        type: 'h2',
+        id: 'obligaciones',
+        text: 'Las obligaciones del inquilino dentro del consorcio',
+      },
+      {
+        type: 'p',
+        text: 'Los derechos tienen una contracara. El inquilino que usa el edificio también tiene obligaciones concretas:',
+      },
+      {
+        type: 'p',
+        text: '**Pagar las expensas ordinarias.** En la mayoría de los contratos de alquiler vigentes, las expensas ordinarias están a cargo del inquilino. El no pago de expensas genera deuda que el consorcio puede ejecutar judicialmente contra el propietario, quien a su vez puede repetir contra el inquilino según el contrato.',
+      },
+      {
+        type: 'p',
+        text: '**Respetar el reglamento de copropiedad.** El reglamento de copropiedad obliga a todos los residentes del edificio, no solo a los propietarios. El inquilino que lo incumple —ruidos molestos, uso indebido de espacios comunes, modificaciones no autorizadas en la unidad— puede ser intimado por el consorcio y el propietario puede recibir sanciones por los actos de su inquilino.',
+      },
+      {
+        type: 'p',
+        text: '**No realizar modificaciones en la unidad sin autorización.** Cualquier modificación estructural en la unidad requiere autorización del propietario y en algunos casos del consorcio. Un inquilino que rompe paredes, modifica instalaciones o altera elementos comunes sin autorización genera responsabilidad para el propietario.',
+      },
+      {
+        type: 'p',
+        text: '**Comportarse de manera que no afecte la convivencia.** El reglamento interno del edificio regula la convivencia de todos los residentes. El inquilino está alcanzado por esas normas exactamente igual que un propietario residente.',
+      },
+      {
+        type: 'h2',
+        id: 'que-no-puede-hacer-administrador',
+        text: 'Lo que el administrador no puede hacer con el inquilino',
+      },
+      {
+        type: 'p',
+        text: 'Hay conductas de algunos administradores hacia los inquilinos que están en una zona cuando menos cuestionable:',
+      },
+      {
+        type: 'p',
+        text: '**Negarse a recibir reclamos de mantenimiento.** Un administrador que sistemáticamente rechaza comunicarse con inquilinos sobre problemas que afectan la habitabilidad del edificio no está cumpliendo su función. El reclamo de un inquilino sobre el estado de una parte común es tan válido como el de un propietario.',
+      },
+      {
+        type: 'p',
+        text: '**Discriminar en el acceso a servicios comunes.** Como mencionamos antes, crear categorías distintas de acceso a espacios comunes según si el residente es propietario o inquilino no tiene base legal en la normativa vigente.',
+      },
+      {
+        type: 'h2',
+        id: 'airbnb-alquileres-temporarios',
+        text: 'El caso particular de Airbnb y alquileres temporarios',
+      },
+      {
+        type: 'p',
+        text: 'Cuando el propietario alquila la unidad por plataformas como Airbnb para estadías cortas, la situación del "inquilino" es distinta: no hay un contrato de locación tradicional ni una relación estable con el consorcio. Los huéspedes temporarios no tienen los mismos derechos que un inquilino con contrato, y el consorcio tiene más margen para regular —o directamente prohibir— ese uso de las unidades.',
+      },
+      {
+        type: 'p',
+        text: 'Este es un tema que merece su propio artículo y que está generando cada vez más conflictos en edificios de barrios turísticos de CABA como Palermo, San Telmo y Puerto Madero. Lo desarrollamos en profundidad en la guía sobre Airbnb en edificios de CABA.',
+      },
+      {
+        type: 'h2',
+        id: 'asimetria-informacion',
+        text: 'Una lectura sobre la asimetría de información',
+      },
+      {
+        type: 'p',
+        text: 'Lo que observamos sistemáticamente es que los inquilinos son el segmento más desinformado dentro de un consorcio. No reciben la liquidación de expensas directamente, no son convocados a las asambleas, no tienen acceso natural a la documentación del edificio y muchas veces ni siquiera saben el nombre de su administrador.',
+      },
+      {
+        type: 'p',
+        text: 'Esa asimetría no es accidental. Un consorcio donde los inquilinos no saben sus derechos es un consorcio donde es más fácil gestionar sin rendir cuentas. No estamos diciendo que todos los administradores lo hagan con esa intención: estamos diciendo que el resultado práctico es el mismo.',
+      },
+      {
+        type: 'p',
+        text: 'El primer paso para cambiar esa dinámica es conocer los derechos. El segundo es ejercerlos.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El inquilino puede asistir a la asamblea sin mandato del propietario?',
+        a: 'Puede asistir pero no puede votar ni tomar decisiones vinculantes. Algunos reglamentos admiten la presencia de inquilinos como observadores. Si querés participar activamente, pedile al propietario un mandato por escrito antes de la asamblea.',
+      },
+      {
+        q: '¿Qué hago si el administrador se niega a atenderme porque soy inquilino?',
+        a: 'Documentá el rechazo por escrito —un mensaje, un correo, una nota— y comunicáselo al propietario. Si el problema persiste y afecta tu habitabilidad, el propietario tiene la obligación de intervenir. En casos extremos, podés plantear la situación a la DGDyPC, aunque tu interlocutor principal sigue siendo el propietario de la unidad.',
+      },
+      {
+        q: '¿El consorcio me puede cobrar expensas directamente a mí como inquilino?',
+        a: 'El obligado frente al consorcio por el pago de expensas es siempre el propietario, no el inquilino. Lo que existe entre el propietario y el inquilino es un acuerdo contractual por el cual el inquilino asume ese costo. Si el inquilino no paga, el consorcio va contra el propietario, no contra el inquilino.',
+      },
+      {
+        q: '¿Puedo reclamar al consorcio si una filtración de las partes comunes daña mis muebles?',
+        a: 'El reclamo por daños causados por el mal estado de las partes comunes corresponde hacerlo al propietario de la unidad, quien es el interlocutor del consorcio. El propietario puede a su vez reclamar al consorcio. En la práctica, lo más eficiente es que el propietario y el inquilino coordinen el reclamo juntos para agilizar la resolución.',
+      },
+      {
+        q: '¿El reglamento de copropiedad me obliga aunque no lo haya firmado?',
+        a: 'Sí. El reglamento de copropiedad es oponible a todos los residentes del edificio, incluyendo inquilinos, aunque no lo hayan firmado personalmente. Al alquilar una unidad en un edificio en propiedad horizontal, el inquilino queda alcanzado por ese reglamento. Es recomendable leerlo antes de firmar el contrato de alquiler.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
