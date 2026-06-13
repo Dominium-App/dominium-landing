@@ -2500,6 +2500,215 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'inquilino-asambleas-consorcio-caba',
+    title: 'El inquilino y las asambleas de consorcio: qué puede hacer y qué no',
+    excerpt:
+      'Llega la notificación de asamblea al cuarto piso. Está dirigida al propietario, que vive en Mendoza. El inquilino lee que se va a votar un aumento de expensas del 35% y una obra que va a generar ruido durante meses. Dos temas que lo afectan directamente. Y sin embargo, nadie lo convocó. Qué derechos tiene realmente el inquilino en una asamblea.',
+    seoTitle: 'El inquilino en las asambleas de consorcio en CABA: voto, mandato y presencia (2026)',
+    seoDescription:
+      'Qué puede hacer el inquilino en una asamblea de consorcio en CABA: cuándo puede votar con mandato del propietario, su derecho a asistir como observador, cómo pedir el mandato y qué pasa cuando la unidad queda sin representación.',
+    hub: 'Inquilinos',
+    date: '2026-06-12',
+    ctaType: 'consulta',
+    content: [
+      {
+        type: 'p',
+        text: 'Llega la notificación de asamblea al buzón del cuarto piso. Está dirigida al propietario, que vive en Mendoza y alquila el departamento hace cuatro años. El inquilino la lee, ve que se va a votar un aumento de expensas del 35% y una obra en el frente que va a generar ruido durante tres meses. Dos temas que lo afectan directamente. Y sin embargo, nadie lo convocó, nadie le explicó que puede participar y, en la mayoría de los edificios de CABA, nadie le va a abrir la puerta de esa sala si se presenta sin más.',
+      },
+      {
+        type: 'p',
+        text: 'Esa escena se repite todos los días en edificios de Flores, Villa Urquiza, Palermo y Quilmes. Y en la mayoría de los casos, el inquilino tiene más derechos de los que cree.',
+      },
+      {
+        type: 'h2',
+        id: 'regla-base',
+        text: 'La regla base: el voto es del propietario, no del inquilino',
+      },
+      {
+        type: 'p',
+        text: 'Antes de entrar en los matices, la regla general es clara y no tiene excepciones: el derecho de voto en las asambleas de consorcio corresponde al propietario de cada unidad funcional.',
+      },
+      {
+        type: 'p',
+        text: 'El CCyC establece en su **artículo 2060** que las decisiones de la asamblea se adoptan por los propietarios. El inquilino, por el solo hecho de alquilar una unidad, no adquiere ese derecho. No importa cuántos años lleva viviendo en el edificio, cuánto paga de expensas ni cuánto lo afecten las decisiones que se toman en esa sala.',
+      },
+      {
+        type: 'p',
+        text: 'Esa es la letra de la ley. Pero la letra de la ley tiene matices importantes que la mayoría de los inquilinos —y de los administradores— no conoce.',
+      },
+      {
+        type: 'h2',
+        id: 'mandato',
+        text: 'Cuándo el inquilino sí puede votar: el mandato',
+      },
+      {
+        type: 'p',
+        text: 'El propietario puede delegar su voto en cualquier persona mediante un **mandato expreso por escrito**. Esa persona puede ser el inquilino de su unidad.',
+      },
+      {
+        type: 'p',
+        text: 'El mandato no requiere escribano ni formalidades especiales. Alcanza con una nota firmada por el propietario que diga, en términos simples, que autoriza al inquilino a representarlo en la asamblea del día X y a votar en su nombre. Algunos reglamentos de copropiedad establecen requisitos adicionales para el mandato —como que sea en papel membretado o que incluya el número de DNI de ambas partes— pero en general es un trámite simple.',
+      },
+      {
+        type: 'p',
+        text: 'Con ese mandato en mano, el inquilino tiene exactamente los mismos derechos que el propietario en esa asamblea: puede hablar, puede votar, puede pedir que conste en acta su posición sobre cualquier punto del orden del día.',
+      },
+      {
+        type: 'p',
+        text: 'En la práctica, esto es más relevante de lo que parece. Hay edificios en CABA donde la mayoría de los propietarios no residen en el edificio —lo tienen como inversión y lo alquilan— y donde conseguir quórum para una asamblea es una pesadilla precisamente porque los propietarios no se molestan en asistir. En esos edificios, un sistema organizado de mandatos a inquilinos puede ser la diferencia entre una asamblea que funciona y una que nunca llega al quórum.',
+      },
+      {
+        type: 'h2',
+        id: 'asistir-sin-votar',
+        text: 'Puede asistir sin votar: el derecho a estar presente',
+      },
+      {
+        type: 'p',
+        text: 'Acá está el matiz que más administradores ignoran: el inquilino puede asistir a la asamblea aunque no tenga mandato del propietario.',
+      },
+      {
+        type: 'p',
+        text: 'El CCyC no prohíbe la presencia de inquilinos en las asambleas. Lo que prohíbe es que voten sin mandato. Son dos cosas distintas.',
+      },
+      {
+        type: 'p',
+        text: 'Un inquilino que se presenta a la asamblea sin mandato puede:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Escuchar todo lo que se discute y decide',
+          'Tomar nota de los acuerdos adoptados',
+          'Hacer preguntas si el presidente de la asamblea lo habilita —y en muchos reglamentos esa habilitación es la norma, no la excepción',
+          'Pedir que conste en acta su presencia como residente afectado por las decisiones',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Lo que no puede hacer es votar ni bloquear decisiones.',
+      },
+      {
+        type: 'p',
+        text: 'Algunos administradores directamente no dejan entrar a los inquilinos a la sala de la asamblea. Esa práctica no tiene base legal en la normativa general. Si el reglamento de copropiedad del edificio no prohíbe expresamente la presencia de no propietarios, el administrador no puede excluir a un inquilino que quiere asistir como observador.',
+      },
+      {
+        type: 'h2',
+        id: 'temas-que-importan',
+        text: 'Los temas que más le importan al inquilino y cómo incidir en ellos',
+      },
+      {
+        type: 'p',
+        text: 'Hay decisiones de asamblea que afectan al inquilino directamente aunque no tenga voto. Conocer cuáles son y cómo incidir en ellas es más útil que discutir si tiene derecho a votar.',
+      },
+      {
+        type: 'p',
+        text: '**Aumento de expensas ordinarias.** Las expensas ordinarias las paga el inquilino en la mayoría de los contratos. Cuando la asamblea aprueba el presupuesto anual —que determina el nivel de expensas para el ejercicio— está tomando una decisión que impacta directamente en el bolsillo del inquilino. Si el propietario no asiste y no delegó su voto, esa decisión se toma sin representación de la unidad.',
+      },
+      {
+        type: 'p',
+        text: '**Obras que generan molestias.** Una obra de refacción de fachada, una renovación del hall o el cambio del sistema de calefacción central pueden generar meses de ruido, polvo y restricciones de acceso. El inquilino que vive en el edificio lo padece más que el propietario que viene una vez por mes. Sin embargo, la decisión de hacer esa obra la toman propietarios que en muchos casos no van a estar ahí durante la ejecución.',
+      },
+      {
+        type: 'p',
+        text: '**Reglamento de convivencia.** Si la asamblea va a votar modificaciones al reglamento interno —horarios de silencio, uso del sum, política de mascotas— el inquilino está directamente alcanzado por esas normas. Incidir en esa discusión a través del propietario o directamente con mandato tiene sentido práctico.',
+      },
+      {
+        type: 'p',
+        text: '**Cambio de administrador.** Este es el caso donde el inquilino tiene menos injerencia directa, pero no cero. Si el nuevo administrador va a cambiar la modalidad de gestión, los proveedores o las políticas de atención a residentes, eso impacta en la calidad de vida cotidiana del inquilino. Coordinar con el propietario para que vote en línea con los intereses del inquilino —o directamente pedirle el mandato— es una opción real.',
+      },
+      {
+        type: 'h2',
+        id: 'pedir-mandato',
+        text: 'Cómo pedirle el mandato al propietario: lo que funciona en la práctica',
+      },
+      {
+        type: 'p',
+        text: 'La mayoría de los propietarios no residentes no se opone a dar el mandato a su inquilino. El problema es que nadie se lo pide de manera organizada y con suficiente anticipación.',
+      },
+      {
+        type: 'p',
+        text: '**Avisá con tiempo.** Cuando llegue la convocatoria a asamblea, contactá al propietario de inmediato —no el día antes. Explicale qué temas se van a tratar y por qué te interesa participar.',
+      },
+      {
+        type: 'p',
+        text: '**Hacelo fácil.** Redactá vos el texto del mandato y mandáselo para que lo firme y te lo reenvíe. Cuanto menos trabajo le des, más probable es que lo haga. Un modelo simple:',
+      },
+      {
+        type: 'blockquote',
+        text: 'Por medio de la presente autorizo a [nombre del inquilino], DNI [número], a representarme en la asamblea del Consorcio de Propietarios de [dirección] a celebrarse el día [fecha], facultándolo/a a votar en mi nombre todos los puntos del orden del día. [Nombre del propietario], DNI [número], propietario de la unidad [número/piso].',
+      },
+      {
+        type: 'p',
+        text: '**Coordiná la posición.** Si hay temas específicos sobre los que el propietario quiere que votes de cierta manera, acordalo antes. El mandato puede ser general o puede incluir instrucciones específicas sobre cómo votar cada punto.',
+      },
+      {
+        type: 'h2',
+        id: 'sin-representacion',
+        text: 'Lo que pasa cuando el propietario no va y tampoco da mandato',
+      },
+      {
+        type: 'p',
+        text: 'Es el escenario más frecuente y el más frustrante para los inquilinos que quieren participar. El propietario no va, no delega y la unidad queda sin representación.',
+      },
+      {
+        type: 'p',
+        text: 'En ese caso, la asamblea toma decisiones sin que esa unidad haya tenido voz. Las decisiones son igualmente válidas —el propietario ausente no puede impugnarlas por el solo hecho de no haber asistido— y se aplican a todos los residentes, incluyendo al inquilino.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que puede hacer el inquilino en ese escenario:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Asistir igual como observador y tomar nota de todo lo que se decide',
+          'Solicitar al administrador copia del acta una vez cerrada la asamblea —tiene derecho a conocer las decisiones que lo afectan',
+          'Comunicarle al propietario lo que se decidió y las consecuencias que tendrá sobre las expensas o la convivencia',
+          'Para la próxima asamblea, plantear el sistema de mandatos como algo habitual entre propietario e inquilino',
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'por-que-importa',
+        text: 'Una lectura sobre por qué esto importa más de lo que parece',
+      },
+      {
+        type: 'p',
+        text: 'En CABA, la proporción de unidades alquiladas en edificios de propiedad horizontal supera el 40% en muchos barrios. En algunos, como Palermo, Villa Crespo o Almagro, es todavía mayor. Eso significa que en una asamblea típica, casi la mitad de las unidades del edificio están habitadas por personas que no tienen voto propio.',
+      },
+      {
+        type: 'p',
+        text: 'El resultado práctico es que las decisiones que más afectan la vida cotidiana del edificio —expensas, obras, convivencia— las toman propietarios que en muchos casos no viven ahí. Eso no es necesariamente malo: los propietarios tienen intereses legítimos en su inversión. Pero sí genera una asimetría real entre quienes deciden y quienes viven las consecuencias.',
+      },
+      {
+        type: 'p',
+        text: 'La figura del mandato existe precisamente para cerrar esa brecha. Que no se use más frecuentemente no es un problema legal: es un problema de información. Los inquilinos no saben que pueden pedirlo y los propietarios no saben que darlo es simple y no implica ningún riesgo para ellos.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El administrador puede prohibirle la entrada a la asamblea a un inquilino sin mandato?',
+        a: 'Si el reglamento de copropiedad no prohíbe expresamente la presencia de no propietarios, el administrador no tiene base legal para excluir a un inquilino que quiere asistir como observador. Si te niegan el acceso, pedí que conste en acta ese rechazo y consultá con un abogado especializado en propiedad horizontal.',
+      },
+      {
+        q: '¿El mandato tiene que ser por escrito o puede ser verbal?',
+        a: 'Tiene que ser por escrito para tener validez frente al consorcio. Un mandato verbal no es oponible al administrador ni a los otros propietarios. Una nota firmada por el propietario —incluso enviada por mail e impresa— es suficiente en la mayoría de los casos, aunque algunos reglamentos pueden exigir requisitos adicionales.',
+      },
+      {
+        q: '¿Puedo votar con el mandato en contra de lo que quiere el propietario?',
+        a: 'Técnicamente, si el mandato es general y no incluye instrucciones específicas, el mandatario puede votar según su criterio. En la práctica, eso destruye la confianza con el propietario y puede tener consecuencias en la relación de alquiler. Lo razonable es coordinar la posición antes de la asamblea.',
+      },
+      {
+        q: '¿El inquilino puede pedir que se convoque una asamblea extraordinaria?',
+        a: 'No directamente. El derecho a solicitar la convocatoria de una asamblea extraordinaria corresponde a los propietarios. El inquilino puede pedirle al propietario que haga esa solicitud, pero no puede hacerla por su cuenta sin mandato expreso para ese acto específico.',
+      },
+      {
+        q: '¿Qué pasa si el propietario y el inquilino tienen posiciones opuestas sobre un tema de la asamblea?',
+        a: 'El propietario tiene el derecho de voto y puede ejercerlo como quiera, incluso en contra de los intereses del inquilino. En ese caso, el inquilino no tiene recurso dentro del consorcio: su relación es con el propietario, no con el consorcio. Si la decisión de asamblea genera un perjuicio concreto al inquilino, el reclamo corresponde plantearlo al propietario en el marco del contrato de alquiler.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
