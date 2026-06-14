@@ -183,3 +183,9 @@ export function getBarrio(slug: string): Barrio | undefined {
 }
 
 export const BARRIO_SLUGS = BARRIOS.map((b) => b.slug)
+
+export const ZONAS_COBERTURA: string[] = [
+  ...BARRIOS.map((b) => b.nombre),
+  'Quilmes',
+  'Berazategui',
+].sort((a, b) => a.localeCompare(b, 'es'))
