@@ -7,7 +7,7 @@ interface ProviderData {
   dniCuit: string
   trades: string[]
   coverageZones: string[]
-  licenseNumber?: string
+  licenses?: { trade: string; number: string }[]
   hasInsurance: boolean
 }
 
@@ -46,7 +46,6 @@ function buildHtml(data: ProviderData): string {
       <p style="margin:4px 0;font-size:15px;"><strong>${escapeHtml(data.fullName)}</strong></p>
       <p style="margin:4px 0;font-size:14px;color:#555;">${escapeHtml(data.email)} · ${escapeHtml(data.phone)}</p>
       <p style="margin:4px 0;font-size:14px;color:#555;">DNI/CUIT: ${escapeHtml(data.dniCuit)}</p>
-      ${data.licenseNumber ? `<p style="margin:4px 0;font-size:14px;color:#555;">Matrícula: ${escapeHtml(data.licenseNumber)}</p>` : ''}
       <p style="margin:4px 0;font-size:14px;color:#555;">Seguro: ${data.hasInsurance ? 'Sí' : 'No'}</p>
     </div>
 
@@ -54,6 +53,20 @@ function buildHtml(data: ProviderData): string {
       <p style="margin:0 0 10px;font-size:12px;font-weight:600;text-transform:uppercase;color:#666;">Oficios</p>
       <div>${chips(data.trades)}</div>
     </div>
+
+    ${
+      data.licenses && data.licenses.length
+        ? `<div style="padding:20px 24px;border-bottom:1px solid #eaeaea;">
+      <p style="margin:0 0 10px;font-size:12px;font-weight:600;text-transform:uppercase;color:#666;">Matrículas</p>
+      ${data.licenses
+        .map(
+          (l) =>
+            `<p style="margin:4px 0;font-size:14px;color:#555;"><strong>${escapeHtml(l.trade)}:</strong> ${escapeHtml(l.number)}</p>`,
+        )
+        .join('')}
+    </div>`
+        : ''
+    }
 
     <div style="padding:20px 24px;">
       <p style="margin:0 0 10px;font-size:12px;font-weight:600;text-transform:uppercase;color:#666;">Zonas de cobertura</p>

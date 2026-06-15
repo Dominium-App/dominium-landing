@@ -53,7 +53,7 @@ export default function ProviderForm() {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dniCuit, setDniCuit] = useState("");
-  const [licenseNumber, setLicenseNumber] = useState("");
+  const [licenses, setLicenses] = useState<Record<string, string>>({});
   const [hasInsurance, setHasInsurance] = useState(false);
   const [trades, setTrades] = useState<string[]>([]);
   const [zones, setZones] = useState<string[]>([]);
@@ -65,9 +65,21 @@ export default function ProviderForm() {
   const [error, setError] = useState<string | null>(null);
 
   function toggleTrade(trade: string) {
-    setTrades((prev) =>
-      prev.includes(trade) ? prev.filter((t) => t !== trade) : [...prev, trade],
-    );
+    setTrades((prev) => {
+      if (prev.includes(trade)) {
+        setLicenses((cur) => {
+          const next = { ...cur };
+          delete next[trade];
+          return next;
+        });
+        return prev.filter((t) => t !== trade);
+      }
+      return [...prev, trade];
+    });
+  }
+
+  function setLicense(trade: string, value: string) {
+    setLicenses((prev) => ({ ...prev, [trade]: value }));
   }
 
   function addZone(raw?: string) {
@@ -121,7 +133,9 @@ export default function ProviderForm() {
           dniCuit: dniCuit.trim(),
           trades,
           coverageZones: zones,
-          licenseNumber: licenseNumber.trim() || undefined,
+          licenses: trades
+            .map((t) => ({ trade: t, number: (licenses[t] ?? "").trim() }))
+            .filter((l) => l.number),
           hasInsurance,
         }),
       });
@@ -269,6 +283,36 @@ export default function ProviderForm() {
         </div>
       </div>
 
+      {trades.length > 0 && (
+        <div>
+          <span style={labelStyle}>Matrículas (opcional)</span>
+          <p className="text-[12px] mb-3" style={{ color: "var(--color-ink-tertiary)" }}>
+            Si tenés matrícula habilitante para alguno de tus oficios, cargala acá.
+          </p>
+          <div className="flex flex-col gap-2.5">
+            {trades.map((trade) => (
+              <div key={trade} className="flex items-center gap-3">
+                <span
+                  className="text-[13px]"
+                  style={{ flexBasis: "120px", flexShrink: 0, color: "var(--color-ink-secondary)" }}
+                >
+                  {trade}
+                </span>
+                <input
+                  type="text"
+                  placeholder="N° de matrícula"
+                  value={licenses[trade] ?? ""}
+                  onChange={(e) => setLicense(trade, e.target.value)}
+                  style={{ ...inputStyle, height: "44px" }}
+                  onFocus={focusBorder}
+                  onBlur={blurBorder}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
       <div>
         <label htmlFor="pf-zone" style={labelStyle}>
           Zonas de cobertura
@@ -366,22 +410,6 @@ export default function ProviderForm() {
             ))}
           </div>
         )}
-      </div>
-
-      <div>
-        <label htmlFor="pf-license" style={labelStyle}>
-          N° de matrícula (opcional)
-        </label>
-        <input
-          id="pf-license"
-          type="text"
-          placeholder="Si tenés matrícula habilitante"
-          value={licenseNumber}
-          onChange={(e) => setLicenseNumber(e.target.value)}
-          style={inputStyle}
-          onFocus={focusBorder}
-          onBlur={blurBorder}
-        />
       </div>
 
       <label className="flex items-center gap-3 cursor-pointer">
