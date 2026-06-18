@@ -20,14 +20,14 @@ const COPY: Record<CtaType, { eyebrow: string; heading: string; body: string; ct
     body:
       'Tenemos un programa para vecinos que impulsan el cambio de administrador. Te damos las herramientas y, si cerramos el consorcio, te bonificamos las expensas ordinarias.',
     cta: 'Escribinos →',
-    href: 'mailto:hola@dominium.com.ar?subject=Quiero%20ser%20Champion',
+    href: 'https://wa.me/5491136520670',
   },
   consulta: {
     eyebrow: '15 minutos, gratis',
     heading: '¿Tu caso tiene vueltas?',
     body: 'Charlemos 15 minutos. Sin costo, sin compromiso, sin venta.',
     cta: 'Agendá una charla →',
-    href: 'mailto:hola@dominium.com.ar?subject=Agendar%20llamada',
+    href: 'https://wa.me/5491136520670?text=Hola%2C%20quiero%20agendar%20una%20reunion%20informativa',
   },
 }
 
@@ -40,7 +40,7 @@ export default function CTABlock({
 }) {
   const copy = COPY[ctaType]
   const isCompact = variant === 'compact'
-  const isMail = copy.href.startsWith('mailto:')
+  const isExternal = copy.href.startsWith('http')
 
   const buttonClassName = `inline-flex items-center justify-center px-5 rounded-full font-semibold transition-colors duration-150 ${
     isCompact ? 'h-[42px] text-[14px]' : 'h-[48px] text-[15px]'
@@ -85,9 +85,11 @@ export default function CTABlock({
         {copy.body}
       </p>
       <div className="mt-1">
-        {isMail ? (
+        {isExternal ? (
           <a
             href={copy.href}
+            target="_blank"
+            rel="noopener noreferrer"
             className={buttonClassName}
             style={buttonStyle}
             onMouseEnter={onEnter}

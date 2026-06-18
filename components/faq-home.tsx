@@ -128,7 +128,17 @@ export default function FaqHome() {
           >
             hola@dominium.com.ar
           </a>{" "}
-          o por WhatsApp.
+          o{" "}
+          <a
+            href="https://wa.me/5491136520670"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+            style={{ color: "var(--color-accent)" }}
+          >
+            por WhatsApp
+          </a>
+          .
         </p>
       </div>
     </section>
