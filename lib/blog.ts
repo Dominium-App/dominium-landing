@@ -2709,6 +2709,215 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'airbnb-alquiler-temporario-consorcio-caba',
+    title: 'Airbnb en edificios de CABA: qué puede hacer el consorcio, qué dice la ley y cómo actuar',
+    excerpt:
+      'El departamento del séptimo piso tiene una rotación de ocupantes que ningún vecino termina de entender. La cerradura se cambió tres veces en un año y el encargado no sabe a quién saludar. Airbnb llegó a los edificios de CABA para quedarse. La pregunta no es si va a existir: es qué puede hacer el consorcio al respecto y con qué herramientas legales cuenta.',
+    seoTitle: 'Airbnb y alquiler temporario en consorcios de CABA: qué puede hacer el consorcio (2026)',
+    seoDescription:
+      'Qué puede hacer un consorcio de CABA frente a Airbnb y el alquiler temporario: marco legal, cuándo está prohibido, qué dice el reglamento de copropiedad, cómo prohibirlo en asamblea y los límites de la acción del consorcio.',
+    hub: 'Convivencia',
+    date: '2026-06-19',
+    ctaType: 'consulta',
+    content: [
+      {
+        type: 'p',
+        text: 'El departamento del séptimo piso tiene una rotación de ocupantes que ningún vecino termina de entender. Un fin de semana hay una familia con chicos, el siguiente un grupo de jóvenes de fiesta, el siguiente una pareja de turistas. La cerradura se cambió tres veces en un año. El encargado no sabe a quién saludar. Y en el grupo de WhatsApp del edificio, el tema explota cada tanto sin que nadie sepa exactamente qué se puede hacer.',
+      },
+      {
+        type: 'p',
+        text: 'Airbnb y las plataformas de alquiler temporario llegaron a los edificios de propiedad horizontal de CABA para quedarse. La pregunta no es si van a existir: es qué puede hacer el consorcio al respecto y con qué herramientas legales cuenta para hacerlo.',
+      },
+      {
+        type: 'h2',
+        id: 'marco-legal',
+        text: 'El marco legal: un vacío que la Ciudad todavía no cerró del todo',
+      },
+      {
+        type: 'p',
+        text: 'A diferencia de ciudades como Barcelona, Amsterdam o Nueva York, que regularon los alquileres temporarios con normativa específica, CABA no tiene una ley que regule de manera integral el uso de plataformas como Airbnb en edificios de propiedad horizontal.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que existe es un conjunto de normas que, combinadas, definen el espacio de acción del consorcio:',
+      },
+      {
+        type: 'p',
+        text: 'El **CCyC** en su artículo 2069 establece que el reglamento de propiedad horizontal puede establecer limitaciones al uso de las unidades funcionales, siempre que no sean irrazonables o discriminatorias. Esa es la puerta legal por la que el consorcio puede actuar.',
+      },
+      {
+        type: 'p',
+        text: 'La **Ley 941** de CABA regula la administración de consorcios pero no menciona específicamente el alquiler temporario. Sin embargo, las obligaciones del administrador de hacer cumplir el reglamento de copropiedad son la base de la acción.',
+      },
+      {
+        type: 'p',
+        text: 'El **Código de Habilitaciones y Verificaciones de CABA** tiene normativa sobre usos del suelo y actividades comerciales en edificios residenciales que puede ser relevante según cómo se implemente el alquiler temporario —si se hace de manera sistemática y a escala, puede configurar una actividad comercial en una unidad residencial.',
+      },
+      {
+        type: 'h2',
+        id: 'prohibido-por-defecto',
+        text: '¿El alquiler temporario está prohibido por defecto?',
+      },
+      {
+        type: 'p',
+        text: 'No. El alquiler de una unidad por períodos cortos no está prohibido por la sola condición de ser temporario. Un propietario tiene derecho a alquilar su unidad, incluso por días o semanas, salvo que el reglamento de copropiedad lo prohíba expresamente.',
+      },
+      {
+        type: 'p',
+        text: 'Acá está el punto central: **todo depende de lo que diga el reglamento de copropiedad de cada edificio**.',
+      },
+      {
+        type: 'p',
+        text: 'Si el reglamento prohíbe expresamente el alquiler temporario o el uso comercial de las unidades, el propietario que usa Airbnb está incumpliendo el reglamento y el consorcio tiene herramientas para actuar. Si el reglamento no dice nada al respecto —que es el caso de la mayoría de los reglamentos viejos de CABA, escritos décadas antes de que existieran estas plataformas— la situación es más compleja.',
+      },
+      {
+        type: 'h2',
+        id: 'que-puede-hacer',
+        text: 'Qué puede hacer el consorcio según el caso',
+      },
+      {
+        type: 'h3',
+        id: 'reglamento-prohibe',
+        text: 'Si el reglamento prohíbe el alquiler temporario',
+      },
+      {
+        type: 'p',
+        text: 'El consorcio tiene base legal clara para actuar. El administrador puede intimar fehacientemente al propietario a cesar la actividad, y si el incumplimiento persiste, el consorcio puede iniciar acciones judiciales para hacer cumplir el reglamento.',
+      },
+      {
+        type: 'p',
+        text: 'La intimación tiene que ser por escrito y fehaciente —carta documento o medio equivalente— dirigida al propietario de la unidad, no al huésped. El huésped no es parte de la relación consorcial.',
+      },
+      {
+        type: 'h3',
+        id: 'reglamento-no-dice-nada',
+        text: 'Si el reglamento no dice nada',
+      },
+      {
+        type: 'p',
+        text: 'Esta es la situación más frecuente y la más compleja. Sin una prohibición expresa, el propietario puede argumentar que está ejerciendo su derecho de uso y disposición de la unidad.',
+      },
+      {
+        type: 'p',
+        text: 'Sin embargo, hay argumentos que el consorcio puede usar aunque el reglamento no prohíba expresamente el alquiler temporario:',
+      },
+      {
+        type: 'p',
+        text: '**Perturbación de la tranquilidad.** Si los huéspedes generan ruidos molestos, usan el sum de manera abusiva o alteran la convivencia del edificio, esas conductas son sancionables bajo el reglamento de convivencia independientemente de si son inquilinos temporarios o permanentes.',
+      },
+      {
+        type: 'p',
+        text: '**Uso indebido de espacios comunes.** Los huéspedes de Airbnb tienen acceso a los espacios comunes del edificio —ascensores, palier, hall— pero no necesariamente a todos los servicios. Si el edificio tiene acceso controlado a la pileta o al sum mediante tarjeta o registro, el propietario no puede extender esos beneficios a huéspedes temporarios sin autorización del consorcio.',
+      },
+      {
+        type: 'p',
+        text: '**Riesgo de seguridad.** El ingreso permanente de personas desconocidas al edificio es un argumento que algunos consorcios han usado exitosamente para limitar el alquiler temporario, especialmente en edificios con niños o adultos mayores.',
+      },
+      {
+        type: 'h3',
+        id: 'prohibirlo-hacia-adelante',
+        text: 'Si el consorcio quiere prohibirlo hacia adelante',
+      },
+      {
+        type: 'p',
+        text: 'La asamblea puede votar una modificación al reglamento de copropiedad que prohíba expresamente el alquiler temporario. Esa modificación requiere la mayoría que establezca el propio reglamento para sus modificaciones —generalmente dos tercios o mayoría absoluta de todos los propietarios.',
+      },
+      {
+        type: 'p',
+        text: 'Una vez incorporada la prohibición al reglamento, todos los propietarios quedan obligados, incluso los que votaron en contra.',
+      },
+      {
+        type: 'h2',
+        id: 'conflictos-frecuentes',
+        text: 'Los conflictos más frecuentes en edificios de CABA',
+      },
+      {
+        type: 'p',
+        text: 'En los edificios del AMBA donde el alquiler temporario genera conflictos, los problemas más comunes son siempre los mismos:',
+      },
+      {
+        type: 'p',
+        text: '**Ruidos y fiestas.** Los huéspedes de estadías cortas tienen menos incentivos para respetar las normas de convivencia que un inquilino con contrato de largo plazo. No viven las consecuencias de sus actos porque se van en dos días.',
+      },
+      {
+        type: 'p',
+        text: '**Uso abusivo del ascensor y espacios comunes.** Grupos numerosos, valijas grandes, horarios de entrada y salida inusuales. En edificios con ascensores pequeños o con restricciones de horario para mudanzas, esto genera fricciones constantes.',
+      },
+      {
+        type: 'p',
+        text: '**Seguridad del acceso.** Cada huésped nuevo recibe el código de acceso o una copia de la llave. Eso significa que en un departamento con alta rotación, hay potencialmente decenas de personas que tienen acceso al edificio en cualquier momento.',
+      },
+      {
+        type: 'p',
+        text: '**Deterioro de las áreas comunes.** Mayor tránsito implica mayor desgaste. Algunos consorcios argumentan que el alquiler temporario genera un costo de mantenimiento adicional que no está reflejado en las expensas del propietario que hace Airbnb.',
+      },
+      {
+        type: 'p',
+        text: '**Desconocimiento del reglamento.** Un inquilino de largo plazo aprende las normas del edificio con el tiempo. Un huésped de dos noches no las conoce y en general nadie se las explica.',
+      },
+      {
+        type: 'h2',
+        id: 'que-no-puede-hacer',
+        text: 'Qué no puede hacer el consorcio',
+      },
+      {
+        type: 'p',
+        text: 'Hay límites claros a la acción del consorcio que conviene conocer para no actuar fuera de la ley:',
+      },
+      {
+        type: 'p',
+        text: '**No puede prohibir el alquiler temporario por decisión del administrador.** La prohibición tiene que venir del reglamento o de una decisión de asamblea. El administrador no puede actuar por su cuenta.',
+      },
+      {
+        type: 'p',
+        text: '**No puede impedir el acceso al edificio a los huéspedes.** Si el propietario está ejerciendo su derecho de uso de la unidad —aunque sea discutible— el consorcio no puede bloquear físicamente el acceso a sus huéspedes sin orden judicial.',
+      },
+      {
+        type: 'p',
+        text: '**No puede sancionar al propietario sin procedimiento.** Cualquier sanción al propietario por incumplimiento del reglamento tiene que seguir el procedimiento que establece el propio reglamento: intimación previa, plazo para regularizar, y recién después la sanción.',
+      },
+      {
+        type: 'h2',
+        id: 'postura-dominium',
+        text: 'La postura de Dominium sobre este tema',
+      },
+      {
+        type: 'p',
+        text: 'Nuestra lectura es que el alquiler temporario en edificios de propiedad horizontal es un fenómeno que llegó para quedarse y que la respuesta del consorcio tiene que ser normativa, no reactiva.',
+      },
+      {
+        type: 'p',
+        text: 'Un reglamento de copropiedad actualizado que defina claramente la posición del consorcio sobre el alquiler temporario —ya sea permitiéndolo con condiciones o prohibiéndolo directamente— es infinitamente más eficaz que un administrador apagando incendios cada vez que llega un grupo de turistas al séptimo piso.',
+      },
+      {
+        type: 'p',
+        text: 'Los edificios que mejor gestionan este tema son los que tomaron una decisión en asamblea, la incorporaron al reglamento y la comunican claramente a todos los propietarios. Los que peor lo gestionan son los que llevan años discutiéndolo en el grupo de WhatsApp sin que nadie convoque una asamblea para votarlo.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿Airbnb tiene alguna obligación frente al consorcio?',
+        a: 'No directamente. Airbnb es una plataforma que intermedia entre propietarios y huéspedes. La relación jurídica del consorcio es con el propietario de la unidad, no con la plataforma. Si el propietario incumple el reglamento usando Airbnb, la acción del consorcio va contra el propietario.',
+      },
+      {
+        q: '¿El consorcio puede cobrarle un adicional al propietario que hace Airbnb?',
+        a: 'No sin base reglamentaria. Si el reglamento no prevé un cargo adicional por alquiler temporario, el consorcio no puede cobrarlo unilateralmente. Sí puede incorporar esa previsión en una modificación del reglamento aprobada en asamblea.',
+      },
+      {
+        q: '¿Qué pasa si el propietario que hace Airbnb no vive en el país?',
+        a: 'La situación es más compleja operativamente pero no cambia el marco legal. El consorcio puede intimar al domicilio constituido del propietario en Argentina —que debería estar registrado en el consorcio— y eventualmente iniciar acciones judiciales. La distancia del propietario no lo exime de sus obligaciones consorciales.',
+      },
+      {
+        q: '¿Los huéspedes de Airbnb tienen los mismos derechos que los inquilinos en el consorcio?',
+        a: 'No. Un huésped de estadía corta no tiene la misma posición jurídica que un inquilino con contrato de locación. No tiene derecho a participar en asambleas, no puede reclamar directamente al administrador y sus derechos dentro del consorcio son considerablemente más limitados.',
+      },
+      {
+        q: '¿Puede el consorcio prohibir Airbnb solo para algunas unidades?',
+        a: 'No. Una modificación del reglamento que prohíba el alquiler temporario aplica a todas las unidades del edificio por igual. Una prohibición selectiva sería discriminatoria y no tendría validez legal.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
