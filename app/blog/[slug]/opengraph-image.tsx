@@ -13,6 +13,7 @@ const HUB_HEX: Record<Hub, { bg: string; text: string; border: string }> = {
   'Obras y mantenimiento': { bg: '#F1F5F9', text: '#334155', border: '#CBD5E1' },
   Seguros: { bg: '#ECFEFF', text: '#0E7490', border: '#A5F3FC' },
   Convivencia: { bg: '#FDF2F8', text: '#BE185D', border: '#FBCFE8' },
+  'Problemas en el edificio': { bg: '#FFF7ED', text: '#C2410C', border: '#FED7AA' },
   Legal: { bg: '#EEF2FF', text: '#3730A3', border: '#C7D2FE' },
   'Mercado y contexto': { bg: '#FEF2F2', text: '#9A2E22', border: '#FCA5A5' },
 }

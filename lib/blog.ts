@@ -6,6 +6,7 @@ export type Hub =
   | 'Obras y mantenimiento'
   | 'Seguros'
   | 'Convivencia'
+  | 'Problemas en el edificio'
   | 'Legal'
   | 'Mercado y contexto'
 
@@ -74,6 +75,11 @@ export const HUB_COLORS: Record<Hub, { bg: string; text: string; border: string 
     text: '#BE185D',
     border: '#FBCFE8',
   },
+  'Problemas en el edificio': {
+    bg: '#FFF7ED',
+    text: '#C2410C',
+    border: '#FED7AA',
+  },
   Legal: {
     bg: '#EEF2FF',
     text: '#3730A3',
@@ -94,6 +100,7 @@ export const HUBS: Hub[] = [
   'Obras y mantenimiento',
   'Seguros',
   'Convivencia',
+  'Problemas en el edificio',
   'Legal',
   'Mercado y contexto',
 ]
@@ -2915,6 +2922,228 @@ export const articles: Article[] = [
       {
         q: '¿Puede el consorcio prohibir Airbnb solo para algunas unidades?',
         a: 'No. Una modificación del reglamento que prohíba el alquiler temporario aplica a todas las unidades del edificio por igual. Una prohibición selectiva sería discriminatoria y no tendría validez legal.',
+      },
+    ],
+  },
+  {
+    slug: 'filtraciones-entre-pisos-consorcio-caba-responsabilidad',
+    title: 'Filtraciones entre pisos en edificios de CABA: de quién es la responsabilidad y cómo reclamar',
+    excerpt:
+      'El techo del dormitorio amaneció con una mancha húmeda un martes. Para el viernes era una gotera activa. El vecino de arriba dice que en su departamento no hay ningún problema visible. El administrador dice que va a mandar a alguien a mirar. Dos semanas después, nadie miró nada y la mancha creció. De quién es la responsabilidad y cómo reclamar.',
+    seoTitle: 'Filtraciones entre pisos en consorcios de CABA: responsabilidad y cómo reclamar (2026)',
+    seoDescription:
+      'De quién es la responsabilidad por una filtración entre pisos en un edificio de CABA: cuándo responde el vecino de arriba, cuándo el consorcio, cómo reclamar paso a paso, quién paga los daños y cuándo interviene la justicia.',
+    hub: 'Problemas en el edificio',
+    date: '2026-06-20',
+    ctaType: 'consulta',
+    content: [
+      {
+        type: 'p',
+        text: 'El techo del dormitorio amaneció con una mancha húmeda un martes. Para el viernes era una gotera activa. El vecino de arriba dice que en su departamento no hay ningún problema visible. El administrador dice que va a mandar a alguien a mirar. Dos semanas después, nadie miró nada y la mancha creció.',
+      },
+      {
+        type: 'p',
+        text: 'Esa secuencia es tan común en edificios de CABA que casi todos los propietarios o inquilinos la vivieron alguna vez, ya sea como el de abajo que sufre el daño o como el de arriba al que le llegan los reclamos. Y en casi todos los casos, el conflicto se alarga innecesariamente porque ninguna de las partes sabe exactamente de quién es la responsabilidad ni cómo proceder.',
+      },
+      {
+        type: 'h2',
+        id: 'principio-general',
+        text: 'El principio general: de dónde viene la filtración define quién responde',
+      },
+      {
+        type: 'p',
+        text: 'La regla básica es simple en teoría y complicada en la práctica: **quien genera la filtración es responsable de los daños que causa**. El problema es que determinar el origen exacto de una filtración no siempre es obvio, y ahí es donde empiezan los conflictos.',
+      },
+      {
+        type: 'p',
+        text: 'El CCyC establece en sus artículos 2037 y siguientes las reglas generales sobre responsabilidad por daños en la propiedad horizontal. El principio es que cada propietario responde por los daños que genera desde su unidad o desde los elementos que están bajo su responsabilidad exclusiva.',
+      },
+      {
+        type: 'p',
+        text: 'Pero hay una distinción fundamental que define todo el análisis:',
+      },
+      {
+        type: 'p',
+        text: '**Partes privativas:** son las que pertenecen a cada propietario exclusivamente — el interior del departamento, las instalaciones que corren dentro de la unidad y son de uso exclusivo.',
+      },
+      {
+        type: 'p',
+        text: '**Partes comunes:** son las que pertenecen a todos los copropietarios — la estructura del edificio, las cañerías que sirven a más de una unidad, la terraza, los techos.',
+      },
+      {
+        type: 'p',
+        text: 'Esa distinción es la que determina si la responsabilidad es del vecino de arriba, del consorcio, o de ambos.',
+      },
+      {
+        type: 'h2',
+        id: 'cuatro-escenarios',
+        text: 'Los cuatro escenarios más frecuentes',
+      },
+      {
+        type: 'h3',
+        id: 'escenario-unidad-arriba',
+        text: 'Escenario 1: la filtración viene de la unidad de arriba',
+      },
+      {
+        type: 'p',
+        text: 'El vecino del piso superior tiene una pérdida en su baño, cocina o lavadero. El agua baja y aparece en el techo del de abajo.',
+      },
+      {
+        type: 'p',
+        text: 'En este caso la responsabilidad es del propietario de la unidad de origen. Tiene que reparar la pérdida en su unidad y responde por los daños causados al vecino de abajo, incluyendo los daños en el revestimiento, muebles o instalaciones afectadas.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que complica este escenario en la práctica: el propietario de arriba muchas veces no vive en el departamento —lo alquila— y el inquilino no siempre tiene urgencia en resolver el problema ni autorización para hacer reparaciones estructurales. En ese caso, el reclamo tiene que ir al propietario, no al inquilino.',
+      },
+      {
+        type: 'h3',
+        id: 'escenario-terraza-techo',
+        text: 'Escenario 2: la filtración viene de la terraza o el techo del edificio',
+      },
+      {
+        type: 'p',
+        text: 'La terraza y el techo son partes comunes del edificio. Si la filtración tiene origen ahí —una impermeabilización deteriorada, un desagüe tapado, una membrana rota— la responsabilidad es del consorcio.',
+      },
+      {
+        type: 'p',
+        text: 'En este caso el reclamo va al administrador, que tiene la obligación de gestionar la reparación con cargo a los fondos del consorcio. Si el consorcio demora la reparación y el daño se agrava, la responsabilidad por los daños adicionales también recae sobre el consorcio.',
+      },
+      {
+        type: 'h3',
+        id: 'escenario-canerias-comunes',
+        text: 'Escenario 3: la filtración viene de cañerías comunes',
+      },
+      {
+        type: 'p',
+        text: 'Las cañerías que sirven a más de una unidad —columnas de agua, desagües generales— son partes comunes aunque pasen por dentro de un departamento. Si la pérdida está en una de esas cañerías, la responsabilidad es del consorcio aunque el origen físico esté dentro de una unidad privativa.',
+      },
+      {
+        type: 'p',
+        text: 'Este es uno de los escenarios más conflictivos porque requiere determinar si la cañería que falló es privativa o común. En edificios viejos de CABA, esa distinción no siempre está clara ni en el reglamento ni en los planos.',
+      },
+      {
+        type: 'h3',
+        id: 'escenario-origen-indeterminado',
+        text: 'Escenario 4: origen indeterminado',
+      },
+      {
+        type: 'p',
+        text: 'Es el más frustrante y el más frecuente en la etapa inicial del conflicto. Nadie sabe de dónde viene el agua. El vecino de arriba no tiene nada visible, el administrador manda a un plomero que no encuentra la causa, y el daño sigue creciendo.',
+      },
+      {
+        type: 'p',
+        text: 'En este escenario, lo primero es determinar el origen con una inspección técnica adecuada —no una mirada rápida del plomero del administrador, sino una inspección con cámara o con prueba de presión si hace falta. Hasta que no esté determinado el origen, no está determinada la responsabilidad.',
+      },
+      {
+        type: 'h2',
+        id: 'paso-a-paso',
+        text: 'Cómo proceder paso a paso',
+      },
+      {
+        type: 'p',
+        text: '**Paso 1: documentá el daño desde el primer día.** Fotos y videos con fecha y hora desde el momento en que aparece la filtración. Documentá la evolución del daño en el tiempo. Si hay muebles, revestimientos o instalaciones afectadas, registralo todo. Esa documentación es la base de cualquier reclamo posterior.',
+      },
+      {
+        type: 'p',
+        text: '**Paso 2: avisá al administrador por escrito.** No alcanza con llamar por teléfono o mandar un mensaje en el grupo de WhatsApp. El aviso tiene que ser por escrito y con constancia de recepción —un mail, un mensaje con confirmación de lectura, o una nota firmada. Eso establece la fecha desde la cual el administrador tenía conocimiento del problema.',
+      },
+      {
+        type: 'p',
+        text: '**Paso 3: avisá al vecino de arriba por escrito.** Simultáneamente, notificá al propietario del departamento de arriba —no al inquilino, al propietario— de la situación. También por escrito.',
+      },
+      {
+        type: 'p',
+        text: '**Paso 4: exigí una inspección técnica.** Si el origen no es evidente, pedile al administrador que coordine una inspección técnica para determinarlo. Si el administrador no la gestiona en un plazo razonable, podés contratar vos un profesional y luego reclamar ese costo a quien resulte responsable.',
+      },
+      {
+        type: 'p',
+        text: '**Paso 5: una vez determinado el origen, reclamá la reparación formalmente.** Al responsable —vecino de arriba o consorcio— por escrito y con plazo. Si no responden en ese plazo, la siguiente instancia es la mediación o la vía judicial.',
+      },
+      {
+        type: 'h2',
+        id: 'danos-quien-paga',
+        text: 'Los daños: quién paga qué',
+      },
+      {
+        type: 'p',
+        text: 'Una vez determinado el origen y el responsable, quedan los daños materiales causados. Acá también hay matices:',
+      },
+      {
+        type: 'p',
+        text: '**Daños en partes comunes del edificio** causados por una filtración de origen privativo: los paga el propietario responsable.',
+      },
+      {
+        type: 'p',
+        text: '**Daños en la unidad afectada** —revestimientos, pintura, yeso, instalaciones eléctricas— los paga el responsable de la filtración, sea el vecino de arriba o el consorcio.',
+      },
+      {
+        type: 'p',
+        text: '**Daños en bienes muebles** —muebles, electrodomésticos, ropa— los paga el responsable de la filtración. Estos son los daños más difíciles de cuantificar y los que más frecuentemente terminan en litigio.',
+      },
+      {
+        type: 'p',
+        text: '**El seguro del edificio** puede cubrir parte de estos daños si la filtración tiene origen en partes comunes y el siniestro está dentro de la cobertura. Verificá las condiciones de la póliza antes de asumir que cubre o que no cubre.',
+      },
+      {
+        type: 'h2',
+        id: 'cuando-interviene-justicia',
+        text: 'Cuándo interviene la justicia',
+      },
+      {
+        type: 'p',
+        text: 'Si el responsable no repara y no indemniza en un plazo razonable, la vía judicial es el siguiente paso. En CABA, antes de iniciar cualquier demanda civil por este tipo de conflictos, es obligatorio pasar por una instancia de **mediación prejudicial**. En muchos casos la mediación resuelve el problema sin necesidad de llegar a juicio: es más rápida, más económica y menos desgastante para todas las partes.',
+      },
+      {
+        type: 'p',
+        text: 'Si la mediación fracasa o el responsable no se presenta, el siguiente paso es la **demanda civil ordinaria**. En ambas instancias, la documentación acumulada desde el inicio —fotos, notificaciones escritas, presupuestos de reparación, informes técnicos— es lo que sostiene el reclamo.',
+      },
+      {
+        type: 'h2',
+        id: 'lo-que-retrasa',
+        text: 'Lo que más retrasa la resolución en la práctica',
+      },
+      {
+        type: 'p',
+        text: 'En los casos de filtraciones que analizamos en edificios del AMBA, los factores que más alargan el conflicto son siempre los mismos:',
+      },
+      {
+        type: 'p',
+        text: '**Nadie pone nada por escrito al principio.** Todo es verbal, por teléfono o por WhatsApp grupal. Cuando el conflicto escala, nadie puede probar qué se dijo ni cuándo.',
+      },
+      {
+        type: 'p',
+        text: '**El administrador demora la inspección técnica.** Cada semana que pasa sin determinar el origen es una semana de daño adicional y de responsabilidades que se acumulan.',
+      },
+      {
+        type: 'p',
+        text: '**El propietario de arriba no vive en el edificio y nadie lo localiza.** El inquilino no tiene autorización para hacer reparaciones, el propietario no aparece y el problema sigue.',
+      },
+      {
+        type: 'p',
+        text: '**Se confunde la reparación de urgencia con la solución definitiva.** El plomero tapa provisoriamente la pérdida, el daño visible desaparece temporalmente, y nadie hace la reparación definitiva. Tres meses después el problema vuelve, más grande.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El inquilino del departamento de arriba es responsable de la filtración?',
+        a: 'En general no, salvo que la filtración sea consecuencia directa de un uso indebido de la unidad por parte del inquilino —por ejemplo, una inundación por descuido. La responsabilidad por el estado de las instalaciones de la unidad recae sobre el propietario. El reclamo tiene que ir al propietario, aunque el inquilino sea quien ocupa el departamento.',
+      },
+      {
+        q: '¿El consorcio responde si el administrador tardó en reparar y el daño se agravó?',
+        a: 'Sí. Si el administrador tenía conocimiento del problema —probado por la notificación escrita— y no gestionó la reparación en un plazo razonable, el consorcio responde por los daños adicionales generados por esa demora. Por eso es tan importante notificar por escrito desde el primer día.',
+      },
+      {
+        q: '¿Puedo retener el pago de expensas mientras espero que resuelvan la filtración?',
+        a: 'No es recomendable. La deuda de expensas es ejecutable judicialmente y el reclamo por la filtración no suspende esa obligación. La vía correcta es pagar las expensas y reclamar los daños por separado.',
+      },
+      {
+        q: '¿El seguro del edificio cubre los daños en mi departamento?',
+        a: 'Depende de las condiciones de la póliza. El seguro de incendio obligatorio generalmente no cubre daños por filtraciones. Algunos consorcios tienen seguros adicionales que sí los cubren. Pedile al administrador las condiciones de la póliza vigente antes de asumir que estás cubierto o que no lo estás.',
+      },
+      {
+        q: '¿Qué pasa si la filtración viene de un departamento vacío cuyos propietarios no aparecen?',
+        a: 'Es uno de los escenarios más complicados. Si el propietario es inubicable y el daño es urgente, el consorcio puede intervenir en la unidad para detener la filtración —con la documentación adecuada— y luego reclamar el costo al propietario. En casos extremos, existe la vía judicial para obtener autorización de acceso a la unidad.',
       },
     ],
   },
