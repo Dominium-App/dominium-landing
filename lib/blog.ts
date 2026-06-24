@@ -3147,6 +3147,214 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'seguros-obligatorios-edificio-caba',
+    title: 'Qué seguros son obligatorios en un edificio de CABA y cuáles no podés ignorar',
+    excerpt: 'La póliza del edificio es uno de esos documentos que nadie pide hasta que hay un siniestro. El seguro integral de consorcios no es opcional ni se limita al incendio: el CCyC es más exigente de lo que la mayoría de los administradores comunica.',
+    seoTitle: 'Seguros obligatorios de un edificio en CABA: qué exige el CCyC',
+    seoDescription: 'Seguro integral de consorcios, responsabilidad civil, monto asegurado y ART del encargado: qué exige el artículo 2067 del CCyC y cómo verificar si tu edificio está realmente cubierto.',
+    hub: 'Seguros',
+    date: '2026-06-24',
+    ctaType: 'analizador',
+    content: [
+      {
+        type: 'p',
+        text: 'La póliza del edificio es uno de esos documentos que nadie pide hasta que hay un siniestro. Y cuando hay un siniestro es cuando se descubre que el seguro venció hace cuatro meses, que el monto asegurado no se actualizó en tres años, o que la cobertura no incluye exactamente lo que todos creían que incluía.',
+      },
+      {
+        type: 'p',
+        text: 'En los edificios de propiedad horizontal, el seguro no es opcional ni se limita al incendio. El CCyC (Código Civil y Comercial de la Nación) es más exigente de lo que la mayoría de los administradores comunica, y entender qué exige exactamente es lo que permite controlar si el edificio está realmente cubierto.',
+      },
+      {
+        type: 'h2',
+        id: 'seguro-integral-consorcios',
+        text: 'Lo que dice la ley: el seguro integral de consorcios',
+      },
+      {
+        type: 'p',
+        text: 'El artículo 2067 inciso h) del CCyC establece que el administrador tiene la obligación de mantener asegurado el inmueble con un **seguro integral de consorcios** que incluya como mínimo: incendio, responsabilidad civil y demás riesgos de práctica.',
+      },
+      {
+        type: 'p',
+        text: 'Tres puntos que surgen directamente de esa redacción:',
+      },
+      {
+        type: 'p',
+        text: '**Primero:** no es un seguro de incendio simple con algunos extras opcionales. Es un seguro integral, y tanto el incendio como la responsabilidad civil son obligatorios por ley. Un administrador que solo contrató incendio no está siendo conservador con los costos: está incumpliendo la ley.',
+      },
+      {
+        type: 'p',
+        text: '**Segundo:** los "demás riesgos de práctica" son los que el mercado asegurador considera habituales para este tipo de inmueble — daños por agua en partes comunes, rotura de vidrios, robo en espacios comunes, daños eléctricos en instalaciones comunes. También forman parte del mínimo legal.',
+      },
+      {
+        type: 'p',
+        text: '**Tercero:** la asamblea puede resolver cubrir riesgos adicionales más allá de ese mínimo. Esa decisión es de la asamblea, no del administrador.',
+      },
+      {
+        type: 'p',
+        text: 'El incumplimiento de esta obligación expone al administrador a sanciones bajo la Ley 941 y a responsabilidad civil frente a los daños que podrían haberse cubierto con el seguro.',
+      },
+      {
+        type: 'h2',
+        id: 'que-cubre-cada-componente',
+        text: 'Qué cubre cada componente del seguro integral',
+      },
+      {
+        type: 'h3',
+        id: 'incendio',
+        text: 'Incendio',
+      },
+      {
+        type: 'p',
+        text: 'Cubre la estructura del edificio y las partes comunes ante siniestros de incendio, rayo y explosión. En la mayoría de las pólizas integrales de consorcios también se extiende a las unidades funcionales privativas por el valor de reposición de la construcción.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que **no** cubre: el contenido de los departamentos —muebles, electrodomésticos, ropa. Para eso cada propietario o inquilino tiene que contratar su propio seguro de contenido de manera individual.',
+      },
+      {
+        type: 'h3',
+        id: 'responsabilidad-civil',
+        text: 'Responsabilidad civil',
+      },
+      {
+        type: 'p',
+        text: 'Cubre al consorcio frente a reclamos de terceros por daños causados por el estado o el funcionamiento de las partes comunes del edificio. Los casos más frecuentes en edificios de CABA:',
+      },
+      {
+        type: 'ul',
+        items: [
+          'Un vecino o visitante que se cae en el palier por un piso mojado o en mal estado',
+          'Un objeto que cae desde una parte común y daña un vehículo o lesiona a alguien',
+          'Daños a terceros causados por instalaciones comunes defectuosas',
+        ],
+      },
+      {
+        type: 'p',
+        text: 'Sin esta cobertura —que como vimos es obligatoria— el consorcio responde con su patrimonio colectivo frente a esos reclamos. En edificios con alto tránsito de personas, la exposición al riesgo es real y cotidiana.',
+      },
+      {
+        type: 'h3',
+        id: 'demas-riesgos-practica',
+        text: 'Demás riesgos de práctica',
+      },
+      {
+        type: 'p',
+        text: 'Varían según la póliza y la aseguradora, pero habitualmente incluyen daños por agua en partes comunes, rotura de vidrios, robo en espacios comunes y daños eléctricos en instalaciones comunes. Todos forman parte del mínimo legal que debe cubrir el seguro integral. Si la póliza de tu edificio no los incluye, el administrador no está cumpliendo con las obligaciones legales.',
+      },
+      {
+        type: 'h2',
+        id: 'coberturas-adicionales-asamblea',
+        text: 'Coberturas adicionales que la asamblea puede resolver',
+      },
+      {
+        type: 'p',
+        text: 'Más allá del mínimo legal, hay coberturas que el CCyC habilita expresamente a la asamblea a decidir:',
+      },
+      {
+        type: 'h3',
+        id: 'seguro-caucion-administrador',
+        text: 'Seguro de caución del administrador',
+      },
+      {
+        type: 'p',
+        text: 'Garantiza al consorcio frente a actos del administrador que generen pérdidas económicas: malversación de fondos, pagos indebidos, gestión negligente. No es obligatorio bajo la Ley 941, pero es una herramienta de control que los consorcios más organizados incorporan como requisito en el contrato con el administrador.',
+      },
+      {
+        type: 'h3',
+        id: 'cobertura-ampliada-ascensores',
+        text: 'Cobertura ampliada de ascensores',
+      },
+      {
+        type: 'p',
+        text: 'El contrato de mantenimiento del ascensor generalmente incluye alguna cobertura de responsabilidad civil por accidentes relacionados con el equipo, pero las condiciones varían significativamente entre empresas. Vale la pena verificar qué cubre exactamente ese contrato y si conviene complementarlo a través de la póliza integral.',
+      },
+      {
+        type: 'h3',
+        id: 'art-encargado',
+        text: 'ART del encargado',
+      },
+      {
+        type: 'p',
+        text: 'No es parte del seguro del edificio sino una obligación laboral independiente, pero el consorcio como empleador tiene obligación de contratar una Aseguradora de Riesgos del Trabajo para el personal. Si el encargado sufre un accidente de trabajo sin ART contratada, el consorcio responde sin límite de cobertura. Es uno de los pasivos más grandes que puede tener un edificio y uno de los que más frecuentemente se descuida.',
+      },
+      {
+        type: 'h2',
+        id: 'monto-asegurado',
+        text: 'El problema del monto asegurado',
+      },
+      {
+        type: 'p',
+        text: 'Tener el seguro integral contratado no es suficiente si el monto asegurado no refleja el valor real de reposición del edificio.',
+      },
+      {
+        type: 'p',
+        text: 'En un contexto inflacionario como el argentino, un edificio asegurado por el mismo valor nominal que hace dos o tres años está efectivamente subasegurado. Si hay un siniestro total, la indemnización no alcanza para reconstruir. Y en caso de siniestro parcial, muchas pólizas aplican la **regla proporcional**: si el edificio está asegurado por el 50% de su valor real, la indemnización cubre solo el 50% del daño aunque el daño sea menor que la suma asegurada.',
+      },
+      {
+        type: 'p',
+        text: 'La actualización del monto asegurado tendría que ser un punto fijo de la asamblea ordinaria de cada año. En la práctica es una de las decisiones que más se posterga y que más cara sale cuando hay que usarla.',
+      },
+      {
+        type: 'h2',
+        id: 'que-verificar-propietario',
+        text: 'Qué tiene que verificar cualquier propietario',
+      },
+      {
+        type: 'p',
+        text: 'Con acceso a la póliza vigente —que el administrador tiene obligación de mostrar— cualquier propietario puede hacer esta verificación básica:',
+      },
+      {
+        type: 'ul',
+        items: [
+          '**¿Es un seguro integral o solo de incendio?** Si la carátula dice "seguro de incendio" sin más, el administrador no está cumpliendo con el CCyC. Tiene que ser un seguro integral de consorcios que incluya responsabilidad civil y riesgos de práctica.',
+          '**¿Está vigente?** Verificá la fecha de vencimiento. Si vence en los próximos 60 días y no hay comunicación del administrador sobre la renovación, preguntá.',
+          '**¿El monto asegurado es razonable?** Comparalo con el valor de construcción actual por metro cuadrado en tu barrio. Si el número parece bajo para lo que costaría reconstruir el edificio hoy, probablemente lo sea.',
+          '**¿La prima está pagada?** Una póliza con prima impaga puede quedar sin efecto en caso de siniestro aunque el papel diga que está vigente. Pedí el comprobante de pago de la última cuota.',
+          '**¿La aseguradora opera legalmente en Argentina?** Verificá que esté autorizada por la Superintendencia de Seguros de la Nación. Una póliza con una aseguradora sin respaldo regulatorio no vale nada cuando hay un siniestro.',
+        ],
+      },
+      {
+        type: 'h2',
+        id: 'siniestro-seguro-no-en-orden',
+        text: 'Qué pasa si hay un siniestro y el seguro no estaba en orden',
+      },
+      {
+        type: 'p',
+        text: 'Si hay un siniestro y se descubre que el administrador no contrató el seguro integral que exige el CCyC —o que el monto era insuficiente por falta de actualización— la responsabilidad recae sobre él por incumplimiento del artículo 2067 inciso h) y de la Ley 941, y sobre el consorcio como titular del inmueble.',
+      },
+      {
+        type: 'p',
+        text: 'En la práctica eso significa que los propietarios responden con su patrimonio proporcional al daño. Es el escenario más costoso posible y el más evitable.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que vemos en los edificios que analizamos es que el seguro es el ítem de la liquidación al que menos atención se le presta. Nadie pregunta qué cubre, nadie pide la póliza, nadie verifica si el monto se actualizó. Y el administrador que no es preguntado raramente toma la iniciativa de explicarlo. Un consorcio que audita sus honorarios hasta el último peso pero nunca verificó si la póliza es realmente integral tiene las prioridades invertidas.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El seguro del edificio cubre los daños dentro de mi departamento?',
+        a: 'La cobertura de incendio del seguro integral cubre la estructura del edificio y las partes comunes. Los daños al contenido de cada unidad —muebles, electrodomésticos, ropa— no están incluidos en la póliza del consorcio. Para eso cada propietario o inquilino tiene que contratar su propio seguro de contenido de manera individual.',
+      },
+      {
+        q: '¿Quién decide qué seguro contratar y con qué compañía?',
+        a: 'El administrador gestiona la contratación, pero la decisión sobre la compañía, el monto asegurado y las coberturas adicionales más allá del mínimo legal debería pasar por la asamblea o el consejo de propietarios. Si el administrador eligió una aseguradora específica sin consultar al consorcio, vale preguntar si hay alguna relación comercial detrás de esa elección.',
+      },
+      {
+        q: '¿Puedo pedir una copia de la póliza del edificio?',
+        a: 'Sí. La póliza es documentación del consorcio y cualquier propietario tiene derecho a consultarla. Si el administrador se niega a mostrarla, ese rechazo es una infracción a la Ley 941 denunciable ante la DGDyPC.',
+      },
+      {
+        q: '¿Con qué frecuencia debería actualizarse el monto asegurado?',
+        a: 'En un contexto de inflación alta, mínimo una vez por año. Muchas pólizas tienen cláusulas de actualización automática por índices, pero esas actualizaciones no siempre reflejan el aumento real del costo de construcción. Vale verificarlo antes de cada renovación.',
+      },
+      {
+        q: '¿Qué hago si descubro que el seguro de mi edificio es solo de incendio?',
+        a: 'Notificá al administrador por escrito pidiendo que regularice la situación contratando el seguro integral que exige el artículo 2067 inciso h) del CCyC. Si no lo hace en un plazo razonable, podés denunciarlo ante la DGDyPC por incumplimiento de sus obligaciones legales.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
