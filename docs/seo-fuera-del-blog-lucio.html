@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<style>
+  :root{
+    --bg:#F8F7F4; --surface:#FFFFFF; --surface-alt:#F0EEE9;
+    --ink:#0D0D0B; --ink-2:#5C5B57; --ink-3:#9B9A96;
+    --accent:#1A3A2A; --accent-light:#2D5C3F; --glow:#E8F2EC;
+    --vero:#3B7DD8; --vero-light:#EBF3FD; --destructive:#C0392B;
+    --border:#E2E0DA; --border-strong:#C8C5BC;
+  }
+  @page{ size:A4; margin:16mm 15mm; }
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink); background:var(--surface); font-size:10.5pt; line-height:1.5;
+    -webkit-print-color-adjust:exact; print-color-adjust:exact;
+  }
+  h1,h2,h3{ line-height:1.2; margin:0; }
+  p{ margin:0 0 8px; color:var(--ink-2); }
+  strong{ color:var(--ink); }
+  small{ color:var(--ink-3); }
+
+  /* Cover header */
+  .cover{ border-top:5px solid var(--accent); padding-top:18px; margin-bottom:22px; }
+  .brand{ font-size:10pt; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:700; }
+  .brand .dot{ color:var(--vero); }
+  h1{ font-size:24pt; font-weight:800; margin:10px 0 6px; letter-spacing:-.4px; }
+  .subtitle{ font-size:12pt; color:var(--ink-2); font-weight:500; }
+  .meta-row{ display:flex; gap:24px; margin-top:14px; font-size:9pt; color:var(--ink-3); border-top:1px solid var(--border); padding-top:10px; }
+  .meta-row b{ color:var(--ink-2); font-weight:600; }
+
+  section{ margin:18px 0; }
+  .eyebrow{ font-size:8.5pt; letter-spacing:2px; text-transform:uppercase; color:var(--vero); font-weight:700; margin-bottom:6px; }
+  h2{ font-size:14pt; font-weight:700; color:var(--accent); margin-bottom:8px; }
+  h3{ font-size:11pt; font-weight:700; margin-bottom:4px; }
+
+  .lead{ background:var(--glow); border-left:4px solid var(--accent); padding:14px 16px; border-radius:0 6px 6px 0; }
+  .lead p{ margin:0; color:var(--ink); font-size:11pt; }
+
+  .layers{ display:flex; gap:10px; }
+  .layer{ flex:1; background:var(--surface-alt); border:1px solid var(--border); border-radius:8px; padding:12px; }
+  .layer h3{ font-size:10pt; }
+  .layer .tag{ font-size:7.5pt; text-transform:uppercase; letter-spacing:1px; font-weight:700; padding:2px 7px; border-radius:20px; display:inline-block; margin-bottom:6px; }
+  .tag.blog{ background:var(--vero-light); color:var(--vero); }
+  .tag.com{ background:#FBE9E7; color:var(--destructive); }
+  .tag.home{ background:var(--surface); color:var(--ink-2); border:1px solid var(--border-strong); }
+  .layer p{ font-size:9pt; margin:0; }
+
+  /* barrio table */
+  table{ width:100%; border-collapse:collapse; font-size:9.5pt; }
+  th{ text-align:left; font-size:8pt; letter-spacing:.5px; text-transform:uppercase; color:var(--ink-3); font-weight:700; padding:0 8px 6px; border-bottom:1.5px solid var(--border-strong); }
+  td{ padding:7px 8px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  tr:last-child td{ border-bottom:none; }
+  .barrio{ font-weight:700; color:var(--ink); }
+  .bar-wrap{ background:var(--surface-alt); border-radius:4px; height:14px; width:120px; overflow:hidden; display:inline-block; vertical-align:middle; }
+  .bar{ height:100%; background:var(--accent-light); border-radius:4px; }
+  .bar.big{ background:var(--accent); }
+  .demand-num{ font-size:8pt; color:var(--ink-3); margin-left:6px; }
+  .chip{ font-size:7.5pt; font-weight:700; padding:2px 8px; border-radius:20px; white-space:nowrap; }
+  .chip.crit{ background:#FBE9E7; color:var(--destructive); }
+  .chip.gap{ background:var(--vero-light); color:var(--vero); }
+  .chip.ok{ background:var(--glow); color:var(--accent); }
+  .chip.low{ background:var(--surface-alt); color:var(--ink-3); }
+  .pos{ font-weight:600; }
+  .pos.bad{ color:var(--destructive); }
+  .pos.good{ color:var(--accent-light); }
+
+  .insight{ background:var(--accent); color:#fff; border-radius:8px; padding:16px 18px; margin-top:12px; }
+  .insight h3{ color:#fff; font-size:11pt; margin-bottom:6px; }
+  .insight p{ color:#E8EDE9; margin:0; font-size:10pt; }
+  .insight strong{ color:#fff; }
+
+  ol.opps{ list-style:none; counter-reset:o; padding:0; margin:0; }
+  ol.opps li{ counter-increment:o; position:relative; padding:10px 0 10px 36px; border-bottom:1px solid var(--border); }
+  ol.opps li:last-child{ border-bottom:none; }
+  ol.opps li::before{ content:counter(o); position:absolute; left:0; top:10px; width:24px; height:24px; background:var(--accent); color:#fff; border-radius:50%; font-size:10pt; font-weight:700; display:flex; align-items:center; justify-content:center; }
+  ol.opps h3{ font-size:10.5pt; margin-bottom:2px; }
+  ol.opps p{ font-size:9.5pt; margin:0; }
+
+  .decide{ background:var(--vero-light); border:1px solid #CFE2FA; border-radius:8px; padding:14px 16px; }
+  .decide h2{ color:var(--vero); }
+  .decide ul{ margin:6px 0 0; padding-left:18px; }
+  .decide li{ margin-bottom:6px; color:var(--ink); }
+  .decide li b{ color:var(--vero); }
+
+  .foot{ margin-top:22px; border-top:1px solid var(--border); padding-top:10px; font-size:8pt; color:var(--ink-3); }
+  .foot a{ color:var(--ink-3); }
+  .avoid-break{ break-inside:avoid; }
+</style>
+</head>
+<body>
+
+  <div class="cover">
+    <div class="brand">Dominium<span class="dot">.</span> &nbsp;·&nbsp; Análisis SEO</div>
+    <h1>Dónde están los clientes</h1>
+    <div class="subtitle">Oportunidades de posicionamiento más allá del blog</div>
+    <div class="meta-row">
+      <span><b>Para:</b> Lucio — CEO</span>
+      <span><b>Fecha:</b> 29 de junio de 2026</span>
+      <span><b>Base:</b> Google Search Console + datos de mercado CABA</span>
+    </div>
+  </div>
+
+  <section class="avoid-break">
+    <div class="lead">
+      <p>El blog nos trae <strong>gente que se informa</strong>. Pero las páginas que convierten a esa gente en clientes están <strong>casi invisibles en Google</strong>. Hoy toda nuestra energía está puesta en el blog y nada empuja hacia donde se hace el negocio.</p>
+    </div>
+  </section>
+
+  <section class="avoid-break">
+    <div class="eyebrow">Cómo está armado el sitio</div>
+    <h2>Tres capas, y la fuga está en el medio</h2>
+    <div class="layers">
+      <div class="layer">
+        <span class="tag blog">Funciona</span>
+        <h3>Blog</h3>
+        <p>18 notas. Gente buscando información (“¿cómo cambio de administrador?”). <strong>Es lo único que hoy recibe visitas.</strong></p>
+      </div>
+      <div class="layer">
+        <span class="tag com">Invisible</span>
+        <h3>Páginas comerciales</h3>
+        <p>“Administrador en [barrio]”, “cambiar administrador”, “auditar expensas”. <strong>Las que consiguen clientes… y en Google casi no existen.</strong></p>
+      </div>
+      <div class="layer">
+        <span class="tag home">Marca</span>
+        <h3>Home</h3>
+        <p>Aparece bien por nuestro nombre, pero no por el término madre del negocio.</p>
+      </div>
+    </div>
+    <p style="margin-top:10px"><small>Quien busca <em>“administración de edificios en Palermo”</em> es un <strong>cliente potencial</strong>, no un lector. Para esa búsqueda, hoy no aparecemos.</small></p>
+  </section>
+
+  <section class="avoid-break">
+    <div class="eyebrow">El hallazgo central</div>
+    <h2>Rankeamos donde menos hay para ganar</h2>
+    <p>Cruzamos la <strong>demanda real de cada barrio</strong> (cantidad de edificios/departamentos = cantidad de consorcios) contra <strong>la posición en la que aparecemos hoy</strong> en Google:</p>
+
+    <table>
+      <thead>
+        <tr><th>Barrio</th><th>Demanda de mercado</th><th>¿Tenemos página?</th><th>Posición Google</th><th>Estado</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="barrio">Palermo</td>
+          <td><span class="bar-wrap"><span class="bar big" style="width:100%"></span></span><span class="demand-num">100</span></td>
+          <td>Sí</td><td class="pos bad">pos. 16</td>
+          <td><span class="chip crit">Demanda #1, ranking nulo</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Recoleta</td>
+          <td><span class="bar-wrap"><span class="bar big" style="width:54%"></span></span><span class="demand-num">54</span></td>
+          <td>Sí</td><td class="pos bad">no aparece</td>
+          <td><span class="chip crit">Alta demanda, invisible</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Belgrano</td>
+          <td><span class="bar-wrap"><span class="bar big" style="width:52%"></span></span><span class="demand-num">52</span></td>
+          <td>Sí</td><td class="pos bad">no aparece</td>
+          <td><span class="chip crit">Alta demanda, invisible</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Caballito</td>
+          <td><span class="bar-wrap"><span class="bar big" style="width:44%"></span></span><span class="demand-num">44</span></td>
+          <td>Sí</td><td class="pos bad">no aparece</td>
+          <td><span class="chip crit">Alta demanda, invisible</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Balvanera</td>
+          <td><span class="bar-wrap"><span class="bar" style="width:27%"></span></span><span class="demand-num">27</span></td>
+          <td><strong>No</strong></td><td>—</td>
+          <td><span class="chip gap">Hueco: falta página</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Villa Urquiza</td>
+          <td><span class="bar-wrap"><span class="bar" style="width:25%"></span></span><span class="demand-num">25</span></td>
+          <td><strong>No</strong></td><td>—</td>
+          <td><span class="chip gap">Hueco: demanda creciente</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Núñez</td>
+          <td><span class="bar-wrap"><span class="bar" style="width:24%"></span></span><span class="demand-num">24</span></td>
+          <td>Sí</td><td class="pos good">pos. 6,5</td>
+          <td><span class="chip ok">Demanda media, ranking ok</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Almagro</td>
+          <td><span class="bar-wrap"><span class="bar" style="width:22%"></span></span><span class="demand-num">22</span></td>
+          <td>Sí</td><td class="pos good">pos. 8,7</td>
+          <td><span class="chip ok">Demanda media, ranking ok</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Flores</td>
+          <td><span class="bar-wrap"><span class="bar" style="width:20%"></span></span><span class="demand-num">20</span></td>
+          <td>Sí</td><td class="pos good">pos. 3</td>
+          <td><span class="chip low">Rankea bien, demanda baja</span></td>
+        </tr>
+        <tr>
+          <td class="barrio">Villa Crespo</td>
+          <td><span class="bar-wrap"><span class="bar" style="width:18%"></span></span><span class="demand-num">18</span></td>
+          <td>Sí</td><td class="pos good">pos. 2,7</td>
+          <td><span class="chip low">Rankea bien, demanda baja</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="insight">
+      <h3>El desajuste en una frase</h3>
+      <p>Estamos en <strong>posición 2-3 en los barrios chicos</strong> (Villa Crespo, Flores) y en <strong>posición 16 o sin aparecer en los grandes</strong> (Palermo, Recoleta, Belgrano, Caballito). Palermo solo concentra <strong>más mercado que Flores, Villa Crespo, Almagro y Núñez juntos</strong> — y ahí estamos invisibles.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow">Plan de acción</div>
+    <h2>Las 5 oportunidades fuera del blog</h2>
+    <ol class="opps">
+      <li>
+        <h3>Recuperar los 4 barrios grandes</h3>
+        <p>Palermo, Recoleta, Belgrano y Caballito. Enriquecer sus páginas con contenido propio de cada barrio. Es el <strong>80% del retorno</strong> de la capa local.</p>
+      </li>
+      <li>
+        <h3>Cubrir 2 huecos de demanda</h3>
+        <p>Crear páginas para <strong>Balvanera</strong> y <strong>Villa Urquiza</strong>: tienen más mercado que varios barrios que sí cubrimos, y no existen.</p>
+      </li>
+      <li>
+        <h3>Conectar el blog con las páginas de venta</h3>
+        <p>El blog tiene las visitas; las páginas comerciales, la conversión; <strong>hoy no están conectadas</strong>. Cada nota debe llevar al lector hacia contratar.</p>
+      </li>
+      <li>
+        <h3>Capturar la búsqueda de “app de expensas”</h3>
+        <p>Hay gente buscando ver expensas online y a competidores por nombre (DigiExpensas, iData). Si tenemos el producto, falta la página que capte esa búsqueda.</p>
+      </li>
+      <li>
+        <h3>Google Maps y reseñas</h3>
+        <p>Para búsquedas por barrio gana el perfil de Google Maps, no el resultado tradicional. Crear el perfil y <strong>pedir reseñas a clientes actuales</strong>: alto impacto, costo cero, sin desarrollo.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section class="avoid-break decide">
+    <h2>Qué decisión necesitamos de vos</h2>
+    <ul>
+      <li><b>Prioridad:</b> ¿enfocamos el próximo trimestre en la <strong>capa comercial/local</strong> en vez de sumar más notas? Recomendación: <strong>sí</strong> — el blog ya tiene base, la plata está acá.</li>
+      <li><b>Producto:</b> ¿tenemos un portal/app de expensas que valga la pena promocionar con página propia?</li>
+      <li><b>Reseñas:</b> ¿podemos pedirle a clientes actuales que dejen reseñas en Google?</li>
+    </ul>
+  </section>
+
+  <div class="foot">
+    <strong>Sobre los datos:</strong> las posiciones en Google son datos reales nuestros (Search Console, últimos 3 meses). La “demanda de mercado” es un índice basado en el stock de departamentos por barrio (proxy de cantidad de consorcios), no en volumen de búsqueda medido — sirve para priorizar, no para prometer visitas. El volumen exacto por keyword se valida en una segunda etapa con Google Keyword Planner.
+    <br><br>
+    Fuentes de mercado: Infobae (oferta de departamentos por barrio CABA, 2025) · La Nación (concentración de construcción por barrio, 2026) · INDEC Censo 2022 CABA.
+  </div>
+
+</body>
+</html>
