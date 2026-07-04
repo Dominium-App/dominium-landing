@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { rateLimit } from '@/lib/rate-limit'
 
 interface ProviderData {
   fullName: string
@@ -78,6 +79,10 @@ function buildHtml(data: ProviderData): string {
 }
 
 export async function POST(req: NextRequest) {
+  if (!rateLimit(req, 'notify-provider', { shortLimit: 5, dayLimit: 30 })) {
+    return NextResponse.json({ error: 'Demasiadas solicitudes, probá más tarde.' }, { status: 429 })
+  }
+
   const apiKey = process.env.RESEND_API_KEY
   if (!apiKey) {
     return NextResponse.json({ error: 'Resend no configurado' }, { status: 500 })
@@ -116,7 +121,7 @@ export async function POST(req: NextRequest) {
 
   const resData = await res.json()
   if (!res.ok) {
-    return NextResponse.json(resData, { status: res.status })
+    return NextResponse.json({ error: 'No se pudo enviar la notificación.' }, { status: 502 })
   }
   return NextResponse.json({ ok: true, id: resData.id })
 }
