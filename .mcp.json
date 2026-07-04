@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "gsc": {
+      "command": "uvx",
+      "args": ["mcp-search-console"],
+      "env": {
+        "GSC_OAUTH_CLIENT_SECRETS_FILE": "${GSC_OAUTH_CLIENT_SECRETS}"
+      }
+    }
+  }
+}

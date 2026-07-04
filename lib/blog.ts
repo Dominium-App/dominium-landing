@@ -3355,6 +3355,202 @@ export const articles: Article[] = [
       },
     ],
   },
+  {
+    slug: 'mascotas-reglamento-consorcio-caba',
+    title:
+      'Mascotas en consorcios de CABA: qué puede prohibir el reglamento y qué no tiene ningún valor legal',
+    excerpt:
+      'En las asambleas de los edificios de CABA, ningún tema sube la temperatura como las mascotas. Y casi nadie tiene claro qué dice la ley. La realidad: el reglamento de copropiedad puede regular la tenencia, pero no prohibirla, independientemente de lo que vote la asamblea. Qué puede hacer el reglamento, qué no tiene ningún valor legal y cómo resolver los conflictos más frecuentes.',
+    seoTitle:
+      'Mascotas en consorcios de CABA: qué puede prohibir el reglamento y qué no (2026)',
+    seoDescription:
+      'Qué puede y qué no puede el reglamento de copropiedad sobre mascotas en edificios de CABA: por qué la prohibición absoluta no tiene validez legal, qué puede regular, los conflictos más frecuentes y cómo actuar si el administrador aplica una prohibición inválida.',
+    hub: 'Convivencia',
+    date: '2026-06-28',
+    ctaType: 'consulta',
+    content: [
+      {
+        type: 'p',
+        text: 'Hay dos tipos de asambleas en los edificios de CABA. Las que tratan temas de expensas y administración, donde la gente bosteza y mira el celular. Y las que tratan el tema de las mascotas, donde la temperatura sube, las voces se elevan y los vecinos que nunca hablan de repente tienen opiniones muy firmes sobre el golden retriever del cuarto piso.',
+      },
+      {
+        type: 'p',
+        text: 'El problema es que en esa discusión encendida, casi nadie tiene claro qué dice la ley. Y la ley, en este caso, es bastante clara: hay cosas que el reglamento de copropiedad puede hacer y hay cosas que no puede hacer, independientemente de lo que vote la asamblea.',
+      },
+      {
+        type: 'h2',
+        id: 'nuevo-paradigma',
+        text: 'El nuevo paradigma: el Código Civil y Comercial y la jurisprudencia de las mascotas',
+      },
+      {
+        type: 'p',
+        text: 'Hasta hace algunos años, muchos reglamentos de copropiedad de la Ciudad Autónoma de Buenos Aires (CABA) prohibían directamente la tenencia de mascotas en los departamentos. Esa restricción tajante era frecuente, figuraba en el papel y muchos consorcios la aplicaban de forma estricta. Sin embargo, el marco legal y de convivencia cambió radicalmente.',
+      },
+      {
+        type: 'p',
+        text: 'La ley reconoce el derecho de cada propietario a usar y gozar de su unidad funcional conforme a su destino. Si bien el **Código Civil y Comercial de la Nación (CCyC)** en su artículo 2047 fija límites claros en pos de preservar la seguridad, salubridad y tranquilidad de los vecinos, la tendencia jurídica actual es contundente: no se puede prohibir la tenencia de un animal por el solo hecho de serlo.',
+      },
+      {
+        type: 'p',
+        text: 'El cambio más significativo no vino por una ley que modificara el código, sino a través de la **jurisprudencia de los tribunales argentinos**. Los jueces consideran que las cláusulas de prohibición absoluta en los reglamentos de copropiedad son abusivas e irrazonables, siempre y cuando el animal no genere perjuicios concretos a la convivencia.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que esto significa en la práctica: una cláusula genérica de reglamento que prohíbe tener mascotas carece de sustento jurídico moderno. No importa la antigüedad de la norma interna, si fue ratificada por asamblea o si el administrador intenta imponerla mediante multas; ante la ley, el derecho a convivir con animales domésticos prevalece sobre las prohibiciones arbitrarias.',
+      },
+      {
+        type: 'h2',
+        id: 'que-si-puede-hacer',
+        text: 'Qué sí puede hacer el reglamento',
+      },
+      {
+        type: 'p',
+        text: 'Que el reglamento no pueda prohibir la tenencia de mascotas no significa que no pueda regularla. Hay una diferencia importante entre prohibir y regular, y el reglamento tiene amplio margen para lo segundo.',
+      },
+      {
+        type: 'p',
+        text: '**Establecer condiciones de uso de los espacios comunes.** El reglamento puede exigir que las mascotas vayan con correa en el palier, el ascensor y demás áreas comunes. Puede prohibir que las mascotas usen determinados espacios comunes —la pileta, el sum, el jardín— sin que eso configure una prohibición de tenencia.',
+      },
+      {
+        type: 'p',
+        text: '**Regular el transporte en ascensores.** Muchos reglamentos establecen que las mascotas tienen que ir en brazos o en transportín en el ascensor, o que no pueden compartir el ascensor con otros vecinos que no quieran. Esas restricciones son válidas.',
+      },
+      {
+        type: 'p',
+        text: '**Exigir documentación sanitaria.** El reglamento puede requerir que las mascotas tengan las vacunas al día y que el propietario pueda acreditarlo si se le pide. Es una condición razonable que tiene base en la salubridad del edificio.',
+      },
+      {
+        type: 'p',
+        text: '**Establecer responsabilidad por daños.** El reglamento puede establecer expresamente que el propietario o inquilino que tiene una mascota es responsable por los daños que cause en las áreas comunes o a otros vecinos.',
+      },
+      {
+        type: 'p',
+        text: '**Regular los ruidos.** Si una mascota genera ruidos molestos de manera persistente —ladridos continuos, por ejemplo— eso puede encuadrarse en las normas de convivencia del edificio sobre ruidos molestos, con independencia de las normas sobre mascotas.',
+      },
+      {
+        type: 'h2',
+        id: 'que-no-puede-hacer',
+        text: 'Qué no puede hacer el reglamento',
+      },
+      {
+        type: 'p',
+        text: '**Prohibir la tenencia de mascotas en las unidades.** Como explicamos, esa prohibición no tiene validez legal bajo la tendencia normativa actual.',
+      },
+      {
+        type: 'p',
+        text: '**Limitar la tenencia por raza o tamaño de manera arbitraria.** Una restricción que prohíbe perros de más de cierto peso o de ciertas razas sin base en riesgo concreto y demostrable es jurídicamente cuestionable. Distinto sería si hay una ordenanza municipal que regule razas consideradas potencialmente peligrosas, en cuyo caso el reglamento puede reflejar esa normativa.',
+      },
+      {
+        type: 'p',
+        text: '**Exigir autorización previa del consorcio para tener una mascota.** El derecho de uso de la unidad funcional no puede condicionarse a una aprobación del consorcio para tener una mascota. Si el reglamento establece ese requisito, no tiene sustento legal.',
+      },
+      {
+        type: 'p',
+        text: '**Sancionar económicamente la tenencia sin causa.** Una multa por el solo hecho de tener una mascota, sin que haya una conducta que afecte a terceros, va en contra de la tendencia jurídica actual.',
+      },
+      {
+        type: 'h2',
+        id: 'conflictos-frecuentes',
+        text: 'Los conflictos más frecuentes y cómo resolverlos',
+      },
+      {
+        type: 'h3',
+        id: 'perro-que-ladra',
+        text: 'El perro que ladra toda la noche',
+      },
+      {
+        type: 'p',
+        text: 'Es el conflicto más frecuente y el que más rápido escala. El ladrido persistente no es un problema de mascotas: es un problema de ruidos molestos, que tiene su propio marco normativo en CABA.',
+      },
+      {
+        type: 'p',
+        text: 'La vía correcta no es ir a la asamblea a pedir que prohíban el perro. Es documentar los ruidos —grabaciones con fecha y hora—, notificar al propietario por escrito y, si el problema persiste, hacer la denuncia ante el organismo competente por ruidos molestos. El perro no es el problema legal: el ruido sí lo es.',
+      },
+      {
+        type: 'h3',
+        id: 'ascensor-sin-correa',
+        text: 'La mascota que usa el ascensor sin correa',
+      },
+      {
+        type: 'p',
+        text: 'Si el reglamento establece que las mascotas van con correa en los espacios comunes y el vecino no lo cumple, hay un incumplimiento reglamentario concreto. El reclamo va al administrador por escrito, señalando la cláusula específica del reglamento que se está violando.',
+      },
+      {
+        type: 'h3',
+        id: 'sacar-perro-del-edificio',
+        text: 'El vecino que quiere que saquen al perro del edificio',
+      },
+      {
+        type: 'p',
+        text: 'Sin una causa concreta —daños comprobables, riesgo demostrable para la seguridad de los vecinos— no hay base legal para exigir que una mascota abandone el edificio. Si el vecino plantea ese reclamo en asamblea, la asamblea no puede votarlo válidamente.',
+      },
+      {
+        type: 'h3',
+        id: 'danos-areas-comunes',
+        text: 'La mascota que causa daños en áreas comunes',
+      },
+      {
+        type: 'p',
+        text: 'Si una mascota causa daños concretos y comprobables en las áreas comunes —arañazos en la puerta, daños en el jardín, suciedad reiterada— el propietario de la mascota es responsable por esos daños y el consorcio puede reclamarlos. Eso no requiere modificar el reglamento: es una aplicación de las normas generales de responsabilidad civil.',
+      },
+      {
+        type: 'h2',
+        id: 'prohibicion-sin-validez',
+        text: 'Qué hacer si el administrador aplica una prohibición que no tiene validez',
+      },
+      {
+        type: 'p',
+        text: 'Si el administrador intenta hacer cumplir una cláusula del reglamento que prohíbe mascotas, el propietario o inquilino afectado tiene varias opciones:',
+      },
+      {
+        type: 'p',
+        text: '**Rechazá la intimación por escrito.** Respondé mediante nota o carta documento alegando que la prohibición absoluta constituye un abuso de derecho (artículo 10 del CCyC) y que tu mascota cumple con la normal tolerancia exigida por la ley (artículos 1973 y 2047 del CCyC).',
+      },
+      {
+        type: 'p',
+        text: '**Presentá pruebas de buena conducta.** Adjuntá un certificado del veterinario que acredite la salud e higiene del animal para desactivar cualquier queja infundada.',
+      },
+      {
+        type: 'p',
+        text: '**Proponé un reglamento interno.** En lugar de discutir mayorías imposibles para cambiar el reglamento principal, proponé en asamblea aprobar normas de convivencia (uso de ascensor, correas) para regular la tenencia en vez de prohibirla.',
+      },
+      {
+        type: 'h2',
+        id: 'por-que-genera-conflicto',
+        text: 'Una lectura sobre por qué este tema genera tanto conflicto',
+      },
+      {
+        type: 'p',
+        text: 'El debate sobre mascotas en consorcios raramente es sobre las mascotas. Es sobre el control de los espacios comunes, sobre quién tiene derecho a decidir cómo vive cada uno en su propio departamento y sobre la tensión entre el uso individual de la unidad y el impacto colectivo de ese uso.',
+      },
+      {
+        type: 'p',
+        text: 'Lo que observamos es que los conflictos más encendidos suelen tener poco que ver con daños reales y mucho que ver con vecinos que tienen preferencias muy distintas sobre cómo debería ser la vida en el edificio. La discusión debería correrse del «yo no quiero mascotas en este edificio» hacia el «qué condiciones razonables podemos establecer para la convivencia». Ese es el único terreno donde el reglamento puede operar válidamente.',
+      },
+    ],
+    faqs: [
+      {
+        q: '¿El reglamento puede prohibir tener gatos?',
+        a: 'No. La prohibición de tenencia de mascotas en la unidad funcional no tiene validez legal bajo la jurisprudencia de los últimos años, independientemente de la especie. El reglamento puede regular el uso de los espacios comunes, pero no puede prohibir la tenencia dentro del departamento.',
+      },
+      {
+        q: '¿Puedo tener más de una mascota?',
+        a: 'La ley no establece un límite numérico. Lo que sí puede hacer el reglamento es establecer condiciones razonables vinculadas al impacto en la convivencia —ruidos, olores, uso de espacios comunes— que en la práctica pueden limitar la cantidad de animales si generan problemas concretos para los demás vecinos.',
+      },
+      {
+        q: '¿Qué pasa si mi mascota muerde a un vecino en el palier?',
+        a: 'El propietario de la mascota es responsable por los daños causados por ella, en los espacios comunes y en cualquier otro lugar. Esa responsabilidad existe independientemente de lo que diga el reglamento y puede dar lugar a una demanda civil por daños y perjuicios.',
+      },
+      {
+        q: '¿El consorcio puede exigirme un seguro de responsabilidad civil por mi mascota?',
+        a: 'Es una medida aplicable e incluso obligatoria por la Ley 4078 de la Ciudad para los propietarios de perros considerados potencialmente peligrosos (PPP), independientemente de lo que decida el consorcio.',
+      },
+      {
+        q: '¿Puedo denunciar a un vecino por tener una mascota si el reglamento lo prohíbe?',
+        a: 'La denuncia por ruidos molestos o alteración de la salubridad se realiza ante la fiscalía contravencional de la Ciudad o mediante una mediación comunitaria en el CGP de la comuna. Sin embargo, basarse únicamente en la prohibición del reglamento no prosperará si el animal no causa molestias reales.',
+      },
+    ],
+  },
 ]
 
 export function getArticleBySlug(slug: string): Article | undefined {
