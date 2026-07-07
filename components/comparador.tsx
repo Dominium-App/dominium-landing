@@ -48,7 +48,7 @@ const rows: Row[] = [
   {
     feature: "Comisiones ocultas",
     tradicional: { text: "Posibles — y difíciles de detectar", ok: false },
-    dominium: { text: "Cero. Fee fijo declarado", ok: true },
+    dominium: { text: "Cero. Porcentaje declarado", ok: true },
   },
 ];
 
