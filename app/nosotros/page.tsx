@@ -1,6 +1,9 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
-import NosotrosHero from '@/components/nosotros-hero'
+import NosotrosHero from '@/components/nosotros/hero'
+import Historia from '@/components/nosotros/historia'
+import Equipo from '@/components/nosotros/equipo'
+import Respaldo from '@/components/nosotros/respaldo'
 import CtaFooter from '@/components/cta-footer'
 
 const SITE_URL = 'https://www.dominium.com.ar'
@@ -75,6 +78,9 @@ export default function NosotrosPage() {
       <main>
         <Navigation />
         <NosotrosHero />
+        <Historia />
+        <Equipo />
+        <Respaldo />
         <CtaFooter />
       </main>
     </>

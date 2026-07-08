@@ -4,25 +4,62 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --color-bg: #F8F7F4;
+  --color-bg: #F8F9F6;
   --color-surface: #FFFFFF;
-  --color-surface-alt: #F0EEE9;
-  --color-ink: #0D0D0B;
-  --color-ink-secondary: #5C5B57;
-  --color-ink-tertiary: #9B9A96;
+  --color-surface-alt: #F1F3EE;
+  --color-ink: #14160F;
+  --color-ink-secondary: #54564E;
+  --color-ink-tertiary: #8C8D85;
   --color-accent: #1A3A2A;
   --color-accent-light: #2D5C3F;
   --color-accent-glow: #E8F2EC;
   --color-vero: #3B7DD8;
   --color-vero-light: #EBF3FD;
   --color-destructive: #C0392B;
-  --color-border: #E2E0DA;
+  --color-border: #E6E7E0;
   --color-border-strong: #C8C5BC;
+
+  --canvas: #F8F9F6;
+  --surface: #FFFFFF;
+  --surface-2: #F1F3EE;
+  --ink: #14160F;
+  --ink-2: #54564E;
+  --ink-3: #8C8D85;
+  --line: #E6E7E0;
+  --forest: #1A3A2A;
+  --forest-deep: #12281D;
+  --forest-soft: #21492F;
+  --live: #1F9D57;
+  --live-ink: #176B42;
+  --live-soft: #E7F3EC;
+  --gold: #9C7A2E;
+  --alerta: #BC4B3C;
+  --alerta-soft: #F6E9E6;
+  --on-forest: #F4F6F1;
+  --on-forest-dim: rgba(244, 246, 241, 0.64);
+  --on-forest-faint: rgba(244, 246, 241, 0.3);
+  --vero-blue: #3B7DD8;
 
   --background: var(--color-bg);
   --foreground: var(--color-ink);
   --border: var(--color-border);
   --radius: 0.75rem;
+
+  /* Motion */
+  --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 150ms;
+  --duration-base: 300ms;
+  --duration-slow: 500ms;
+
+  /* Elevation */
+  --shadow-sheet: 0 32px 64px -32px rgba(18, 40, 29, 0.4);
+  --shadow-phone: 0 48px 90px -28px rgba(6, 14, 10, 0.6);
+  --shadow-bar: 0 8px 20px rgba(13, 13, 11, 0.12);
+
+  /* Z-index */
+  --z-float: 40;
+  --z-nav: 50;
+  --z-overlay: 100;
 }
 
 @theme inline {
@@ -31,11 +68,36 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-forest-soft: var(--forest-soft);
+  --color-live: var(--live);
+  --color-live-ink: var(--live-ink);
+  --color-live-soft: var(--live-soft);
+  --color-gold: var(--gold);
+  --color-alerta: var(--alerta);
+  --color-alerta-soft: var(--alerta-soft);
+  --color-on-forest: var(--on-forest);
+  --color-on-forest-dim: var(--on-forest-dim);
+  --color-on-forest-faint: var(--on-forest-faint);
+  --color-vero-blue: var(--vero-blue);
+  --ease-out-soft: var(--ease-out-soft);
+  --shadow-sheet: var(--shadow-sheet);
+  --shadow-phone: var(--shadow-phone);
+  --shadow-bar: var(--shadow-bar);
 }
 
 @layer base {
   html {
     scroll-behavior: smooth;
+    color-scheme: light;
   }
   * {
     @apply border-border;
@@ -60,6 +122,43 @@
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Home entrance choreography */
+@keyframes home-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.home-rise {
+  animation: home-rise 0.7s var(--ease-out-soft) both;
+}
+@keyframes phone-settle {
+  from { opacity: 0; transform: translateY(28px) rotate(0.8deg); }
+  to { opacity: 1; transform: translateY(0) rotate(0deg); }
+}
+.phone-settle {
+  animation: phone-settle 0.9s var(--ease-out-soft) 0.25s both;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .home-rise,
+  .phone-settle {
+    animation: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Vero pulsing animation */

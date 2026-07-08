@@ -395,7 +395,7 @@ export default function AdmContact() {
                 {[
                   { label: "Para propietarios", href: "/" },
                   { label: "Para administradores", href: "/administradores" },
-                  { label: "Cómo funciona", href: "/#como-funciona" },
+                  { label: "Cómo funciona", href: "/" },
                   { label: "Preguntas frecuentes", href: "#" },
                 ].map((link) => (
                   <li key={link.label}>

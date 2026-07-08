@@ -7,7 +7,7 @@ import "./globals.css";
 
 const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+  weight: ["300", "400", "500", "600", "700", "800"],
   variable: "--font-dm-sans",
   display: "swap",
 });
@@ -25,12 +25,11 @@ const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default:
-      "Auditá tus expensas con IA: gratis y en 60 segundos | Dominium",
+    default: "Dominium — Administración de consorcios con IA en Buenos Aires",
     template: "%s | Dominium",
   },
   description:
-    "¿Las expensas no paran de subir y nadie te explica por qué? Subí tu liquidación y Vero detecta sobreprecios en 60 segundos. Administradora con IA en CABA y AMBA. Sin registro.",
+    "Dominium administra tu edificio con Vero, una IA que responde a los vecinos por WhatsApp las 24 horas, banco regulado por BCRA y cada gasto a la vista. Mismo honorario que tu administración actual. Auditá tus expensas gratis en 60 segundos.",
   keywords: [
     "auditar expensas",
     "expensas muy altas",
@@ -60,15 +59,15 @@ export const metadata: Metadata = {
     locale: "es_AR",
     url: SITE_URL,
     siteName: "Dominium",
-    title: "Las expensas no paran de subir y nadie te explica por qué",
+    title: "Dominium — Tu edificio ahora responde a las 2 de la mañana",
     description:
-      "Subí tu liquidación. Vero, nuestra IA, te muestra partida por partida cuánto pagás de más, qué rubros no están justificados y dónde se está yendo el fondo de reserva. Gratis y en 60 segundos.",
+      "Administración de consorcios con IA: Vero atiende a los vecinos por WhatsApp 24/7, la plata del edificio en un banco regulado por BCRA y cada gasto auditado a la vista. Por el mismo honorario que ya pagás.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Auditá tus expensas con IA en 60 segundos — Dominium",
+    title: "Dominium — Administración de consorcios con IA",
     description:
-      "Subí tu liquidación y Vero detecta sobreprecios, gastos ocultos y problemas en el fondo de reserva. Gratis. Sin registro.",
+      "Vero responde a los vecinos por WhatsApp 24/7, la plata del edificio en un banco regulado por BCRA y cada gasto auditado. Auditá tus expensas gratis en 60 segundos.",
   },
   robots: ALLOW_INDEXING
     ? {
@@ -101,8 +100,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#F8F7F4" },
-    { media: "(prefers-color-scheme: dark)", color: "#1A1A18" },
+    { media: "(prefers-color-scheme: light)", color: "#F8F9F6" },
+    { media: "(prefers-color-scheme: dark)", color: "#12281D" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -147,7 +146,7 @@ const organizationJsonLd = {
       "@type": "ContactPoint",
       contactType: "customer service",
       email: "hola@dominium.com.ar",
-      telephone: "+54 9 11 3652-0670",
+      telephone: "+54 9 11 7293-6904",
       availableLanguage: ["Spanish"],
       areaServed: "AR",
     },

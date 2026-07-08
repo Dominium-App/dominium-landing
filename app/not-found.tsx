@@ -48,7 +48,7 @@ export default function NotFound() {
               color: 'var(--color-accent)',
             }}
           >
-            Analizar mis expensas →
+            Auditar mis expensas →
           </Link>
         </div>
 

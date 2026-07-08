@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-const WHATSAPP_NUMBER = "5491136520670";
+const WHATSAPP_NUMBER = "5491172936904";
 const PRESET_MESSAGE =
   "Hola, vi la web de Dominium. Me gustaría auditar la liquidación de mi edificio.";
 
@@ -28,7 +28,9 @@ export default function WhatsappFab() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Hablar por WhatsApp con Dominium"
-      className="hidden md:flex fixed z-40 transition-all duration-300 items-center gap-2"
+      aria-hidden={!visible}
+      tabIndex={visible ? 0 : -1}
+      className="hidden md:flex fixed z-(--z-float) transition-[opacity,transform] duration-300 items-center gap-2 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest"
       style={{
         bottom: "24px",
         right: "24px",

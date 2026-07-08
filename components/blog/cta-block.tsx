@@ -20,14 +20,14 @@ const COPY: Record<CtaType, { eyebrow: string; heading: string; body: string; ct
     body:
       'Tenemos un programa para vecinos que impulsan el cambio de administrador. Te damos las herramientas y, si cerramos el consorcio, te bonificamos las expensas ordinarias.',
     cta: 'Escribinos →',
-    href: 'https://wa.me/5491136520670',
+    href: 'https://wa.me/5491172936904',
   },
   consulta: {
     eyebrow: '15 minutos, gratis',
     heading: '¿Tu caso tiene vueltas?',
     body: 'Charlemos 15 minutos. Sin costo, sin compromiso, sin venta.',
     cta: 'Agendá una charla →',
-    href: 'https://wa.me/5491136520670?text=Hola%2C%20quiero%20agendar%20una%20reunion%20informativa',
+    href: 'https://wa.me/5491172936904?text=Hola%2C%20quiero%20agendar%20una%20reunion%20informativa',
   },
 }
 

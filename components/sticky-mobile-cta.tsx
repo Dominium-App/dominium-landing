@@ -28,11 +28,9 @@ export default function StickyMobileCta() {
 
   return (
     <div
-      className="md:hidden fixed bottom-0 left-0 right-0 z-40 transition-transform duration-300"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-(--z-float) border-t border-line bg-canvas transition-transform duration-300"
       style={{
         transform: visible ? "translateY(0)" : "translateY(110%)",
-        backgroundColor: "var(--color-bg)",
-        borderTop: "1px solid var(--color-border)",
         paddingBottom: "max(env(safe-area-inset-bottom), 12px)",
       }}
       aria-hidden={!visible}
@@ -40,8 +38,8 @@ export default function StickyMobileCta() {
       <div className="px-4 pt-3">
         <a
           href={href}
-          className="flex items-center justify-center w-full h-[50px] rounded-full text-[15px] font-semibold text-white"
-          style={{ backgroundColor: "var(--color-accent)" }}
+          tabIndex={visible ? 0 : -1}
+          className="flex h-[50px] w-full items-center justify-center rounded-full bg-forest text-[15px] font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest"
         >
           {label}
         </a>

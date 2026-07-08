@@ -1,27 +1,27 @@
 import type { Metadata } from 'next'
 import Navigation from '@/components/navigation'
-import Hero from '@/components/hero'
-import TrustBar from '@/components/trust-bar'
-import Problema from '@/components/problema'
-import PorQueSuben from '@/components/por-que-suben'
-import Analizador from '@/components/analizador'
-import AnalizadorSeoContent from '@/components/analizador-seo-content'
-import LoQueDetectaVero from '@/components/lo-que-detecta-vero'
+import Hero from '@/components/home/hero'
+import Producto from '@/components/home/producto'
+import VeroEscenarios from '@/components/home/vero-escenarios'
+import Confianza from '@/components/home/confianza'
 import Comparador from '@/components/comparador'
-import ComoFunciona from '@/components/como-funciona'
+import Precio from '@/components/home/precio'
+import Analizador from '@/components/analizador'
+import ParaQuien from '@/components/home/para-quien'
+import Cambio from '@/components/home/cambio'
 import FaqHome from '@/components/faq-home'
-import Administradores from '@/components/administradores'
 import CtaFooter from '@/components/cta-footer'
+import { homeFaqs } from '@/lib/faqs'
 
 export const metadata: Metadata = {
-  title: 'Auditá tus expensas con IA: gratis y en 60 segundos',
+  title: 'Administración de consorcios con IA en Buenos Aires',
   description:
-    '¿Las expensas no paran de subir y nadie te explica por qué? Subí tu liquidación y Vero detecta sobreprecios, gastos ocultos y mala administración del fondo de reserva. CABA + AMBA. Sin registro.',
+    'Dominium administra tu edificio con Vero, una IA que responde a los vecinos por WhatsApp las 24 horas, banco regulado por BCRA y una app con cada gasto a la vista. Mismo honorario que tu administración actual. Auditá tus expensas gratis en 60 segundos.',
   alternates: { canonical: '/' },
   openGraph: {
-    title: 'Las expensas no paran de subir y nadie te explica por qué. Nosotros sí.',
+    title: 'Dominium — Tu edificio ahora responde a las 2 de la mañana',
     description:
-      'Subí tu liquidación. Vero, nuestra IA, te muestra partida por partida cuánto pagás de más en expensas. Administradora AI-first en CABA y AMBA. Gratis.',
+      'Administración de consorcios con IA: Vero atiende por WhatsApp 24/7, la plata del edificio en un banco regulado por BCRA y cada gasto auditado a la vista. Por el mismo honorario que ya pagás.',
     url: '/',
     type: 'website',
   },
@@ -30,48 +30,11 @@ export const metadata: Metadata = {
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: '¿Cómo funciona el analizador de expensas de Dominium?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Subís una foto o PDF de tu última liquidación de expensas. Vero, nuestra IA entrenada con datos de mercado del AMBA, identifica los rubros, los compara con valores de referencia y detecta sobreprecios, ítems sin justificación o problemas en el fondo de reserva. El resultado llega en pocos segundos.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Es gratis auditar mis expensas?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sí. El análisis con Vero es 100% gratuito y no requiere registro previo ni tarjeta de crédito. Solo te pedimos un dato de contacto para enviarte el informe.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Dominium es una administradora de consorcios real?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Sí. Dominium es una administradora de consorcios en CABA y AMBA que combina administración profesional con tecnología de IA. La propuesta se basa en transparencia total: dashboard online con cada peso, acceso a facturas 24/7 y auditoría continua de proveedores. Los fondos operativos se manejan a través de infraestructura bancaria regulada por BCRA (vía Cresium).',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Qué zonas cubre Dominium?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Operamos en CABA y todo el AMBA (Área Metropolitana de Buenos Aires). El analizador de expensas funciona para cualquier liquidación de propiedad horizontal de Argentina.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: '¿Qué tipo de ahorros puedo obtener cambiándome a Dominium?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Trabajamos para eliminar comisiones ocultas, sobreprecios en proveedores y gastos administrativos no justificados. El ahorro depende del estado actual de cada consorcio y se evalúa caso por caso.',
-      },
-    },
-  ],
+  mainEntity: homeFaqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
 }
 
 export default function Home() {
@@ -84,16 +47,15 @@ export default function Home() {
       <main>
         <Navigation />
         <Hero />
-        <TrustBar />
-        <Analizador />
-        <PorQueSuben />
-        <Problema />
-        <LoQueDetectaVero />
+        <Producto />
+        <VeroEscenarios />
+        <Confianza />
         <Comparador />
-        <ComoFunciona />
-        <AnalizadorSeoContent />
+        <Precio />
+        <Analizador />
+        <ParaQuien />
+        <Cambio />
         <FaqHome />
-        <Administradores />
         <CtaFooter />
       </main>
     </>

@@ -1056,7 +1056,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
           ¿Querés que un asesor te explique el informe en detalle?
         </p>
         <a
-          href="https://wa.me/5491136520670"
+          href="https://wa.me/5491172936904"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 h-[48px] px-6 rounded-full text-[14px] font-semibold transition-all duration-150"

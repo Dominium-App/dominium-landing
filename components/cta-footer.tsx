@@ -2,15 +2,28 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Sparkles, ShieldCheck, Bot, MessageCircle, Mail } from "lucide-react";
+import { ShieldCheck, MessageCircle, Mail } from "lucide-react";
+import VeroMark from "@/components/home/vero-mark";
 
-const trustItems = [
-  { Icon: Sparkles, text: "Auditoría con IA en cada liquidación" },
-  {
-    Icon: ShieldCheck,
-    text: "Infraestructura bancaria regulada por BCRA (vía Cresium)",
-  },
+const WHATSAPP_URL =
+  "https://wa.me/5491172936904?text=Hola%20Vero%2C%20quiero%20saber%20m%C3%A1s%20de%20Dominium%20para%20mi%20edificio";
+
+const platformLinks = [
+  { label: "Auditar expensas", href: "/auditar-expensas" },
+  { label: "Cambiar administrador", href: "/cambiar-administrador" },
+  { label: "Cobertura por barrio", href: "/administrador-consorcio" },
+  { label: "Para administradores", href: "/administradores" },
+  { label: "Blog", href: "/blog" },
+  { label: "Nosotros", href: "/nosotros" },
 ];
+
+const legalLinks = [
+  { label: "Términos y condiciones", href: "/terminos" },
+  { label: "Política de privacidad", href: "/privacidad" },
+];
+
+const footerLinkClass =
+  "text-[14px] text-on-forest-dim transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-forest";
 
 export default function CtaFooter() {
   const ctaRef = useRef<HTMLElement>(null);
@@ -36,127 +49,87 @@ export default function CtaFooter() {
       <section
         ref={ctaRef}
         id="contacto"
-        className="py-[100px] md:py-[120px]"
-        style={{ backgroundColor: "var(--color-bg)" }}
+        className="bg-forest-deep py-24 md:py-32"
         aria-label="Contacto y llamado a la acción"
       >
-        <div className="mx-auto max-w-[1120px] px-6 flex flex-col items-center gap-8">
+        <div className="mx-auto flex max-w-[1120px] flex-col items-center gap-8 px-6">
           <div
-            className="flex flex-col items-center gap-6 text-center max-w-[600px]"
+            className="flex max-w-[600px] flex-col items-center gap-6 text-center transition-[opacity,transform] duration-500 ease-out"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateY(0)" : "translateY(16px)",
-              transition: "opacity 0.6s ease, transform 0.6s ease",
             }}
           >
-            <h2
-              className="font-serif font-bold text-balance leading-[1.15]"
-              style={{
-                fontSize: "clamp(26px, 4vw, 44px)",
-                color: "var(--color-ink)",
-              }}
-            >
+            <h2 className="font-serif text-[clamp(26px,4vw,44px)] font-bold leading-[1.15] tracking-[-0.01em] text-on-forest text-balance">
               Tu edificio merece
               <br />
               una administración distinta.
             </h2>
-            <p
-              className="text-[17px] leading-relaxed"
-              style={{ color: "var(--color-ink-secondary)" }}
-            >
-              Miles de propietarios pagan de más todos los meses sin saberlo. El
-              primer paso es entender qué estás pagando.
+            <p className="text-[17px] leading-relaxed text-on-forest-dim">
+              El primer paso no cuesta nada: auditá tu última liquidación, o
+              escribile a Vero y contale de tu edificio.
             </p>
 
-            <Link
-              href="/#analizador"
-              className="w-full sm:w-auto inline-flex items-center justify-center h-[56px] px-8 rounded-full text-[16px] font-semibold text-white transition-colors duration-150"
-              style={{ backgroundColor: "var(--color-accent)" }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.backgroundColor =
-                  "var(--color-accent-light)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.backgroundColor = "var(--color-accent)")
-              }
-            >
-              Analizar mis expensas ahora — es gratis →
-            </Link>
+            <div className="flex w-full flex-col gap-3 sm:flex-row sm:justify-center">
+              <Link
+                href="/#analizador"
+                className="inline-flex h-[56px] w-full items-center justify-center rounded-full bg-on-forest px-8 text-[16px] font-semibold text-forest-deep transition-colors duration-150 hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-forest sm:w-auto"
+              >
+                Auditar mis expensas gratis
+              </Link>
+              <a
+                href={WHATSAPP_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex h-[56px] w-full items-center justify-center rounded-full border border-on-forest-faint px-8 text-[16px] font-semibold text-on-forest transition-colors duration-150 hover:border-on-forest-dim hover:bg-forest-soft focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-forest sm:w-auto"
+              >
+                Hablar con Vero por WhatsApp
+              </a>
+            </div>
 
             {/* Trust row */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mt-2">
-              {trustItems.map(({ Icon, text }, i) => (
-                <div key={i} className="flex items-center gap-2">
-                  <Icon
-                    size={14}
-                    color="var(--color-ink-tertiary)"
-                    aria-hidden="true"
-                  />
-                  <span
-                    className="text-[13px]"
-                    style={{ color: "var(--color-ink-tertiary)" }}
-                  >
-                    {text}
-                  </span>
-                </div>
-              ))}
+            <div className="mt-2 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+              <div className="flex items-center gap-2">
+                <VeroMark size={14} />
+                <span className="text-[13px] text-on-forest-dim">
+                  Vero responde 24/7 por WhatsApp
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <ShieldCheck size={14} className="text-on-forest-dim" aria-hidden="true" />
+                <span className="text-[13px] text-on-forest-dim">
+                  Infraestructura bancaria regulada por BCRA (vía Cresium)
+                </span>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer
-        style={{ backgroundColor: "var(--color-ink)" }}
-        aria-label="Pie de página Dominium"
-      >
+      <footer className="border-t border-on-forest-faint bg-forest-deep" aria-label="Pie de página Dominium">
         <div className="mx-auto max-w-[1120px] px-6 py-16">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {/* Col 1: Brand */}
             <div className="flex flex-col gap-4">
-              <p className="font-serif font-bold text-[22px] text-white">
+              <p className="font-serif text-[22px] font-bold text-white">
                 Dominium
               </p>
-              <p
-                className="text-[14px] leading-relaxed"
-                style={{ color: "#9B9A96" }}
-              >
+              <p className="text-[14px] leading-relaxed text-on-forest-dim">
                 La administración que siempre debió existir.
               </p>
-              <p className="text-[13px]" style={{ color: "#5C5B57" }}>
-                © 2026 Dominium SAS
-              </p>
+              <p className="text-[13px] text-on-forest-dim">© 2026 Dominium SAS</p>
             </div>
 
             {/* Col 2: Links */}
             <nav aria-label="Navegación footer">
-              <p
-                className="text-[12px] font-semibold uppercase tracking-widest mb-4"
-                style={{ color: "#5C5B57" }}
-              >
+              <p className="mb-4 text-[12px] font-semibold uppercase tracking-widest text-on-forest-dim">
                 Plataforma
               </p>
               <ul className="flex flex-col gap-2.5">
-                {[
-                  { label: "Auditar expensas", href: "/auditar-expensas" },
-                  { label: "Cambiar administrador", href: "/cambiar-administrador" },
-                  { label: "Cobertura por barrio", href: "/administrador-consorcio" },
-                  { label: "Para administradores", href: "/administradores" },
-                  { label: "Blog", href: "/blog" },
-                  { label: "Nosotros", href: "/nosotros" },
-                ].map((link) => (
+                {platformLinks.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-[14px] transition-colors duration-150"
-                      style={{ color: "#9B9A96" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = "white")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.color = "#9B9A96")
-                      }
-                    >
+                    <Link href={link.href} className={footerLinkClass}>
                       {link.label}
                     </Link>
                   </li>
@@ -166,29 +139,13 @@ export default function CtaFooter() {
 
             {/* Col 3: Legal */}
             <nav aria-label="Información legal">
-              <p
-                className="text-[12px] font-semibold uppercase tracking-widest mb-4"
-                style={{ color: "#5C5B57" }}
-              >
+              <p className="mb-4 text-[12px] font-semibold uppercase tracking-widest text-on-forest-dim">
                 Legal
               </p>
               <ul className="flex flex-col gap-2.5">
-                {[
-                  { label: "Términos y condiciones", href: "/terminos" },
-                  { label: "Política de privacidad", href: "/privacidad" },
-                ].map((link) => (
+                {legalLinks.map((link) => (
                   <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-[14px] transition-colors duration-150"
-                      style={{ color: "#9B9A96" }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.color = "white")
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.color = "#9B9A96")
-                      }
-                    >
+                    <Link href={link.href} className={footerLinkClass}>
                       {link.label}
                     </Link>
                   </li>
@@ -198,30 +155,18 @@ export default function CtaFooter() {
 
             {/* Col 4: Contact */}
             <div className="flex flex-col gap-4">
-              <p
-                className="text-[12px] font-semibold uppercase tracking-widest"
-                style={{ color: "#5C5B57" }}
-              >
+              <p className="text-[12px] font-semibold uppercase tracking-widest text-on-forest-dim">
                 Contacto
               </p>
-              <div
-                className="rounded-lg px-4 py-3 flex items-center gap-2"
-                style={{
-                  backgroundColor: "#1A1A18",
-                  border: "1px solid #2A2A28",
-                }}
-              >
-                <Bot size={16} color="var(--color-vero)" aria-hidden="true" />
-                <p className="text-[13px]" style={{ color: "#9B9A96" }}>
+              <div className="flex items-center gap-2 rounded-lg border border-on-forest-faint bg-white/5 px-4 py-3">
+                <VeroMark size={16} />
+                <p className="text-[13px] text-on-forest-dim">
                   Vero responde 24/7
                 </p>
               </div>
               <a
-                href="https://wa.me/5491136520670"
-                className="flex items-center gap-2 text-[14px] transition-colors duration-150"
-                style={{ color: "#9B9A96" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#9B9A96")}
+                href="https://wa.me/5491172936904"
+                className={`flex items-center gap-2 ${footerLinkClass}`}
                 aria-label="Contactar por WhatsApp"
               >
                 <MessageCircle size={15} aria-hidden="true" />
@@ -229,10 +174,7 @@ export default function CtaFooter() {
               </a>
               <a
                 href="mailto:hola@dominium.com.ar"
-                className="flex items-center gap-2 text-[14px] transition-colors duration-150"
-                style={{ color: "#9B9A96" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#9B9A96")}
+                className={`flex items-center gap-2 ${footerLinkClass}`}
                 aria-label="Enviar email a Dominium"
               >
                 <Mail size={15} aria-hidden="true" />
@@ -242,10 +184,7 @@ export default function CtaFooter() {
                 href="https://instagram.com/dominium.com.ar"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[14px] transition-colors duration-150"
-                style={{ color: "#9B9A96" }}
-                onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
-                onMouseLeave={(e) => (e.currentTarget.style.color = "#9B9A96")}
+                className={`flex items-center gap-2 ${footerLinkClass}`}
                 aria-label="Seguir a Dominium en Instagram"
               >
                 <svg
@@ -270,9 +209,9 @@ export default function CtaFooter() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t" style={{ borderColor: "#2A2A28" }}>
-          <div className="mx-auto max-w-[1120px] px-6 py-4 flex justify-center">
-            <p className="text-[12px] text-center" style={{ color: "#5C5B57" }}>
+        <div className="border-t border-on-forest-faint">
+          <div className="mx-auto flex max-w-[1120px] justify-center px-6 py-4">
+            <p className="text-center text-[12px] text-on-forest-dim">
               Dominium SAS · CABA, Argentina
             </p>
           </div>

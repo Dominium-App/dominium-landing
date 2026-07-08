@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
@@ -9,6 +9,9 @@ export default function Navigation() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
+  const overlayRef = useRef<HTMLDivElement>(null)
+  const hamburgerRef = useRef<HTMLButtonElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
 
   const isActive = (href: string) => {
     const path = href.split('#')[0] || '/'
@@ -22,6 +25,44 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const closeMobile = useCallback(() => {
+    setMobileOpen(false)
+    hamburgerRef.current?.focus()
+  }, [])
+
+  useEffect(() => {
+    if (!mobileOpen) return
+    document.body.style.overflow = 'hidden'
+    closeRef.current?.focus()
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeMobile()
+        return
+      }
+      if (e.key !== 'Tab' || !overlayRef.current) return
+      const focusables = overlayRef.current.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled])',
+      )
+      if (focusables.length === 0) return
+      const first = focusables[0]
+      const last = focusables[focusables.length - 1]
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault()
+        last.focus()
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault()
+        first.focus()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeyDown)
+    return () => {
+      document.body.style.overflow = ''
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [mobileOpen, closeMobile])
+
   const links = [
     { label: 'Auditar expensas', href: '/auditar-expensas' },
     { label: 'Cambiar administrador', href: '/cambiar-administrador' },
@@ -32,61 +73,65 @@ export default function Navigation() {
   const isAdmin = pathname === '/administradores' || pathname.startsWith('/administradores/')
   const cta = isAdmin
     ? { href: '#contacto', desktopLabel: 'Hablemos en privado', mobileLabel: 'Hablemos en privado →' }
-    : { href: '/#analizador', desktopLabel: 'Analizar mis expensas', mobileLabel: 'Analizar mis expensas gratis' }
+    : { href: '/#analizador', desktopLabel: 'Auditar mis expensas', mobileLabel: 'Auditar mis expensas gratis' }
+
+  const onDark = pathname === '/' && !scrolled
 
   return (
     <>
       <nav
-        className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{
-          backdropFilter: scrolled ? 'blur(12px)' : 'none',
-          backgroundColor: scrolled ? 'rgba(248,247,244,0.85)' : 'transparent',
-          borderBottom: scrolled ? '1px solid var(--color-border)' : '1px solid transparent',
-        }}
+        className={`fixed left-0 right-0 top-0 z-(--z-nav) border-b transition-[background-color,border-color] duration-300 ${
+          scrolled
+            ? 'border-line bg-canvas/85 backdrop-blur-md'
+            : 'border-transparent bg-transparent'
+        }`}
         aria-label="Navegación principal"
       >
-        <div className="mx-auto max-w-[1120px] px-6 h-16 flex items-center justify-between">
+        <div className="mx-auto flex h-16 max-w-[1120px] items-center justify-between px-6">
           {/* Wordmark */}
           <Link
             href="/"
-            className="font-serif text-[22px] font-bold tracking-tight"
-            style={{ color: 'var(--color-ink)' }}
+            className={`font-serif text-[22px] font-bold tracking-tight focus-visible:outline-2 focus-visible:outline-offset-4 ${
+              onDark ? 'text-on-forest focus-visible:outline-on-forest' : 'text-ink focus-visible:outline-forest'
+            }`}
             aria-label="Dominium — Inicio"
           >
             Dominium
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden items-center gap-8 md:flex">
             {links.map((link) => {
-              const isRoute = link.href.startsWith('/')
-              const Tag = isRoute ? Link : 'a'
               const active = isActive(link.href)
               return (
-                <Tag
+                <Link
                   key={link.label}
                   href={link.href}
-                  className="text-[15px] font-medium transition-colors duration-150 relative group"
-                  style={{
-                    color: active ? 'var(--color-accent)' : 'var(--color-ink-secondary)',
-                    fontFamily: 'var(--font-dm-sans)',
-                  }}
+                  className={`group relative text-[15px] font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-4 ${
+                    onDark
+                      ? 'text-on-forest focus-visible:outline-on-forest'
+                      : active
+                        ? 'text-forest focus-visible:outline-forest'
+                        : 'text-ink-2 hover:text-ink focus-visible:outline-forest'
+                  }`}
                   aria-current={active ? 'page' : undefined}
                 >
                   {link.label}
                   <span
-                    className={`absolute -bottom-0.5 left-0 h-px transition-all duration-200 ${active ? 'w-full' : 'w-0 group-hover:w-full'}`}
-                    style={{ backgroundColor: 'var(--color-accent)' }}
+                    className={`absolute -bottom-0.5 left-0 h-px w-full origin-left transition-transform duration-200 ${
+                      active ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100 group-focus-visible:scale-x-100'
+                    } ${onDark ? 'bg-on-forest' : 'bg-forest'}`}
                   />
-                </Tag>
+                </Link>
               )
             })}
             <a
               href={cta.href}
-              className="inline-flex items-center h-[42px] px-5 rounded-full text-[15px] font-semibold text-white transition-colors duration-150"
-              style={{ backgroundColor: 'var(--color-accent)', letterSpacing: '0.02em' }}
-              onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent-light)')}
-              onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'var(--color-accent)')}
+              className={`inline-flex h-[42px] items-center rounded-full px-5 text-[15px] font-semibold tracking-[0.02em] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                onDark
+                  ? 'bg-on-forest text-forest-deep hover:bg-white focus-visible:outline-on-forest'
+                  : 'bg-forest text-white hover:bg-forest-soft focus-visible:outline-forest'
+              }`}
             >
               {cta.desktopLabel}
             </a>
@@ -94,11 +139,15 @@ export default function Navigation() {
 
           {/* Mobile hamburger */}
           <button
-            className="md:hidden p-2 rounded-lg"
+            ref={hamburgerRef}
+            className={`rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden ${
+              onDark ? 'text-on-forest focus-visible:outline-on-forest' : 'text-ink focus-visible:outline-forest'
+            }`}
             onClick={() => setMobileOpen(true)}
             aria-label="Abrir menú"
+            aria-expanded={mobileOpen}
           >
-            <Menu size={22} color="var(--color-ink)" />
+            <Menu size={22} aria-hidden="true" />
           </button>
         </div>
       </nav>
@@ -106,53 +155,44 @@ export default function Navigation() {
       {/* Mobile full-screen overlay */}
       {mobileOpen && (
         <div
-          className="fixed inset-0 z-[100] flex flex-col"
-          style={{ backgroundColor: 'var(--color-bg)' }}
+          ref={overlayRef}
+          className="fixed inset-0 z-(--z-overlay) flex flex-col bg-canvas"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Menú de navegación"
         >
-          <div className="flex items-center justify-between px-6 h-16">
-            <span
-              className="font-serif text-[22px] font-bold"
-              style={{ color: 'var(--color-ink)' }}
-            >
-              Dominium
-            </span>
+          <div className="flex h-16 items-center justify-between px-6">
+            <span className="font-serif text-[22px] font-bold text-ink">Dominium</span>
             <button
-              className="p-2 rounded-lg"
-              onClick={() => setMobileOpen(false)}
+              ref={closeRef}
+              className="rounded-lg p-2 text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest"
+              onClick={closeMobile}
               aria-label="Cerrar menú"
             >
-              <X size={22} color="var(--color-ink)" />
+              <X size={22} aria-hidden="true" />
             </button>
           </div>
           <div className="flex flex-col gap-2 px-6 pt-8">
             {links.map((link) => {
-              const isRoute = link.href.startsWith('/')
-              const Tag = isRoute ? Link : 'a'
               const active = isActive(link.href)
               return (
-                <Tag
+                <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="text-[20px] font-medium py-3 border-b"
-                  style={{
-                    color: active ? 'var(--color-accent)' : 'var(--color-ink)',
-                    borderColor: 'var(--color-border)',
-                    fontFamily: 'var(--font-dm-sans)',
-                    textDecoration: active ? 'underline' : 'none',
-                    textUnderlineOffset: '4px',
-                  }}
+                  className={`border-b border-line py-3 text-[20px] font-medium underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest ${
+                    active ? 'text-forest underline' : 'text-ink'
+                  }`}
                   aria-current={active ? 'page' : undefined}
                 >
                   {link.label}
-                </Tag>
+                </Link>
               )
             })}
             <a
               href={cta.href}
               onClick={() => setMobileOpen(false)}
-              className="mt-6 inline-flex items-center justify-center h-[50px] px-6 rounded-full text-[15px] font-semibold text-white"
-              style={{ backgroundColor: 'var(--color-accent)' }}
+              className="mt-6 inline-flex h-[50px] items-center justify-center rounded-full bg-forest px-6 text-[15px] font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest"
             >
               {cta.mobileLabel}
             </a>
