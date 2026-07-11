@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const LAST_UPDATED = "14 de mayo de 2026";
+const LAST_UPDATED = "10 de julio de 2026";
 
 export default function TerminosPage() {
   return (
@@ -57,11 +57,27 @@ export default function TerminosPage() {
           consorcios, expensas, Ley 941 y normativa de propiedad horizontal.
         </li>
         <li>
+          <strong>Aplicación móvil Dominium (iOS y Android):</strong> app para
+          vecinos, administradores y proveedores que permite ver y pagar
+          expensas, hacer reclamos, reservar amenities, recibir anuncios y
+          gestionar la información del consorcio.
+        </li>
+        <li>
           <strong>Servicios de administración:</strong> bajo contrato separado
           con cada consorcio, Dominium puede actuar como administradora bajo el
           régimen de propiedad horizontal aplicable.
         </li>
       </ul>
+      <p>
+        <strong>Pagos de expensas:</strong> a través de la app y la plataforma
+        podés abonar expensas y otros conceptos del consorcio mediante un
+        proveedor de infraestructura bancaria regulado por el BCRA. Dominium
+        actúa como facilitador del pago; la obligación de pago corresponde a la
+        relación entre el usuario y su consorcio, y los montos, vencimientos y
+        conceptos los define la administración del edificio. Los pagos
+        corresponden a servicios del mundo real (administración y gastos del
+        consorcio), no a bienes o servicios digitales.
+      </p>
 
       <h2>4. El análisis con IA es orientativo</h2>
       <p>

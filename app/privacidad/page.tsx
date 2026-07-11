@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-const LAST_UPDATED = "14 de mayo de 2026";
+const LAST_UPDATED = "10 de julio de 2026";
 
 export default function PrivacidadPage() {
   return (
@@ -22,7 +22,8 @@ export default function PrivacidadPage() {
       <h2>1. Quién es el responsable de tus datos</h2>
       <p>
         El responsable del tratamiento de los datos personales recolectados a
-        través de <a href="https://www.dominium.com.ar">dominium.com.ar</a> es{" "}
+        través de <a href="https://www.dominium.com.ar">dominium.com.ar</a> y de
+        la <strong>aplicación móvil Dominium</strong> (iOS y Android) es{" "}
         <strong>Dominium SAS</strong>, con domicilio en la Ciudad Autónoma de
         Buenos Aires, Argentina. Para cualquier consulta relacionada con tus
         datos, podés escribirnos a{" "}
@@ -56,6 +57,43 @@ export default function PrivacidadPage() {
           de analítica anónima.
         </li>
       </ul>
+      <p>
+        En la <strong>aplicación móvil Dominium</strong> (para vecinos,
+        administradores y proveedores) recolectamos, además:
+      </p>
+      <ul>
+        <li>
+          <strong>Datos de tu cuenta y tu consorcio:</strong> nombre, apellido,
+          email, teléfono, CUIT/CUIL cuando corresponde, y la información de tus
+          unidades funcionales y expensas.
+        </li>
+        <li>
+          <strong>Datos de pagos:</strong> pago de expensas, historial y
+          transferencias, procesados por nuestro proveedor de infraestructura
+          bancaria. No almacenamos datos completos de tarjetas.
+        </li>
+        <li>
+          <strong>Contenido que subís:</strong> fotos y archivos (por ejemplo,
+          comprobantes o facturas) tomados con la cámara o elegidos de tu
+          galería, y notas de voz, cuando decidís enviarlos.
+        </li>
+        <li>
+          <strong>Identificadores del dispositivo y notificaciones:</strong>{" "}
+          identificadores del dispositivo y el token necesario para enviarte
+          notificaciones push.
+        </li>
+        <li>
+          <strong>Ubicación aproximada:</strong> solo si otorgás el permiso, y
+          únicamente para funciones que lo requieren (por ejemplo, asignar
+          proveedores cercanos al edificio).
+        </li>
+      </ul>
+      <p>
+        La app solicita acceso a cámara, fotos, micrófono, notificaciones y
+        ubicación solo para las funciones descriptas y con tu autorización
+        previa. Podés gestionar o revocar estos permisos en cualquier momento
+        desde los ajustes de tu teléfono.
+      </p>
 
       <h2>3. Para qué usamos tus datos</h2>
       <p>Tratamos tus datos personales para:</p>
@@ -123,9 +161,21 @@ export default function PrivacidadPage() {
           serverless y métricas anónimas de uso (Vercel Analytics).
         </li>
         <li>
-          <strong>Cresium:</strong> infraestructura bancaria para fondos
-          operativos de los consorcios administrados. Cresium está regulada por
-          el BCRA.
+          <strong>Cresium:</strong> infraestructura bancaria para el
+          procesamiento de pagos de expensas y los fondos operativos de los
+          consorcios administrados. Cresium está regulada por el BCRA.
+        </li>
+        <li>
+          <strong>Apple y Google:</strong> servicios de notificaciones push para
+          entregarte avisos en la aplicación móvil.
+        </li>
+        <li>
+          <strong>Proveedor de mensajería (WhatsApp):</strong> a través del cual
+          funciona la asistente Vero para comunicarse con los vecinos.
+        </li>
+        <li>
+          <strong>Expo (EE.UU.):</strong> infraestructura para la construcción y
+          entrega de la aplicación móvil.
         </li>
       </ul>
       <p>
@@ -182,6 +232,14 @@ export default function PrivacidadPage() {
         <a href="mailto:hola@dominium.com.ar">hola@dominium.com.ar</a>.
         Respondemos en un plazo razonable y, en cualquier caso, dentro de los
         plazos establecidos por la normativa vigente.
+      </p>
+      <p>
+        <strong>Eliminación de tu cuenta:</strong> si usás la aplicación móvil
+        Dominium, podés solicitar la eliminación de tu cuenta y de tus datos
+        personales escribiéndonos a{" "}
+        <a href="mailto:hola@dominium.com.ar">hola@dominium.com.ar</a>.
+        Conservaremos únicamente los datos que la ley nos obligue a retener
+        (por ejemplo, registros contables o fiscales).
       </p>
       <p>
         Si considerás que el tratamiento que hacemos de tus datos no se ajusta a
