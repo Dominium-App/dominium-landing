@@ -88,7 +88,7 @@ export default function CtaFooter() {
             </div>
 
             {/* Trust row */}
-            <div className="mt-2 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+            <div className="mt-2 flex flex-col items-center justify-center gap-3">
               <div className="flex items-center gap-2">
                 <VeroMark size={14} />
                 <span className="text-[13px] text-on-forest-dim">
