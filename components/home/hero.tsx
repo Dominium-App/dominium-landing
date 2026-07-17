@@ -20,16 +20,16 @@ export default function Hero() {
             className="home-rise font-serif text-[clamp(34px,5.2vw,58px)] font-bold leading-[1.08] tracking-[-0.01em] text-on-forest text-balance"
             style={{ animationDelay: '80ms' }}
           >
-            Tu edificio ahora responde a las 2 de la mañana.
+            Administramos tu consorcio. Y responde a las 2 de la mañana.
           </h1>
 
           <p
             className="home-rise max-w-[54ch] text-[17px] leading-relaxed text-on-forest-dim"
             style={{ animationDelay: '160ms' }}
           >
-            Dominium administra tu consorcio con Vero, una IA que atiende a los vecinos por
-            WhatsApp las 24 horas. La plata del edificio en un banco regulado por BCRA, cada
-            gasto a la vista en la app, y el mismo honorario que ya pagás hoy.
+            Vero, nuestra IA, atiende a los vecinos por WhatsApp las 24 horas. La plata del
+            edificio en un banco regulado por BCRA, cada gasto a la vista en la app, y el
+            mismo honorario que ya pagás hoy.
           </p>
 
           <div
