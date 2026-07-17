@@ -3,7 +3,7 @@ import Navigation from "@/components/navigation";
 import ProviderForm from "@/components/provider-form";
 
 export const metadata: Metadata = {
-  title: "Sumate como proveedor | Dominium",
+  title: "Sumate como proveedor",
   description:
     "¿Sos plomero, electricista, gasista o prestás otro oficio? Postulate para resolver trabajos en los edificios que administra Dominium.",
   alternates: { canonical: "/proveedores" },

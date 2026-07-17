@@ -66,6 +66,7 @@ export default function Navigation() {
   const links = [
     { label: 'Auditar expensas', href: '/auditar-expensas' },
     { label: 'Cambiar administrador', href: '/cambiar-administrador' },
+    { label: 'Cobertura por barrio', href: '/administrador-consorcio' },
     { label: 'Blog', href: '/blog' },
     { label: 'Nosotros', href: '/nosotros' },
   ]
