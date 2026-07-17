@@ -101,14 +101,14 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop links */}
-          <div className="hidden items-center gap-8 md:flex">
+          <div className="hidden items-center gap-6 lg:flex">
             {links.map((link) => {
               const active = isActive(link.href)
               return (
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`group relative text-[15px] font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-4 ${
+                  className={`group relative whitespace-nowrap text-[15px] font-medium transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-4 ${
                     onDark
                       ? 'text-on-forest focus-visible:outline-on-forest'
                       : active
@@ -141,7 +141,7 @@ export default function Navigation() {
           {/* Mobile hamburger */}
           <button
             ref={hamburgerRef}
-            className={`rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-offset-2 md:hidden ${
+            className={`rounded-lg p-2 focus-visible:outline-2 focus-visible:outline-offset-2 lg:hidden ${
               onDark ? 'text-on-forest focus-visible:outline-on-forest' : 'text-ink focus-visible:outline-forest'
             }`}
             onClick={() => setMobileOpen(true)}
