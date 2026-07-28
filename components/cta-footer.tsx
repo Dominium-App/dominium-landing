@@ -25,7 +25,7 @@ const legalLinks = [
 const footerLinkClass =
   "text-[14px] text-on-forest-dim transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-forest";
 
-export default function CtaFooter() {
+export default function CtaFooter({ cta = true }: { cta?: boolean }) {
   const ctaRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -45,7 +45,7 @@ export default function CtaFooter() {
 
   return (
     <>
-      {/* Final CTA */}
+      {cta && (
       <section
         ref={ctaRef}
         id="contacto"
@@ -105,6 +105,7 @@ export default function CtaFooter() {
           </div>
         </div>
       </section>
+      )}
 
       {/* Footer */}
       <footer className="border-t border-on-forest-faint bg-forest-deep" aria-label="Pie de página Dominium">

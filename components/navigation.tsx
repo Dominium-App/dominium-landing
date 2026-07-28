@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 
-export default function Navigation() {
+export default function Navigation({ dark = false }: { dark?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const pathname = usePathname()
@@ -76,15 +76,17 @@ export default function Navigation() {
     ? { href: '#contacto', desktopLabel: 'Hablemos en privado', mobileLabel: 'Hablemos en privado →' }
     : { href: '/#analizador', desktopLabel: 'Auditar mis expensas', mobileLabel: 'Auditar mis expensas gratis' }
 
-  const onDark = pathname === '/' && !scrolled
+  const onDark = dark || (pathname === '/' && !scrolled)
 
   return (
     <>
       <nav
         className={`fixed left-0 right-0 top-0 z-(--z-nav) border-b transition-[background-color,border-color] duration-300 ${
-          scrolled
-            ? 'border-line bg-canvas/85 backdrop-blur-md'
-            : 'border-transparent bg-transparent'
+          !scrolled
+            ? 'border-transparent bg-transparent'
+            : dark
+              ? 'border-on-forest-faint bg-night/85 backdrop-blur-md'
+              : 'border-line bg-canvas/85 backdrop-blur-md'
         }`}
         aria-label="Navegación principal"
       >

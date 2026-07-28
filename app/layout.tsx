@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Playfair_Display } from "next/font/google";
+import { DM_Sans, IBM_Plex_Mono, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import StickyMobileCta from "@/components/sticky-mobile-cta";
 import WhatsappFab from "@/components/whatsapp-fab";
@@ -16,6 +16,13 @@ const playfair = Playfair_Display({
   subsets: ["latin"],
   weight: ["700"],
   variable: "--font-playfair",
+  display: "swap",
+});
+
+const plexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--font-plex-mono",
   display: "swap",
 });
 
@@ -101,7 +108,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#F8F9F6" },
-    { media: "(prefers-color-scheme: dark)", color: "#12281D" },
+    { media: "(prefers-color-scheme: dark)", color: "#0E2E21" },
   ],
   width: "device-width",
   initialScale: 1,
@@ -180,7 +187,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es-AR" className={`${dmSans.variable} ${playfair.variable}`}>
+    <html
+      lang="es-AR"
+      className={`${dmSans.variable} ${playfair.variable} ${plexMono.variable}`}
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

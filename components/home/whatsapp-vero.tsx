@@ -1,4 +1,6 @@
-import VeroMark from './vero-mark'
+import VeroAvatar from './vero-avatar'
+
+export type Turno = { de: 'vecino' | 'vero'; texto: string; hora: string }
 
 const CHECKS = (
   <svg width="14" height="10" viewBox="0 0 16 11" fill="none" aria-hidden="true" className="inline-block">
@@ -31,20 +33,26 @@ function Incoming({ text, time }: { text: string; time: string }) {
   )
 }
 
-export default function WhatsappVero() {
+export default function WhatsappVero({
+  hora,
+  turnos,
+  encabezado = 'HOY',
+}: {
+  hora: string
+  turnos: Turno[]
+  encabezado?: string
+}) {
   return (
     <div className="flex h-[560px] flex-col bg-[#0B141A]">
       <div className="flex items-center justify-between px-6 pb-1 pt-3.5">
-        <span className="text-[12px] font-semibold text-[#E9EDEF] tabular-nums">02:47</span>
+        <span className="text-[12px] font-semibold text-[#E9EDEF] tabular-nums">{hora}</span>
         <span className="text-[10px] tracking-wide text-[#8696A0]" aria-hidden="true">
           ●●● ▲ ▉
         </span>
       </div>
 
       <div className="flex items-center gap-2.5 border-b border-[#1D272E] bg-[#202C33] px-4 py-2.5">
-        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#0B141A]">
-          <VeroMark size={20} />
-        </span>
+        <VeroAvatar size={34} />
         <div className="min-w-0">
           <p className="truncate text-[13.5px] font-semibold text-[#E9EDEF]">Vero · Torre Madero</p>
           <p className="text-[10.5px] text-[#8696A0]">en línea</p>
@@ -53,19 +61,17 @@ export default function WhatsappVero() {
 
       <div className="flex flex-1 flex-col justify-end gap-1.5 px-3 pb-3">
         <div className="mb-1 self-center rounded-md bg-[#182229] px-2.5 py-1">
-          <span className="text-[10px] font-medium text-[#8696A0]">HOY 02:47</span>
+          <span className="text-[10px] font-medium text-[#8696A0]">
+            {encabezado} {hora}
+          </span>
         </div>
-        <Outgoing text="Vero, hay una pérdida de agua grande en la cochera" time="02:47" />
-        <Incoming
-          text="Voy con eso ya. ¿Podés cerrar la llave de paso del pasillo de cocheras? Es la roja, al lado del medidor."
-          time="02:47"
-        />
-        <Incoming
-          text="Listo: plomero de guardia en camino, llega 3:20 aprox. Abrí la gestión #481 así seguís todo desde la app, y a la mañana le aviso al consejo."
-          time="02:48"
-        />
-        <Outgoing text="Gracias!! No sabía a quién llamar a esta hora" time="02:49" />
-        <Incoming text="Para eso estoy. Cualquier cosa escribime, quedo atenta." time="02:49" />
+        {turnos.map((turno) =>
+          turno.de === 'vecino' ? (
+            <Outgoing key={turno.texto} text={turno.texto} time={turno.hora} />
+          ) : (
+            <Incoming key={turno.texto} text={turno.texto} time={turno.hora} />
+          ),
+        )}
       </div>
 
       <div className="flex items-center gap-2 bg-[#202C33] px-3 py-2.5">

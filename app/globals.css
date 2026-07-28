@@ -22,17 +22,25 @@
   --canvas: #F8F9F6;
   --surface: #FFFFFF;
   --surface-2: #F1F3EE;
+  --paper: #EFEAE0;
+  --paper-2: #E6E0D3;
+  --paper-line: #D6CEBD;
+  --night: #0E2E21;
+  --night-2: #14392A;
   --ink: #14160F;
   --ink-2: #54564E;
   --ink-3: #8C8D85;
   --line: #E6E7E0;
   --forest: #1A3A2A;
-  --forest-deep: #12281D;
-  --forest-soft: #21492F;
+  --forest-deep: #0E2E21;
+  --forest-soft: #26543A;
   --live: #1F9D57;
   --live-ink: #176B42;
   --live-soft: #E7F3EC;
-  --gold: #9C7A2E;
+  --gold: #B08A34;
+  --gold-light: #EAC062;
+  --gold-deep: #6F5419;
+  --gold-halo: rgba(234, 192, 98, 0.22);
   --alerta: #BC4B3C;
   --alerta-soft: #F6E9E6;
   --on-forest: #F4F6F1;
@@ -65,16 +73,23 @@
 @theme inline {
   --font-sans: 'DM Sans', sans-serif;
   --font-serif: 'Playfair Display', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-border: var(--border);
   --color-canvas: var(--canvas);
   --color-surface: var(--surface);
   --color-surface-2: var(--surface-2);
+  --color-paper: var(--paper);
+  --color-paper-2: var(--paper-2);
+  --color-paper-line: var(--paper-line);
+  --color-night: var(--night);
+  --color-night-2: var(--night-2);
   --color-ink: var(--ink);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
   --color-line: var(--line);
+  --color-line-strong: var(--color-border-strong);
   --color-forest: var(--forest);
   --color-forest-deep: var(--forest-deep);
   --color-forest-soft: var(--forest-soft);
@@ -82,6 +97,8 @@
   --color-live-ink: var(--live-ink);
   --color-live-soft: var(--live-soft);
   --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-deep: var(--gold-deep);
   --color-alerta: var(--alerta);
   --color-alerta-soft: var(--alerta-soft);
   --color-on-forest: var(--on-forest);
@@ -98,6 +115,12 @@
   html {
     scroll-behavior: smooth;
     color-scheme: light;
+    scrollbar-width: thin;
+    scrollbar-color: var(--forest-soft) transparent;
+  }
+  ::selection {
+    background-color: var(--gold-light);
+    color: var(--forest-deep);
   }
   * {
     @apply border-border;
@@ -195,4 +218,269 @@
 @keyframes row-in {
   from { opacity: 0; transform: translateX(-8px); }
   to { opacity: 1; transform: translateX(0); }
+}
+
+/* ── Home: composición ───────────────────────────────────────── */
+
+.rules {
+  background-image: repeating-linear-gradient(
+    to right,
+    var(--rule-ink, rgba(255, 255, 255, 0.07)) 0 1px,
+    transparent 1px calc(100% / var(--rule-cols, 6))
+  );
+}
+
+.hairline-caps {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.display {
+  font-family: var(--font-serif);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.025em;
+  text-wrap: balance;
+}
+
+.headline {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.032em;
+  text-wrap: balance;
+}
+
+/* Skyline: contornos que se trazan y una ventana despierta */
+
+.traza {
+  stroke-dasharray: 1;
+}
+@keyframes trazo {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes ventana-viva {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.95; }
+}
+.ventana-viva {
+  animation: ventana-viva 5s var(--ease-out-soft) infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ventana-viva {
+    animation: none;
+    opacity: 0.9;
+  }
+}
+
+/* Escena reactiva al puntero: el cursor es la linterna de las 2:47 */
+
+.escena-puntero {
+  --mx: 0.5;
+  --my: 0.5;
+  --px: 0;
+  --py: 0;
+}
+
+.capa-mouse {
+  transition: transform 600ms var(--ease-out-soft);
+  will-change: transform;
+}
+.capa-lejos {
+  transform: translate3d(calc(var(--px) * 24px), calc(var(--py) * 16px), 0);
+}
+.capa-cerca {
+  transform: translate3d(calc(var(--px) * -14px), calc(var(--py) * -9px), 0);
+}
+
+.luz-puntero {
+  opacity: 0;
+  transition: opacity 500ms ease;
+  background: radial-gradient(
+    460px circle at calc(var(--mx) * 100%) calc(var(--my) * 100%),
+    rgba(234, 192, 98, 0.12),
+    rgba(234, 192, 98, 0.035) 42%,
+    transparent 68%
+  );
+}
+.rules-luz {
+  opacity: 0;
+  transition: opacity 500ms ease;
+  -webkit-mask-image: radial-gradient(
+    300px circle at calc(var(--mx) * 100%) calc(var(--my) * 100%),
+    #000 0%,
+    transparent 72%
+  );
+  mask-image: radial-gradient(
+    300px circle at calc(var(--mx) * 100%) calc(var(--my) * 100%),
+    #000 0%,
+    transparent 72%
+  );
+}
+[data-puntero='on'] .luz-puntero,
+[data-puntero='on'] .rules-luz {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .capa-mouse {
+    transform: none;
+    transition: none;
+  }
+  .luz-puntero,
+  .rules-luz {
+    display: none;
+  }
+}
+
+.halo-gold {
+  position: relative;
+}
+.halo-gold::before {
+  content: '';
+  position: absolute;
+  inset: -55% -20%;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse at center,
+    var(--gold-halo) 0%,
+    color-mix(in srgb, var(--gold-halo) 35%, transparent) 42%,
+    transparent 72%
+  );
+}
+
+.numeral {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+  line-height: 0.82;
+  letter-spacing: -0.045em;
+}
+
+.ghost-numeral {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ghost-ink, rgba(234, 192, 98, 0.32));
+}
+
+/* ── Home: motion ────────────────────────────────────────────── */
+
+@keyframes hero-line {
+  from { opacity: 0; clip-path: inset(0 0 104% 0); transform: translate3d(0, 0.28em, 0); }
+  to { opacity: 1; clip-path: inset(-30% -12% -30% -12%); transform: none; }
+}
+.hero-line {
+  animation: hero-line 1s var(--ease-out-soft) both;
+}
+@keyframes hero-msg {
+  from { opacity: 0; transform: translate3d(0, 20px, 0) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+.hero-msg {
+  animation: hero-msg 0.75s var(--ease-out-soft) both;
+}
+@keyframes cue-run {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.cue-run {
+  animation: cue-run 2.6s var(--ease-out-soft) infinite;
+}
+
+@keyframes s-rise {
+  from { opacity: 0; transform: translate3d(0, 34px, 0); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes s-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes s-mask {
+  from { opacity: 0; clip-path: inset(0 0 102% 0); transform: translate3d(0, 0.24em, 0); }
+  to { opacity: 1; clip-path: inset(-30% -12% -30% -12%); transform: none; }
+}
+@keyframes s-lift {
+  from { opacity: 0; transform: translate3d(0, 46px, 0) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes s-rule {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes s-drift {
+  from { transform: translate3d(0, var(--drift, 48px), 0); }
+  to { transform: translate3d(0, calc(var(--drift, 48px) * -1), 0); }
+}
+@keyframes s-grow {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+@keyframes s-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+.s-rule {
+  transform-origin: left center;
+}
+.marquee-track {
+  animation: s-marquee var(--speed, 52s) linear infinite;
+  animation-direction: var(--dir, normal);
+  will-change: transform;
+}
+.marquee:hover .marquee-track,
+.marquee:focus-within .marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .s-rise,
+    .s-fade,
+    .s-mask,
+    .s-lift,
+    .s-rule {
+      animation-fill-mode: both;
+      animation-timing-function: var(--ease-out-soft);
+      animation-timeline: view();
+      animation-range: entry calc(3% + var(--d, 0) * 7%) cover calc(30% + var(--d, 0) * 7%);
+    }
+    .s-rise { animation-name: s-rise; }
+    .s-fade { animation-name: s-fade; }
+    .s-mask { animation-name: s-mask; }
+    .s-lift { animation-name: s-lift; }
+    .s-rule { animation-name: s-rule; }
+
+    .s-drift {
+      animation: s-drift linear both;
+      animation-timeline: view();
+      animation-range: cover;
+    }
+
+    .traza {
+      animation: trazo linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 40%;
+    }
+  }
+
+  @supports (animation-timeline: scroll()) {
+    .s-progress {
+      animation: s-grow linear both;
+      animation-timeline: scroll(root block);
+      transform-origin: left center;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+    transform: none;
+  }
 }

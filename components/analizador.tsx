@@ -10,6 +10,7 @@ import {
   RotateCcw,
   Lock,
 } from "lucide-react";
+import Indice from "@/components/home/indice";
 
 // ============================================================
 // TYPES
@@ -1109,7 +1110,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
 // MAIN COMPONENT
 // ============================================================
 
-export default function Analizador() {
+export default function Analizador({ indice }: { indice?: string }) {
   const [step, setStep] = useState<Step>(1);
   const [result, setResult] = useState<AnalysisResult | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
@@ -1198,46 +1199,34 @@ export default function Analizador() {
       style={{ backgroundColor: "var(--color-bg)" }}
       aria-label="Analizador de expensas Vero"
     >
-      <div className="mx-auto max-w-[1120px] px-6 flex flex-col items-center gap-10">
+      <div className="mx-auto flex max-w-[1240px] flex-col gap-12 px-6">
         {/* Section header */}
         <div
-          className="flex flex-col items-center gap-4 text-center"
+          className="flex flex-col gap-6"
           style={{
             opacity: sectionVisible ? 1 : 0,
             transform: sectionVisible ? "translateY(0)" : "translateY(16px)",
             transition: "opacity 0.6s ease, transform 0.6s ease",
           }}
         >
-          <p
-            className="text-[12px] font-semibold tracking-[0.1em] uppercase"
-            style={{ color: "var(--color-vero)" }}
-          >
-            Vero · Analizador de Expensas
-          </p>
-          <h2
-            className="font-serif font-bold text-balance leading-[1.15]"
-            style={{
-              fontSize: "clamp(26px, 4vw, 40px)",
-              color: "var(--color-ink)",
-            }}
-          >
-            Entendé qué pagás
-            <br />
-            para pagar menos.
-          </h2>
-          <p
-            className="text-[16px] leading-relaxed max-w-[520px]"
-            style={{ color: "var(--color-ink-secondary)" }}
-          >
-            Subí tu liquidación y Vero la analiza al instante. Detectamos
-            ineficiencias, comparamos con edificios similares, y te damos un
-            informe listo para compartir en tu grupo.
-          </p>
+          {indice && <Indice n={indice} label="Probalo con tu edificio" />}
+          <div className="grid gap-8 lg:grid-cols-[1.3fr_1fr] lg:items-end lg:gap-20">
+            <h2 className="headline text-[clamp(32px,4.8vw,64px)] text-ink">
+              Entendé qué pagás
+              <br />
+              para pagar menos.
+            </h2>
+            <p className="max-w-[46ch] text-[17px] leading-relaxed text-ink-2 lg:pb-3">
+              Subí tu última liquidación y Vero la analiza al instante: rubro por rubro, contra
+              la escala SUTERH, honorarios CAPHAI y valores de zona. El informe queda listo para
+              compartir en el grupo del edificio.
+            </p>
+          </div>
         </div>
 
         {/* Analyzer card */}
         <div
-          className="w-full max-w-[820px] rounded-[16px] overflow-hidden"
+          className="mx-auto w-full max-w-[820px] rounded-[16px] overflow-hidden"
           style={{
             backgroundColor: "var(--color-surface)",
             boxShadow:
