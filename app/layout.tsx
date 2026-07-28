@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     template: "%s | Dominium",
   },
   description:
-    "Dominium administra tu edificio con Vero, una IA que responde a los vecinos por WhatsApp las 24 horas, banco regulado por BCRA y cada gasto a la vista. Mismo honorario que tu administración actual. Auditá tus expensas gratis en 60 segundos.",
+    "Dominium administra tu edificio con Vero, una IA que responde a los vecinos por WhatsApp las 24 horas, banco regulado por BCRA y cada gasto a la vista. Sin comisiones de proveedores ni cajas paralelas. Auditá tus expensas gratis en 60 segundos.",
   keywords: [
     "auditar expensas",
     "expensas muy altas",
@@ -68,7 +68,7 @@ export const metadata: Metadata = {
     siteName: "Dominium",
     title: "Dominium — Tu edificio ahora responde a las 2 de la mañana",
     description:
-      "Administración de consorcios con IA: Vero atiende a los vecinos por WhatsApp 24/7, la plata del edificio en un banco regulado por BCRA y cada gasto auditado a la vista. Por el mismo honorario que ya pagás.",
+      "Administración de consorcios con IA: Vero atiende a los vecinos por WhatsApp 24/7, la plata del edificio en un banco regulado por BCRA y cada gasto auditado a la vista. Sin comisiones de proveedores ni cajas paralelas.",
   },
   twitter: {
     card: "summary_large_image",

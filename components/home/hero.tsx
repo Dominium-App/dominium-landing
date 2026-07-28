@@ -85,7 +85,7 @@ export default function Hero() {
               Vero, nuestra IA, responde a los vecinos por WhatsApp las 24 horas. La plata del
               edificio vive en una cuenta propia regulada por BCRA y cada gasto queda a la vista
               en la app.{' '}
-              <span className="text-on-forest">Por el mismo honorario que ya pagás.</span>
+              <span className="text-on-forest">Sin comisiones de proveedores ni cajas paralelas.</span>
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">

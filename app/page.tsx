@@ -18,12 +18,12 @@ import { homeFaqs } from '@/lib/faqs'
 export const metadata: Metadata = {
   title: 'Administración de consorcios con IA en Buenos Aires',
   description:
-    'Dominium administra tu edificio con Vero, una IA que responde a los vecinos por WhatsApp las 24 horas, banco regulado por BCRA y una app con cada gasto a la vista. Mismo honorario que tu administración actual. Auditá tus expensas gratis en 60 segundos.',
+    'Dominium administra tu edificio con Vero, una IA que responde a los vecinos por WhatsApp las 24 horas, banco regulado por BCRA y una app con cada gasto a la vista. Sin comisiones de proveedores ni cajas paralelas. Auditá tus expensas gratis en 60 segundos.',
   alternates: { canonical: '/' },
   openGraph: {
     title: 'Dominium — La administración de consorcios que atiende a las 2:47 de la mañana',
     description:
-      'Administración de consorcios con IA: Vero atiende por WhatsApp 24/7, la plata del edificio en un banco regulado por BCRA y cada gasto auditado a la vista. Por el mismo honorario que ya pagás.',
+      'Administración de consorcios con IA: Vero atiende por WhatsApp 24/7, la plata del edificio en un banco regulado por BCRA y cada gasto auditado a la vista. Sin comisiones de proveedores ni cajas paralelas.',
     url: '/',
     type: 'website',
   },
