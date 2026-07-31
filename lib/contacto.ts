@@ -10,3 +10,5 @@ export const WHATSAPP_VECINO = whatsapp(
 export const WHATSAPP_CONSEJO = whatsapp(
   'Hola Vero, soy del consejo de mi edificio y quiero saber cómo llevar Dominium al consorcio',
 )
+
+export const APP_STORE_URL = 'https://apps.apple.com/ar/app/dominium-consorcios/id6789744457'

@@ -4,6 +4,8 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { ShieldCheck, MessageCircle, Mail } from "lucide-react";
 import VeroMark from "@/components/home/vero-mark";
+import AppStoreBadge from "@/components/app-store-badge";
+import { APP_STORE_URL } from "@/lib/contacto";
 
 const WHATSAPP_URL =
   "https://wa.me/5491172936904?text=Hola%20Vero%2C%20quiero%20saber%20m%C3%A1s%20de%20Dominium%20para%20mi%20edificio";
@@ -109,6 +111,17 @@ export default function CtaFooter({ cta = true }: { cta?: boolean }) {
 
       {/* Footer */}
       <footer className="border-t border-on-forest-faint bg-forest-deep" aria-label="Pie de página Dominium">
+        <div className="border-b border-on-forest-faint">
+          <div className="mx-auto flex max-w-[1120px] flex-col items-center gap-6 px-6 py-12 text-center sm:flex-row sm:justify-between sm:text-left">
+            <div>
+              <p className="text-[16px] font-semibold text-white">Bajá la app de Dominium</p>
+              <p className="mt-1 text-[14px] text-on-forest-dim">
+                Para propietarios, inquilinos y proveedores del edificio.
+              </p>
+            </div>
+            <AppStoreBadge href={APP_STORE_URL} />
+          </div>
+        </div>
         <div className="mx-auto max-w-[1120px] px-6 py-16">
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {/* Col 1: Brand */}
