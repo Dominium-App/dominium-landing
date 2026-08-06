@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans, IBM_Plex_Mono, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import StickyMobileCta from "@/components/sticky-mobile-cta";
 import WhatsappFab from "@/components/whatsapp-fab";
 import "./globals.css";
@@ -28,6 +29,9 @@ const plexMono = IBM_Plex_Mono({
 
 const SITE_URL = "https://www.dominium.com.ar";
 const ALLOW_INDEXING = process.env.NEXT_PUBLIC_ALLOW_INDEXING === "true";
+const UMAMI_WEBSITE_ID =
+  process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID ??
+  "0b789fdf-4545-4561-88c4-a6eabd3b52e9";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -215,6 +219,11 @@ export default function RootLayout({
         <StickyMobileCta />
         <WhatsappFab />
         <Analytics />
+        <Script
+          src="https://cloud.umami.is/script.js"
+          data-website-id={UMAMI_WEBSITE_ID}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
