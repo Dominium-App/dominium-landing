@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
+import { WHATSAPP_CONSEJO } from '@/lib/contacto'
 
 export default function Navigation({ dark = false }: { dark?: boolean }) {
   const [scrolled, setScrolled] = useState(false)
@@ -74,7 +75,11 @@ export default function Navigation({ dark = false }: { dark?: boolean }) {
   const isAdmin = pathname === '/administradores' || pathname.startsWith('/administradores/')
   const cta = isAdmin
     ? { href: '#contacto', desktopLabel: 'Hablemos en privado', mobileLabel: 'Hablemos en privado →' }
-    : { href: '/#analizador', desktopLabel: 'Auditar mis expensas', mobileLabel: 'Auditar mis expensas gratis' }
+    : {
+        href: WHATSAPP_CONSEJO,
+        desktopLabel: 'Hablar sobre mi edificio',
+        mobileLabel: 'Hablar sobre mi edificio →',
+      }
 
   const onDark = dark || (pathname === '/' && !scrolled)
 
@@ -130,6 +135,8 @@ export default function Navigation({ dark = false }: { dark?: boolean }) {
             })}
             <a
               href={cta.href}
+              target={isAdmin ? undefined : '_blank'}
+              rel={isAdmin ? undefined : 'noopener noreferrer'}
               className={`inline-flex h-[42px] items-center rounded-full px-5 text-[15px] font-semibold tracking-[0.02em] transition-colors duration-150 focus-visible:outline-2 focus-visible:outline-offset-2 ${
                 onDark
                   ? 'bg-on-forest text-forest-deep hover:bg-white focus-visible:outline-on-forest'
@@ -194,6 +201,8 @@ export default function Navigation({ dark = false }: { dark?: boolean }) {
             })}
             <a
               href={cta.href}
+              target={isAdmin ? undefined : '_blank'}
+              rel={isAdmin ? undefined : 'noopener noreferrer'}
               onClick={() => setMobileOpen(false)}
               className="mt-6 inline-flex h-[50px] items-center justify-center rounded-full bg-forest px-6 text-[15px] font-semibold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-forest"
             >

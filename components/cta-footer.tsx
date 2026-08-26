@@ -27,7 +27,13 @@ const legalLinks = [
 const footerLinkClass =
   "text-[14px] text-on-forest-dim transition-colors duration-150 hover:text-white focus-visible:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-on-forest";
 
-export default function CtaFooter({ cta = true }: { cta?: boolean }) {
+export default function CtaFooter({
+  cta = true,
+  appPromo = true,
+}: {
+  cta?: boolean;
+  appPromo?: boolean;
+}) {
   const ctaRef = useRef<HTMLElement>(null);
   const [visible, setVisible] = useState(false);
 
@@ -111,7 +117,7 @@ export default function CtaFooter({ cta = true }: { cta?: boolean }) {
 
       {/* Footer */}
       <footer className="border-t border-on-forest-faint bg-forest-deep" aria-label="Pie de página Dominium">
-        <div className="border-b border-on-forest-faint">
+        {appPromo && <div className="border-b border-on-forest-faint">
           <div className="mx-auto flex max-w-[1120px] flex-col items-center gap-6 px-6 py-12 text-center sm:flex-row sm:justify-between sm:text-left">
             <div>
               <p className="text-[16px] font-semibold text-white">Bajá la app de Dominium</p>
@@ -121,7 +127,7 @@ export default function CtaFooter({ cta = true }: { cta?: boolean }) {
             </div>
             <AppStoreBadge href={APP_STORE_URL} />
           </div>
-        </div>
+        </div>}
         <div className="mx-auto max-w-[1120px] px-6 py-16">
           <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {/* Col 1: Brand */}

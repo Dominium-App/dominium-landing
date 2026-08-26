@@ -3,7 +3,7 @@ import Boton from './boton'
 import Edificios from './edificios'
 import EscenaPuntero from './escena-puntero'
 import VeroAvatar from './vero-avatar'
-import { WHATSAPP_VECINO } from '@/lib/contacto'
+import { WHATSAPP_CONSEJO } from '@/lib/contacto'
 
 const mensajes = [
   {
@@ -28,7 +28,7 @@ const mensajes = [
 export default function Hero() {
   return (
     <EscenaPuntero
-      className="relative isolate overflow-hidden bg-night pb-16 pt-24 md:pb-20 md:pt-32"
+      className="relative isolate overflow-hidden bg-night pb-16 pt-24 md:pb-20 md:pt-28"
       label="Dominium, administración de consorcios con inteligencia artificial en CABA y AMBA"
     >
       <div
@@ -63,47 +63,44 @@ export default function Hero() {
 
         <h1 className="mt-10 text-[clamp(38px,7vw,96px)] text-on-forest md:mt-14">
           <span className="hero-line display block" style={{ animationDelay: '120ms' }}>
-            La administración
+            Administramos
           </span>
           <span className="hero-line display block" style={{ animationDelay: '220ms' }}>
-            de consorcios que atiende
+            tu consorcio.
           </span>
-          <span className="halo-gold inline-block">
-            <span
-              className="hero-line display block text-gold-light"
-              style={{ animationDelay: '320ms' }}
-            >
-              a las 2:47 de la mañana.
-            </span>
+          <span
+            className="hero-line display mt-3 block text-[clamp(32px,5vw,68px)] text-gold-light md:mt-5"
+            style={{ animationDelay: '320ms' }}
+          >
+            Con tecnología e IA propias.
           </span>
         </h1>
 
-        <div className="mt-12 grid gap-12 md:mt-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:gap-20">
+        <div className="mt-10 grid gap-12 md:mt-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,420px)] lg:gap-20">
           <div className="hero-line" style={{ animationDelay: '460ms' }}>
             <span className="block h-px w-full bg-on-forest-faint" aria-hidden="true" />
-            <p className="mt-7 max-w-[46ch] text-[17px] leading-relaxed text-on-forest-dim md:text-[19px]">
-              Vero, nuestra IA, responde a los vecinos por WhatsApp las 24 horas. La plata del
-              edificio vive en una cuenta propia regulada por BCRA y cada gasto queda a la vista
-              en la app.{' '}
-              <span className="text-on-forest">Sin comisiones de proveedores ni cajas paralelas.</span>
+            <p className="mt-7 max-w-[50ch] text-[17px] leading-relaxed text-on-forest-dim md:text-[19px]">
+              Somos la administración completa, no un software para tu administrador. Nuestro
+              equipo se ocupa del edificio; Vero, nuestra IA, responde por WhatsApp las 24 horas
+              y cada peso queda a la vista.
             </p>
 
             <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-              <Boton href="/#analizador" tone="bone">
-                Auditar mis expensas gratis
+              <Boton href={WHATSAPP_CONSEJO} tone="bone" external>
+                Hablar sobre mi edificio
               </Boton>
-              <Boton href={WHATSAPP_VECINO} tone="ghost-bone" external>
-                Escribirle a Vero
+              <Boton href="/#analizador" tone="ghost-bone">
+                Auditar mis expensas
               </Boton>
             </div>
 
             <p className="hairline-caps mt-7 text-on-forest-faint">
-              Sin registro · 60 segundos · Datos cifrados
+              CABA y AMBA · Sin comisiones de proveedores · Equipo humano detrás
             </p>
           </div>
 
           <figure
-            className="capa-mouse capa-cerca relative lg:pt-1"
+            className="capa-mouse capa-cerca relative hidden md:block lg:pt-1"
             role="img"
             aria-label="Conversación real de WhatsApp a las 2:47 de la mañana: un vecino avisa una pérdida de agua en la cochera, Vero le indica qué llave cerrar y despacha al plomero de guardia"
           >
@@ -146,17 +143,9 @@ export default function Hero() {
           </figure>
         </div>
 
-        <div
-          className="hero-line mt-16 flex items-center gap-3 md:mt-24"
-          style={{ animationDelay: '900ms' }}
-        >
-          <span
-            className="relative flex h-9 w-px overflow-hidden bg-on-forest-faint"
-            aria-hidden="true"
-          >
-            <span className="cue-run absolute inset-0 bg-gold-light" />
-          </span>
-          <span className="hairline-caps text-on-forest-faint">Seguí bajando</span>
+        <div className="hero-line mt-14 flex items-center gap-3 md:mt-16" style={{ animationDelay: '900ms' }}>
+          <span className="h-px w-10 bg-gold-light" aria-hidden="true" />
+          <span className="hairline-caps text-on-forest-faint">Respuesta, transparencia y gestión</span>
         </div>
       </div>
     </EscenaPuntero>

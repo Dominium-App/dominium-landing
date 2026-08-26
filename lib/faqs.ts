@@ -37,3 +37,10 @@ export const homeFaqs: Faq[] = [
     a: 'Sí. Los datos viajan y se guardan cifrados, la liquidación que subís se procesa de forma confidencial y no se comparte con terceros. Podés pedir la eliminación de tus datos cuando quieras escribiendo a hola@dominium.com.ar.',
   },
 ]
+
+export const featuredHomeFaqs: Faq[] = [
+  homeFaqs[1],
+  homeFaqs[2],
+  homeFaqs[5],
+  homeFaqs[6],
+]
