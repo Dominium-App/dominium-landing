@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 import { FileText, Users, ArrowRight } from 'lucide-react'
 import Navigation from '@/components/navigation'
@@ -146,32 +147,35 @@ export default function CambiarAdministradorPage() {
       />
 
       <main>
-        <Navigation />
+        <Navigation dark />
 
         {/* Hero */}
-        <section className="pt-32 pb-16 md:pt-40 md:pb-20" style={{ backgroundColor: 'var(--color-bg)' }}>
+        <section className="relative isolate overflow-hidden bg-night pt-32 pb-16 md:pt-40 md:pb-24">
+          <Image
+            src="/fondos/firma.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="-z-10 object-cover object-center opacity-55"
+          />
+          <div
+            className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-night/60 via-night/55 to-night"
+            aria-hidden="true"
+          />
           <div className="mx-auto max-w-[920px] px-6 text-center flex flex-col items-center gap-6">
-            <p
-              className="text-[12px] font-semibold tracking-[0.1em] uppercase"
-              style={{ color: 'var(--color-accent)' }}
-            >
+            <p className="text-[12px] font-semibold tracking-[0.1em] uppercase text-gold-light">
               Cambio de administrador — CABA + AMBA
             </p>
             <h1
-              className="font-serif font-bold leading-[1.05] tracking-[-0.02em] text-balance"
-              style={{
-                fontSize: 'clamp(34px, 5vw, 58px)',
-                color: 'var(--color-ink)',
-              }}
+              className="font-serif font-bold leading-[1.05] tracking-[-0.02em] text-balance text-on-forest"
+              style={{ fontSize: 'clamp(34px, 5vw, 58px)' }}
             >
               Cambiá de administrador
               <br />
-              <span style={{ color: 'var(--color-accent)' }}>sin que sea un trámite imposible.</span>
+              <span className="text-gold-light">sin que sea un trámite imposible.</span>
             </h1>
-            <p
-              className="text-[18px] leading-relaxed max-w-[640px]"
-              style={{ color: 'var(--color-ink-secondary)' }}
-            >
+            <p className="text-[18px] leading-relaxed max-w-[640px] text-on-forest-dim">
               Te acompañamos en cada paso: auditoría, asamblea, carta documento y traspaso. Sin
               abogados intermediarios, sin meses de demora, sin riesgo de anulación por defecto de
               forma.
@@ -179,15 +183,13 @@ export default function CambiarAdministradorPage() {
             <div className="flex flex-col sm:flex-row gap-3 mt-2">
               <a
                 href="#proceso"
-                className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-[15px] font-semibold text-white"
-                style={{ backgroundColor: 'var(--color-accent)' }}
+                className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-[15px] font-semibold text-forest-deep bg-on-forest transition-colors hover:bg-white"
               >
                 Ver el proceso completo ↓
               </a>
               <Link
                 href="/#analizador"
-                className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-[15px] font-semibold"
-                style={{ border: '1.5px solid var(--color-border)', color: 'var(--color-ink)' }}
+                className="inline-flex items-center justify-center h-[52px] px-6 rounded-full text-[15px] font-semibold border border-on-forest-faint text-on-forest transition-colors hover:bg-forest-soft"
               >
                 Auditar mi administración actual
               </Link>

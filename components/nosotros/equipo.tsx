@@ -1,11 +1,30 @@
 import Reveal from '@/components/home/reveal'
+import FotoEquipo from './foto-equipo'
 
-/* [COMPLETAR por persona: foto real (reemplaza el monograma), una línea concreta de
-   trayectoria — qué hacía antes — y link a LinkedIn si quieren exponerlo.] */
+/* Fotos en /public/equipo/{slug}.webp — retrato cuadrado, cara centrada.
+   Si falta la foto, se ve el monograma sobre verde. */
 const team = [
-  { name: 'Lucio Majewski', role: 'CEO', initials: 'LM' },
-  { name: 'Santiago Suppes', role: 'COO', initials: 'SS' },
-  { name: 'Enzo Cazenave', role: 'CTO', initials: 'EC' },
+  {
+    name: 'Lucio Majewski',
+    role: 'CEO',
+    slug: 'lucio',
+    initials: 'LM',
+    linea: 'Dirección y vínculo con el consorcio.',
+  },
+  {
+    name: 'Santiago Suppes',
+    role: 'COO',
+    slug: 'santiago',
+    initials: 'SS',
+    linea: 'Administrador matriculado y licenciado en sistemas.',
+  },
+  {
+    name: 'Enzo Cazenave',
+    role: 'CTO',
+    slug: 'enzo',
+    initials: 'EC',
+    linea: 'Tecnología y sistemas.',
+  },
 ]
 
 export default function Equipo() {
@@ -26,11 +45,16 @@ export default function Equipo() {
           {team.map((member) => (
             <Reveal key={member.name}>
               <article className="flex flex-col border-t border-line pt-6">
-                <span className="flex h-16 w-16 items-center justify-center rounded-full bg-live-soft">
-                  <span className="text-[18px] font-semibold text-forest">{member.initials}</span>
-                </span>
+                <FotoEquipo
+                  slug={member.slug}
+                  alt={`${member.name}, ${member.role} de Dominium`}
+                  initials={member.initials}
+                />
                 <h3 className="mt-5 text-[20px] font-semibold text-ink">{member.name}</h3>
                 <p className="mt-1 text-[14px] font-medium text-ink-3">{member.role}</p>
+                <p className="mt-2 max-w-[26ch] text-[14px] leading-relaxed text-ink-2">
+                  {member.linea}
+                </p>
               </article>
             </Reveal>
           ))}

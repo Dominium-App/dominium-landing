@@ -30,7 +30,14 @@ const encendidas = new Set([
   '7-3-0', '7-4-2',
 ])
 
-const VIVA = '3-1-2'
+/* Ventanas despiertas a las 2:47: cada una respira a su propio ritmo */
+const vivas = new Map<string, number>([
+  ['3-1-2', 0],
+  ['1-3-1', 1.4],
+  ['5-2-0', 2.8],
+  ['6-4-3', 0.8],
+  ['0-2-1', 3.6],
+])
 
 function ventanas(torre: Torre, indice: number) {
   const anchoVentana =
@@ -40,7 +47,7 @@ function ventanas(torre: Torre, indice: number) {
   return Array.from({ length: torre.filas }, (_, fila) =>
     Array.from({ length: torre.cols }, (_, col) => {
       const clave = `${indice}-${fila}-${col}`
-      const viva = clave === VIVA
+      const viva = vivas.has(clave)
       const prendida = viva || encendidas.has(clave)
 
       return (
@@ -53,6 +60,7 @@ function ventanas(torre: Torre, indice: number) {
           fill={viva ? 'var(--gold-light)' : 'currentColor'}
           opacity={prendida ? 0.55 : 0.12}
           className={viva ? 'ventana-viva' : undefined}
+          style={viva ? { animationDelay: `${vivas.get(clave)}s` } : undefined}
         />
       )
     }),

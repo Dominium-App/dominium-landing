@@ -28,7 +28,7 @@ export default function Hero() {
         className="pointer-events-none absolute -right-[3vw] top-24 select-none md:top-16"
         aria-hidden="true"
       >
-        <span className="ghost-numeral numeral block text-[32vw] leading-none opacity-25 md:text-[18vw]">
+        <span className="numeral-flota ghost-numeral numeral block text-[32vw] leading-none opacity-25 md:text-[18vw]">
           02:47
         </span>
       </div>
@@ -86,44 +86,52 @@ export default function Hero() {
             role="img"
             aria-label="Ejemplo de una gestión de madrugada: Vero recibe el reclamo de un vecino, lo deriva al equipo de Dominium y se despacha un plomero de guardia"
           >
-            <div className="flex items-start justify-between gap-4 border-b border-paper-line pb-5">
-              <div className="flex items-center gap-3">
-                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-alerta-soft text-alerta">
+            <div className="flex items-start justify-between gap-3 border-b border-paper-line pb-5">
+              <div className="flex min-w-0 items-center gap-3">
+                <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-alerta-soft text-alerta">
                   <Droplets size={20} aria-hidden="true" />
                 </span>
-                <div>
-                  <p className="hairline-caps text-gold-deep">Vero + equipo · Gestión #481</p>
+                <div className="min-w-0">
+                  <p className="hairline-caps text-gold-deep">Gestión #481</p>
                   <h2 className="mt-1 text-[18px] font-semibold leading-tight text-ink">
                     Pérdida de agua
                   </h2>
                 </div>
               </div>
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-live-soft px-3 py-1.5 text-[11px] font-semibold text-live-ink">
+              <span className="inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap rounded-full bg-live-soft px-3 py-1.5 text-[11px] font-semibold text-live-ink">
                 <span className="h-1.5 w-1.5 rounded-full bg-live" aria-hidden="true" />
                 En curso
               </span>
             </div>
 
-            <div className="relative mt-5">
-              <span
-                className="absolute bottom-5 left-[53px] top-5 w-px bg-paper-line"
-                aria-hidden="true"
-              />
-              <ol>
-                {eventos.map((evento, i) => (
-                  <li key={evento.hora} className="relative grid grid-cols-[42px_14px_1fr] gap-2 py-3">
-                    <time className="font-mono text-[11px] font-medium text-ink-3">{evento.hora}</time>
-                    <span
-                      className={`relative z-10 mt-1 h-2.5 w-2.5 rounded-full ring-4 ring-paper ${
-                        i < 3 ? 'bg-forest' : 'bg-gold'
+            <ol className="mt-5">
+              {eventos.map((evento, i) => {
+                const ultimo = i === eventos.length - 1
+                return (
+                  <li key={evento.hora} className="flex gap-3">
+                    <time className="w-[42px] shrink-0 pt-0.5 text-right font-mono text-[11px] font-medium tabular-nums text-ink-3">
+                      {evento.hora}
+                    </time>
+                    <div className="flex flex-col items-center pt-[5px]">
+                      <span
+                        className={`h-2.5 w-2.5 shrink-0 rounded-full ${
+                          ultimo ? 'bg-gold' : 'bg-forest'
+                        }`}
+                        aria-hidden="true"
+                      />
+                      {!ultimo && <span className="w-px flex-1 bg-paper-line" aria-hidden="true" />}
+                    </div>
+                    <p
+                      className={`flex-1 text-[14px] leading-snug text-ink-2 ${
+                        ultimo ? 'pb-1' : 'pb-5'
                       }`}
-                      aria-hidden="true"
-                    />
-                    <p className="text-[14px] leading-snug text-ink-2">{evento.texto}</p>
+                    >
+                      {evento.texto}
+                    </p>
                   </li>
-                ))}
-              </ol>
-            </div>
+                )
+              })}
+            </ol>
 
             <figcaption className="mt-5 flex items-center justify-between gap-4 rounded-2xl bg-paper-2 px-4 py-3.5">
               <span className="flex items-center gap-2.5 text-[13px] font-medium text-ink">

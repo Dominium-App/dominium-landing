@@ -29,9 +29,24 @@ export const metadata: Metadata = {
 }
 
 const team = [
-  { name: 'Lucio Majewski', role: 'CEO', jobTitle: 'Chief Executive Officer' },
-  { name: 'Santiago Suppes', role: 'COO', jobTitle: 'Chief Operating Officer' },
-  { name: 'Enzo Cazenave', role: 'CTO', jobTitle: 'Chief Technology Officer' },
+  {
+    name: 'Lucio Majewski',
+    role: 'CEO',
+    jobTitle: 'Chief Executive Officer',
+    description: 'Dirección y vínculo con el consorcio.',
+  },
+  {
+    name: 'Santiago Suppes',
+    role: 'COO',
+    jobTitle: 'Chief Operating Officer',
+    description: 'Administrador matriculado y licenciado en sistemas.',
+  },
+  {
+    name: 'Enzo Cazenave',
+    role: 'CTO',
+    jobTitle: 'Chief Technology Officer',
+    description: 'Tecnología y sistemas.',
+  },
 ]
 
 const breadcrumbJsonLd = {
@@ -59,6 +74,8 @@ const aboutPageJsonLd = {
       '@type': 'Person',
       name: m.name,
       jobTitle: m.jobTitle,
+      description: m.description,
+      image: `${SITE_URL}/equipo/${m.name.split(' ')[0].toLowerCase()}.webp`,
       worksFor: { '@id': `${SITE_URL}/#organization` },
     })),
   },
@@ -76,7 +93,7 @@ export default function NosotrosPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageJsonLd) }}
       />
       <main>
-        <Navigation />
+        <Navigation dark />
         <NosotrosHero />
         <Historia />
         <Equipo />

@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Reveal from '@/components/home/reveal'
 
 export default function Historia() {
@@ -9,6 +10,15 @@ export default function Historia() {
             <h2 className="font-serif text-[clamp(28px,3.8vw,42px)] font-bold leading-[1.12] text-ink text-balance">
               Por qué existe Dominium.
             </h2>
+            <div className="relative mt-8 hidden aspect-[4/5] overflow-hidden rounded-2xl lg:block">
+              <Image
+                src="/fondos/torres.webp"
+                alt="Edificios de propiedad horizontal en el AMBA"
+                fill
+                sizes="(min-width: 1024px) 420px, 0px"
+                className="object-cover"
+              />
+            </div>
           </Reveal>
           <Reveal delay={80}>
             <div className="flex max-w-[62ch] flex-col gap-5 text-[16.5px] leading-relaxed text-ink-2">

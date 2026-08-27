@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ShieldCheck, MessageCircle, Mail } from "lucide-react";
 import VeroMark from "@/components/home/vero-mark";
@@ -57,9 +58,16 @@ export default function CtaFooter({
       <section
         ref={ctaRef}
         id="contacto"
-        className="bg-forest-deep py-24 md:py-32"
+        className="relative isolate overflow-hidden bg-forest-deep py-24 md:py-32"
         aria-label="Contacto y llamado a la acción"
       >
+        <Image
+          src="/fondos/trama-edificios.webp"
+          alt=""
+          fill
+          sizes="100vw"
+          className="pointer-events-none -z-10 object-cover opacity-60"
+        />
         <div className="mx-auto flex max-w-[1120px] flex-col items-center gap-8 px-6">
           <div
             className="flex max-w-[600px] flex-col items-center gap-6 text-center transition-[opacity,transform] duration-500 ease-out"

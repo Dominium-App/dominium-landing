@@ -56,6 +56,8 @@ export default function HeroAmbiente() {
       aria-hidden="true"
     >
       <div className="aurora absolute inset-0" />
+      <div className="estrellas absolute inset-x-0 top-0 h-[62%]" />
+      <div className="estrellas estrellas-2 absolute inset-x-0 top-0 h-[62%]" />
       <div
         className="rules rules-luz absolute inset-0"
         style={{ '--rule-cols': 6, '--rule-ink': 'rgba(234,192,98,0.18)' } as CSSProperties}
