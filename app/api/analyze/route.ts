@@ -58,13 +58,34 @@ export async function POST(req: NextRequest): Promise<NextResponse<RespuestaAnal
   try {
     extraccion = await extraer(base64, mediaType, apiKey)
   } catch (err) {
-    if (err instanceof AnthropicError && (err.status === 504 || err.message === 'timeout')) {
-      return error('El análisis tardó demasiado. Probá de nuevo en un momento.', 504)
+    const detalle = err instanceof Error ? err.message : String(err)
+    const status = err instanceof AnthropicError ? err.status : 0
+    console.error(`[analyze] etapa 1 falló (status ${status}): ${detalle}`)
+
+    const debug = process.env.ANALYZE_DEBUG === '1' ? { detalle, status } : {}
+
+    if (status === 504 || detalle === 'timeout') {
+      return NextResponse.json(
+        { ok: false, error: 'El análisis tardó demasiado. Probá de nuevo en un momento.', ...debug },
+        { status: 504 },
+      )
     }
-    if (err instanceof AnthropicError && err.status === 429) {
-      return error('El analizador está con mucha demanda. Probá de nuevo en unos minutos.', 429)
+    if (status === 401 || status === 403) {
+      return NextResponse.json(
+        { ok: false, error: 'El analizador no está bien configurado.', ...debug },
+        { status: 500 },
+      )
     }
-    return error('No pudimos completar el análisis. Probá de nuevo en un momento.', 502)
+    if (status === 429 || /credit balance|credits|quota/i.test(detalle)) {
+      return NextResponse.json(
+        { ok: false, error: 'El analizador está sin capacidad por ahora. Probá más tarde.', ...debug },
+        { status: 429 },
+      )
+    }
+    return NextResponse.json(
+      { ok: false, error: 'No pudimos completar el análisis. Probá de nuevo en un momento.', ...debug },
+      { status: 502 },
+    )
   }
 
   // --- Etapa 2: auditoría determinística ---

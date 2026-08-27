@@ -62,17 +62,23 @@ export async function llamarConJsonSchema(opts: LlamadaOpts): Promise<string> {
     if (err instanceof Error && err.name === 'AbortError') {
       throw new AnthropicError('timeout', 504)
     }
+    console.error('[anthropic] fetch falló:', err)
     throw new AnthropicError('network', 502)
   }
   clearTimeout(timeout)
 
-  const data = (await res.json().catch(() => null)) as AnthropicResponse | null
+  const raw = await res.text()
+  const data = safeJson(raw) as AnthropicResponse | null
 
   if (!res.ok || !data) {
-    const detalle =
+    const errObj =
       data && typeof data === 'object' && 'error' in data
-        ? String((data as { error?: { message?: string } }).error?.message ?? '')
-        : ''
+        ? (data as { error?: { type?: string; message?: string } }).error
+        : undefined
+    const detalle = errObj?.message ?? raw.slice(0, 500)
+    console.error(
+      `[anthropic] ${opts.model} respondió ${res.status} ${errObj?.type ?? ''}: ${detalle}`,
+    )
     throw new AnthropicError(detalle || `http_${res.status}`, res.status || 502)
   }
 
@@ -86,6 +92,14 @@ export async function llamarConJsonSchema(opts: LlamadaOpts): Promise<string> {
   const texto = data.content?.find((b) => b.type === 'text')?.text ?? ''
   if (!texto) throw new AnthropicError('respuesta_vacia', 502)
   return texto
+}
+
+function safeJson(s: string): unknown {
+  try {
+    return JSON.parse(s)
+  } catch {
+    return null
+  }
 }
 
 interface AnthropicResponse {
