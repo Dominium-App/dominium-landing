@@ -3,7 +3,7 @@ import type { Extraccion } from './tipos'
 import { DESCRIPCION_RUBRO, RUBRO_IDS } from './taxonomia.ts'
 import { llamarConJsonSchema, type SystemBlock } from './anthropic.ts'
 
-export const MODELO_EXTRACCION = process.env.ANALYZE_MODELO_EXTRACCION ?? 'claude-opus-5'
+export const MODELO_EXTRACCION = process.env.ANALYZE_MODELO_EXTRACCION ?? 'claude-sonnet-5'
 export const EFFORT_EXTRACCION =
   (process.env.ANALYZE_EFFORT_EXTRACCION as 'low' | 'medium' | 'high' | undefined) ?? 'medium'
 
