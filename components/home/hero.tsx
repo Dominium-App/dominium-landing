@@ -3,6 +3,7 @@ import { Check, Droplets, UserRound } from 'lucide-react'
 import { WHATSAPP_CONSEJO } from '@/lib/contacto'
 import Boton from './boton'
 import Edificios from './edificios'
+import HeroAmbiente from './hero-ambiente'
 
 const eventos = [
   { hora: '02:47', texto: 'Vero recibe el reclamo y explica cómo cortar el agua.' },
@@ -22,6 +23,7 @@ export default function Hero() {
         style={{ '--rule-cols': 6, '--rule-ink': 'rgba(244,246,241,0.05)' } as CSSProperties}
         aria-hidden="true"
       />
+      <HeroAmbiente />
       <div
         className="pointer-events-none absolute -right-[3vw] top-24 select-none md:top-16"
         aria-hidden="true"
@@ -38,16 +40,6 @@ export default function Hero() {
       </div>
 
       <div className="relative mx-auto max-w-[1240px] px-6">
-        <div className="hero-line flex flex-wrap items-center justify-between gap-x-8 gap-y-3">
-          <span className="hairline-caps text-on-forest-dim">
-            CABA y AMBA · Administración de consorcios
-          </span>
-          <span className="hairline-caps flex items-center gap-2 text-on-forest-dim">
-            <span className="h-1.5 w-1.5 rounded-full bg-live" aria-hidden="true" />
-            Vero · IA en línea
-          </span>
-        </div>
-
         <div className="mt-12 grid gap-14 md:mt-16 lg:grid-cols-[minmax(0,1fr)_420px] lg:items-end lg:gap-24">
           <div>
             <h1 className="headline max-w-[11ch] text-[clamp(48px,7.6vw,104px)] text-on-forest">
