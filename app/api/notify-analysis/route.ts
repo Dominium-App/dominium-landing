@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { rateLimit } from '@/lib/rate-limit'
+import type { Informe } from '@/lib/expensas/tipos'
 
 interface LeadData {
   nombre: string
@@ -7,29 +8,8 @@ interface LeadData {
   whatsapp: string
 }
 
-interface Rubro {
-  nombre: string
-  monto: number
-  estado: 'normal' | 'elevado' | 'alerta'
-  comentario: string
-}
-
-interface AnalysisResult {
-  edificio_detectado: string | null
-  periodo: string | null
-  total_expensas: number | null
-  unidad: string | null
-  rubros: Rubro[]
-  items_sin_detalle: string[]
-  conclusion: {
-    resumen: string
-    ahorro_estimado: string
-    principal_problema: string
-  }
-}
-
 function formatMonto(n: number | null): string {
-  return n !== null ? `$${n.toLocaleString('es-AR')}` : '—'
+  return n !== null ? `$${Math.round(n).toLocaleString('es-AR')}` : '—'
 }
 
 function escapeHtml(s: string): string {
@@ -41,36 +21,49 @@ function escapeHtml(s: string): string {
     .replace(/'/g, '&#039;')
 }
 
-function buildHtml(lead: LeadData, result: AnalysisResult): string {
+const COLOR_VEREDICTO: Record<Informe['rubros'][number]['veredicto'], { color: string; bg: string }> = {
+  alerta: { color: '#C0392B', bg: '#FEF2F2' },
+  elevado: { color: '#B45309', bg: '#FFFBEB' },
+  normal: { color: '#1A7A4A', bg: '#F0FAF5' },
+}
+
+function buildHtml(lead: LeadData, informe: Informe): string {
   const waDigits = lead.whatsapp.replace(/\D/g, '')
 
-  const rubrosRows = result.rubros
+  const rubrosRows = informe.rubros
     .map((r) => {
-      const color =
-        r.estado === 'alerta'
-          ? '#C0392B'
-          : r.estado === 'elevado'
-            ? '#B45309'
-            : '#1A7A4A'
-      const bg =
-        r.estado === 'alerta'
-          ? '#FEF2F2'
-          : r.estado === 'elevado'
-            ? '#FFFBEB'
-            : '#F0FAF5'
+      const c = COLOR_VEREDICTO[r.veredicto]
+      const pct = r.pct_sobre_ordinarias != null ? `${r.pct_sobre_ordinarias}%` : '—'
       return `<tr>
-        <td style="padding:10px 12px;border-bottom:1px solid #eee;">${escapeHtml(r.nombre)}</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #eee;">${escapeHtml(r.etiqueta)}</td>
         <td style="padding:10px 12px;border-bottom:1px solid #eee;text-align:right;font-variant-numeric:tabular-nums;">${formatMonto(r.monto)}</td>
+        <td style="padding:10px 12px;border-bottom:1px solid #eee;text-align:right;">${pct}</td>
         <td style="padding:10px 12px;border-bottom:1px solid #eee;">
-          <span style="display:inline-block;padding:2px 8px;border-radius:999px;background:${bg};color:${color};font-size:11px;font-weight:600;text-transform:uppercase;">${r.estado}</span>
+          <span style="display:inline-block;padding:2px 8px;border-radius:999px;background:${c.bg};color:${c.color};font-size:11px;font-weight:600;text-transform:uppercase;">${r.veredicto}</span>
         </td>
       </tr>`
     })
     .join('')
 
+  const hallazgos =
+    informe.hallazgos.filter((h) => h.severidad !== 'info').length > 0
+      ? `<p style="margin:16px 0 4px;font-size:12px;font-weight:600;text-transform:uppercase;color:#666;">Hallazgos</p>
+         <ul style="margin:0;padding-left:18px;font-size:13px;color:#333;">
+         ${informe.hallazgos
+           .filter((h) => h.severidad !== 'info')
+           .map((h) => `<li style="margin:4px 0;"><strong>${escapeHtml(h.titulo)}:</strong> ${escapeHtml(h.detalle)}</li>`)
+           .join('')}
+         </ul>`
+      : ''
+
   const sinDetalle =
-    result.items_sin_detalle.length > 0
-      ? `<p style="margin:16px 0 0;font-size:13px;color:#666;"><strong>Sin detalle:</strong> ${escapeHtml(result.items_sin_detalle.join(', '))}</p>`
+    informe.items_sin_detalle.length > 0
+      ? `<p style="margin:16px 0 0;font-size:13px;color:#666;"><strong>Sin detalle:</strong> ${escapeHtml(informe.items_sin_detalle.join(', '))}</p>`
+      : ''
+
+  const parcial =
+    informe.cobertura === 'parcial'
+      ? `<p style="margin:8px 0 0;font-size:13px;color:#B45309;"><strong>Informe parcial:</strong> la suma de rubros leídos difiere ${informe.totales.desvio_cobertura_pct ?? '—'}% del total declarado.</p>`
       : ''
 
   return `<!DOCTYPE html>
@@ -93,28 +86,33 @@ function buildHtml(lead: LeadData, result: AnalysisResult): string {
 
     <div style="padding:20px 24px;">
       <p style="margin:0 0 12px;font-size:12px;font-weight:600;text-transform:uppercase;color:#666;">Liquidación analizada</p>
-      <p style="margin:4px 0;font-size:14px;"><strong>Edificio:</strong> ${escapeHtml(result.edificio_detectado ?? '—')}</p>
-      <p style="margin:4px 0;font-size:14px;"><strong>Período:</strong> ${escapeHtml(result.periodo ?? '—')}</p>
-      <p style="margin:4px 0;font-size:14px;"><strong>Total:</strong> ${formatMonto(result.total_expensas)}</p>
+      <p style="margin:4px 0;font-size:14px;"><strong>Edificio:</strong> ${escapeHtml(informe.edificio.nombre ?? '—')}</p>
+      <p style="margin:4px 0;font-size:14px;"><strong>Período:</strong> ${escapeHtml(informe.edificio.periodo ?? '—')}</p>
+      <p style="margin:4px 0;font-size:14px;"><strong>Total declarado:</strong> ${formatMonto(informe.totales.total_declarado)}</p>
+      <p style="margin:4px 0;font-size:14px;"><strong>Categoría CAPHyAI estimada:</strong> ${informe.edificio.categoria_caphyai ?? '—'}</p>
+      <p style="margin:4px 0;font-size:14px;"><strong>Costo por UF:</strong> ${formatMonto(informe.metricas.costo_por_uf)}</p>
+      ${parcial}
 
       <table style="width:100%;border-collapse:collapse;margin-top:16px;font-size:14px;">
         <thead>
           <tr style="background:#FAFAF8;">
             <th style="padding:10px 12px;text-align:left;font-size:12px;text-transform:uppercase;color:#666;">Rubro</th>
             <th style="padding:10px 12px;text-align:right;font-size:12px;text-transform:uppercase;color:#666;">Monto</th>
+            <th style="padding:10px 12px;text-align:right;font-size:12px;text-transform:uppercase;color:#666;">%</th>
             <th style="padding:10px 12px;text-align:left;font-size:12px;text-transform:uppercase;color:#666;">Estado</th>
           </tr>
         </thead>
         <tbody>${rubrosRows}</tbody>
       </table>
+      ${hallazgos}
       ${sinDetalle}
     </div>
 
     <div style="padding:20px 24px;background:#EAF2FB;border-top:3px solid #3B7DD8;">
       <p style="margin:0 0 8px;font-size:12px;font-weight:600;text-transform:uppercase;color:#666;">Conclusión</p>
-      <p style="margin:0 0 12px;font-size:14px;line-height:1.5;">${escapeHtml(result.conclusion.resumen)}</p>
-      <p style="margin:0 0 4px;font-size:14px;"><strong>Principal problema:</strong> ${escapeHtml(result.conclusion.principal_problema)}</p>
-      <p style="margin:0;font-size:14px;"><strong>Ahorro estimado:</strong> ${escapeHtml(result.conclusion.ahorro_estimado)}</p>
+      <p style="margin:0 0 12px;font-size:14px;line-height:1.5;">${escapeHtml(informe.conclusion.resumen)}</p>
+      <p style="margin:0 0 4px;font-size:14px;"><strong>Principal problema:</strong> ${escapeHtml(informe.conclusion.principal_problema)}</p>
+      <p style="margin:0;font-size:14px;"><strong>Ahorro estimado:</strong> ${formatMonto(informe.metricas.ahorro_estimado_mensual)} por mes</p>
     </div>
   </div>
 </body>
@@ -131,9 +129,17 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ error: 'Resend no configurado' }, { status: 500 })
   }
 
-  const { lead, result } = (await req.json()) as {
-    lead: LeadData
-    result: AnalysisResult
+  let lead: LeadData
+  let informe: Informe
+  try {
+    const body = (await req.json()) as { lead: LeadData; informe: Informe }
+    lead = body.lead
+    informe = body.informe
+    if (!lead?.nombre || !lead?.whatsapp || !informe?.rubros) {
+      throw new Error('payload incompleto')
+    }
+  } catch {
+    return NextResponse.json({ error: 'No pudimos procesar el informe.' }, { status: 400 })
   }
 
   const to = process.env.NOTIFICATION_EMAIL ?? 'hola@dominium.com.ar'
@@ -151,14 +157,14 @@ export async function POST(req: NextRequest) {
       from: 'Dominium <hola@dominium.com.ar>',
       to,
       subject,
-      html: buildHtml(lead, result),
+      html: buildHtml(lead, informe),
       reply_to: to,
     }),
   })
 
-  const data = await res.json()
+  const data = await res.json().catch(() => null)
   if (!res.ok) {
     return NextResponse.json({ error: 'No se pudo enviar la notificación.' }, { status: 502 })
   }
-  return NextResponse.json({ ok: true, id: data.id })
+  return NextResponse.json({ ok: true, id: data?.id })
 }

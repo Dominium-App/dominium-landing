@@ -11,6 +11,11 @@ import {
   Lock,
 } from "lucide-react";
 import Indice from "@/components/home/indice";
+import type {
+  Informe,
+  RespuestaAnalisis,
+  Veredicto,
+} from "@/lib/expensas/tipos";
 
 // ============================================================
 // TYPES
@@ -20,31 +25,6 @@ interface LeadData {
   nombre: string;
   localidad: string;
   whatsapp: string;
-}
-
-type Estado = "normal" | "elevado" | "alerta";
-
-interface Rubro {
-  nombre: string;
-  monto: number;
-  estado: Estado;
-  comentario: string;
-}
-
-interface AnalysisResult {
-  es_liquidacion_valida: boolean;
-  mensaje_error: string | null;
-  edificio_detectado: string | null;
-  periodo: string | null;
-  total_expensas: number | null;
-  unidad: string | null;
-  rubros: Rubro[];
-  items_sin_detalle: string[];
-  conclusion: {
-    resumen: string;
-    ahorro_estimado: string;
-    principal_problema: string;
-  };
 }
 
 // 1: upload (auto-analiza al subir) · 2: loading · 3: gate (lead capture) · 4: results
@@ -86,7 +66,7 @@ const LOADING_MESSAGES = [
 ];
 
 const ESTADO_CONFIG: Record<
-  Estado,
+  Veredicto,
   {
     bg: string;
     border: string;
@@ -118,8 +98,8 @@ const ESTADO_CONFIG: Record<
   },
 };
 
-function formatMonto(n: number): string {
-  return "$" + n.toLocaleString("es-AR");
+function formatMonto(n: number | null): string {
+  return n !== null ? "$" + Math.round(n).toLocaleString("es-AR") : "—";
 }
 
 function fileToBase64(file: File): Promise<string> {
@@ -131,7 +111,7 @@ function fileToBase64(file: File): Promise<string> {
   });
 }
 
-async function callAnthropic(file: File): Promise<AnalysisResult> {
+async function analizarLiquidacion(file: File): Promise<Informe> {
   const base64 = await fileToBase64(file);
   const mediaType = file.type;
 
@@ -141,25 +121,18 @@ async function callAnthropic(file: File): Promise<AnalysisResult> {
     body: JSON.stringify({ base64, mediaType }),
   });
 
-  if (!res.ok) {
-    let errMsg = `API error ${res.status}`;
-    try {
-      const errBody = await res.json();
-      if (errBody?.error) errMsg = errBody.error;
-    } catch {
-      try {
-        errMsg = await res.text();
-      } catch {
-        // Ignorar — usar mensaje por defecto
-      }
-    }
-    throw new Error(errMsg);
+  const data: RespuestaAnalisis | null = await res
+    .json()
+    .catch(() => null);
+
+  if (!res.ok || !data?.ok || !data.informe) {
+    throw new Error(
+      data?.error ??
+        "No pudimos completar el análisis. Probá de nuevo en un momento.",
+    );
   }
 
-  const data = await res.json();
-  const text = data.content?.[0]?.text ?? "";
-
-  return JSON.parse(text) as AnalysisResult;
+  return data.informe;
 }
 
 function TrustItem({ label }: { label: string }) {
@@ -408,7 +381,7 @@ function Step2Loading() {
 // ============================================================
 
 interface Step3GateProps {
-  result: AnalysisResult;
+  result: Informe;
   onUnlock: (lead: LeadData) => Promise<void>;
 }
 
@@ -419,8 +392,8 @@ function Step3Gate({ result, onUnlock }: Step3GateProps) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const alertasCount = result.rubros.filter((r) => r.estado === "alerta").length;
-  const elevadosCount = result.rubros.filter((r) => r.estado === "elevado").length;
+  const alertasCount = result.rubros.filter((r) => r.veredicto === "alerta").length;
+  const elevadosCount = result.rubros.filter((r) => r.veredicto === "elevado").length;
   const teaserRubros = result.rubros.slice(0, 3);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -496,11 +469,7 @@ function Step3Gate({ result, onUnlock }: Step3GateProps) {
       <div className="grid grid-cols-3 gap-2">
         <TeaserStat
           label="Total expensas"
-          value={
-            result.total_expensas !== null
-              ? formatMonto(result.total_expensas)
-              : "—"
-          }
+          value={formatMonto(result.totales.total_declarado)}
         />
         <TeaserStat
           label="Con alerta"
@@ -509,7 +478,7 @@ function Step3Gate({ result, onUnlock }: Step3GateProps) {
         />
         <TeaserStat
           label="Ahorro estimado"
-          value={result.conclusion.ahorro_estimado}
+          value={formatMonto(result.metricas.ahorro_estimado_mensual)}
           prominent
         />
       </div>
@@ -530,7 +499,7 @@ function Step3Gate({ result, onUnlock }: Step3GateProps) {
         >
           {teaserRubros.map((rubro, i) => (
             <div key={i} className="flex justify-between text-[13px]">
-              <span style={{ color: "var(--color-ink)" }}>{rubro.nombre}</span>
+              <span style={{ color: "var(--color-ink)" }}>{rubro.etiqueta}</span>
               <span
                 className="font-semibold"
                 style={{ color: "var(--color-ink)" }}
@@ -691,7 +660,7 @@ function TeaserStat({ label, value, highlight, prominent }: TeaserStatProps) {
 // ============================================================
 
 interface Step4Props {
-  result: AnalysisResult;
+  result: Informe;
   onRetry: () => void;
 }
 
@@ -703,25 +672,23 @@ function Step4Results({ result, onRetry }: Step4Props) {
     return () => clearTimeout(timer);
   }, []);
 
-  const alertas = result.rubros.filter((r) => r.estado === "alerta");
-  const elevados = result.rubros.filter((r) => r.estado === "elevado");
-  const normales = result.rubros.filter((r) => r.estado === "normal");
+  const alertas = result.rubros.filter((r) => r.veredicto === "alerta");
+  const elevados = result.rubros.filter((r) => r.veredicto === "elevado");
+  const normales = result.rubros.filter((r) => r.veredicto === "normal");
 
   function buildWhatsAppMessage(): string {
-    const edificio = result.edificio_detectado ?? "mi edificio";
-    const periodo = result.periodo ?? "";
-    const total = result.total_expensas
-      ? formatMonto(result.total_expensas)
-      : "—";
+    const edificio = result.edificio.nombre ?? "mi edificio";
+    const periodo = result.edificio.periodo ?? "";
+    const total = formatMonto(result.totales.total_declarado);
 
     const alertaLines = alertas
-      .map((r) => `🔴 ${r.nombre}: ${formatMonto(r.monto)} — ${r.comentario}`)
+      .map((r) => `🔴 ${r.etiqueta}: ${formatMonto(r.monto)} — ${r.motivo}`)
       .join("\n");
     const elevadoLines = elevados
-      .map((r) => `🟡 ${r.nombre}: ${formatMonto(r.monto)} — ${r.comentario}`)
+      .map((r) => `🟡 ${r.etiqueta}: ${formatMonto(r.monto)} — ${r.motivo}`)
       .join("\n");
     const normalLines = normales
-      .map((r) => `✅ ${r.nombre}: ${formatMonto(r.monto)}`)
+      .map((r) => `✅ ${r.etiqueta}: ${formatMonto(r.monto)}`)
       .join("\n");
 
     const problemasSection =
@@ -729,11 +696,22 @@ function Step4Results({ result, onRetry }: Step4Props) {
         ? `*Rubros con alerta:*\n${[alertaLines, elevadoLines].filter(Boolean).join("\n")}\n\n`
         : "";
 
+    const costoUf =
+      result.metricas.costo_por_uf != null
+        ? `📐 *Costo por unidad: ${formatMonto(result.metricas.costo_por_uf)}*`
+        : "";
+    const parcial =
+      result.cobertura === "parcial"
+        ? `⚠️ Informe parcial: no se pudieron leer todos los rubros del documento.`
+        : "";
+
     return [
       `📊 *Análisis de expensas — ${edificio}${periodo ? " — " + periodo : ""}*`,
       `Análisis realizado por Dominium`,
       ``,
       `💰 *Total expensas: ${total}*`,
+      costoUf,
+      parcial,
       ``,
       problemasSection.trimEnd(),
       normalLines ? `✅ *Rubros normales:*\n${normalLines}` : "",
@@ -741,7 +719,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
       `📌 *Conclusión:*`,
       result.conclusion.resumen,
       ``,
-      `💸 *Ahorro estimado: ${result.conclusion.ahorro_estimado} por mes*`,
+      `💸 *Ahorro estimado: ${formatMonto(result.metricas.ahorro_estimado_mensual)} por mes*`,
       ``,
       `---`,
       `Informe generado por Dominium · dominium.com.ar`,
@@ -770,11 +748,11 @@ function Step4Results({ result, onRetry }: Step4Props) {
           className="text-[12px] font-medium"
           style={{ color: "var(--color-ink-tertiary)" }}
         >
-          {[result.edificio_detectado, result.periodo]
+          {[result.edificio.nombre, result.edificio.periodo]
             .filter(Boolean)
             .join(" · ")}
         </p>
-        {result.total_expensas !== null && (
+        {result.totales.total_declarado !== null && (
           <p
             className="font-serif font-bold mt-2"
             style={{
@@ -782,7 +760,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
               color: "var(--color-ink)",
             }}
           >
-            {formatMonto(result.total_expensas)}
+            {formatMonto(result.totales.total_declarado)}
             <span
               className="text-[15px] font-sans font-normal ml-1"
               style={{ color: "var(--color-ink-secondary)" }}
@@ -791,7 +769,36 @@ function Step4Results({ result, onRetry }: Step4Props) {
             </span>
           </p>
         )}
+        {result.metricas.costo_por_uf !== null && (
+          <p
+            className="text-[13px] mt-1"
+            style={{ color: "var(--color-ink-secondary)" }}
+          >
+            {formatMonto(result.metricas.costo_por_uf)} por unidad funcional
+          </p>
+        )}
       </div>
+
+      {/* Banner de informe parcial */}
+      {result.cobertura === "parcial" && (
+        <div
+          className="rounded-xl p-3 text-[13px]"
+          style={{
+            backgroundColor: "#FFFBEB",
+            border: "1px solid #FCD34D",
+            color: "#92400E",
+            opacity: rowsVisible ? 1 : 0,
+            transition: "opacity 0.4s ease 0.1s",
+          }}
+          role="status"
+        >
+          Este informe es parcial: no pudimos leer todos los rubros del documento
+          {result.totales.desvio_cobertura_pct !== null
+            ? ` (falta cerca del ${result.totales.desvio_cobertura_pct}% del total declarado)`
+            : ""}
+          . Los porcentajes pueden quedar cortos.
+        </div>
+      )}
 
       {/* Tabla de rubros */}
       <div className="flex flex-col gap-3">
@@ -802,7 +809,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
           Desglose por rubro
         </p>
         {result.rubros.map((rubro, i) => {
-          const cfg = ESTADO_CONFIG[rubro.estado];
+          const cfg = ESTADO_CONFIG[rubro.veredicto];
           return (
             <div
               key={i}
@@ -821,7 +828,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
                     className="text-[14px] font-semibold"
                     style={{ color: "var(--color-ink)" }}
                   >
-                    {rubro.nombre}
+                    {rubro.etiqueta}
                   </p>
                   <span
                     className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[11px] font-semibold shrink-0"
@@ -845,7 +852,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
                   className="text-[12px] leading-snug"
                   style={{ color: "var(--color-ink-secondary)" }}
                 >
-                  {rubro.comentario}
+                  {rubro.motivo}
                 </p>
               </div>
 
@@ -857,7 +864,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
                       className="text-[14px] font-semibold"
                       style={{ color: "var(--color-ink)" }}
                     >
-                      {rubro.nombre}
+                      {rubro.etiqueta}
                     </p>
                     <div className="flex items-center gap-3">
                       <p
@@ -883,7 +890,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
                     className="text-[12px] leading-snug mt-1"
                     style={{ color: "var(--color-ink-secondary)" }}
                   >
-                    {rubro.comentario}
+                    {rubro.motivo}
                   </p>
                 </div>
               </div>
@@ -916,13 +923,59 @@ function Step4Results({ result, onRetry }: Step4Props) {
                 className="flex items-start justify-between gap-2 text-[13px]"
                 style={{ color: "#7F1D1D" }}
               >
-                <span>• {r.nombre}</span>
+                <span>• {r.etiqueta}</span>
                 <span className="font-semibold shrink-0">
                   {formatMonto(r.monto)}
                 </span>
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {/* Hallazgos del motor de auditoría */}
+      {result.hallazgos.filter((h) => h.severidad !== "info").length > 0 && (
+        <div
+          className="flex flex-col gap-3"
+          style={{
+            opacity: rowsVisible ? 1 : 0,
+            transition: "opacity 0.4s ease 0.45s",
+          }}
+        >
+          <p
+            className="text-[12px] font-semibold uppercase tracking-wide"
+            style={{ color: "var(--color-ink-tertiary)" }}
+          >
+            Qué mirar de cerca
+          </p>
+          {result.hallazgos
+            .filter((h) => h.severidad !== "info")
+            .map((h, i) => {
+              const esAlerta = h.severidad === "alerta";
+              return (
+                <div
+                  key={i}
+                  className="rounded-xl p-3"
+                  style={{
+                    backgroundColor: esAlerta ? "#FEF2F2" : "#FFFBEB",
+                    border: `1px solid ${esAlerta ? "#FCA5A5" : "#FCD34D"}`,
+                  }}
+                >
+                  <p
+                    className="text-[13px] font-semibold"
+                    style={{ color: esAlerta ? "#C0392B" : "#B45309" }}
+                  >
+                    {h.titulo}
+                  </p>
+                  <p
+                    className="text-[12px] mt-1 leading-snug"
+                    style={{ color: "var(--color-ink-secondary)" }}
+                  >
+                    {h.detalle}
+                  </p>
+                </div>
+              );
+            })}
         </div>
       )}
 
@@ -995,7 +1048,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
               color: "var(--color-accent)",
             }}
           >
-            {result.conclusion.ahorro_estimado}
+            {formatMonto(result.metricas.ahorro_estimado_mensual)}
           </p>
         </div>
       </div>
@@ -1112,7 +1165,7 @@ function Step4Results({ result, onRetry }: Step4Props) {
 
 export default function Analizador({ indice }: { indice?: string }) {
   const [step, setStep] = useState<Step>(1);
-  const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [result, setResult] = useState<Informe | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -1137,11 +1190,11 @@ export default function Analizador({ indice }: { indice?: string }) {
     setApiError(null);
     setStep(2);
 
-    async function attempt(): Promise<AnalysisResult> {
-      return callAnthropic(file);
+    async function attempt(): Promise<Informe> {
+      return analizarLiquidacion(file);
     }
 
-    let res: AnalysisResult;
+    let res: Informe;
     try {
       res = await attempt();
     } catch {
@@ -1169,7 +1222,7 @@ export default function Analizador({ indice }: { indice?: string }) {
       const res = await fetch("/api/notify-analysis", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ lead, result }),
+        body: JSON.stringify({ lead, informe: result }),
       });
       if (!res.ok) throw new Error("notify failed");
 

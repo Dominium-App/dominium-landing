@@ -1,0 +1,31 @@
+{
+  "es_liquidacion_valida": true,
+  "mensaje_error": null,
+  "edificio": {
+    "nombre": "Consorcio Avenida 1234",
+    "periodo": "2026-08",
+    "uf": 30,
+    "unidades_complementarias": 0,
+    "ascensores": 1,
+    "amenities": 0,
+    "amenities_detalle": [],
+    "servicios_centrales": true,
+    "vivienda_social": false,
+    "torre_o_complejo": false,
+    "perfil_personal": "tercerizado",
+    "encargado_con_vivienda": null,
+    "encargado_antiguedad_anios": null
+  },
+  "total_declarado": 8000000,
+  "rubros": [
+    { "id": "limpieza_servicio_tercerizado", "etiqueta_documento": "Servicio de limpieza", "monto": 3500000, "clase": "ordinaria", "cita_textual": "EMPRESA LIMPIA SRL - CUIT 30-71234567-8 - abono mensual servicio de limpieza: $3.500.000", "confianza": "alta" },
+    { "id": "cuota_sindical_suterh", "etiqueta_documento": "Cuota sindical SUTERH", "monto": 45000, "clase": "ordinaria", "cita_textual": "Cuota sindical SUTERH: $45.000", "confianza": "media" },
+    { "id": "honorarios_administracion", "etiqueta_documento": "Honorarios de administracion", "monto": 1500000, "clase": "ordinaria", "cita_textual": "Honorarios de administracion mensuales: $1.500.000", "confianza": "alta" },
+    { "id": "aranceles_complementarios", "etiqueta_documento": "Aranceles y gestiones", "monto": 400000, "clase": "ordinaria", "cita_textual": "Certificados de deuda, DDJJ y gestiones AFIP del mes: $400.000", "confianza": "alta" },
+    { "id": "seguro_edificio", "etiqueta_documento": "Seguro del edificio", "monto": 300000, "clase": "ordinaria", "cita_textual": "Poliza integral consorcio: $300.000", "confianza": "alta" },
+    { "id": "mantenimiento_ascensor", "etiqueta_documento": "Abono ascensor", "monto": 500000, "clase": "ordinaria", "cita_textual": "Abono mensual conservacion ascensor: $500.000", "confianza": "alta" },
+    { "id": "servicios_publicos_comunes", "etiqueta_documento": "Servicios espacios comunes", "monto": 600000, "clase": "ordinaria", "cita_textual": "Luz, gas y agua de espacios comunes: $600.000", "confianza": "alta" },
+    { "id": "gastos_administracion_varios", "etiqueta_documento": "Gastos varios", "monto": 700000, "clase": "ordinaria", "cita_textual": "Gastos varios de administracion: $700.000", "confianza": "media" }
+  ],
+  "items_sin_detalle": ["Un renglon ilegible por debajo del total, aprox $300.000"]
+}

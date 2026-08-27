@@ -1,0 +1,36 @@
+{
+  "es_liquidacion_valida": true,
+  "mensaje_error": null,
+  "edificio": {
+    "nombre": "Edificio Los Robles",
+    "periodo": "2026-08",
+    "uf": 45,
+    "unidades_complementarias": 10,
+    "ascensores": 2,
+    "amenities": 3,
+    "amenities_detalle": ["SUM", "pileta", "gimnasio"],
+    "servicios_centrales": true,
+    "vivienda_social": false,
+    "torre_o_complejo": false,
+    "perfil_personal": "suterh_propio",
+    "encargado_con_vivienda": false,
+    "encargado_antiguedad_anios": 10
+  },
+  "total_declarado": 8270000,
+  "rubros": [
+    { "id": "sueldos_suterh", "etiqueta_documento": "Sueldo encargado 4ta cat. s/vivienda", "monto": 2000000, "clase": "ordinaria", "cita_textual": "Sueldo encargado 4ta categoria sin vivienda - agosto 2026: $2.000.000", "confianza": "alta" },
+    { "id": "cargas_sociales_suterh", "etiqueta_documento": "Cargas sociales y ART", "monto": 900000, "clase": "ordinaria", "cita_textual": "Contribuciones patronales, ART y seguro de sepelio: $900.000", "confianza": "alta" },
+    { "id": "cuota_sindical_suterh", "etiqueta_documento": "Cuota sindical SUTERH y FATERYH", "monto": 150000, "clase": "ordinaria", "cita_textual": "Cuota sindical SUTERH + FATERYH 6%: $150.000", "confianza": "alta" },
+    { "id": "honorarios_administracion", "etiqueta_documento": "Honorarios administracion", "monto": 2050000, "clase": "ordinaria", "cita_textual": "Honorarios de administracion CAPHyAI categoria A1: $2.050.000", "confianza": "alta" },
+    { "id": "aranceles_complementarios", "etiqueta_documento": "Aranceles CAPHyAI", "monto": 240000, "clase": "ordinaria", "cita_textual": "Certificado de expensas y DDJJ laboral: $240.000", "confianza": "alta" },
+    { "id": "seguro_edificio", "etiqueta_documento": "Seguro integral consorcio", "monto": 350000, "clase": "ordinaria", "cita_textual": "Poliza integral de consorcio - cuota mensual: $350.000", "confianza": "alta" },
+    { "id": "mantenimiento_ascensor", "etiqueta_documento": "Conservacion ascensores", "monto": 700000, "clase": "ordinaria", "cita_textual": "Abono mensual conservacion 2 ascensores: $700.000", "confianza": "alta" },
+    { "id": "limpieza_materiales", "etiqueta_documento": "Materiales de limpieza", "monto": 300000, "clase": "ordinaria", "cita_textual": "Insumos de limpieza y descartables: $300.000", "confianza": "alta" },
+    { "id": "servicios_publicos_comunes", "etiqueta_documento": "Luz y gas espacios comunes", "monto": 650000, "clase": "ordinaria", "cita_textual": "Edenor y Metrogas espacios comunes: $650.000", "confianza": "alta" },
+    { "id": "fondo_reserva", "etiqueta_documento": "Fondo de reserva", "monto": 600000, "clase": "ordinaria", "cita_textual": "Aporte a fondo de reserva (10%): $600.000", "confianza": "alta" },
+    { "id": "jardineria", "etiqueta_documento": "Mantenimiento de jardines", "monto": 200000, "clase": "ordinaria", "cita_textual": "Servicio de jardineria quincenal: $200.000", "confianza": "media" },
+    { "id": "matafuegos", "etiqueta_documento": "Recarga matafuegos", "monto": 50000, "clase": "ordinaria", "cita_textual": "Control y recarga de matafuegos: $50.000", "confianza": "media" },
+    { "id": "control_plagas", "etiqueta_documento": "Control de plagas", "monto": 80000, "clase": "ordinaria", "cita_textual": "Desratizacion y desinsectacion trimestral prorrateada: $80.000", "confianza": "media" }
+  ],
+  "items_sin_detalle": []
+}
