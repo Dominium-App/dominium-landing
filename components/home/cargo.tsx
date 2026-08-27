@@ -18,10 +18,10 @@ const razones = [
   },
   {
     n: '03',
-    titulo: 'Sin negocios escondidos.',
+    titulo: 'Honorarios claros.',
     detalle:
-      'Dominium gana solamente el honorario que aprueba el consorcio. No cobramos comisiones de proveedores, retornos por obras ni márgenes ocultos.',
-    prueba: 'Un honorario declarado. Ninguna segunda caja.',
+      'El honorario de administración se conversa de frente, lo aprueba el consorcio y queda visible en cada liquidación. No escondemos costos dentro de los rubros.',
+    prueba: 'Un honorario declarado y visible.',
   },
 ]
 

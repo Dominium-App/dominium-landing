@@ -3,7 +3,6 @@ import Indice from './indice'
 
 const noGanamos = [
   { concepto: 'Comisión de proveedores', valor: '$ 0' },
-  { concepto: 'Retorno por obras y refacciones', valor: '$ 0' },
   { concepto: 'Margen escondido en los rubros', valor: '$ 0' },
   { concepto: 'Publicidad dentro de la app', valor: 'no hay' },
 ]
@@ -28,19 +27,19 @@ export default function Precio() {
       />
 
       <div className="relative mx-auto max-w-[1240px] px-6">
-        <Indice n="07" label="Cómo ganamos plata" tone="dark" />
+        <Indice n="07" label="Cómo cobramos" tone="dark" />
 
         <div className="mt-14 grid gap-16 lg:grid-cols-[1.25fr_minmax(0,420px)] lg:gap-24">
           <div>
             <p className="hairline-caps text-on-forest-dim">
-              Lo que ganamos por fuera del honorario
+              El honorario de administración
             </p>
             <div className="halo-gold mt-4">
               <p
                 className="numeral s-mask text-[clamp(96px,19vw,260px)] text-gold-light"
                 style={{ '--d': 0.2 } as CSSProperties}
               >
-                $ 0
+                visible
               </p>
             </div>
             <span
@@ -52,22 +51,21 @@ export default function Precio() {
               className="s-rise mt-8 max-w-[24ch] text-[clamp(26px,3.4vw,44px)] font-medium leading-[1.15] tracking-[-0.02em] text-on-forest"
               style={{ '--d': 0.7 } as CSSProperties}
             >
-              Ganamos de una sola cosa.
+              Se conversa de frente.
             </h2>
             <p
               className="s-rise mt-6 max-w-[52ch] text-[17px] leading-relaxed text-on-forest-dim"
               style={{ '--d': 0.9 } as CSSProperties}
             >
-              El honorario que tu consorcio aprueba en asamblea: declarado, visible en cada
-              liquidación y conversado de frente. No hay una segunda caja. En este rubro casi
-              siempre la hay, y es la que nadie te muestra.
+              El consorcio conoce y aprueba el honorario de administración. Queda declarado en
+              la propuesta y visible en cada liquidación.
             </p>
           </div>
 
           <figure
             className="s-lift group mx-auto w-full max-w-[420px] rotate-[-1.4deg] rounded-2xl bg-paper p-7 shadow-(--shadow-sheet) transition-transform duration-500 ease-(--ease-out-soft) hover:rotate-0"
             role="img"
-            aria-label="Detalle de los ingresos de Dominium: cero por comisiones de proveedores, retornos por obras, margen escondido en los rubros y publicidad en la app; los intereses de mora y el rendimiento de la cuenta quedan para el consorcio y los datos de los vecinos no se venden. El único ingreso es el honorario de administración."
+            aria-label="Detalle de costos que Dominium no esconde en los rubros y de ingresos y datos que pertenecen al consorcio."
           >
             <p className="hairline-caps text-gold-deep">De acá no ganamos nada</p>
 
@@ -104,9 +102,9 @@ export default function Precio() {
             </dl>
 
             <figcaption className="mt-6 border-t border-paper-line pt-4">
-              <span className="hairline-caps text-ink-3">Único ingreso</span>
+              <span className="hairline-caps text-ink-3">Honorario</span>
               <span className="mt-1.5 block text-[16px] font-semibold text-forest">
-                El honorario de administración
+                Aprobado por el consorcio
               </span>
             </figcaption>
           </figure>

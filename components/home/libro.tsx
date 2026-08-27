@@ -18,10 +18,10 @@ const controles = [
   },
   {
     n: '03',
-    titulo: 'Ganamos solamente el honorario.',
+    titulo: 'El honorario está declarado.',
     detalle:
-      'No cobramos comisiones de proveedores, retornos por obras ni márgenes escondidos. Los intereses de mora y el rendimiento de la cuenta quedan en el consorcio.',
-    sello: '$0 por fuera del honorario',
+      'El consorcio conoce y aprueba el honorario de administración. Los intereses de mora y el rendimiento de la cuenta quedan en el edificio y aparecen en sus movimientos.',
+    sello: 'Honorario visible',
   },
 ]
 
